@@ -16,6 +16,8 @@ ESP32-S3 配合 CO₂、温湿度、光照、毫米波和麦克风，实现本�
 
 [打开家庭 Wi‑Fi CSI 监控教程](ruview-wifi-csi-monitor/README.md)
 
+[RuView单独采购清单](ruview-wifi-csi-monitor/bom.csv)
+
 复现 `ruvnet/RuView` 的真实 CSI 数据链路，使用现有家庭路由器、一块 ESP32-S3 和 Windows 电脑完成存在/移动实验，并明确区分模拟演示与真实数据。
 
 ## 目录独立性
