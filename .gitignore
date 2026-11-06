@@ -1,0 +1,15 @@
+# Local build outputs and downloaded upstream sources
+**/.pio/
+**/.vscode/
+**/build/
+**/vendor/
+**/downloads/
+
+# Local secrets
+**/app_config.h
+.env
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db

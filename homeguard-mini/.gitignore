@@ -1,0 +1,4 @@
+.pio/
+.vscode/
+firmware/include/app_config.h
+*.log
