@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050908">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1915'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='30' fill='%2374f7a7'%3ERV%3C/text%3E%3C/svg%3E">
+  <title>RuView 无线感知监控</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, "Microsoft YaHei", system-ui, sans-serif; --green:#74f7a7; --amber:#ffc55c; --red:#ff5f65; --line:#25312e; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; background:#050807; color:#eaf5ef; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 50% -10%,#19332a 0,transparent 40%); opacity:.55; }
+    main { position:relative; width:min(1440px,100%); margin:auto; padding:18px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:4px 2px 16px; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .logo { width:38px; height:38px; display:grid; place-items:center; border:1px solid #315345; border-radius:10px; color:var(--green); background:#0d1915; font-weight:800; }
+    h1 { margin:0; font-size:clamp(18px,3vw,25px); letter-spacing:.02em; }
+    .subtitle { margin:3px 0 0; color:#84958e; font-size:12px; }
+    .status { display:flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid #3c4542; border-radius:999px; color:#a8b3af; background:#0a0f0d; font-size:13px; }
+    .dot { width:8px; height:8px; border-radius:50%; background:#69726f; }
+    .status.online { color:var(--green); border-color:#296142; }
+    .status.online .dot { background:var(--green); box-shadow:0 0 15px var(--green); animation:pulse 1.4s infinite; }
+    @keyframes pulse { 50% { opacity:.45; } }
+    .layout { display:grid; grid-template-columns:minmax(0,2.25fr) minmax(300px,.75fr); gap:14px; }
+    .panel { border:1px solid var(--line); background:linear-gradient(145deg,#0c1210f2,#080c0bf2); border-radius:12px; box-shadow:0 20px 60px #0008; overflow:hidden; }
+    .viewer { position:relative; min-height:580px; background:#020504; }
+    #sensorView { display:block; width:100%; height:580px; }
+    .viewer::after { content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,#b8ffcd08 4px); mix-blend-mode:screen; }
+    .camera-head { position:absolute; z-index:2; left:18px; right:18px; top:16px; display:flex; justify-content:space-between; align-items:flex-start; text-shadow:0 2px 8px #000; }
+    .camera-name { font-size:13px; letter-spacing:.12em; font-weight:700; }
+    .pose-mode { margin-top:8px; width:max-content; padding:4px 7px; border:1px solid #32724e; border-radius:4px; color:var(--green); background:#07100ccc; font-size:10px; letter-spacing:.08em; }
+    .live { display:flex; align-items:center; gap:7px; font-size:12px; color:#9ba8a3; }
+    .live.online { color:#fff; }
+    .live i { width:8px; height:8px; border-radius:50%; background:#777; }
+    .live.online i { background:var(--red); box-shadow:0 0 12px #ff5f65aa; }
+    .timecode { margin-top:7px; font:12px ui-monospace,SFMono-Regular,Consolas,monospace; color:#cad4d0; }
+    .viewer-bottom { position:absolute; z-index:2; left:18px; right:18px; bottom:16px; display:flex; justify-content:space-between; align-items:flex-end; gap:15px; }
+    .state-label { padding:10px 12px; border-left:3px solid var(--amber); background:#050a08cc; backdrop-filter:blur(8px); }
+    .state-label strong { display:block; font-size:16px; }
+    .state-label span { display:block; margin-top:3px; color:#95a49e; font-size:11px; }
+    button { border:1px solid #42514b; border-radius:7px; color:#dbe7e1; background:#0c1411cc; padding:8px 11px; cursor:pointer; }
+    button:hover { border-color:var(--green); }
+    .truth { padding:11px 15px; color:#8fa099; border-top:1px solid var(--line); font-size:12px; line-height:1.6; }
+    .truth b { color:#c5d4cd; }
+    .sidebar { display:flex; flex-direction:column; gap:14px; }
+    .panel-title { padding:15px 16px 12px; color:#91a39b; font-size:12px; font-weight:700; letter-spacing:.12em; border-bottom:1px solid var(--line); }
+    .metric-grid { display:grid; grid-template-columns:1fr 1fr; }
+    .metric { padding:16px; min-height:100px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .metric:nth-child(2n) { border-right:0; }
+    .metric span { display:block; color:#819188; font-size:12px; margin-bottom:9px; }
+    .metric strong { font:600 clamp(23px,3vw,31px) ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .metric small { color:#73827b; margin-left:4px; }
+    .meter { height:5px; margin-top:12px; background:#17201d; border-radius:8px; overflow:hidden; }
+    .meter i { display:block; width:0; height:100%; background:linear-gradient(90deg,var(--green),var(--amber),var(--red)); transition:width .25s; }
+    .details { margin:0; padding:5px 16px 12px; }
+    .details div { display:flex; justify-content:space-between; gap:10px; padding:10px 0; border-bottom:1px solid #1d2925; font-size:13px; }
+    .details dt { color:#778880; } .details dd { margin:0; color:#c4d0ca; text-align:right; overflow-wrap:anywhere; }
+    .events { padding:8px 16px 15px; min-height:132px; }
+    .event { display:flex; gap:10px; padding:7px 0; color:#a8b5af; font-size:12px; border-bottom:1px solid #17201d; }
+    .event time { flex:none; color:#63716b; font-family:ui-monospace,monospace; }
+    .lower { display:grid; grid-template-columns:2fr 1fr; gap:14px; margin-top:14px; }
+    .chart-wrap { padding:14px 16px 16px; }
+    .chart-heading { display:flex; justify-content:space-between; gap:12px; margin-bottom:12px; color:#81938a; font-size:12px; }
+    #history, #spectrum { display:block; width:100%; height:145px; background:#050908; border-radius:8px; }
+    .offline-message { position:absolute; z-index:3; inset:0; display:grid; place-items:center; background:#030605d9; text-align:center; padding:25px; }
+    .offline-message[hidden] { display:none; }
+    .offline-message strong { display:block; font-size:20px; margin-bottom:8px; }
+    .offline-message span { color:#87968f; line-height:1.7; }
+    @media(max-width:900px){ main{padding:10px}.layout{grid-template-columns:1fr}.viewer,#sensorView{min-height:56vh;height:56vh}.sidebar{display:grid;grid-template-columns:1fr 1fr}.lower{grid-template-columns:1fr}.sidebar .panel:last-child{grid-column:1/-1} }
+    @media(max-width:560px){ header{align-items:flex-start}.subtitle{max-width:220px}.status{padding:7px 9px}.viewer,#sensorView{min-height:52vh;height:52vh}.sidebar{display:flex}.metric{min-height:88px;padding:13px}.viewer-bottom{left:12px;right:12px}.truth{font-size:11px} }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand"><div class="logo">RV</div><div><h1>RuView 无线感知监控</h1><p class="subtitle">ESP32-S3 · 真实 CSI · 单节点实验模式</p></div></div>
+      <div id="status" class="status"><i class="dot"></i><span>正在连接</span></div>
+    </header>
+
+    <section class="layout">
+      <div class="panel">
+        <div id="viewer" class="viewer">
+          <canvas id="sensorView"></canvas>
+          <div class="camera-head">
+            <div><div class="camera-name">SENSOR 01 · WIFI CSI</div><div class="pose-mode">SIGNAL-DERIVED · 近似骨架</div><div id="clock" class="timecode">--</div></div>
+            <div id="live" class="live"><i></i><span>OFFLINE</span></div>
+          </div>
+          <div class="viewer-bottom">
+            <div class="state-label"><strong id="sceneState">等待信号</strong><span id="sceneHint">无线环境变化会显示在这里</span></div>
+            <button id="fullscreen" type="button">全屏</button>
+          </div>
+          <div id="offline" class="offline-message"><div><strong>等待 ESP32-S3</strong><span>开发板上线后，这里会显示真实 CSI 驱动的无线感知画面。</span></div></div>
+        </div>
+        <div class="truth"><b>官方 ADR-035“信号推导”模式：</b> 骨架动画会响应真实 CSI 运动强度，但不是肢体位置测量。可靠的 17 关键点模型推理需要 4 块以上 ESP32、房间标定和训练好的 .rvf 模型。</div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="panel">
+          <div class="panel-title">实时遥测</div>
+          <div class="metric-grid">
+            <div class="metric"><span>数据速率</span><strong id="pps">0.0</strong><small>包/秒</small></div>
+            <div class="metric"><span>Wi-Fi 信号</span><strong id="rssi">--</strong><small>dBm</small></div>
+            <div class="metric"><span>运动变化</span><strong id="motion">--</strong><small>%</small><div class="meter"><i id="motionBar"></i></div></div>
+            <div class="metric"><span>有效帧</span><strong id="packets">0</strong><small>帧</small></div>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-title">节点详情</div>
+          <dl class="details">
+            <div><dt>节点</dt><dd id="nodeId">--</dd></div><div><dt>来源</dt><dd id="source">--</dd></div>
+            <div><dt>中心频率</dt><dd id="frequency">--</dd></div><div><dt>子载波</dt><dd id="subcarriers">--</dd></div>
+            <div><dt>噪声底</dt><dd id="noise">--</dd></div><div><dt>序列号</dt><dd id="sequence">--</dd></div>
+          </dl>
+        </section>
+        <section class="panel">
+          <div class="panel-title">最近事件</div><div id="events" class="events"></div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="lower">
+      <div class="panel chart-wrap"><div class="chart-heading"><b>运动变化趋势</b><span>最近 2 分钟</span></div><canvas id="history"></canvas></div>
+      <div class="panel chart-wrap"><div class="chart-heading"><b>CSI 子载波</b><span id="spectrumMeta">等待数据</span></div><canvas id="spectrum"></canvas></div>
+    </section>
+  </main>
+  <script>
+    const $ = id => document.getElementById(id);
+    const fields = ['status','live','clock','sceneState','sceneHint','offline','pps','rssi','motion','motionBar','packets','nodeId','source','frequency','subcarriers','noise','sequence','events','spectrumMeta'];
+    const ui = Object.fromEntries(fields.map(id => [id,$(id)]));
+    const view = $('sensorView'), historyCanvas = $('history'), spectrum = $('spectrum');
+    const history = []; const eventItems = []; let lastOnline = null; let lastLevel = '';
+
+    function sizeCanvas(canvas) { const rect=canvas.getBoundingClientRect(), scale=Math.min(devicePixelRatio||1,2); const w=Math.max(1,Math.round(rect.width*scale)), h=Math.max(1,Math.round(rect.height*scale)); if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h} return {ctx:canvas.getContext('2d'),w,h,scale}; }
+    function motionLevel(value){ if(value < 5) return ['环境平稳','未检测到明显变化','quiet']; if(value < 15) return ['轻微变化','可能有轻微移动或无线扰动','light']; if(value < 35) return ['检测到活动','无线传播正在发生明显变化','active']; return ['强烈变化','检测到较强运动或环境扰动','high']; }
+    function addEvent(message){ const now=new Date(); eventItems.unshift({time:now.toLocaleTimeString('zh-CN',{hour12:false}),message}); eventItems.splice(5); ui.events.innerHTML=eventItems.map(item=>`<div class="event"><time>${item.time}</time><span>${item.message}</span></div>`).join(''); }
+    function drawSignalDerivedSkeleton(ctx,w,h,motion,values,now){
+      if(!values.length)return;
+      const energy=(values.reduce((sum,value)=>sum+value,0)/values.length)%17/17;
+      const gait=Math.sin(now/260)*(0.015+motion*.055), sway=Math.sin(now/520)*(0.008+motion*.035);
+      const p=[[.5+sway,.20],[.482+sway,.19],[.518+sway,.19],[.465+sway,.205],[.535+sway,.205],[.42+sway,.36],[.58+sway,.36],[.35+sway-gait,.51],[.65+sway+gait,.51],[.30+sway-gait*1.5,.66],[.70+sway+gait*1.5,.66],[.445+sway,.59],[.555+sway,.59],[.42+sway+gait,.76],[.58+sway-gait,.76],[.40+sway+gait*1.4,.94],[.60+sway-gait*1.4,.94]];
+      const bones=[[0,1],[0,2],[1,3],[2,4],[5,6],[5,7],[7,9],[6,8],[8,10],[5,11],[6,12],[11,12],[11,13],[13,15],[12,14],[14,16]];
+      ctx.save();ctx.shadowColor='#74f7a7';ctx.shadowBlur=12+motion*18;ctx.strokeStyle=`rgba(116,247,167,${.62+energy*.25})`;ctx.lineWidth=Math.max(2,w/420);ctx.lineCap='round';
+      for(const [a,b] of bones){ctx.beginPath();ctx.moveTo(p[a][0]*w,p[a][1]*h);ctx.lineTo(p[b][0]*w,p[b][1]*h);ctx.stroke()}
+      ctx.fillStyle='#d9ffe6';for(const [x,y] of p){ctx.beginPath();ctx.arc(x*w,y*h,Math.max(2.5,w/300),0,Math.PI*2);ctx.fill()}ctx.restore();
+      ctx.fillStyle='rgba(116,247,167,.72)';ctx.font=`${Math.max(10,w/90)}px ui-monospace,monospace`;ctx.fillText('APPROXIMATE / NOT LIMB TRACKING',w*.03,h*.94);
+    }
+    function drawSensor(node, now){ const {ctx,w,h}=sizeCanvas(view); ctx.fillStyle='#020504';ctx.fillRect(0,0,w,h); const motion=Math.min(node?.motion||0,60)/60; const values=node?.amplitudes||[]; const glow=ctx.createRadialGradient(w*.5,h*.52,0,w*.5,h*.52,Math.max(w,h)*.48); glow.addColorStop(0,`rgba(100,247,167,${.08+motion*.24})`);glow.addColorStop(.45,`rgba(31,117,74,${.06+motion*.12})`);glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
+      ctx.strokeStyle='rgba(130,220,164,.11)';ctx.lineWidth=1; for(let x=0;x<w;x+=w/12){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()} for(let y=0;y<h;y+=h/8){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+      if(values.length){ const max=Math.max(...values,1), columns=Math.min(values.length,96), step=w/columns; for(let i=0;i<columns;i++){const value=values[Math.floor(i*values.length/columns)]/max;ctx.fillStyle=`rgba(${80+Math.round(120*value)},${160+Math.round(85*value)},${110+Math.round(90*value)},${.08+value*.25})`;ctx.fillRect(i*step,h*(1-value)*.65+h*.18,Math.max(1,step-1),h*value*.46)} }
+      const scanY=(now/14)%h; const scan=ctx.createLinearGradient(0,scanY-35,0,scanY+6);scan.addColorStop(0,'rgba(116,247,167,0)');scan.addColorStop(1,'rgba(116,247,167,.28)');ctx.fillStyle=scan;ctx.fillRect(0,scanY-35,w,41);
+      drawSignalDerivedSkeleton(ctx,w,h,motion,values,now);
+    }
+    function lineChart(canvas, values, color, maxValue){ const {ctx,w,h}=sizeCanvas(canvas);ctx.clearRect(0,0,w,h);ctx.fillStyle='#050908';ctx.fillRect(0,0,w,h);ctx.strokeStyle='#1d2c26'; for(let i=1;i<5;i++){ctx.beginPath();ctx.moveTo(0,h*i/5);ctx.lineTo(w,h*i/5);ctx.stroke()} if(!values.length)return;const max=maxValue||Math.max(...values,1);ctx.strokeStyle=color;ctx.lineWidth=2*(devicePixelRatio||1);ctx.beginPath();values.forEach((v,i)=>{const x=i/Math.max(values.length-1,1)*w,y=h-8-v/max*(h-16);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke(); }
+    function update(state){ const node=state.nodes[0], online=Boolean(node?.online), now=Date.now(); ui.status.classList.toggle('online',online);ui.status.querySelector('span').textContent=online?'真实节点在线':'节点离线';ui.live.classList.toggle('online',online);ui.live.querySelector('span').textContent=online?'LIVE':'OFFLINE';ui.offline.hidden=online;
+      ui.pps.textContent=node?.packetsPerSecond?.toFixed(1)??'0.0';ui.rssi.textContent=node?.rssi??'--';ui.motion.textContent=node?.motion?.toFixed(1)??'--';ui.motionBar.style.width=`${Math.min(node?.motion||0,60)/60*100}%`;ui.packets.textContent=state.validPackets.toLocaleString('zh-CN');ui.nodeId.textContent=node?`#${node.nodeId}`:'--';ui.source.textContent=node?.sourceAddress??'--';ui.frequency.textContent=node?`${node.frequencyMhz} MHz`:'--';ui.subcarriers.textContent=node?.subcarriers??'--';ui.noise.textContent=node?`${node.noiseFloor} dBm`:'--';ui.sequence.textContent=node?.sequence??'--';ui.spectrumMeta.textContent=node?`${node.subcarriers} 个 · 均值 ${node.meanAmplitude}`:'等待数据';
+      const level=motionLevel(node?.motion||0);ui.sceneState.textContent=online?level[0]:'等待信号';ui.sceneHint.textContent=online?level[1]:'无线环境变化会显示在这里'; if(lastOnline!==null&&lastOnline!==online)addEvent(online?'ESP32 节点恢复在线':'ESP32 节点已离线');if(online&&lastLevel&&lastLevel!==level[2])addEvent(`状态变化：${level[0]}`);lastOnline=online;if(online)lastLevel=level[2];
+      if(online){history.push(node.motion);if(history.length>480)history.shift()} drawSensor(node,now);lineChart(historyCanvas,history,'#74f7a7',60);lineChart(spectrum,node?.amplitudes||[],'#ffc55c');
+    }
+    setInterval(()=>{ui.clock.textContent=new Date().toLocaleString('zh-CN',{hour12:false}).replaceAll('/','-');},250);addEvent('监控页面已启动');
+    $('fullscreen').addEventListener('click',()=>{ const target=$('viewer'); if(!document.fullscreenElement)target.requestFullscreen?.();else document.exitFullscreen?.(); });
+    const stream=new EventSource('/events');stream.onmessage=event=>update(JSON.parse(event.data));stream.onerror=()=>{ui.status.classList.remove('online');ui.status.querySelector('span').textContent='服务连接中断'};fetch('/api/status').then(r=>r.json()).then(update);
+    addEventListener('resize',()=>{sizeCanvas(view);sizeCanvas(historyCanvas);sizeCanvas(spectrum)});
+  </script>
+</body>
+</html>

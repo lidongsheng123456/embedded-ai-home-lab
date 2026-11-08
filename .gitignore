@@ -4,6 +4,7 @@
 **/build/
 **/vendor/
 **/downloads/
+**/compile_commands.json
 
 # Local secrets
 **/app_config.h

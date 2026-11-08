@@ -1,5 +1,7 @@
 # RuView 家庭 Wi‑Fi CSI 监控复现教程
 
+第一次遇到 ESP32-S3、CSI、UDP、IP、路由器等名称时，先看[工作区新手名词解释](../docs/00-新手名词解释.md)。
+
 本教程复现 GitHub 高星项目 [ruvnet/RuView](https://github.com/ruvnet/RuView)。截至 2026-11-06，GitHub API 显示约 10.26 万 Star。
 
 它不是超声波。它使用 Wi‑Fi 的 CSI（Channel State Information，信道状态信息）观察无线电传播受到人体存在和移动影响后的变化。
@@ -60,7 +62,29 @@ RuView 当前仓库自己披露：
 - `scripts/01-clone-ruview.ps1`：下载官方仓库；
 - `scripts/02-build-devkitc.ps1`：用官方 ESP-IDF Docker 构建无屏 DevKitC 固件；
 - `scripts/03-flash-devkitc.ps1`：烧录固件；
+- `scripts/04-provision-devkitc.ps1`：通过隐藏输入安全配置 Wi-Fi 与 UDP 目标；
+- `scripts/05-start-monitor.ps1`：启动只接收真实 ESP32 CSI 的本地中文监控页；
+- `scripts/06-start-public-monitor.ps1`：启动带账号密码和 HTTPS 的临时公网监控地址；
+- `scripts/07-stop-public-monitor.ps1`：关闭本项目启动的公网隧道；
 - `scripts/04-start-server.ps1`：启动真实 CSI 服务端。
+
+## 手机公网查看
+
+在 PowerShell 中运行：
+
+```powershell
+.\scripts\06-start-public-monitor.ps1
+```
+
+脚本会通过 WinGet 安装 Cloudflare 官方隧道客户端（WinGet 会核对安装包哈希），然后显示临时 HTTPS 地址、用户名和随机密码。手机使用移动网络也能打开该地址。监控电脑、ESP32 和家庭网络必须保持在线；地址和密码会在隧道重启后变化。
+
+需要关闭公网访问时运行：
+
+```powershell
+.\scripts\07-stop-public-monitor.ps1
+```
+
+临时隧道适合学习和测试。需要固定域名与长期运行时，应使用自己的 Cloudflare 账号创建命名隧道，不应在路由器上直接映射 8080 或 5005 端口。
 
 ## 与另一个教程的关系
 

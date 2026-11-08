@@ -1,0 +1,76 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: RV
+      - generic [ref=e6]:
+        - heading "RuView 无线感知监控" [level=1] [ref=e7]
+        - paragraph [ref=e8]: ESP32-S3 · 真实 CSI · 单节点实验模式
+    - generic [ref=e9]: 真实节点在线
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]: SENSOR 01 · WIFI CSI
+            - generic [ref=e19]: SIGNAL-DERIVED · 近似骨架
+            - generic [ref=e20]: "--"
+          - generic [ref=e21]: LIVE
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - strong [ref=e26]: 轻微变化
+            - generic [ref=e27]: 可能有轻微移动或无线扰动
+          - button "全屏" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]: 官方 ADR-035“信号推导”模式： 骨架动画会响应真实 CSI 运动强度，但不是肢体位置测量。可靠的 17 关键点模型推理需要 4 块以上 ESP32、房间标定和训练好的 .rvf 模型。
+    - complementary [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: 实时遥测
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: 数据速率
+            - strong [ref=e36]: "30.4"
+            - text: 包/秒
+          - generic [ref=e37]:
+            - generic [ref=e38]: Wi-Fi 信号
+            - strong [ref=e39]: "-36"
+            - text: dBm
+          - generic [ref=e40]:
+            - generic [ref=e41]: 运动变化
+            - strong [ref=e42]: "6.0"
+            - text: "%"
+          - generic [ref=e44]:
+            - generic [ref=e45]: 有效帧
+            - strong [ref=e46]: 8,769
+            - text: 帧
+      - generic [ref=e47]:
+        - generic [ref=e48]: 节点详情
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - term [ref=e51]: 节点
+            - definition [ref=e52]: "#1"
+          - generic [ref=e53]:
+            - term [ref=e54]: 来源
+            - definition [ref=e55]: 192.168.31.96:51962
+          - generic [ref=e56]:
+            - term [ref=e57]: 中心频率
+            - definition [ref=e58]: 2442 MHz
+          - generic [ref=e59]:
+            - term [ref=e60]: 子载波
+            - definition [ref=e61]: "192"
+          - generic [ref=e62]:
+            - term [ref=e63]: 噪声底
+            - definition [ref=e64]: "-92 dBm"
+          - generic [ref=e65]:
+            - term [ref=e66]: 序列号
+            - definition [ref=e67]: "22767"
+      - generic [ref=e68]:
+        - generic [ref=e69]: 最近事件
+        - generic [ref=e71]:
+          - time [ref=e72]: 00:20:19
+          - generic [ref=e73]: 监控页面已启动
+  - generic [ref=e74]:
+    - generic [ref=e76]:
+      - generic [ref=e77]: 运动变化趋势
+      - generic [ref=e78]: 最近 2 分钟
+    - generic [ref=e81]:
+      - generic [ref=e82]: CSI 子载波
+      - generic [ref=e83]: 192 个 · 均值 13.75

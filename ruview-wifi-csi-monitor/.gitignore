@@ -1,5 +1,8 @@
 vendor/
 downloads/
 build/
+.tools/
+backups/
+.runtime/
 *.log
 .env
