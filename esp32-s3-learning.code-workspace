@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "name": "embedded-ai-home-lab",
+      "path": "."
+    },
+    {
+      "name": "esp32-s3",
+      "path": "learning/examples/esp32-s3"
+    }
+  ],
+  "settings": {
+    "C_Cpp.default.configurationProvider": "platformio.platformio-ide",
+    "platformio-ide.autoRebuildAutocompleteIndex": true
+  },
+  "extensions": {
+    "recommendations": [
+      "platformio.platformio-ide",
+      "ms-vscode.cpptools"
+    ]
+  }
+}

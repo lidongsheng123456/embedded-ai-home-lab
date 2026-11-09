@@ -4,11 +4,15 @@
 
 ## 使用方法
 
-1. VS Code 直接打开本目录；
+1. VS Code 直接打开本目录；也可以从仓库根目录打开 `esp32-s3-learning.code-workspace`，同时查看仓库文档和本工程；
 2. 等待底部 `PlatformIO: Configuring project` 完成；
 3. 展开 `Project Tasks`，选择教程指定的环境；
 4. 先点 `Build`，编译成功后再点 `Upload`；
 5. 需要看文字输出时打开串口监视器，波特率为115200。
+
+首次配置时 PlatformIO 需要下载 ESP32 工具链和 Arduino 框架。在配置完成前，编辑器可能暂时把
+`Arduino.h` 和 `board_config.h` 标为找不到；这不是源码错误。源码必须留在本 PlatformIO 工程中，
+或通过上述工作区打开，不能把单个 `.cpp` 文件复制到任意目录后脱离工程独立解析。
 
 当前工程按泽杰 ESP32-S3 DevKitC N16R8配置：16MB Flash、8MB OPI PSRAM。公共外接引脚位于 `include/board_config.h`；接线以板边GPIO丝印和卖家提供的N16R8针脚图为准。
 
