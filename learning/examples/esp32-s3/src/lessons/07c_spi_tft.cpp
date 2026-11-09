@@ -1,4 +1,4 @@
-/* 第7章案例B：SPI驱动ILI9341 TFT；按board_config.h接线。 */
+/* 第7章案例C（需要另购模块）：SPI驱动ILI9341 TFT；按board_config.h接线。 */
 #include <Adafruit_GFX.h>
 #include <Adafruit_ILI9341.h>
 #include <Arduino.h>

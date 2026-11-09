@@ -1,4 +1,6 @@
-/* 第 4 章 / 案例 B：电脑发 1 点灯、发 0 灭灯、发 t 翻转。 */
+/* 第 4 章 / 案例 B：电脑发 1 点亮PB0外接LED、发0熄灭、发t翻转。
+ * LED接线：PB0 -> 330Ω -> LED长脚，LED短脚 -> GND。
+ */
 #include "stm32f1xx_hal.h"
 
 static UART_HandleTypeDef uart1;
@@ -7,13 +9,13 @@ static void LED_UART_Init(void)
 {
     GPIO_InitTypeDef gpio = {0};
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_USART1_CLK_ENABLE();
-    gpio.Pin = GPIO_PIN_13;
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
     gpio.Pin = GPIO_PIN_9;
     gpio.Mode = GPIO_MODE_AF_PP;
     gpio.Speed = GPIO_SPEED_FREQ_HIGH;
@@ -43,9 +45,9 @@ int main(void)
     while (1) {
         /* 最多等 20 ms；没收到数据就继续循环，不会永久卡住。 */
         if (HAL_UART_Receive(&uart1, &command, 1, 20) == HAL_OK) {
-            if (command == '1') HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-            if (command == '0') HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-            if (command == 't') HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+            if (command == '1') HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+            if (command == '0') HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+            if (command == 't') HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
         }
     }
 }

@@ -1,4 +1,6 @@
-/* 第 2 章 / 案例 A：使用芯片内部的 8 MHz 时钟 HSI。 */
+/* 第 2 章 / 案例 A：使用芯片内部的 8 MHz 时钟 HSI。
+ * 接线：PB0 -> 330Ω电阻 -> LED长脚，LED短脚 -> GND。
+ */
 #include "stm32f1xx_hal.h"
 
 static void Clock_Use_HSI_8MHz(void);
@@ -11,8 +13,8 @@ int main(void)
     LED_Init();
 
     while (1) {
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-        HAL_Delay(500);
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+        HAL_Delay(1000);               /* 慢闪：每隔 1 秒改变一次状态。 */
     }
 }
 
@@ -41,11 +43,12 @@ static void Clock_Use_HSI_8MHz(void)
 static void LED_Init(void)
 {
     GPIO_InitTypeDef gpio = {0};
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    gpio.Pin = GPIO_PIN_13;
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 }
 
 void SysTick_Handler(void) { HAL_IncTick(); }

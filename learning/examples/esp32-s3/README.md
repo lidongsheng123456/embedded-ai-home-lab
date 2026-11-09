@@ -10,7 +10,7 @@
 4. 先点 `Build`，编译成功后再点 `Upload`；
 5. 需要看文字输出时打开串口监视器，波特率为115200。
 
-所有公共引脚位于 `include/board_config.h`。不同开发板的板载灯和外设引脚不一定相同，接线前必须按自己的板卡原理图修改。
+当前工程按泽杰 ESP32-S3 DevKitC N16R8配置：16MB Flash、8MB OPI PSRAM。公共外接引脚位于 `include/board_config.h`；接线以板边GPIO丝印和卖家提供的N16R8针脚图为准。
 
 Wi-Fi 案例需要把 `include/wifi_config.example.h` 复制为 `include/wifi_config.h`，再填写网络名称和密码。真实配置已被 Git 忽略。
 

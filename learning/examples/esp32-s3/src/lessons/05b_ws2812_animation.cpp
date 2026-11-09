@@ -13,7 +13,7 @@ void loop() {
   if (now - last_change_ms >= 250) {
     last_change_ms = now;
     const auto &color = colors[color_index];
-    rgbLedWrite(RGB_LED_PIN, color[0], color[1], color[2]);
+    rgbLedWrite(WS2812_DATA_PIN, color[0], color[1], color[2]);
     color_index = (color_index + 1) % 4;
   }
   delay(1);

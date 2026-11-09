@@ -1,4 +1,6 @@
-/* 第 3 章 / 案例 A：PB12 按键按下时产生中断，翻转 PC13 LED。 */
+/* 第 3 章 / 案例 A：PB12 面包板按键触发中断，翻转 PB0 外接 LED。
+ * 接线：PB0 -> 330Ω -> LED长脚，LED短脚 -> GND；PB12 -> 按键 -> GND。
+ */
 #include "stm32f1xx_hal.h"
 
 static void GPIO_EXTI_Init(void);
@@ -17,13 +19,12 @@ static void GPIO_EXTI_Init(void)
     GPIO_InitTypeDef gpio = {0};
     __HAL_RCC_AFIO_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
-    __HAL_RCC_GPIOC_CLK_ENABLE();
 
-    gpio.Pin = GPIO_PIN_13;
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 
     gpio.Pin = GPIO_PIN_12;
     gpio.Mode = GPIO_MODE_IT_FALLING; /* 从高变低，也就是按下时触发。 */
@@ -44,7 +45,7 @@ void EXTI15_10_IRQHandler(void)
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
 {
     if (pin == GPIO_PIN_12) {
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
     }
 }
 

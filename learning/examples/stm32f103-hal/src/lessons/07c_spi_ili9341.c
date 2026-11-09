@@ -1,4 +1,4 @@
-/* 第 7 章 / 案例 B：SPI 驱动 ILI9341 彩屏轮流显示红、绿、蓝。
+/* 第 7 章 / 案例 C（需要另购模块）：SPI驱动ILI9341彩屏显示红、绿、蓝。
  * SCK->PA5，MOSI->PA7，CS->PB0，DC->PB1，RST->PB10。
  */
 #include "stm32f1xx_hal.h"

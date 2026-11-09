@@ -1,4 +1,6 @@
-/* 第 5 章 / 案例 A：TIM2 每 1 秒响一次“闹钟”，自动翻转蓝灯。 */
+/* 第 5 章 / 案例 A：TIM2每1秒响一次“闹钟”，翻转PB0外接LED。
+ * 接线：PB0 -> 330Ω -> LED长脚，LED短脚 -> GND。
+ */
 #include "stm32f1xx_hal.h"
 
 static TIM_HandleTypeDef timer2;
@@ -6,11 +8,12 @@ static TIM_HandleTypeDef timer2;
 static void LED_Init(void)
 {
     GPIO_InitTypeDef gpio = {0};
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    gpio.Pin = GPIO_PIN_13;
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 }
 
 static void Timer2_Init(void)
@@ -42,7 +45,7 @@ void TIM2_IRQHandler(void) { HAL_TIM_IRQHandler(&timer2); }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *timer)
 {
-    if (timer->Instance == TIM2) HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    if (timer->Instance == TIM2) HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
 }
 
 void SysTick_Handler(void) { HAL_IncTick(); }

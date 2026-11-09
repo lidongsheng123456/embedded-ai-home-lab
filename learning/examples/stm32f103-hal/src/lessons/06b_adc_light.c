@@ -1,5 +1,6 @@
-/* 第 6 章 / 案例 B：PA0 读取光敏分压，暗时点亮 PC13。
+/* 第 6 章 / 案例 B：PA0读取光敏分压，暗时点亮PB0外接LED。
  * 接线：3.3V--光敏电阻--PA0--10k电阻--GND。
+ *       PB0--330Ω电阻--LED长脚；LED短脚--GND。
  */
 #include "stm32f1xx_hal.h"
 
@@ -10,15 +11,16 @@ static void ADC_LED_Init(void)
     GPIO_InitTypeDef gpio = {0};
     ADC_ChannelConfTypeDef channel = {0};
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_ADC1_CLK_ENABLE();
     gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_ANALOG;
     HAL_GPIO_Init(GPIOA, &gpio);
-    gpio.Pin = GPIO_PIN_13;
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
     adc1.Instance = ADC1;
     adc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
     adc1.Init.ContinuousConvMode = DISABLE;
@@ -43,8 +45,8 @@ int main(void)
         HAL_ADC_PollForConversion(&adc1, 100);
         uint32_t light = HAL_ADC_GetValue(&adc1);
         /* 这个接法越亮数值越高；低于 1500 就认为较暗。 */
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,
-                          light < 1500 ? GPIO_PIN_RESET : GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0,
+                          light < 1500 ? GPIO_PIN_SET : GPIO_PIN_RESET);
         HAL_Delay(100);
     }
 }

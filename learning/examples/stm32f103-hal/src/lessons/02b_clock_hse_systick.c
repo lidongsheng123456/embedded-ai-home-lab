@@ -1,4 +1,6 @@
-/* 第 2 章 / 案例 B：外部 8 MHz 晶振经过倍频，得到 72 MHz。 */
+/* 第 2 章 / 案例 B：外部 8 MHz 晶振经过倍频，得到 72 MHz。
+ * 接线：PB0 -> 330Ω电阻 -> LED长脚，LED短脚 -> GND。
+ */
 #include "stm32f1xx_hal.h"
 
 static void Clock_Use_HSE_72MHz(void);
@@ -11,9 +13,9 @@ int main(void)
     LED_Init();
 
     while (1) {
-        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-        /* CPU 变快后，SysTick 会重新计算，所以 500 ms 仍是半秒。 */
-        HAL_Delay(500);
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+        /* CPU 变快后 SysTick 会重新计算；这里主动改成 200 ms 快闪。 */
+        HAL_Delay(200);
     }
 }
 
@@ -43,11 +45,12 @@ static void Clock_Use_HSE_72MHz(void)
 static void LED_Init(void)
 {
     GPIO_InitTypeDef gpio = {0};
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    gpio.Pin = GPIO_PIN_13;
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    gpio.Pin = GPIO_PIN_0;
     gpio.Mode = GPIO_MODE_OUTPUT_PP;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOC, &gpio);
+    HAL_GPIO_Init(GPIOB, &gpio);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 }
 
 /* 没有这段，HAL_Delay 的“钟表”就不会走。 */
