@@ -1,35 +1,36 @@
-# 嵌入式 AI 项目工作区
+# 嵌入式 AI 家庭实验室
 
-[查看两个项目合并采购清单](PURCHASE.md)
+本仓库包含一条循序渐进的学习路线和三个相互独立的成品项目。第一次使用时，从学习区开始，不要同时打开多个 PlatformIO 工程。
 
-[查看交付审查记录](AUDIT.md)
+## 目录导航
 
-[查看新手名词解释：硬件、烧录、接口、传感器、软件与网络](docs/00-新手名词解释.md)
+```text
+embedded-ai-home-lab/
+├─ learning/     # STM32 裸机基础与 ESP32-S3 迁移案例
+├─ projects/     # 可以独立构建的成品项目
+├─ docs/         # 公共词典、采购和审查资料
+├─ artifacts/    # 不参与构建的工具留档
+├─ AGENTS.md     # 后续 Agent 必须遵守的仓库规约
+└─ README.md
+```
 
-这里包含三个彼此独立的教程案例。
+## 从哪里开始
 
-## HomeGuard Mini
+- 当前学习入口：[learning/README.md](learning/README.md)
+- STM32F103 HAL完整课程：[learning/docs/STM32F103-HAL课程.md](learning/docs/STM32F103-HAL课程.md)
+- ESP32-S3 Arduino完整课程：[learning/docs/ESP32-S3-Arduino课程.md](learning/docs/ESP32-S3-Arduino课程.md)
+- 公共名词解释：[docs/00-新手名词解释.md](docs/00-新手名词解释.md)
 
-[打开一体化 AI 租房安全管家教程](homeguard-mini/README.md)
+## 成品项目
 
-ESP32-S3 配合 CO₂、温湿度、光照、毫米波和麦克风，实现本地显示、网页和轻量异常检测。
+- [HomeGuard Mini](projects/homeguard-mini/README.md)：ESP32-S3 环境安全管家，也是当前学习路线的最终目标；
+- [RuView Wi-Fi CSI Monitor](projects/ruview-wifi-csi-monitor/README.md)：真实 CSI 数据采集和存在/运动实验；
+- [STM32 OLED 表情桌宠](projects/stm32-desk-pet/README.md)：独立的 STM32 + PlatformIO 渐进项目。
 
-## RuView Wi‑Fi CSI Monitor
+## 公共资料
 
-[打开家庭 Wi‑Fi CSI 监控教程](ruview-wifi-csi-monitor/README.md)
+- [合并采购清单](docs/purchasing/README.md)
+- [可计算采购表](docs/purchasing/purchase-list.csv)
+- [交付审查记录](docs/audits/2026-11-06-delivery-audit.md)
 
-[RuView单独采购清单](ruview-wifi-csi-monitor/bom.csv)
-
-复现 `ruvnet/RuView` 的真实 CSI 数据链路，使用现有家庭路由器、一块 ESP32-S3 和 Windows 电脑完成存在/移动实验，并明确区分模拟演示与真实数据。
-
-## STM32 OLED 表情桌宠
-
-[打开 STM32 + PlatformIO 渐进式新手项目](stm32-desk-pet/README.md)
-
-使用 STM32F103C8T6 Blue Pill、1.3 英寸 OLED、一个 SG90、开关、LED 和串口蓝牙模块，从板载灯开始逐步制作会眨眼、摇头并能由手机控制的桌面宠物。
-
-## 目录独立性
-
-- 三个案例不共用固件、代码、模型或配置；
-- RuView 上游源码只会下载到 `ruview-wifi-csi-monitor/vendor/RuView`；
-- 三个案例可以分别建立独立 Gitea 仓库。
+各项目不共享固件、模型或配置。Wi-Fi 密码等私密信息只保存在项目忽略的本机配置文件中。

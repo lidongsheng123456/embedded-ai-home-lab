@@ -8,6 +8,7 @@
 
 # Local secrets
 **/app_config.h
+**/wifi_config.h
 .env
 *.log
 
