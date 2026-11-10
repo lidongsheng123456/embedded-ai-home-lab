@@ -8,7 +8,7 @@
 embedded-ai-home-lab/
 ├─ learning/     # STM32 裸机基础与 ESP32-S3 迁移案例
 ├─ projects/     # 可以独立构建的成品项目
-├─ docs/         # 公共词典、采购和审查资料
+├─ docs/         # 公共词典、联调教程和审查资料
 ├─ artifacts/    # 不参与构建的工具留档
 ├─ AGENTS.md     # 后续 Agent 必须遵守的仓库规约
 └─ README.md
@@ -30,8 +30,6 @@ embedded-ai-home-lab/
 
 ## 公共资料
 
-- [全工作区一次购齐清单](docs/purchasing/README.md)
-- [可计算采购表](docs/purchasing/purchase-list.csv)
 - [交付审查记录](docs/audits/2026-11-06-delivery-audit.md)
 
 各项目不共享固件、模型或配置。Wi-Fi 密码等私密信息只保存在项目忽略的本机配置文件中。

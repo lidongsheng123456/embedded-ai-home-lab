@@ -34,7 +34,7 @@
 
 0. [第一次制作从这里开始](docs/00-先从这里开始.md)
 1. [项目原理和版本范围](docs/01-项目原理.md)
-2. [材料清单与购买避坑](docs/02-材料清单.md)
+2. [硬件清单与供电要求](docs/02-材料清单.md)
 3. [逐根接线教程](docs/03-接线教程.md)
 4. [软件安装、编译和烧录](docs/04-软件与烧录.md)
 5. [首次启动与分阶段验收](docs/05-首次启动.md)
@@ -51,7 +51,6 @@
 homeguard-mini/
 ├─ AGENTS.md                      # 本项目的模块化与验证规约
 ├─ README.md
-├─ bom.csv                         # 可直接照单购买
 ├─ hardware/                       # 电路工具产物与硬件资料
 ├─ docs/                           # 中文教程
 └─ firmware/
@@ -76,7 +75,7 @@ homeguard-mini/
 
 ## 最短启动路径
 
-购买并完成接线后：
+准备好现有硬件并完成接线后：
 
 ```powershell
 cd <仓库目录>\projects\homeguard-mini
