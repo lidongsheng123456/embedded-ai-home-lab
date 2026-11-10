@@ -24,8 +24,8 @@ String numberOrNull(float value, uint8_t decimals) {
 }  // namespace
 
 NetworkService::NetworkService(HomeState &state, AnomalyModel &model,
-                               uint32_t &silenceUntil)
-    : state_(state), model_(model), silenceUntil_(silenceUntil) {}
+                               uint32_t &silenceUntil, CameraModule &camera)
+    : state_(state), model_(model), silenceUntil_(silenceUntil), camera_(camera) {}
 
 void NetworkService::begin() {
   startNetwork();
@@ -63,13 +63,17 @@ void NetworkService::startNetwork() {
 String NetworkService::buildStatusJson() const {
   String json;
   json.reserve(420);
-  json += F("{\"co2\":"); json += state_.co2;
+  json += F("{\"gasRaw\":"); json += state_.gasRaw;
+  json += F(",\"gasVoltage\":"); json += String(state_.gasVoltage, 2);
+  json += F(",\"gasIndex\":"); json += String(state_.gasIndex, 0);
+  json += F(",\"gasWarmingUp\":"); json += state_.gasWarmingUp ? F("true") : F("false");
   json += F(",\"temp\":"); json += numberOrNull(state_.temperature, 1);
   json += F(",\"humidity\":"); json += numberOrNull(state_.humidity, 1);
   json += F(",\"light\":"); json += numberOrNull(state_.light, 0);
   json += F(",\"sound\":"); json += String(state_.sound, 0);
   json += F(",\"score\":"); json += String(state_.anomalyScore, 2);
   json += F(",\"presence\":"); json += state_.presence ? F("true") : F("false");
+  json += F(",\"camera\":"); json += state_.cameraReady ? F("true") : F("false");
   json += F(",\"samples\":"); json += model_.samples();
   json += F(",\"level\":"); json += state_.level;
   json += F(",\"state\":\""); json += state_.state;
@@ -96,7 +100,25 @@ void NetworkService::setupRoutes() {
     digitalWrite(PIN_BUZZER, LOW);
     server_.send(200, "application/json", "{\"ok\":true}");
   });
+  server_.on("/camera.jpg", HTTP_GET, [this] { sendCameraFrame(); });
   server_.onNotFound([this] {
     server_.send(404, "application/json", "{\"error\":\"not found\"}");
   });
+}
+
+void NetworkService::sendCameraFrame() {
+  CameraFrame frame;
+  if (!camera_.capture(frame)) {
+    server_.send(503, "text/plain; charset=utf-8", "Camera is not ready");
+    return;
+  }
+
+  // WebServer没有适合RAM中二进制大块数据的高级接口，这里直接写HTTP响应。
+  WiFiClient client = server_.client();
+  client.printf("HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n"
+                "Content-Length: %u\r\nCache-Control: no-store\r\n"
+                "Connection: close\r\n\r\n",
+                static_cast<unsigned int>(frame.length));
+  client.write(frame.data, frame.length);
+  camera_.release(frame);
 }

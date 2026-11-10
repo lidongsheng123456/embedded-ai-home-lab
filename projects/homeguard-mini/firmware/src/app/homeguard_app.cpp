@@ -6,19 +6,21 @@
 #include "domain/risk_evaluator.h"
 #include "pins.h"
 
-HomeGuardApp::HomeGuardApp() : network_(state_, model_, silenceUntil_) {}
+HomeGuardApp::HomeGuardApp()
+    : network_(state_, model_, silenceUntil_, camera_) {}
 
 void HomeGuardApp::setup() {
   Serial.begin(115200);
   delay(500);
 
   pinMode(PIN_BUZZER, OUTPUT);
-  pinMode(PIN_BUTTON_LEARN, INPUT_PULLUP);
+  if (PIN_BUTTON_LEARN >= 0) pinMode(PIN_BUTTON_LEARN, INPUT_PULLUP);
   pinMode(PIN_BUTTON_SILENCE, INPUT_PULLUP);
   digitalWrite(PIN_BUZZER, LOW);
 
   display_.begin();
   sensors_.begin();
+  state_.cameraReady = camera_.begin();
   radar_.begin();
   microphone_.begin();
   model_.begin();
@@ -54,10 +56,12 @@ void HomeGuardApp::readSensors() {
   state_.sound = microphone_.readSoundIndex();
   sensors_.read(state_);
   RiskEvaluator::update(state_, model_);
-  Serial.printf("CO2=%u temp=%.1f hum=%.1f lux=%.0f sound=%.0f presence=%d "
+  Serial.printf("MQ2 raw=%u voltage=%.2fV index=%.0f temp=%.1f hum=%.1f "
+                "lux=%.0f sound=%.0f presence=%d "
                 "AI=%.2f samples=%lu level=%u\n",
-                state_.co2, state_.temperature, state_.humidity, state_.light,
-                state_.sound, state_.presence, state_.anomalyScore,
+                state_.gasRaw, state_.gasVoltage, state_.gasIndex,
+                state_.temperature, state_.humidity, state_.light, state_.sound,
+                state_.presence, state_.anomalyScore,
                 static_cast<unsigned long>(model_.samples()), state_.level);
 }
 
@@ -72,14 +76,39 @@ void HomeGuardApp::updateAlarm() {
 }
 
 void HomeGuardApp::handleButtons() {
+#if HOMEGUARD_ENABLE_CAMERA
+  // 摄像头占用了原学习键的GPIO38：短按静音，按住2秒重新学习。
+  const bool pressed = digitalRead(PIN_BUTTON_SILENCE) == LOW;
+  if (pressed && !buttonWasPressed_) {
+    buttonWasPressed_ = true;
+    buttonPressedAt_ = millis();
+    return;
+  }
+  if (pressed || !buttonWasPressed_) return;
+
+  buttonWasPressed_ = false;
+  const uint32_t duration = millis() - buttonPressedAt_;
+  if (duration >= AppSettings::BUTTON_LONG_PRESS_MS) {
+    resetLearning();
+  } else if (duration >= AppSettings::BUTTON_MIN_PRESS_MS) {
+    silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
+    Serial.println("Alarm silenced for 10 minutes");
+  }
+#else
   if (millis() - lastButtonAt_ < AppSettings::BUTTON_DEBOUNCE_MS) return;
   if (digitalRead(PIN_BUTTON_LEARN) == LOW) {
-    model_.reset();
+    resetLearning();
     lastButtonAt_ = millis();
-    Serial.println("AI model reset: learning restarted");
   } else if (digitalRead(PIN_BUTTON_SILENCE) == LOW) {
     silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
     lastButtonAt_ = millis();
     Serial.println("Alarm silenced for 10 minutes");
   }
+#endif
+}
+
+void HomeGuardApp::resetLearning() {
+  model_.reset();
+  state_.anomalyScore = 0;
+  Serial.println("AI model reset: learning restarted");
 }

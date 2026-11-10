@@ -7,7 +7,7 @@ firmware/
 ├─ include/
 │  ├─ app/          # 应用调度公开接口
 │  ├─ domain/       # HomeState、时间和告警阈值、风险规则接口
-│  ├─ drivers/      # I2C 传感器、I2S 麦克风、UART 雷达接口
+│  ├─ drivers/      # 环境传感器、麦克风、雷达和摄像头接口
 │  ├─ services/     # Wi-Fi 和 HTTP API 接口
 │  ├─ ui/           # TFT 显示接口
 │  ├─ pins.h        # 全部引脚定义
@@ -43,3 +43,14 @@ services / ui ───────────┤
 ```powershell
 pio run
 ```
+
+## 构建环境
+
+| 环境 | 用途 |
+|---|---|
+| `core_st7789_154` | 默认核心系统，使用已购1.54寸ST7789V |
+| `camera_ov2640_check` | 只验证OV2640和PSRAM |
+| `full_st7789_camera` | 核心系统加网页JPEG快照 |
+| `core_ili9341_240x320` | 兼容旧ILI9341屏幕 |
+
+MQ-2、OV2640和完整系统的安全接线见[`docs/03-接线教程.md`](../docs/03-接线教程.md)。
