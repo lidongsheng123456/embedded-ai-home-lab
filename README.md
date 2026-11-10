@@ -30,7 +30,7 @@ embedded-ai-home-lab/
 
 ## 公共资料
 
-- [合并采购清单](docs/purchasing/README.md)
+- [全工作区一次购齐清单](docs/purchasing/README.md)
 - [可计算采购表](docs/purchasing/purchase-list.csv)
 - [交付审查记录](docs/audits/2026-11-06-delivery-audit.md)
 
