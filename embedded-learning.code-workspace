@@ -5,18 +5,26 @@
       "path": "."
     },
     {
-      "name": "esp32-s3",
+      "name": "STM32F103 HAL 课程工程",
+      "path": "learning/examples/stm32f103-hal"
+    },
+    {
+      "name": "ESP32-S3 Arduino 课程工程",
       "path": "learning/examples/esp32-s3"
     }
   ],
   "settings": {
     "C_Cpp.default.configurationProvider": "platformio.platformio-ide",
+    "C_Cpp.intelliSenseEngine": "default",
     "platformio-ide.autoRebuildAutocompleteIndex": true
   },
   "extensions": {
     "recommendations": [
       "platformio.platformio-ide",
       "ms-vscode.cpptools"
+    ],
+    "unwantedRecommendations": [
+      "llvm-vs-code-extensions.vscode-clangd"
     ]
   }
 }

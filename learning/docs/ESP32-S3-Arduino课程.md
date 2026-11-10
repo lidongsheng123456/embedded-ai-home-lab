@@ -180,6 +180,24 @@ RGB最长公共脚 ─── GND
 2. 上传 `04b_uart_command`；
 3. 串口工具选择发送换行，输入 `ON`、`OFF` 或 `TOGGLE`。
 
+### 案例C：给STM32F103C8T6当USB转串口桥
+
+当USB转串口模块不可用时，ESP32-S3可以在电脑和STM32之间搬运字符：
+
+```text
+ESP32-S3 GPIO17 (TX) -> STM32 PA10 (RX)
+ESP32-S3 GPIO18 (RX) <- STM32 PA9  (TX)
+ESP32-S3 GND          -> STM32 GND
+```
+
+两块单片机分别供电，只连接信号线和GND，不连接彼此的3.3V或5V。选择并上传
+`04c_uart_bridge` 后，电脑打开ESP32-S3对应的COM口，波特率115200。看到
+`[BRIDGE] ESP32-S3 USB-UART ready` 表示桥接程序已启动；之后出现的
+`[STM32] ...` 是从STM32转发回来的内容。
+
+GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音频模块。串口桥只搬运字节，
+不会理解或修改舵机命令。
+
 ### 代码解释
 
 `Serial.printf` 可以把变量放进文字；`readStringUntil('\n')` 会一直读到换行。UART传的是字节，文字只是双方约定的编码。
@@ -188,7 +206,7 @@ RGB最长公共脚 ─── GND
 
 与最终项目的关系：串口日志是定位硬件和网络问题的第一工具。
 
-源码：[日志](../examples/esp32-s3/src/lessons/04a_uart_log.cpp)、[命令](../examples/esp32-s3/src/lessons/04b_uart_command.cpp)
+源码：[日志](../examples/esp32-s3/src/lessons/04a_uart_log.cpp)、[命令](../examples/esp32-s3/src/lessons/04b_uart_command.cpp)、[STM32串口桥](../examples/esp32-s3/src/lessons/04c_uart_bridge.cpp)
 
 ## 5. PWM与RMT
 
@@ -264,7 +282,11 @@ OLED SDA ── GPIO8
 OLED SCL ── GPIO9
 ```
 
-上传 `07a_i2c_oled`，屏幕应显示 `HomeGuard Mini` 和 `I2C OLED OK`。图片里的1.3寸模块通常是SH1106，因此工程默认使用Adafruit SH110X库和0x3C地址。若背面明确写着SSD1306，需要更换对应库和类，不能只因为屏幕尺寸相似就混用驱动。
+上传 `07a_i2c_oled`，屏幕应显示参考照片的单色像素画：人物右侧脸、碎发、遮住口鼻的
+高领和竖起的大拇指；人物会周期性眨眼，拇指旁的小星星也会闪动。代码使用Adafruit GFX
+提供的直线和矩形接口，再调用 `display()` 把内存画面一次发送到屏幕。
+图片里的1.3寸模块通常是SH1106，因此工程默认使用Adafruit SH110X库和0x3C地址。
+若背面明确写着SSD1306，需要更换对应库和类，不能只因为屏幕尺寸相似就混用驱动。
 
 ### 案例B：SPI驱动74HC595流水灯
 

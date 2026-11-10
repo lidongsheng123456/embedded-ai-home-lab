@@ -6,16 +6,16 @@
 
 ### 你现有器件能完成什么
 
-| 章节 | 现在能否实做 | 使用你的器件 |
-| --- | --- | --- |
-| GPIO、时钟、EXTI | 可以 | LED、330Ω电阻、按钮 |
-| UART | 大概率可以 | 图片中的“刷机板”必须带 `TXD/RXD/GND` 引脚 |
-| 定时器、PWM | 可以 | LED、330Ω电阻；无源蜂鸣器可在理解PWM后扩展 |
-| ADC | 可以 | 电位器、光敏电阻、10kΩ电阻 |
-| I2C | 可以 | 1.3寸OLED，常见控制芯片是SH1106 |
-| SPI | 可以 | 74HC595、8个LED、8个1kΩ电阻 |
-| SPI彩屏 | 暂时只编译 | 图片中没有看到ILI9341 TFT彩屏 |
-| DMA、低功耗 | 可以 | USB转串口、按钮、LED |
+| 章节             | 现在能否实做 | 使用你的器件                                  |
+| ---------------- | ------------ | --------------------------------------------- |
+| GPIO、时钟、EXTI | 可以         | LED、330Ω电阻、按钮                          |
+| UART             | 大概率可以   | 图片中的“刷机板”必须带 `TXD/RXD/GND` 引脚 |
+| 定时器、PWM      | 可以         | LED、330Ω电阻；无源蜂鸣器可在理解PWM后扩展   |
+| ADC              | 可以         | 电位器、光敏电阻、10kΩ电阻                   |
+| I2C              | 可以         | 1.3寸OLED，常见控制芯片是SH1106               |
+| SPI              | 可以         | 74HC595、8个LED、8个1kΩ电阻                  |
+| SPI彩屏          | 暂时只编译   | 图片中没有看到ILI9341 TFT彩屏                 |
+| DMA、低功耗      | 可以         | USB转串口、按钮、LED                          |
 
 舵机、喇叭、3.7V锂电池暂时不要接到GPIO。它们需要单独供电、驱动电路或充放电保护，等学完PWM和三极管后再做。
 
@@ -62,12 +62,12 @@ LED必须串联电阻，220Ω、330Ω或1kΩ都可以，本课程默认330Ω。�
 
 ### ST-Link接线
 
-| ST-Link | Blue Pill | 用途 |
-| --- | --- | --- |
-| 3.3V | 3.3 | 供电和电压参考 |
-| GND | GND | 共同的0V基准 |
-| SWDIO | DIO | 下载/调试数据 |
-| SWCLK | CLK | 下载/调试时钟 |
+| ST-Link | Blue Pill | 用途           |
+| ------- | --------- | -------------- |
+| 3.3V    | 3.3       | 供电和电压参考 |
+| GND     | GND       | 共同的0V基准   |
+| SWDIO   | DIO       | 下载/调试数据  |
+| SWCLK   | CLK       | 下载/调试时钟  |
 
 两个黄色BOOT跳线都保持在丝印 `0` 一侧。板上的RESET按钮只负责重新启动程序，不是课程中的用户按钮。
 
@@ -218,6 +218,7 @@ HSE案例完全不运行时检查晶振和焊点；删除 `SysTick_Handler` 会�
 ### 器件与识别
 
 使用图片中的“刷机板”前先看丝印：只有能找到 `TXD`、`RXD`、`GND` 的USB模块才能当USB转串口使用。若只有 `SWDIO/SWCLK`，它只是下载器，不能显示本案例文字。
+用户现有的绿色 ST-Link V2 上的 `SWIM` 是给 STM8 下载调试的，不是 UART，STM32 学习时保持悬空。
 
 ### 接线
 
@@ -238,6 +239,38 @@ TX和RX必须交叉。Blue Pill仍由ST-Link供电，不连接USB转串口的5V/
 4. 上传 `04b_uart_command`；
 5. 发送字符 `1` 点灯、`0` 灭灯、`t` 翻转。
 
+### 没有USB转串口：用OLED观察UART回环
+
+这不是把 ST-Link 的 SWIM 当串口，而是让 STM32 的 UART 自己发送、自己接收，再把结果显示到现有 OLED：
+
+```text
+PA9  (USART1 TX) ── 一根跳线 ── PA10 (USART1 RX)
+OLED VCC ── 3.3V
+OLED GND ── GND
+OLED SCL ── PB6
+OLED SDA ── PB7
+```
+
+保持 ST-Link 原来的 `3.3V/GND/SWDIO/SWCLK` 接线，`SWIM` 和 `5V` 都不接。上传
+`04c_uart_oled_loopback` 后，OLED 应显示 `TX:HELLO 0000`、相同的 `RX` 内容和 `PASS`。
+数字每秒增加。拔掉 PA9 与 PA10 之间的跳线后应显示 `RX:TIMEOUT` 和 `FAIL`，重新接上后恢复。
+
+这个案例能够验证 UART 发送和接收，但不能代替电脑串口终端：电脑仍然不能向 STM32 输入文字。
+
+### 使用ESP32-S3代替USB转串口模块
+
+原来的STM32F103C8T6最小系统板可以通过ESP32-S3与电脑双向通信：
+
+```text
+ESP32-S3 GPIO17 (TX) -> STM32 PA10 (RX)
+ESP32-S3 GPIO18 (RX) <- STM32 PA9  (TX)
+ESP32-S3 GND          -> STM32 GND
+```
+
+发送端必须接对方的接收端，因此TX和RX交叉。两块板分别供电，不连接彼此的3.3V或5V。
+ESP32-S3先上传 `04c_uart_bridge`，STM32再上传 `05c_uart_servo`，电脑最终打开的是
+ESP32-S3对应的COM口，波特率115200。
+
 ### 代码解释
 
 UART像两个人互相递纸条。波特率是递送速度，双方必须都设置115200。ASCII字符 `'1'` 实际是编码0x31，并不是数值1。
@@ -248,7 +281,7 @@ UART像两个人互相递纸条。波特率是递送速度，双方必须都设�
 
 与最终项目的关系：串口是最常用的调试工具，也能连接蓝牙模块和串口传感器。
 
-源码：[打印](../examples/stm32f103-hal/src/lessons/04a_uart_print.c)、[命令](../examples/stm32f103-hal/src/lessons/04b_uart_command.c)
+源码：[打印](../examples/stm32f103-hal/src/lessons/04a_uart_print.c)、[命令](../examples/stm32f103-hal/src/lessons/04b_uart_command.c)、[OLED回环](../examples/stm32f103-hal/src/lessons/04c_uart_oled_loopback.c)、[ESP32桥接舵机](../examples/stm32f103-hal/src/lessons/05c_uart_servo.c)
 
 ## 5. 定时器和PWM：硬件闹钟与快速开关
 
@@ -277,13 +310,43 @@ LED短脚 ── GND
 
 解释：PWM不是输出“半个电压”，而是快速开关。一个周期内亮着的比例叫占空比；开得越久，人眼看到的平均亮度越高。TIM3通道1固定映射到PA6。
 
+### 案例C：串口命令控制舵机
+
+舵机信号线接PA6，红色电源线接独立稳定5V，棕/黑色地线接5V电源GND；STM32、ESP32-S3
+和舵机电源必须共地。禁止使用GPIO、STM32的3.3V或ST-Link给舵机供电。
+
+OLED日志屏接线：
+
+```text
+OLED VCC -> STM32 3.3V
+OLED GND -> STM32 GND
+OLED SCL -> STM32 PB6
+OLED SDA -> STM32 PB7
+```
+
+OLED由STM32直接控制，不接ESP32。正常启动后显示 `UART SERVO`、最近命令、当前角度和状态；
+例如发送 `1` 后显示 `CMD:1`、`ANGLE:045`、`STATUS:ANGLE`。如果OLED没有接好，电脑串口会显示
+`[OLED] not found`，UART和舵机逻辑仍继续运行。
+
+上传 `05c_uart_servo` 后，在ESP32-S3串口桥对应的电脑串口发送：
+
+```text
+p       测试双向通信，STM32回复PONG
+0~4     控制0°、45°、90°、135°、180°
++ / -   每次增减10°
+?       显示命令帮助
+```
+
+先不接舵机，仅发送 `p` 并确认能看到PONG；通过后再断电接舵机。舵机上电时轻微移动属于
+初始化到90°中间位置，持续抖动、开发板复位或USB断连通常表示5V供电不足或没有共地。
+
 ### 常见错误与过关标准
 
 PWM案例不要仍把灯接在PB0。无源蜂鸣器可以在理解PWM后经三极管驱动，不能把套件喇叭直接接GPIO。能区分“频率”和“占空比”即过关。
 
 与最终项目的关系：周期采集、灯光渐变、蜂鸣提示和舵机脉冲都以定时器为基础。
 
-源码：[定时中断](../examples/stm32f103-hal/src/lessons/05a_timer_interrupt.c)、[PWM](../examples/stm32f103-hal/src/lessons/05b_pwm_fade.c)
+源码：[定时中断](../examples/stm32f103-hal/src/lessons/05a_timer_interrupt.c)、[PWM](../examples/stm32f103-hal/src/lessons/05b_pwm_fade.c)、[UART舵机](../examples/stm32f103-hal/src/lessons/05c_uart_servo.c)
 
 ## 6. ADC模拟采集：测量不只有开和关的电压
 
@@ -334,9 +397,13 @@ OLED SCL ── PB6
 OLED SDA ── PB7
 ```
 
-上传 `07a_i2c_oled`。屏幕应在条纹、全亮和全灭之间切换。
+上传 `07a_i2c_oled`。屏幕应显示参考照片的单色像素画：人物右侧脸、碎发、遮住口鼻的
+高领和竖起的大拇指；人物会周期性眨眼，拇指旁的小星星也会闪动。
 
-I2C像一条两线公交，SCL负责节拍，SDA传数据，地址0x3C负责找到这块屏。你图片里的1.3寸OLED通常是SH1106，所以代码默认 `OLED_USE_SH1106=1`。若模块背面明确印有SSD1306，将它改为0再编译。
+I2C像一条两线公交，SCL负责节拍，SDA传数据，地址0x3C负责找到这块屏。代码先在
+1 KB内存中用点和直线拼出人物轮廓，再把完整画面发送给OLED。你图片里的
+1.3寸OLED通常是SH1106，所以代码默认 `OLED_USE_SH1106=1`。若模块背面明确印有SSD1306，
+将它改为0再编译。
 
 ### 案例B：SPI驱动74HC595流水灯
 
@@ -344,16 +411,16 @@ I2C像一条两线公交，SCL负责节拍，SDA传数据，地址0x3C负责找�
 
 主要接线：
 
-| 74HC595脚 | 名称 | 接到 |
-| --- | --- | --- |
-| 16 | VCC | 3.3V |
-| 8 | GND | GND |
-| 10 | MR | 3.3V |
-| 13 | OE | GND |
-| 14 | DS数据 | PA7 / SPI1 MOSI |
-| 11 | SHCP移位时钟 | PA5 / SPI1 SCK |
-| 12 | STCP锁存 | PB0 |
-| 15、1～7 | Q0～Q7 | 各串1kΩ后接一个LED长脚 |
+| 74HC595脚 | 名称         | 接到                    |
+| --------- | ------------ | ----------------------- |
+| 16        | VCC          | 3.3V                    |
+| 8         | GND          | GND                     |
+| 10        | MR           | 3.3V                    |
+| 13        | OE           | GND                     |
+| 14        | DS数据       | PA7 / SPI1 MOSI         |
+| 11        | SHCP移位时钟 | PA5 / SPI1 SCK          |
+| 12        | STCP锁存     | PB0                     |
+| 15、1～7  | Q0～Q7       | 各串1kΩ后接一个LED长脚 |
 
 8个LED短脚全部接GND。上传 `07b_spi_74hc595` 后，应只有一个灯亮，并从Q0移动到Q7。
 

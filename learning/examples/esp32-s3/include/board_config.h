@@ -29,5 +29,9 @@ constexpr int I2S_BCLK_PIN = 16;
 constexpr int I2S_LRC_PIN = 17;
 constexpr int I2S_DATA_PIN = 18;
 
+// 串口桥案例独占这两个引脚；运行该案例时不要同时连接I2S音频模块。
+constexpr int UART_BRIDGE_TX_PIN = 17;
+constexpr int UART_BRIDGE_RX_PIN = 18;
+
 constexpr float ADC_REFERENCE_VOLTAGE = 3.3F;
 constexpr float BATTERY_DIVIDER_RATIO = 2.0F;

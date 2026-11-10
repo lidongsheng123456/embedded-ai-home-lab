@@ -20,6 +20,7 @@ embedded-ai-home-lab/
 - STM32F103 HAL完整课程：[learning/docs/STM32F103-HAL课程.md](learning/docs/STM32F103-HAL课程.md)
 - ESP32-S3 Arduino完整课程：[learning/docs/ESP32-S3-Arduino课程.md](learning/docs/ESP32-S3-Arduino课程.md)
 - 公共名词解释：[docs/00-新手名词解释.md](docs/00-新手名词解释.md)
+- 双板联调教程：[docs/ESP32-S3与STM32F103C8串口舵机OLED联调.md](docs/ESP32-S3与STM32F103C8串口舵机OLED联调.md)
 
 ## 成品项目
 
