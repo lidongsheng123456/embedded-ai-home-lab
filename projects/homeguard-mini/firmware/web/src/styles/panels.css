@@ -1,0 +1,117 @@
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+.gas-panel,
+.camera-panel {
+  padding: 21px 23px;
+}
+.gas-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.gas-head b {
+  font-size: 32px;
+  font-weight: 450;
+  letter-spacing: -1px;
+}
+.gas-head > div > span {
+  font-size: 10px;
+  color: #96a18e;
+  margin-left: 7px;
+}
+.pill {
+  font-size: 9px;
+  color: #839a70;
+  background: #f0f4e9;
+  padding: 6px 9px;
+  border-radius: 5px;
+}
+.gas-scale {
+  height: 7px;
+  border-radius: 8px;
+  background: #edf0e8;
+  position: relative;
+  margin-top: 15px;
+  overflow: hidden;
+}
+.gas-scale > div {
+  width: 0;
+  max-width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a4ba83, #cfb77a, #c87f5f);
+  transition: width 0.8s;
+}
+.gas-scale i {
+  position: absolute;
+  left: 60%;
+  height: 100%;
+  border-left: 2px solid #fff;
+}
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  color: #a9b09f;
+  margin-top: 8px;
+}
+.gas-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-size: 9px;
+  color: #a0aa95;
+}
+.gas-bottom b {
+  font-weight: 500;
+  color: #6a7f5f;
+}
+.camera-panel {
+  position: relative;
+  overflow: hidden;
+}
+.camera-content {
+  margin-top: 13px;
+  height: 132px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    #f5f6f0,
+    #f5f6f0 1px,
+    #f2f4ed 1px,
+    #f2f4ed 7px
+  );
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.camera-placeholder {
+  text-align: center;
+  font-size: 10px;
+  color: #9ca891;
+}
+.camera-placeholder > span {
+  font-size: 25px;
+  color: #9fae93;
+}
+.camera-placeholder p {
+  margin: 6px 0;
+}
+.camera-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #1a2620;
+}
+.camera-button {
+  display: block;
+  margin: 10px 0 0 auto;
+  background: none;
+  border: 0;
+  color: #6c825d;
+  font-size: 10px;
+}

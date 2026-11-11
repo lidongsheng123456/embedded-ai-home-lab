@@ -7,6 +7,7 @@
 #include "pins.h"
 
 void Microphone::begin() {
+  // INMP441把声音转换为数字采样；I2S负责搬运，DMA缓冲区暂存连续数据。
   const i2s_config_t config = {
       .mode = static_cast<i2s_mode_t>(I2S_MODE_MASTER | I2S_MODE_RX),
       .sample_rate = 16000,
@@ -33,6 +34,7 @@ void Microphone::begin() {
 }
 
 float Microphone::readSoundIndex() {
+  // 256个样本约等于一小段声音快照，数组只在本次调用期间使用。
   int32_t samples[256];
   size_t bytesRead = 0;
   if (i2s_read(I2S_NUM_0, samples, sizeof(samples), &bytesRead,

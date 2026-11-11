@@ -3,9 +3,7 @@
 #include <Arduino.h>
 #include <math.h>
 
-#include "domain/app_settings.h"
-#include "pins.h"
-#include "web_page.h"
+#include "ui/web_assets.h"
 
 #if __has_include("app_config.h")
 #include "app_config.h"
@@ -23,9 +21,8 @@ String numberOrNull(float value, uint8_t decimals) {
 }
 }  // namespace
 
-NetworkService::NetworkService(HomeState &state, AnomalyModel &model,
-                               uint32_t &silenceUntil, CameraModule &camera)
-    : state_(state), model_(model), silenceUntil_(silenceUntil), camera_(camera) {}
+NetworkService::NetworkService(const HomeState &state, CameraModule &camera)
+    : state_(state), camera_(camera) {}
 
 void NetworkService::begin() {
   startNetwork();
@@ -34,6 +31,20 @@ void NetworkService::begin() {
 }
 
 void NetworkService::handleClient() { server_.handleClient(); }
+
+bool NetworkService::takeLearnRequest() {
+  // “读取后清零”保证一次网页点击只执行一次，而不是每轮loop重复执行。
+  const bool requested = learnRequested_;
+  learnRequested_ = false;
+  return requested;
+}
+
+bool NetworkService::takeSilenceRequest() {
+  // HTTP回调与应用调度通过标记交接，网络层不直接碰蜂鸣器和业务模型。
+  const bool requested = silenceRequested_;
+  silenceRequested_ = false;
+  return requested;
+}
 
 void NetworkService::startNetwork() {
   WiFi.setHostname(DEVICE_HOSTNAME);
@@ -61,6 +72,7 @@ void NetworkService::startNetwork() {
 }
 
 String NetworkService::buildStatusJson() const {
+  // 预留容量可减少String增长时反复申请内存，降低长期运行时的内存碎片。
   String json;
   json.reserve(420);
   json += F("{\"gasRaw\":"); json += state_.gasRaw;
@@ -74,7 +86,7 @@ String NetworkService::buildStatusJson() const {
   json += F(",\"score\":"); json += String(state_.anomalyScore, 2);
   json += F(",\"presence\":"); json += state_.presence ? F("true") : F("false");
   json += F(",\"camera\":"); json += state_.cameraReady ? F("true") : F("false");
-  json += F(",\"samples\":"); json += model_.samples();
+  json += F(",\"samples\":"); json += state_.learningSamples;
   json += F(",\"level\":"); json += state_.level;
   json += F(",\"state\":\""); json += state_.state;
   json += F("\",\"reason\":\""); json += state_.reason;
@@ -84,24 +96,29 @@ String NetworkService::buildStatusJson() const {
 }
 
 void NetworkService::setupRoutes() {
-  server_.on("/", HTTP_GET, [this] {
-    server_.send_P(200, "text/html; charset=utf-8", HOME_PAGE);
-  });
   server_.on("/api/status", HTTP_GET, [this] {
     server_.send(200, "application/json; charset=utf-8", buildStatusJson());
   });
   server_.on("/api/learn", HTTP_POST, [this] {
-    model_.reset();
-    state_.anomalyScore = 0;
+    // 网络层只记录请求，真正的业务操作由HomeGuardApp在主循环中执行。
+    learnRequested_ = true;
     server_.send(200, "application/json", "{\"ok\":true}");
   });
   server_.on("/api/silence", HTTP_POST, [this] {
-    silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
-    digitalWrite(PIN_BUZZER, LOW);
+    silenceRequested_ = true;
     server_.send(200, "application/json", "{\"ok\":true}");
   });
   server_.on("/camera.jpg", HTTP_GET, [this] { sendCameraFrame(); });
   server_.onNotFound([this] {
+    const WebAsset *asset = findWebAsset(server_.uri().c_str());
+    if (server_.method() == HTTP_GET && asset != nullptr) {
+      // 直接从Flash发送压缩内容，浏览器负责解压和3D渲染。
+      server_.sendHeader("Content-Encoding", "gzip");
+      server_.sendHeader("Cache-Control", "no-cache");
+      server_.send_P(200, asset->contentType,
+                    reinterpret_cast<const char *>(asset->data), asset->length);
+      return;
+    }
     server_.send(404, "application/json", "{\"error\":\"not found\"}");
   });
 }

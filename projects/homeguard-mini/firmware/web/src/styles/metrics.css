@@ -1,0 +1,93 @@
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0 15px;
+}
+.section-heading h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+.section-heading h2 span {
+  font-family: monospace;
+  font-size: 8px;
+  color: #a2ad9a;
+  margin-left: 13px;
+  letter-spacing: 1.5px;
+}
+.section-heading > span {
+  font-size: 9px;
+  color: #98a38f;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.metric-card {
+  padding: 16px 18px 9px;
+  overflow: hidden;
+}
+.metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #6a7c67;
+  font-size: 10px;
+}
+.metric-icon {
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  display: grid;
+  place-content: center;
+  font-size: 17px;
+}
+.orange {
+  background: #faf0e6;
+  color: #c68a5b;
+}
+.blue {
+  background: #ecf2f8;
+  color: #78a2c7;
+}
+.yellow {
+  background: #f9f5df;
+  color: #c6b059;
+}
+.green {
+  background: #eef3e8;
+  color: #8ca86d;
+}
+.metric-value {
+  margin: 10px 0 7px;
+}
+.metric-value b {
+  font-size: 30px;
+  font-weight: 450;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+.metric-value span {
+  font: 10px monospace;
+  color: #9ca58f;
+  margin-left: 5px;
+}
+.metric-card p {
+  font-size: 9px;
+  color: #a5ad9b;
+  margin: 0;
+}
+.sparkline {
+  width: 100%;
+  height: 31px;
+  display: block;
+  margin-top: 8px;
+}
+.sparkline path {
+  fill: none;
+  stroke: #9bb88b;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}

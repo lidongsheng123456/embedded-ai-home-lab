@@ -5,6 +5,7 @@
 **/vendor/
 **/downloads/
 **/compile_commands.json
+**/node_modules/
 
 # Local secrets
 **/app_config.h

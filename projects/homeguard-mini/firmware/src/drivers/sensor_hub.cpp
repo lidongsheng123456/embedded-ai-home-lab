@@ -26,6 +26,7 @@ void SensorHub::begin() {
 }
 
 void SensorHub::read(HomeState &state) {
+  // ADC容易受电源噪声影响，连续读取16次再取平均值会更稳定。
   uint32_t gasSum = 0;
   for (uint8_t i = 0; i < MQ2_SAMPLE_COUNT; ++i) {
     gasSum += analogRead(PIN_MQ2_ANALOG);

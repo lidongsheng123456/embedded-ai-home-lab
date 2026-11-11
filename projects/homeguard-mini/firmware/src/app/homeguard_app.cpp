@@ -6,8 +6,7 @@
 #include "domain/risk_evaluator.h"
 #include "pins.h"
 
-HomeGuardApp::HomeGuardApp()
-    : network_(state_, model_, silenceUntil_, camera_) {}
+HomeGuardApp::HomeGuardApp() : network_(state_, camera_) {}
 
 void HomeGuardApp::setup() {
   Serial.begin(115200);
@@ -24,6 +23,7 @@ void HomeGuardApp::setup() {
   radar_.begin();
   microphone_.begin();
   model_.begin();
+  state_.learningSamples = model_.samples();
   network_.begin();
 
   sensors_.printStatus();
@@ -32,6 +32,7 @@ void HomeGuardApp::setup() {
 
 void HomeGuardApp::loop() {
   network_.handleClient();
+  handleRemoteCommands();
   radar_.update(state_);
   handleButtons();
   updateAlarm();
@@ -56,13 +57,14 @@ void HomeGuardApp::readSensors() {
   state_.sound = microphone_.readSoundIndex();
   sensors_.read(state_);
   RiskEvaluator::update(state_, model_);
+  state_.learningSamples = model_.samples();
   Serial.printf("MQ2 raw=%u voltage=%.2fV index=%.0f temp=%.1f hum=%.1f "
                 "lux=%.0f sound=%.0f presence=%d "
                 "AI=%.2f samples=%lu level=%u\n",
                 state_.gasRaw, state_.gasVoltage, state_.gasIndex,
                 state_.temperature, state_.humidity, state_.light, state_.sound,
                 state_.presence, state_.anomalyScore,
-                static_cast<unsigned long>(model_.samples()), state_.level);
+                static_cast<unsigned long>(state_.learningSamples), state_.level);
 }
 
 void HomeGuardApp::updateAlarm() {
@@ -70,8 +72,11 @@ void HomeGuardApp::updateAlarm() {
     digitalWrite(PIN_BUZZER, LOW);
     return;
   }
-  const uint32_t period = state_.level == 2 ? 1000 : 3000;
-  const uint32_t activeTime = state_.level == 2 ? 250 : 100;
+  const bool danger = state_.level == 2;
+  const uint32_t period = danger ? AppSettings::DANGER_BEEP_PERIOD_MS
+                                 : AppSettings::WARNING_BEEP_PERIOD_MS;
+  const uint32_t activeTime = danger ? AppSettings::DANGER_BEEP_ON_MS
+                                     : AppSettings::WARNING_BEEP_ON_MS;
   digitalWrite(PIN_BUZZER, millis() % period < activeTime ? HIGH : LOW);
 }
 
@@ -91,8 +96,7 @@ void HomeGuardApp::handleButtons() {
   if (duration >= AppSettings::BUTTON_LONG_PRESS_MS) {
     resetLearning();
   } else if (duration >= AppSettings::BUTTON_MIN_PRESS_MS) {
-    silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
-    Serial.println("Alarm silenced for 10 minutes");
+    silenceAlarm();
   }
 #else
   if (millis() - lastButtonAt_ < AppSettings::BUTTON_DEBOUNCE_MS) return;
@@ -100,15 +104,26 @@ void HomeGuardApp::handleButtons() {
     resetLearning();
     lastButtonAt_ = millis();
   } else if (digitalRead(PIN_BUTTON_SILENCE) == LOW) {
-    silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
+    silenceAlarm();
     lastButtonAt_ = millis();
-    Serial.println("Alarm silenced for 10 minutes");
   }
 #endif
+}
+
+void HomeGuardApp::handleRemoteCommands() {
+  if (network_.takeLearnRequest()) resetLearning();
+  if (network_.takeSilenceRequest()) silenceAlarm();
 }
 
 void HomeGuardApp::resetLearning() {
   model_.reset();
   state_.anomalyScore = 0;
+  state_.learningSamples = 0;
   Serial.println("AI model reset: learning restarted");
+}
+
+void HomeGuardApp::silenceAlarm() {
+  silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
+  digitalWrite(PIN_BUZZER, LOW);
+  Serial.println("Alarm silenced for 10 minutes");
 }

@@ -11,6 +11,7 @@
 - 在本机学习房间的正常环境，发现异常组合；
 - 对通风不足、持续潮湿、突发强声等情况进行提示；
 - 在彩屏和手机网页上显示实时状态；
+- 手机和电脑网页提供离线Three.js三维房间、环境趋势与全屏大屏；
 - 通过本地网页手动获取 OV2640 快照，图片默认不上传云端；
 - 断开互联网后继续检测，Wi-Fi 连接失败时创建自己的热点；
 - 所有环境数据默认只在设备内处理，不上传云端。
@@ -44,6 +45,7 @@
 9. [后续 TinyML 声音分类与红外控制](docs/09-后续升级.md)
 10. [使用内网 Gitea 管理项目](docs/10-Gitea管理.md)
 11. [EasyEDA 从入门到完整系统的渐进电路学习路线](docs/11-EasyEDA渐进电路学习路线.md)
+12. [手机与电脑可视化大屏：预览、使用和源码](firmware/web/README.md)
 
 ## 目录结构
 
@@ -56,21 +58,20 @@ homeguard-mini/
 └─ firmware/
    ├─ README.md                    # 固件分层和依赖方向
    ├─ platformio.ini               # PlatformIO 工程配置
+   ├─ web/                         # 浏览器大屏：HTML、样式、数据呈现、Three.js
+   ├─ scripts/                     # 将网页压缩编入Flash的构建脚本
    ├─ include/
    │  ├─ app/                      # 应用调度接口
-   │  ├─ domain/                   # 状态、阈值和规则
+   │  ├─ domain/                   # 状态、阈值、AI模型和规则
    │  ├─ drivers/                  # 传感器、雷达、麦克风、摄像头接口
    │  ├─ services/                 # 网络服务接口
-   │  ├─ ui/                       # 屏幕接口
+   │  ├─ ui/                       # 屏幕接口和网页资源查询接口
    │  ├─ app_config.example.h      # Wi-Fi 配置模板
-   │  ├─ anomaly_model.h           # AI 模型接口
-   │  ├─ pins.h                    # 全部引脚定义
-   │  └─ web_page.h                # 内置网页
+   │  └─ pins.h                    # 全部引脚定义
    └─ src/
       ├─ app/ domain/ drivers/     # 与 include 对应的实现
       ├─ services/ ui/
-      ├─ main.cpp                  # 仅保留 setup/loop 入口
-      └─ anomaly_model.cpp         # 在线异常检测算法
+      └─ main.cpp                  # 仅保留 setup/loop 入口
 ```
 
 ## 最短启动路径

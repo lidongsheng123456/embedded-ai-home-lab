@@ -3,20 +3,38 @@
 #include <Arduino.h>
 
 namespace AppSettings {
+// 主循环每隔多久重新读取一次环境数据。单位都是毫秒（ms）。
 constexpr uint32_t SENSOR_INTERVAL_MS = 5000;
+// TFT刷新比传感器采集更快，确保按钮和状态变化能及时显示。
 constexpr uint32_t DISPLAY_INTERVAL_MS = 1000;
+// 用户静音后只关闭声音10分钟，监测和网页仍继续工作。
 constexpr uint32_t SILENCE_DURATION_MS = 10UL * 60UL * 1000UL;
+// 无摄像头版本的两个独立按键使用简单时间消抖。
 constexpr uint32_t BUTTON_DEBOUNCE_MS = 300;
+// 摄像头版本只有一个按键：短于40ms视为机械抖动，不处理。
 constexpr uint32_t BUTTON_MIN_PRESS_MS = 40;
+// 按住至少2秒再松开表示清空旧模型，短按只静音。
 constexpr uint32_t BUTTON_LONG_PRESS_MS = 2000;
+// MQ-2每次通电后的短期预热时间；新模块首次使用仍需按教程老化。
 constexpr uint32_t MQ2_WARMUP_MS = 3UL * 60UL * 1000UL;
+
+// 提醒级别每3秒响100ms，避免普通提醒一直鸣叫。
+constexpr uint32_t WARNING_BEEP_PERIOD_MS = 3000;
+constexpr uint32_t WARNING_BEEP_ON_MS = 100;
+// 危险级别每1秒响250ms，用更急促的节奏与提醒级别区分。
+constexpr uint32_t DANGER_BEEP_PERIOD_MS = 1000;
+constexpr uint32_t DANGER_BEEP_ON_MS = 250;
+
 // MQ-2数值只是相对变化，下面是课程实验阈值，不是安全标准。
 constexpr float GAS_WARNING_INDEX = 60.0f;
 constexpr float GAS_DANGER_INDEX = 80.0f;
+// 湿度单位是%RH；这些阈值用于潮湿提醒，不代表专业霉菌检测结果。
 constexpr float HUMIDITY_WARNING_PERCENT = 75.0f;
 constexpr float HUMIDITY_DANGER_PERCENT = 85.0f;
+// 麦克风输出的是0～100相对指数，不是经过校准的分贝值。
 constexpr float SOUND_WARNING_INDEX = 82.0f;
 constexpr float SOUND_DANGER_INDEX = 92.0f;
+// AI分数表示当前环境偏离已学习基线的程度，没有物理单位。
 constexpr float AI_WARNING_SCORE = 3.5f;
 constexpr float AI_DANGER_SCORE = 5.5f;
 }  // namespace AppSettings

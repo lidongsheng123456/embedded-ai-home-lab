@@ -1,0 +1,161 @@
+@media (max-width: 620px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: 65px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+  .brand > span:last-child {
+    display: block;
+    font-size: 15px;
+  }
+  .brand small {
+    display: block;
+    font-size: 7px;
+  }
+  .brand-mark {
+    width: 33px;
+    height: 36px;
+    font-size: 24px;
+  }
+  .nav-item {
+    display: none;
+  }
+  .brand {
+    gap: 10px;
+  }
+  main {
+    margin-left: 0;
+    padding: 0 17px;
+  }
+  .topbar {
+    height: 49px;
+    font-size: 9px;
+  }
+  .connection time {
+    margin-left: 10px;
+    padding-left: 10px;
+    font-size: 11px;
+  }
+  .page-heading {
+    padding: 24px 0 20px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.6px;
+  }
+  .subtitle {
+    font-size: 10px;
+  }
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .room-stage {
+    height: 325px;
+  }
+  .scene-tools > div {
+    flex-direction: row;
+  }
+  .scene-tools > span {
+    max-width: none;
+  }
+  .scene-overlay {
+    bottom: 80px;
+  }
+  .scene-note {
+    font-size: 8px;
+  }
+  .status-panel {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    column-gap: 19px;
+  }
+  .status-panel .section-caption {
+    grid-column: 1/-1;
+    margin-bottom: 12px;
+  }
+  .status-orbit {
+    grid-column: 1;
+    grid-row: 2/5;
+    margin: 0;
+    width: 105px;
+    height: 105px;
+  }
+  .status-panel h2 {
+    text-align: left;
+    font-size: 20px;
+    margin: 2px 0 7px;
+  }
+  .status-reason {
+    text-align: left;
+    min-height: 0;
+    margin-bottom: 13px;
+  }
+  .learning-label {
+    margin-top: 0;
+  }
+  .progress-track {
+    grid-column: 2;
+  }
+  .status-foot {
+    grid-column: 1/-1;
+    margin-top: 9px;
+  }
+  .status-actions {
+    grid-column: 1/-1;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .primary-button {
+    flex: 1;
+  }
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .metric-card {
+    padding: 16px;
+  }
+  .metric-value b {
+    font-size: 31px;
+  }
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-heading {
+    margin-top: 25px;
+  }
+  footer {
+    flex-wrap: wrap;
+    font-size: 8px;
+  }
+  .gas-bottom {
+    margin-top: 20px;
+  }
+  .demo-banner {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .connection {
+    gap: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

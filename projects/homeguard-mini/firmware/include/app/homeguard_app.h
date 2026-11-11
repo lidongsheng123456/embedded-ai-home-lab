@@ -1,6 +1,6 @@
 #pragma once
 
-#include "anomaly_model.h"
+#include "domain/anomaly_model.h"
 #include "domain/home_state.h"
 #include "drivers/camera_module.h"
 #include "drivers/microphone.h"
@@ -12,29 +12,41 @@
 // 应用层只负责组装模块和安排执行顺序。
 class HomeGuardApp {
  public:
+  // 构造时把同一份HomeState和摄像头引用交给网络服务，避免复制状态。
   HomeGuardApp();
+  // 上电后调用一次：初始化引脚、驱动、模型、显示和网络。
   void setup();
+  // 持续调用：用非阻塞时间判断轮流处理网络、采集、显示、按键和报警。
   void loop();
 
  private:
+  // 使用有符号差值判断静音截止时间，能够正确处理millis计数回绕。
   bool silenceActive() const;
+  // 完成一次声音、环境数据采集和风险计算，并输出串口日志。
   void readSensors();
+  // 根据告警等级产生不同蜂鸣节奏；静音或正常时确保蜂鸣器关闭。
   void updateAlarm();
+  // 读取实体按键；摄像头版本用短按/长按复用一个按键。
   void handleButtons();
+  // 把网页产生的一次性请求转换成真正的应用操作。
+  void handleRemoteCommands();
+  // 清除AI基线和相关显示状态，从下一次有效采集重新学习。
   void resetLearning();
+  // 立即关闭蜂鸣器，并设置10分钟静音截止时间。
+  void silenceAlarm();
 
-  HomeState state_;
-  AnomalyModel model_;
-  uint32_t silenceUntil_ = 0;
-  SensorHub sensors_;
-  CameraModule camera_;
-  NetworkService network_;
-  Microphone microphone_;
-  RadarSensor radar_;
-  DisplayView display_;
-  uint32_t lastSensorAt_ = 0;
-  uint32_t lastDisplayAt_ = 0;
-  uint32_t lastButtonAt_ = 0;
-  uint32_t buttonPressedAt_ = 0;
-  bool buttonWasPressed_ = false;
+  HomeState state_;         // 整个应用唯一的公开状态，各层围绕它协作。
+  AnomalyModel model_;      // 本地学习正常环境的统计模型。
+  uint32_t silenceUntil_ = 0;  // 静音结束时刻，单位为millis毫秒计数。
+  SensorHub sensors_;       // SHT40、BH1750和MQ-2采集模块。
+  CameraModule camera_;     // OV2640拍照驱动；核心版会保持未启用。
+  NetworkService network_;  // Wi-Fi、HTTP接口和网页请求入口。
+  Microphone microphone_;   // INMP441声音指数采集。
+  RadarSensor radar_;       // LD2410C人体存在和移动检测。
+  DisplayView display_;     // ST7789或兼容ILI9341本地显示。
+  uint32_t lastSensorAt_ = 0;   // 上一次传感器采集时刻。
+  uint32_t lastDisplayAt_ = 0;  // 上一次TFT刷新时刻。
+  uint32_t lastButtonAt_ = 0;   // 无摄像头版本的按键消抖时刻。
+  uint32_t buttonPressedAt_ = 0;  // 单按键版本按下的起始时刻。
+  bool buttonWasPressed_ = false; // 记录上一轮按键状态，用于识别松开事件。
 };

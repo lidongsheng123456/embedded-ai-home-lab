@@ -12,6 +12,7 @@ void RiskEvaluator::update(HomeState &state, AnomalyModel &model) {
 void RiskEvaluator::updateModel(HomeState &state, AnomalyModel &model) {
   if (!state.sensorsValid) return;
 
+  // 光照可能从个位数跳到几万lux，先取对数可缩小量级差距。
   const float features[AnomalyModel::FEATURE_COUNT] = {
       state.gasIndex, state.temperature, state.humidity,
       log1pf(state.light), state.sound};
@@ -24,6 +25,7 @@ void RiskEvaluator::updateModel(HomeState &state, AnomalyModel &model) {
 }
 
 void RiskEvaluator::evaluateRules(HomeState &state, const AnomalyModel &model) {
+  // 每轮先恢复默认结果，再按“预热→故障→危险→提醒”的优先级覆盖。
   state.level = 0;
   state.state = model.trained() ? "Normal" : "Learning";
   state.reason = model.trained() ? "No abnormal condition" : "Keep the room in its normal state";

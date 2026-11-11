@@ -1,0 +1,143 @@
+@media (min-width: 1600px) {
+  main {
+    padding: 0 55px;
+  }
+  .room-stage {
+    height: 415px;
+  }
+  .status-panel {
+    padding: 28px;
+  }
+  .status-orbit {
+    width: 168px;
+    height: 168px;
+    margin-top: 30px;
+  }
+  .overview-grid {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+}
+@media (max-width: 1150px) {
+  .sidebar {
+    width: 172px;
+    padding: 29px 17px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .brand small {
+    font-size: 7px;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 38px;
+  }
+  .sidebar-bottom strong {
+    font-size: 10px;
+  }
+  main {
+    margin-left: 172px;
+    padding: 0 24px;
+  }
+  .overview-grid {
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 14px;
+  }
+  .status-panel {
+    padding: 18px;
+  }
+  .scene-tools {
+    font-size: 8px;
+    padding-inline: 16px;
+  }
+  .scene-tools > span {
+    max-width: 110px;
+  }
+  .metric-grid {
+    gap: 10px;
+  }
+  .metric-card {
+    padding: 14px;
+  }
+  .mode-label {
+    display: none;
+  }
+  footer > span {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .sidebar {
+    width: 68px;
+    padding: 22px 12px;
+    align-items: center;
+  }
+  .brand > span:last-child,
+  .brand small,
+  .nav-caption,
+  .nav-item i,
+  .sidebar-bottom {
+    display: none;
+  }
+  .brand-mark {
+    width: 38px;
+    height: 40px;
+  }
+  .nav-item {
+    font-size: 0;
+    padding: 11px;
+    margin-top: 22px;
+  }
+  .nav-item span {
+    font-size: 22px;
+  }
+  .nav-item:first-of-type {
+    margin-top: 42px;
+  }
+  main {
+    margin-left: 68px;
+    padding: 0 20px;
+  }
+  .room-stage {
+    height: 290px;
+  }
+  .scene-overlay {
+    bottom: 95px;
+  }
+  .scene-tools {
+    align-items: start;
+    gap: 10px;
+  }
+  .scene-tools > div {
+    flex-direction: column;
+  }
+  .scene-note {
+    font-size: 7px;
+  }
+  .status-orbit {
+    width: 115px;
+    height: 115px;
+    margin-top: 12px;
+  }
+  .overview-grid {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+  .scene-heading {
+    padding: 18px;
+  }
+  .tiny-label {
+    display: none;
+  }
+  .metric-value b {
+    font-size: 26px;
+  }
+  .section-heading h2 span {
+    display: none;
+  }
+  .demo-banner {
+    flex-wrap: wrap;
+  }
+  .demo-banner select {
+    margin-left: 0;
+  }
+}
