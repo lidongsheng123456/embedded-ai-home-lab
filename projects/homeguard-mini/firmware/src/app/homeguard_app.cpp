@@ -50,7 +50,7 @@ void HomeGuardApp::loop() {
 }
 
 bool HomeGuardApp::silenceActive() const {
-  return static_cast<int32_t>(silenceUntil_ - millis()) > 0;
+  return silenceScheduled_ && static_cast<int32_t>(silenceUntil_ - millis()) > 0;
 }
 
 void HomeGuardApp::readSensors() {
@@ -68,6 +68,11 @@ void HomeGuardApp::readSensors() {
 }
 
 void HomeGuardApp::updateAlarm() {
+  // 倒计时由应用层计算后发布，网页不自行猜测实体按键触发的静音状态。
+  const int32_t remaining = static_cast<int32_t>(silenceUntil_ - millis());
+  if (silenceScheduled_ && remaining <= 0) silenceScheduled_ = false;
+  state_.silenceRemainingSeconds = silenceScheduled_
+      ? (static_cast<uint32_t>(remaining) + 999) / 1000 : 0;
   if (silenceActive() || state_.level == 0) {
     digitalWrite(PIN_BUZZER, LOW);
     return;
@@ -124,6 +129,7 @@ void HomeGuardApp::resetLearning() {
 
 void HomeGuardApp::silenceAlarm() {
   silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
+  silenceScheduled_ = true;
   digitalWrite(PIN_BUZZER, LOW);
   Serial.println("Alarm silenced for 10 minutes");
 }

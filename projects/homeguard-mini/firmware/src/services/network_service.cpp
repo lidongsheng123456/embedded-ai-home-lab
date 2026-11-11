@@ -74,7 +74,7 @@ void NetworkService::startNetwork() {
 String NetworkService::buildStatusJson() const {
   // 预留容量可减少String增长时反复申请内存，降低长期运行时的内存碎片。
   String json;
-  json.reserve(420);
+  json.reserve(560);
   json += F("{\"gasRaw\":"); json += state_.gasRaw;
   json += F(",\"gasVoltage\":"); json += String(state_.gasVoltage, 2);
   json += F(",\"gasIndex\":"); json += String(state_.gasIndex, 0);
@@ -85,6 +85,9 @@ String NetworkService::buildStatusJson() const {
   json += F(",\"sound\":"); json += String(state_.sound, 0);
   json += F(",\"score\":"); json += String(state_.anomalyScore, 2);
   json += F(",\"presence\":"); json += state_.presence ? F("true") : F("false");
+  json += F(",\"moving\":"); json += state_.moving ? F("true") : F("false");
+  json += F(",\"sensorsValid\":"); json += state_.sensorsValid ? F("true") : F("false");
+  json += F(",\"silenceRemaining\":"); json += state_.silenceRemainingSeconds;
   json += F(",\"camera\":"); json += state_.cameraReady ? F("true") : F("false");
   json += F(",\"samples\":"); json += state_.learningSamples;
   json += F(",\"level\":"); json += state_.level;

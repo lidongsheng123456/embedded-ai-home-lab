@@ -19,6 +19,7 @@ struct HomeState {
   bool cameraReady = false;  // OV2640是否初始化成功，网页据此显示拍照区域。
   bool gasWarmingUp = true;  // MQ-2短期预热期间为true，暂停报警和AI学习。
   bool sensorsValid = false; // 核心环境传感器是否都已产生可用数据。
+  uint32_t silenceRemainingSeconds = 0; // 应用层发布的静音剩余秒数；0表示未静音。
   uint8_t level = 0;  // 0 正常，1 提醒，2 危险。
   String state = "Starting";       // 给屏幕和网页显示的简短状态名称。
   String reason = "Sensor warm-up";  // 解释当前等级由什么条件触发。

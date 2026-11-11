@@ -38,6 +38,7 @@ class HomeGuardApp {
   HomeState state_;         // 整个应用唯一的公开状态，各层围绕它协作。
   AnomalyModel model_;      // 本地学习正常环境的统计模型。
   uint32_t silenceUntil_ = 0;  // 静音结束时刻，单位为millis毫秒计数。
+  bool silenceScheduled_ = false; // 区分“从未静音”与计数回绕后的有效截止时间。
   SensorHub sensors_;       // SHT40、BH1750和MQ-2采集模块。
   CameraModule camera_;     // OV2640拍照驱动；核心版会保持未启用。
   NetworkService network_;  // Wi-Fi、HTTP接口和网页请求入口。
