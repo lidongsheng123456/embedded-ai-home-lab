@@ -1,67 +1,79 @@
+/* 提示与确认弹窗遵循同一套温和视觉。 */
 footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin: 27px 0 24px;
-  font-size: 8px;
-  color: #a8b09f;
+  gap: 18px;
+  font-size: 10px;
+  color: #a0a58f;
+  padding: 28px 0;
 }
 footer > span {
-  font: 8px monospace;
-  letter-spacing: 1px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+footer > span b {
+  font-weight: 400;
+  margin: 0 8px;
 }
 footer .dot {
   width: 4px;
   height: 4px;
-  margin-right: 6px;
+  margin-right: 5px;
 }
 footer p {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 footer a {
   white-space: nowrap;
 }
+footer a svg {
+  height: 12px;
+  width: 12px;
+}
 .toast {
   position: fixed;
-  bottom: 28px;
+  bottom: 26px;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid #516a55;
-  background: #203b30;
-  color: #f2f4e9;
-  border-radius: 12px;
-  padding: 15px 22px;
-  font-size: 12px;
-  z-index: 5;
-  box-shadow: 0 8px 40px #0002;
   max-width: 90vw;
+  padding: 16px 23px;
+  font-size: 13px;
+  color: #617153;
+  background: #fffdf2ed;
+  border: 1px solid #dce3ce;
+  border-radius: 13px;
+  box-shadow: 0 8px 35px #6c775929;
+  backdrop-filter: blur(14px);
+  z-index: 10;
 }
 dialog {
-  border: 1px solid #d7dfce;
-  border-radius: 20px;
-  padding: 30px;
-  color: #304332;
-  max-width: 420px;
+  color: #47523b;
+  background: #fffdf5;
+  border: 1px solid #d8e0ca;
+  border-radius: 22px;
+  max-width: 440px;
   width: 90vw;
+  padding: 30px;
+  box-shadow: 0 30px 100px #4a503b33;
 }
 dialog::backdrop {
-  background: #0b1d17a0;
+  background: #4a513c66;
   backdrop-filter: blur(5px);
 }
 dialog h2 {
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 500;
 }
 dialog p {
-  font-size: 12px;
+  font-size: 13px;
+  color: #8d967d;
   line-height: 1.9;
-  color: #88947e;
 }
 dialog form > div {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 15px;
   margin-top: 24px;
 }

@@ -17,16 +17,32 @@ await build({
   entryPoints: [path.join(root, 'src/styles.css')],
   outfile: path.join(output, 'styles.css'), bundle: true, minify: true,
 });
+// 保存完整版权和许可文本，离线设备也能查阅，不能只留一个网址。
+const licenseFiles = [
+  'three/LICENSE', 'postprocessing/LICENSE.md', 'motion/LICENSE.md',
+  'framer-motion/LICENSE.md', 'motion-dom/LICENSE.md', 'motion-utils/LICENSE.md',
+  'echarts/LICENSE', 'echarts/NOTICE', 'zrender/LICENSE', 'tslib/LICENSE.txt', 'lucide/LICENSE',
+];
+const licenses = await Promise.all(licenseFiles.map(async file =>
+  `\n===== ${file} =====\n${await readFile(path.join(root, 'node_modules', file), 'utf8')}`));
+licenses.push(`\n===== Sheen Chair: Eric Chadwick / Wayfair, LLC, 2020 =====\n${
+  await readFile(path.join(root, 'assets/README.md'), 'utf8')}\n${
+  await readFile(path.join(root, 'assets/CC0-1.0.txt'), 'utf8')}`);
 const assets = [
   ['/', 'text/html; charset=utf-8', await readFile(path.join(root, 'index.html'))],
   ['/app.js', 'text/javascript; charset=utf-8', await readFile(path.join(output, 'app.js'))],
   ['/styles.css', 'text/css; charset=utf-8', await readFile(path.join(output, 'styles.css'))],
-  ['/licenses.txt', 'text/plain; charset=utf-8', await readFile(path.join(root, 'node_modules/three/LICENSE'))],
+  ['/licenses.txt', 'text/plain; charset=utf-8', Buffer.from(licenses.join('\n'))],
+  ['/assets/lounge-chair.glb', 'model/gltf-binary', await readFile(path.join(root, 'assets/lounge-chair.glb'))],
 ];
 let header = '// 自动生成，请编辑firmware/web/中的源码。\n#pragma once\n';
 const entries = [];
 let total = 0;
 for (const [index, [url, mime, content]] of assets.entries()) {
+  // 预览和固件使用同一份资源清单，新增模型也必须在设备热点中可访问。
+  const filename = url === '/' ? 'index.html' : url.slice(1);
+  await mkdir(path.dirname(path.join(output, filename)), { recursive: true });
+  await writeFile(path.join(output, filename), content);
   const compressed = gzipSync(content, { level: 9 });
   const symbol = `WEB_ASSET_${index}`;
   // 每行32字节只是为了让构建产物易检查，不影响固件内容。
@@ -40,8 +56,6 @@ for (const [index, [url, mime, content]] of assets.entries()) {
   console.log(`${url}: ${content.length} bytes -> ${compressed.length} bytes gzip`);
 }
 header += `const WebAsset WEB_ASSETS[] = {\n${entries.join(',\n')}\n};\n`;
-await writeFile(path.join(output, 'index.html'), assets[0][2]);
-await writeFile(path.join(output, 'licenses.txt'), assets[3][2]);
 // 内容没变就保留头文件时间戳，避免每次点Build都重新编译网页资源。
 const headerPath = path.join(output, 'web_bundle.h');
 const previous = await readFile(headerPath, 'utf8').catch(() => '');

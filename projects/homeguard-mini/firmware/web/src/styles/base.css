@@ -1,15 +1,18 @@
-/* 色彩、间距和断点集中在界面层；无需外部字体，设备热点内也能完整显示。 */
+/* 奶油底色、苔绿与陶土色；正文保持可读对比度。 */
 :root {
-  font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
-  color: #203432;
-  background: #f5f6f2;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: #383e34;
+  background: #f6f4ee;
   font-synthesis: none;
-  --green: #487866;
-  --muted: #818b87;
-  --line: #e5e9e2;
-  --accent: #a1c9ad;
-  --danger: #d76b56;
-  --radius: 18px;
+  color-scheme: light;
+  --mint: #647f60;
+  --blue: #789da9;
+  --amber: #bb8856;
+  --muted: #7b8075;
+  --line: #e6e5dc;
+  --panel: #fffefa;
+  --radius: 24px;
+  --status-color: #647f60;
 }
 * {
   box-sizing: border-box;
@@ -21,10 +24,9 @@ html {
 body {
   margin: 0;
 }
-button,
-a,
-select {
-  -webkit-tap-highlight-color: transparent;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 button,
 select {
@@ -33,24 +35,66 @@ select {
 button,
 a {
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 button {
   cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
 }
 button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
-a {
-  color: inherit;
-  text-decoration: none;
-}
 button:focus-visible,
 a:focus-visible,
 select:focus-visible {
-  outline: 3px solid #d8a96f;
+  outline: 2px solid var(--mint);
   outline-offset: 4px;
+}
+svg {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  stroke-width: 1.7;
 }
 [hidden] {
   display: none !important;
+}
+::selection {
+  background: #dfe9d9;
+}
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  flex-shrink: 0;
+}
+.dot.waiting {
+  background: var(--amber);
+}
+.dot.offline {
+  background: #b76c5d;
+}
+.section-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.section-caption > span:last-child:not(:first-child),
+.section-caption small {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.7px;
+  color: var(--muted);
+}
+.section-caption small {
+  margin-left: 12px;
 }

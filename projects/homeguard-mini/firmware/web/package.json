@@ -3,12 +3,22 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview.mjs",
     "test": "node --test tests"
   },
-  "dependencies": { "three": "0.170.0" },
-  "devDependencies": { "esbuild": "0.25.12" }
+  "dependencies": {
+    "echarts": "5.6.0",
+    "lucide": "0.468.0",
+    "motion": "12.23.24",
+    "postprocessing": "6.36.7",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
 }

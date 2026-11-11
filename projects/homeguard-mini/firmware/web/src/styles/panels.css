@@ -1,117 +1,200 @@
+/* 趋势、气体、快照各有独立职责，真实状态不依赖3D加载。 */
 .bottom-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 18px;
-  margin-top: 18px;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 22px;
+  margin-top: 20px;
 }
+.trend-panel,
 .gas-panel,
-.camera-panel {
-  padding: 21px 23px;
+.camera-panel,
+.device-panel {
+  background: #fffefa;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  min-width: 0;
+}
+.trend-panel {
+  padding: 22px 22px 16px;
+}
+.trend-chart {
+  height: 190px;
+  width: 100%;
+}
+.chart-switch {
+  display: flex;
+  gap: 2px;
+}
+.chart-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 10px;
+  color: #a1a58e;
+}
+.chart-foot .dot {
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+}
+.gas-panel {
+  padding: 23px;
 }
 .gas-head {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  align-items: center;
+  margin: 25px 0;
 }
 .gas-head b {
-  font-size: 32px;
-  font-weight: 450;
-  letter-spacing: -1px;
+  font-size: 42px;
+  font-weight: 400;
 }
 .gas-head > div > span {
-  font-size: 10px;
-  color: #96a18e;
-  margin-left: 7px;
+  font-size: 12px;
+  color: #9ca28c;
+  margin-left: 5px;
 }
 .pill {
-  font-size: 9px;
-  color: #839a70;
-  background: #f0f4e9;
+  font-size: 10px;
+  color: #8e896d;
+  background: #f1ede0;
   padding: 6px 9px;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 .gas-scale {
-  height: 7px;
-  border-radius: 8px;
-  background: #edf0e8;
-  position: relative;
-  margin-top: 15px;
+  height: 5px;
+  background: #edeedf;
+  border-radius: 5px;
   overflow: hidden;
+  position: relative;
 }
 .gas-scale > div {
+  height: 100%;
   width: 0;
-  max-width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #a4ba83, #cfb77a, #c87f5f);
+  background: linear-gradient(90deg, #99b089, #d3af6c, #c68168);
   transition: width 0.8s;
-}
-.gas-scale i {
-  position: absolute;
-  left: 60%;
-  height: 100%;
-  border-left: 2px solid #fff;
 }
 .scale-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 8px;
-  color: #a9b09f;
-  margin-top: 8px;
+  gap: 9px;
+  font-size: 9px;
+  color: #9ca28b;
+  margin-top: 9px;
 }
 .gas-bottom {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top: 25px;
-  font-size: 9px;
-  color: #a0aa95;
+  border-top: 1px solid var(--line);
+  margin-top: 26px;
+  padding-top: 18px;
+  font-size: 11px;
+  color: #8b937c;
 }
 .gas-bottom b {
-  font-weight: 500;
-  color: #6a7f5f;
+  font-size: 12px;
+  color: #67745b;
+  margin-left: 4px;
 }
 .camera-panel {
-  position: relative;
-  overflow: hidden;
+  margin-top: 20px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.camera-panel > div > p {
+  font-size: 12px;
+  color: #9aa18b;
+  margin: 15px 0 22px;
+  line-height: 1.8;
 }
 .camera-content {
-  margin-top: 13px;
-  height: 132px;
-  border-radius: 10px;
-  background: repeating-linear-gradient(
-    45deg,
-    #f5f6f0,
-    #f5f6f0 1px,
-    #f2f4ed 1px,
-    #f2f4ed 7px
-  );
+  height: 165px;
   display: grid;
   place-items: center;
+  border: 1px dashed #d8decb;
+  border-radius: 14px;
+  background: #f3f3e9;
   overflow: hidden;
 }
 .camera-placeholder {
   text-align: center;
-  font-size: 10px;
-  color: #9ca891;
+  color: #9ba58c;
+  font-size: 12px;
 }
-.camera-placeholder > span {
-  font-size: 25px;
-  color: #9fae93;
+.camera-placeholder > svg {
+  width: 25px;
+  height: 25px;
+  color: #a1ad91;
 }
 .camera-placeholder p {
-  margin: 6px 0;
+  margin: 12px;
+  line-height: 1.8;
 }
 .camera-content img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #1a2620;
+  background: #f3f3e9;
 }
 .camera-button {
-  display: block;
-  margin: 10px 0 0 auto;
-  background: none;
-  border: 0;
-  color: #6c825d;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #d7dfcb;
+  border-radius: 10px;
+  background: #edf1e3;
+  color: #6f825e;
+  padding: 11px 14px;
+  font-size: 12px;
+  min-height: 42px;
+}
+.camera-button svg {
+  height: 15px;
+  width: 15px;
+}
+.device-panel {
+  margin-top: 20px;
+  padding: 21px 24px;
+}
+.device-panel summary {
+  cursor: pointer;
+  min-height: 25px;
+  font-size: 13px;
+  color: #7d886f;
+}
+.device-panel summary span {
+  color: #a5aa97;
+  font-size: 11px;
+  margin-left: 12px;
+}
+.device-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 23px;
+}
+.device-details > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 2px solid #e5e9dc;
+  font-size: 11px;
+  color: #919a82;
+}
+.device-details b {
+  font-size: 12px;
+  font-weight: 500;
+  color: #67775c;
+}
+.device-details p {
+  margin: 0;
   font-size: 10px;
+  line-height: 1.8;
+  color: #a2a792;
 }

@@ -9,6 +9,7 @@ const files = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/licenses.txt', ['licenses.txt', 'text/plain; charset=utf-8']],
+  ['/assets/lounge-chair.glb', ['assets/lounge-chair.glb', 'model/gltf-binary']],
 ]);
 const port = Number(process.env.HOMEGUARD_PREVIEW_PORT || 4173);
 createServer(async (request, response) => {

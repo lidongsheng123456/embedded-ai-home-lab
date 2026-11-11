@@ -1,57 +1,368 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#101b1b">
-  <title>HomeGuard Mini · 空间感知</title>
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="/styles.css">
-  <script type="module" src="/app.js"></script>
-</head>
-<body>
-  <aside class="sidebar">
-    <a class="brand" href="/" aria-label="HomeGuard首页"><span class="brand-mark">H<span>·</span></span><span>HomeGuard<small>MINI / 本地环境感知</small></span></a>
-    <div class="nav-caption">你的生活空间</div>
-    <a class="nav-item active" href="#overview"><span>◈</span> 空间总览 <i>01</i></a>
-    <a class="nav-item" href="#metrics"><span>⌁</span> 环境数据 <i>02</i></a>
-    <a class="nav-item" href="#camera-panel"><span>▣</span> 实时快照 <i>03</i></a>
-    <div class="sidebar-bottom"><span class="local-orbit">◎</span><strong>家里的数据，留在家里。</strong><p>本地感知 · 本地学习<br>无需云端账号</p><a href="/licenses.txt">开源许可 ↗</a></div>
-  </aside>
-  <main id="overview">
-    <header class="topbar"><span class="breadcrumb">我的空间 <b>/</b> 环境总览</span><div class="connection"><button id="fullscreen-button" class="icon-button">⛶ 全屏</button><span id="connection-dot" class="dot waiting"></span><span id="connection-label">正在连接设备</span><time id="clock">--:--</time></div></header>
-    <section class="page-heading"><div><p class="eyebrow">A LITTLE SPACE. A LITTLE PEACE.</p><h1>看见家的每一次变化<span>。</span></h1><p class="subtitle">感知温度、光与声音，让日常多一点安心。</p></div><span id="mode-label" class="mode-label">LIVE / 设备实时数据</span></section>
-    <div id="demo-banner" class="demo-banner" hidden>演示模式 · 以下为模拟数据，不代表实际房间。<select id="demo-scenario" aria-label="选择演示场景"><option value="normal">舒适日常</option><option value="humid">潮湿提醒</option><option value="gas">气体变化</option><option value="empty">无人时刻</option></select><a href="/">连接真实设备 ↗</a></div>
-    <section class="overview-grid">
-      <article class="scene-panel">
-        <div class="scene-heading"><span><i class="dot"></i> 空间感知</span><span class="tiny-label">ROOM / 01</span></div>
-        <div id="room-stage" class="room-stage" role="img" aria-label="可拖动的三维房间示意模型"><div id="scene-fallback" class="scene-fallback">正在构建你的空间…</div></div>
-        <div class="scene-overlay"><span class="room-tag">客厅 <small>LIVING SPACE</small></span><span class="presence-badge" id="scene-presence">等待感知</span></div>
-        <div class="scene-tools"><span>拖动旋转 · 滚轮 / 双指缩放</span><div><button id="motion-toggle" class="icon-button" aria-pressed="false">暂停动效</button><button id="view-reset" class="icon-button">复位视角 ↗</button></div></div>
-        <p class="scene-note">空间与人物均为示意；设备只检测是否有人，不提供位置或户型识别。</p>
-      </article>
-      <article class="status-panel">
-        <div class="section-caption">此刻，家里怎么样 <span>↗</span></div>
-        <div class="status-orbit"><svg viewBox="0 0 160 160" aria-hidden="true"><circle class="orbit-track" cx="80" cy="80" r="67"/><circle id="status-ring" class="orbit-progress" cx="80" cy="80" r="67"/></svg><div><span id="status-symbol">◎</span><small id="presence">等待数据</small></div></div>
-        <h2 id="state-title">正在连接</h2><p id="state-reason" class="status-reason">连接设备后，这里会显示真实环境状态。</p>
-        <div class="learning-label"><span>正常环境学习</span><span id="samples">-- / 120</span></div><div class="progress-track"><div id="learning-progress"></div></div>
-        <div class="status-foot"><span>AI 偏离分数 <b id="score">--</b></span><span>运行 <b id="uptime">--</b></span></div>
-        <div class="status-actions"><button id="silence-button" class="primary-button" disabled>♧ 静音 10 分钟</button><button id="learn-button" class="text-button" disabled>重新学习正常环境 ↗</button></div>
-      </article>
-    </section>
-    <section id="metrics" class="metrics-section"><div class="section-heading"><h2>环境的细节<span>ENVIRONMENT</span></h2><span id="updated-at">尚未收到数据</span></div><div class="metric-grid">
-      <article class="metric-card"><div class="metric-top"><span>温度</span><span class="metric-icon orange">♨</span></div><div class="metric-value"><b id="temp">--</b><span>°C</span></div><p>房间里的冷暖</p><svg data-trend="temp" class="sparkline" viewBox="0 0 200 35" preserveAspectRatio="none" aria-hidden="true"></svg></article>
-      <article class="metric-card"><div class="metric-top"><span>相对湿度</span><span class="metric-icon blue">♧</span></div><div class="metric-value"><b id="humidity">--</b><span>%RH</span></div><p>感知空气的干湿</p><svg data-trend="humidity" class="sparkline" viewBox="0 0 200 35" preserveAspectRatio="none" aria-hidden="true"></svg></article>
-      <article class="metric-card"><div class="metric-top"><span>光照强度</span><span class="metric-icon yellow">☀</span></div><div class="metric-value"><b id="light">--</b><span>lux</span></div><p>光线让空间醒来</p><svg data-trend="light" class="sparkline" viewBox="0 0 200 35" preserveAspectRatio="none" aria-hidden="true"></svg></article>
-      <article class="metric-card"><div class="metric-top"><span>相对声音</span><span class="metric-icon green">≋</span></div><div class="metric-value"><b id="sound">--</b><span>/100</span></div><p>相对指数，非校准分贝</p><svg data-trend="sound" class="sparkline" viewBox="0 0 200 35" preserveAspectRatio="none" aria-hidden="true"></svg></article>
-    </div></section>
-    <section class="bottom-grid">
-      <article class="gas-panel"><div class="section-caption">空气的微小变化 <span>MQ-2</span></div><div class="gas-head"><div><b id="gasIndex">--</b><span>/100 相对指数</span></div><span id="gas-status" class="pill">等待采集</span></div><div class="gas-scale"><div id="gas-fill"></div><i></i></div><div class="scale-labels"><span>0</span><span>相对变化，非气体浓度</span><span>100</span></div><div class="gas-bottom"><span>模块 AO <b id="gasVoltage">--</b> V</span><span>仅供实验与辅助提醒</span></div></article>
-      <article id="camera-panel" class="camera-panel"><div class="section-caption">留一眼，给此刻的家 <span>LOCAL SNAPSHOT</span></div><div class="camera-content"><div id="camera-placeholder" class="camera-placeholder"><span>▣</span><p id="camera-note">连接设备后检查摄像头状态</p></div><img id="camera-image" alt="本地摄像头手动快照" hidden></div><button id="photo-button" class="camera-button" disabled>拍摄一张快照 ↗</button></article>
-    </section>
-    <footer><span><i class="dot"></i> HOMEGUARD MINI · LOCAL FIRST</span><p>学习与辅助提醒设备，不能替代符合标准的消防、燃气或一氧化碳报警器。</p><a href="/?demo=1">体验演示 ↗</a></footer>
-  </main>
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <dialog id="learn-dialog"><form method="dialog"><span class="eyebrow">A FRESH START</span><h2>重新认识这个房间？</h2><p>将清除旧的环境基线，重新收集约 10 分钟有效数据。请让房间保持正常、稳定的状态。</p><div><button value="cancel" class="text-button">再想想</button><button value="confirm" class="primary-button">确认重新学习</button></div></form></dialog>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f6f4ee" />
+    <title>HomeGuard Mini · 家的此刻</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <!-- 导航与数据区使用真实HTML，3D不可用时也能查看与控制。 -->
+    <aside class="sidebar">
+      <a class="brand-mark" href="/" aria-label="HomeGuard首页"
+        ><i data-lucide="house"></i><span>家的此刻</span></a
+      >
+      <nav>
+        <a class="nav-item active" href="#overview" aria-label="家的总览"
+          ><i data-lucide="house"></i><span>家的总览</span></a
+        ><a class="nav-item" href="#metrics" aria-label="环境记录"
+          ><i data-lucide="chart-no-axes-combined"></i><span>环境记录</span></a
+        ><a class="nav-item" href="#camera-panel" aria-label="看看家里"
+          ><i data-lucide="camera"></i><span>看看家里</span></a
+        ><a class="nav-item" href="#device-panel" aria-label="设备详情"
+          ><i data-lucide="hard-drive"></i><span>设备详情</span></a
+        >
+      </nav>
+      <p class="sidebar-note">感知细小变化，<br />照顾家的日常。</p>
+      <a class="local-badge" href="/licenses.txt" title="本地运行 · 开源许可"
+        ><i data-lucide="lock-keyhole"></i
+        ><span>本地运行<br />开源与模型许可 ↗</span></a
+      >
+    </aside>
+    <main id="overview">
+      <header class="topbar">
+        <a class="brand" href="/"
+          >HOMEGUARD<span>MINI</span><small>一个关于家的小小关心</small></a
+        >
+        <div class="connection">
+          <span id="connection-dot" class="dot waiting"></span
+          ><span id="connection-label">正在连接设备</span
+          ><span class="topbar-divider"></span><time id="clock">--:--</time
+          ><button
+            id="fullscreen-button"
+            class="icon-button"
+            title="全屏大屏"
+            aria-label="全屏大屏"
+          >
+            <i data-lucide="maximize"></i>
+          </button>
+        </div>
+      </header>
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow"><span></span> A LITTLE CLOSER TO HOME</p>
+          <h1>家的每一刻，都值得关心<span>。</span></h1>
+          <p class="subtitle">冷暖、光线与细小变化，在这里慢慢看见。</p>
+        </div>
+        <div class="heading-meta">
+          <span id="mode-label" class="mode-label">来自家里的实时数据</span
+          ><span>本地感知 <b>·</b> 离线可用 <b>·</b> 隐私优先</span>
+        </div>
+      </section>
+      <div id="demo-banner" class="demo-banner" hidden>
+        <span
+          ><i data-lucide="flask-conical"></i> 演示模式
+          <small>模拟数据，不代表实际环境</small></span
+        ><select id="demo-scenario" aria-label="选择演示场景">
+          <option value="normal">01 / 舒适日常</option>
+          <option value="humid">02 / 潮湿提醒</option>
+          <option value="gas">03 / 气体变化</option>
+          <option value="empty">04 / 无人时刻</option></select
+        ><a href="/">连接设备 <i data-lucide="arrow-up-right"></i></a>
+      </div>
+      <section class="overview-grid">
+        <article class="scene-panel reveal">
+          <div class="scene-heading">
+            <div>
+              <span class="tiny-label">OUR LITTLE LIVING ROOM</span>
+              <h2>日常的一角 <span>客厅空间示意</span></h2>
+            </div>
+            <div class="view-switch" aria-label="模型视角">
+              <button class="selected" data-view="overview" aria-pressed="true">
+                总览</button
+              ><button data-view="top" aria-pressed="false">俯视</button
+              ><button data-view="detail" aria-pressed="false">设备</button>
+            </div>
+          </div>
+          <div
+            id="room-stage"
+            class="room-stage"
+            role="img"
+            aria-label="可拖动的三维客厅示意，光照与设备提示随真实数据变化"
+          >
+            <div id="scene-fallback" class="scene-fallback">
+              <span class="loader-ring"></span>
+              <p>正在打开家的小小角落</p>
+            </div>
+          </div>
+          <div class="scene-hud">
+            <span><i class="dot"></i> 感知节点 <b>HOME / 01</b></span
+            ><span id="scene-presence" class="presence-badge">等待感知</span>
+          </div>
+          <div class="scene-readouts" aria-hidden="true">
+            <div class="node-label" data-anchor="device">
+              <span></span><b>HomeGuard Mini</b><small>在这里，感知日常</small>
+            </div>
+            <div class="node-label" data-anchor="person" hidden>
+              <span></span><b>感知到有人</b><small>固定示意标记 · 非定位</small>
+            </div>
+          </div>
+          <div class="scene-compass">
+            <span>N</span><i>＋</i><small>空间示意</small>
+          </div>
+          <div class="scene-tools">
+            <span><i data-lucide="move"></i> 拖动探索 / 双指缩放</span>
+            <div>
+              <button
+                id="motion-toggle"
+                class="icon-button"
+                aria-pressed="false"
+              >
+                暂停动效</button
+              ><button
+                id="quality-toggle"
+                class="icon-button"
+                aria-pressed="false"
+              >
+                柔光：关</button
+              ><button
+                id="view-reset"
+                class="icon-button"
+                title="复位视角"
+                aria-label="复位视角"
+              >
+                <i data-lucide="rotate-ccw"></i>
+              </button>
+            </div>
+          </div>
+          <p class="scene-note">
+            <span id="model-note">正在载入本地家具</span
+            >。房间为示意，不提供户型扫描、人员定位或真实灯具控制。
+          </p>
+        </article>
+        <aside class="status-panel reveal">
+          <div class="section-caption">家的状态 <span>此刻的关心</span></div>
+          <div class="status-orbit">
+            <div class="orbit-glow"></div>
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <circle class="orbit-track" cx="80" cy="80" r="67" />
+              <circle
+                id="status-ring"
+                class="orbit-progress"
+                cx="80"
+                cy="80"
+                r="67"
+              />
+            </svg>
+            <div>
+              <span id="status-symbol"><i data-lucide="shield-check"></i></span
+              ><small id="presence">等待数据</small>
+            </div>
+          </div>
+          <h2 id="state-title">正在建立连接</h2>
+          <p id="state-reason" class="status-reason">
+            连接设备后显示实时状态。
+          </p>
+          <div class="status-foot">
+            <div>
+              <span>AI 偏离分数</span><b id="score">--</b
+              ><small>相对正常环境</small>
+            </div>
+            <div>
+              <span>设备运行</span><b id="uptime">--</b
+              ><small>本地持续监测</small>
+            </div>
+          </div>
+          <div class="learning-label">
+            <span><i data-lucide="brain-circuit"></i> 环境基线学习</span
+            ><span id="samples">-- / 120</span>
+          </div>
+          <div class="progress-track"><div id="learning-progress"></div></div>
+          <div class="status-actions">
+            <button id="silence-button" class="primary-button" disabled>
+              <i data-lucide="volume-x"></i> 静音 10 分钟</button
+            ><button id="learn-button" class="text-button" disabled>
+              <i data-lucide="refresh-cw"></i> 重新学习环境基线
+            </button>
+          </div>
+          <div class="privacy-note">
+            <i data-lucide="lock-keyhole"></i
+            ><span>数据留在设备，安心留在家里。</span>
+          </div>
+        </aside>
+      </section>
+      <section id="metrics" class="metrics-section">
+        <div class="section-heading">
+          <h2>感受家的温度 <span>THE EVERYDAY DETAILS</span></h2>
+          <span id="updated-at">尚未收到数据</span>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card reveal" data-metric="temp">
+            <div class="metric-top">
+              <span><i data-lucide="thermometer"></i> 室内温度</span
+              ><small>SHT40</small>
+            </div>
+            <div class="metric-value"><b id="temp">--</b><span>°C</span></div>
+            <div class="metric-bottom">
+              <p>感知空间冷暖</p>
+              <span class="metric-line amber"></span>
+            </div>
+          </article>
+          <article class="metric-card reveal" data-metric="humidity">
+            <div class="metric-top">
+              <span><i data-lucide="droplets"></i> 相对湿度</span
+              ><small>SHT40</small>
+            </div>
+            <div class="metric-value">
+              <b id="humidity">--</b><span>%RH</span>
+            </div>
+            <div class="metric-bottom">
+              <p>留意潮湿变化</p>
+              <span class="metric-line blue"></span>
+            </div>
+          </article>
+          <article class="metric-card reveal" data-metric="light">
+            <div class="metric-top">
+              <span><i data-lucide="sun"></i> 环境光照</span
+              ><small>BH1750</small>
+            </div>
+            <div class="metric-value"><b id="light">--</b><span>lux</span></div>
+            <div class="metric-bottom">
+              <p>捕捉光线明暗</p>
+              <span class="metric-line mint"></span>
+            </div>
+          </article>
+          <article class="metric-card reveal" data-metric="sound">
+            <div class="metric-top">
+              <span><i data-lucide="audio-lines"></i> 相对声音</span
+              ><small>INMP441</small>
+            </div>
+            <div class="metric-value">
+              <b id="sound">--</b><span>/100</span>
+            </div>
+            <div class="metric-bottom">
+              <p>相对指数 · 非校准分贝</p>
+              <span class="metric-line violet"></span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="bottom-grid">
+        <article class="trend-panel reveal">
+          <div class="section-caption">
+            <span>日常的起伏 <small>本次访问</small></span>
+            <div class="chart-switch">
+              <button class="selected" data-series="temp" aria-pressed="true">
+                温度</button
+              ><button data-series="humidity" aria-pressed="false">湿度</button
+              ><button data-series="light" aria-pressed="false">光照</button
+              ><button data-series="sound" aria-pressed="false">声音</button
+              ><button data-series="gasIndex" aria-pressed="false">气体</button>
+            </div>
+          </div>
+          <div
+            id="trend-chart"
+            class="trend-chart"
+            role="img"
+            aria-label="当前会话的环境趋势图"
+          ></div>
+          <div class="chart-foot">
+            <span><i class="dot"></i> 页面会话数据 · 最近 40 个点</span
+            ><span>仅保存在浏览器内存</span>
+          </div>
+        </article>
+        <article class="gas-panel reveal">
+          <div class="section-caption">空气变化 <span>MQ-2</span></div>
+          <div class="gas-head">
+            <div><b id="gasIndex">--</b><span>/100</span></div>
+            <span id="gas-status" class="pill">等待采集</span>
+          </div>
+          <div class="gas-scale">
+            <div id="gas-fill"></div>
+            <i></i>
+          </div>
+          <div class="scale-labels">
+            <span>0</span><span>相对指数 · 非气体浓度</span><span>100</span>
+          </div>
+          <div class="gas-bottom">
+            <span>模块 AO 电压 <b id="gasVoltage">--</b> V</span
+            ><i data-lucide="wind"></i>
+          </div>
+        </article>
+      </section>
+      <section id="camera-panel" class="camera-panel reveal">
+        <div>
+          <div class="section-caption">
+            此刻的空间 <span>LOCAL SNAPSHOT</span>
+          </div>
+          <p>手动拍摄，不自动上传，不保存历史。</p>
+          <button id="photo-button" class="camera-button" disabled>
+            <i data-lucide="camera"></i> 拍摄一张快照
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+        </div>
+        <div class="camera-content">
+          <div id="camera-placeholder" class="camera-placeholder">
+            <i data-lucide="scan-line"></i>
+            <p id="camera-note">等待设备连接</p>
+          </div>
+          <img id="camera-image" alt="本地摄像头手动快照" hidden />
+        </div>
+      </section>
+      <details id="device-panel" class="device-panel">
+        <summary>
+          设备详情 <span>了解家里的小帮手，也方便接线排查</span>
+        </summary>
+        <div class="device-details">
+          <div>
+            环境采集 · SHT40 / BH1750<b id="sensors-health">等待设备</b>
+            <p>温湿度与光照是否已获得有效读数。</p>
+          </div>
+          <div>
+            人体感知 · LD2410C<b id="radar-detail">等待设备</b>
+            <p>检测存在与移动，不识别人脸或位置。</p>
+          </div>
+          <div>
+            气体原始采样 · MQ-2<b id="gas-raw">--</b>
+            <p>原始读数用于排查，不能当作气体浓度。</p>
+          </div>
+          <div>
+            声音提醒 · 蜂鸣器<b id="alarm-detail">等待设备</b>
+            <p>静音只暂停声音，环境监测继续运行。</p>
+          </div>
+          <div>
+            图像采集 · OV2640<b id="camera-detail">等待设备</b>
+            <p>仅完整固件启用，点击才拍一张。</p>
+          </div>
+          <div>
+            本机屏幕与实体按键<b>在设备上直接使用</b>
+            <p>TFT持续显示；实体按键与网页共用静音、重新学习逻辑。</p>
+          </div>
+        </div>
+      </details>
+      <footer>
+        <span><i class="dot"></i> HOMEGUARD MINI <b>/</b> 用心感知日常</span>
+        <p>学习与辅助提醒设备，不能替代认证消防、燃气或一氧化碳报警器。</p>
+        <a href="/?demo=1">探索演示 <i data-lucide="arrow-up-right"></i></a>
+      </footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <dialog id="learn-dialog">
+      <form method="dialog">
+        <span class="eyebrow">RECALIBRATE YOUR SPACE</span>
+        <h2>重新认识这个房间？</h2>
+        <p>
+          将清除旧环境基线，重新收集约 10
+          分钟有效数据。请保持房间环境正常、稳定。
+        </p>
+        <div>
+          <button value="cancel" class="text-button">取消</button
+          ><button value="confirm" class="primary-button">确认重新学习</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
 </html>

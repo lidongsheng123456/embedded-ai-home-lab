@@ -1,121 +1,160 @@
-/** Three.js在访问网页的手机/电脑上运行，ESP32只负责发送文件和传感器数据。 */
+/** 场景调度：模型、效果和渲染各自独立，本模块只协调时间、镜头和实时状态。 */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { animate } from 'motion';
 import { createRoom } from './room-model.js';
+import { createSceneRenderer } from './scene-renderer.js';
 
+/** 把三维视图挂到容器；返回更新状态、切换视角及释放资源的接口，硬件逻辑不进入这里。 */
 export function createRoomScene(container) {
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.35;
-  container.appendChild(renderer.domElement);
-
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 80);
-  camera.position.set(10.5, 9.2, 12.2);
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 0.3, 0);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 90);
+  camera.position.set(10, 8, 12);
+  const output = createSceneRenderer(container, scene, camera);
+  // 室内反射环境让木材和织物有自然层次，无需在线下载HDR图片。
+  const environmentSource = new RoomEnvironment();
+  const environment = new THREE.PMREMGenerator(output.renderer);
+  const environmentMap = environment.fromScene(environmentSource, 0.04);
+  scene.environment = environmentMap.texture;
+  scene.environmentIntensity = 0.35;
+  environmentSource.dispose();
+  environment.dispose();
+  const controls = new OrbitControls(camera, output.renderer.domElement);
+  controls.target.set(0, 0.7, 0);
   controls.enablePan = false;
-  controls.minDistance = 9;
-  controls.maxDistance = 23;
-  controls.minPolarAngle = 0.3;
-  controls.maxPolarAngle = Math.PI / 2.15;
-  controls.minAzimuthAngle = -0.25;
-  controls.maxAzimuthAngle = Math.PI / 2;
   controls.enableDamping = true;
+  controls.minDistance = 6;
+  controls.maxDistance = 28;
+  controls.minPolarAngle = 0.05;
+  controls.maxPolarAngle = Math.PI / 2.1;
+  controls.minAzimuthAngle = -0.35;
+  controls.maxAzimuthAngle = 1.6;
   controls.update();
-  controls.saveState();
-
-  const ambient = new THREE.HemisphereLight('#fff9e8', '#a7b99c', 2.7);
+  const ambient = new THREE.HemisphereLight('#fff8e8', '#b7aa91', 2.1);
   scene.add(ambient);
-  const sunlight = new THREE.DirectionalLight('#fff2d1', 3.2);
-  sunlight.position.set(2, 9, 4);
+  const sunlight = new THREE.DirectionalLight('#fff0d1', 3.2);
+  sunlight.position.set(-3, 8, 4);
   sunlight.castShadow = true;
-  sunlight.shadow.mapSize.set(1024, 1024);
-  sunlight.shadow.camera.left = -8;
-  sunlight.shadow.camera.right = 8;
-  sunlight.shadow.camera.top = 8;
-  sunlight.shadow.camera.bottom = -8;
-  sunlight.shadow.normalBias = 0.04;
+  const shadowSize = innerWidth < 620 ? 1024 : 2048;
+  sunlight.shadow.mapSize.set(shadowSize, shadowSize);
+  Object.assign(sunlight.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 });
+  sunlight.shadow.normalBias = 0.025;
+  sunlight.shadow.bias = -0.0002;
+  sunlight.shadow.radius = 3;
   scene.add(sunlight);
-  const { room, rings, beacon, person } = createRoom();
-  scene.add(room);
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const warmLight = new THREE.PointLight('#ffce99', 5, 7, 2);
+  warmLight.position.set(-3.2, 1.9, -1.75);
+  scene.add(warmLight);
+  const model = createRoom();
+  scene.add(model.room);
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reducedMotion.matches;
-  let frame = 0;
-  let previousAt = 0;
-  let active = true;
   let latest = null;
+  let active = true;
+  let frame;
   let destroyed = false;
-  const initialAt = performance.now();
-  const animate = (now) => {
-    if (destroyed) return;
-    frame = requestAnimationFrame(animate);
-    // 大屏限制为约30帧；切到后台或滚出可视区时停止绘制，减少手机发热。
-    if (!active || document.hidden || now - previousAt < 33) return;
-    previousAt = now;
-    controls.update();
-    if (!paused) animateRings((now - initialAt) / 1000);
-    renderer.render(scene, camera);
-  };
-  function animateRings(seconds) {
-    rings.forEach((ring, index) => {
-      const progress = (seconds * 0.23 + index / rings.length) % 1;
-      ring.scale.setScalar(0.3 + progress * 3.2);
-      ring.material.opacity = (1 - progress) * (latest ? 0.3 : 0.08);
-    });
-    if (latest?.presence) person.position.y = Math.sin(seconds * 1.5) * 0.015;
+  let previousAt = 0;
+  let viewAnimation;
+  const labels = [...document.querySelectorAll('[data-anchor]')];
+  const projected = new THREE.Vector3();
+
+  function updateLabels() {
+    for (const label of labels) {
+      const person = label.dataset.anchor === 'person';
+      label.hidden = person && !latest?.presence;
+      if (label.hidden) continue;
+      projected.copy(model.anchors[label.dataset.anchor]).project(camera);
+      const x = (projected.x * 0.5 + 0.5) * container.clientWidth;
+      const y = (-projected.y * 0.5 + 0.5) * container.clientHeight;
+      label.style.transform = `translate(${Math.max(12, Math.min(container.clientWidth - 120, x + 14))}px,${Math.max(90, Math.min(container.clientHeight - 100, y - 14))}px)`;
+    }
   }
+
+  function setView(name) {
+    viewAnimation?.stop();
+    const destinations = {
+      overview: [[10, 8, 12], [0, 0.7, 0]],
+      top: [[0.1, 20, 0.2], [0, 0, 0]],
+      detail: [[7, 4.8, 5], [2.1, 0.9, -1.9]],
+    };
+    const [position, target] = destinations[name] ?? destinations.overview;
+    const startPosition = camera.position.clone();
+    const startTarget = controls.target.clone();
+    const endPosition = new THREE.Vector3(...position);
+    const endTarget = new THREE.Vector3(...target);
+    viewAnimation = animate(0, 1, { duration: reducedMotion.matches ? 0 : 1.15,
+      ease: [0.2, 0.7, 0.2, 1], onUpdate(progress) {
+        camera.position.lerpVectors(startPosition, endPosition, progress);
+        controls.target.lerpVectors(startTarget, endTarget, progress);
+        controls.update();
+      } });
+  }
+  controls.addEventListener('start', () => viewAnimation?.stop());
+  const animateFrame = now => {
+    if (destroyed) return;
+    frame = requestAnimationFrame(animateFrame);
+    const elapsed = now - previousAt;
+    if (elapsed < 33) return;
+    previousAt = now;
+    if (!active || document.hidden) return;
+    // 自动呼吸只作用于提示标记，不把装饰动画描述成雷达实际扫描。
+    model.person.material.opacity = paused ? 0.45 : 0.38 + Math.sin(now / 1200) * 0.12;
+    controls.update();
+    camera.updateMatrixWorld();
+    updateLabels();
+    output.render();
+  };
   const resize = new ResizeObserver(() => {
     const { width, height } = container.getBoundingClientRect();
     if (!width || !height) return;
     camera.aspect = width / height;
-    // 宽屏里放大房间，手机竖屏留出边缘，避免家具被裁掉。
-    camera.zoom = width > 600 ? 1.45 : 1.05;
+    camera.zoom = width > 620 ? 1.18 : 0.85;
     camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
+    output.resize(width, height);
   });
   resize.observe(container);
   const visibility = new IntersectionObserver(([entry]) => { active = entry.isIntersecting; });
   visibility.observe(container);
-  const handleMotion = (event) => { paused = event.matches; };
+  const handleMotion = event => { paused = event.matches; };
   reducedMotion.addEventListener('change', handleMotion);
-  animateRings(0);
-  frame = requestAnimationFrame(animate);
-
+  frame = requestAnimationFrame(animateFrame);
   return {
     get paused() { return paused; },
-    setPaused(value) { paused = value; },
-    reset() { controls.reset(); },
+    setPaused(value) { paused = value; if (value) viewAnimation?.stop(); },
+    get bloom() { return output.bloom; },
+    setBloom(value) { output.setBloom(value); },
+    setView,
+    reset() { setView('overview'); },
     update(state) {
       latest = state;
-      person.visible = Boolean(state?.presence);
-      const color = state == null ? '#9da89a' : state.level === 2 ? '#d97857'
-        : state.level === 1 ? '#cfb367' : '#86b79d';
-      rings.forEach((ring) => ring.material.color.set(color));
-      beacon.material.color.set(color);
-      // 光照只改变示意房间明暗，不据此推断真实天气或昼夜。
-      const light = state?.light == null ? 1 : Math.min(1, Math.max(0, state.light) / 600);
-      sunlight.intensity = 1.2 + light * 2;
-      ambient.intensity = 1.7 + light;
+      model.person.visible = Boolean(state?.presence);
+      const color = state == null ? '#a9a396' : ['#78916c', '#c39552', '#c06a57'][state.level];
+      model.beacon.material.emissive.set(color);
+      // 只示意照度变化，不推断天气或昼夜，离线时恢复中性照明。
+      const light = state?.light == null ? 0.6 : Math.min(1, Math.max(0, state.light) / 600);
+      sunlight.intensity = 1.8 + light * 1.4;
+      warmLight.intensity = 5;
     },
     destroy() {
       destroyed = true;
       cancelAnimationFrame(frame);
+      viewAnimation?.stop();
       resize.disconnect();
       visibility.disconnect();
       reducedMotion.removeEventListener('change', handleMotion);
       controls.dispose();
-      scene.traverse((object) => {
+      model.dispose();
+      scene.traverse(object => {
         object.geometry?.dispose();
-        object.material?.dispose();
+        if (Array.isArray(object.material)) object.material.forEach(material => material.dispose());
+        else object.material?.dispose();
+        for (const material of [object.material].flat().filter(Boolean)) {
+          for (const value of Object.values(material)) if (value?.isTexture) value.dispose();
+        }
       });
-      renderer.dispose();
-      renderer.domElement.remove();
+      output.destroy();
+      environmentMap.dispose();
     },
   };
 }

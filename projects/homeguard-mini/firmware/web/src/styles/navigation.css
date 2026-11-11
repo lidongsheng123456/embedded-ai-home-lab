@@ -1,100 +1,72 @@
+/* 文字导航比单独图标更易理解；手机转为页面内入口。 */
 .sidebar {
-  width: 214px;
   position: fixed;
   inset: 0 auto 0 0;
-  background: #101f1d;
-  color: #e7ede6;
-  padding: 34px 23px;
-  z-index: 2;
+  width: 195px;
+  border-right: 1px solid var(--line);
+  background: #eeeee5;
+  z-index: 4;
   display: flex;
+  align-items: stretch;
   flex-direction: column;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-size: 18px;
-  font-weight: 650;
-  letter-spacing: -0.5px;
-}
-.brand small {
-  display: block;
-  font-size: 9px;
-  letter-spacing: 1.6px;
-  color: #829d91;
-  margin-top: 6px;
-  font-weight: 400;
+  padding: 32px 20px;
 }
 .brand-mark {
-  font-size: 31px;
-  border: 1px solid #476456;
-  border-radius: 12px;
-  width: 41px;
-  height: 44px;
-  display: grid;
-  place-content: center;
-  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #52684a;
+  font-size: 17px;
+  font-weight: 650;
+  padding: 0 4px;
 }
-.brand-mark span {
-  position: absolute;
-  color: #b3d1ab;
-  right: 3px;
-  top: -3px;
+.brand-mark svg {
+  width: 30px;
+  height: 30px;
 }
-.nav-caption {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #718b7d;
-  margin: 52px 12px 18px;
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 65px;
 }
 .nav-item {
   display: flex;
-  align-items: center;
   gap: 12px;
-  font-size: 12px;
-  padding: 14px 12px;
-  margin-bottom: 9px;
-  border-radius: 9px;
-  color: #94aa9d;
-}
-.nav-item span {
-  font-size: 19px;
-}
-.nav-item i {
-  margin-left: auto;
-  font-size: 9px;
-  font-style: normal;
-  opacity: 0.5;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 15px;
+  color: #727c68;
+  border-radius: 13px;
+  font-size: 13px;
 }
 .nav-item.active {
-  background: #283c32;
-  color: #d7e8c7;
-  border: 1px solid #3c5340;
+  color: #4f6a47;
+  background: #dfe6d8;
+  font-weight: 600;
 }
 .nav-item:hover {
-  color: white;
+  background: #e5e9de;
 }
-.sidebar-bottom {
+.nav-item svg {
+  width: 19px;
+  height: 19px;
+}
+.local-badge {
   margin-top: auto;
-  border-top: 1px solid #344339;
-  padding: 28px 8px 0;
-}
-.local-orbit {
-  display: block;
-  font-size: 35px;
-  color: #a7bf94;
-  margin-bottom: 17px;
-}
-.sidebar-bottom strong {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #838976;
   font-size: 11px;
-  font-weight: 500;
+  padding: 12px;
 }
-.sidebar-bottom p {
+.local-badge span {
+  line-height: 1.8;
+}
+.sidebar-note {
   font-size: 11px;
-  color: #7f9889;
   line-height: 1.9;
-}
-.sidebar-bottom a {
-  font-size: 10px;
-  color: #7f9889;
+  color: #8b907e;
+  margin: 26px 12px;
 }

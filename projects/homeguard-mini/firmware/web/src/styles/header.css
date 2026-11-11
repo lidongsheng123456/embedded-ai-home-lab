@@ -1,101 +1,146 @@
+/* 日常问候先于技术数据，设备连接与演示标记始终可见。 */
 main {
-  margin-left: 214px;
-  padding: 0 38px;
-  max-width: 1760px;
+  margin-left: 195px;
+  padding: 0 36px;
+  max-width: 1900px;
 }
 .topbar {
-  height: 78px;
+  height: 85px;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 11px;
 }
-.breadcrumb {
-  color: #8c9690;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
-.breadcrumb b {
-  margin: 0 13px;
-  color: #c7cec5;
+.brand > span {
+  font-size: 10px;
+  color: #7a8671;
+  padding: 4px 7px;
+  background: #e9ecdf;
+  border-radius: 5px;
+}
+.brand > small {
+  font-size: 12px;
   font-weight: 400;
+  letter-spacing: 0;
+  color: #838a7c;
+  margin-left: 14px;
 }
 .connection {
   display: flex;
+  gap: 9px;
   align-items: center;
-  gap: 8px;
-  color: #6d7d74;
+  font-size: 12px;
+  color: #73806c;
 }
 .connection time {
-  font-family: monospace;
-  margin-left: 24px;
-  border-left: 1px solid #dce2d9;
-  padding-left: 24px;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
-.dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: #709b70;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px #739c7010;
+.topbar-divider {
+  height: 14px;
+  width: 1px;
+  background: #d9ddd1;
+  margin: 0 8px;
 }
-.dot.waiting {
-  background: #c6a568;
-}
-.dot.offline {
-  background: #cc7260;
+.connection .icon-button {
+  margin-left: 8px;
 }
 .page-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0 27px;
+  padding: 35px 0 29px;
 }
 .eyebrow {
-  font-size: 9px;
-  letter-spacing: 2.1px;
-  color: #8a978e;
-  margin: 0 0 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #89947d;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow > span {
+  width: 20px;
+  height: 1px;
+  background: #9cae8f;
 }
 h1 {
-  font-size: clamp(22px, 2.2vw, 34px);
+  font-size: clamp(28px, 2.8vw, 42px);
+  font-weight: 500;
   letter-spacing: -1px;
-  font-weight: 550;
   margin: 0;
 }
 h1 > span {
-  color: #84aa76;
+  color: #829576;
 }
 .subtitle {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 13px;
+  color: #858b7d;
   margin: 12px 0 0;
+  line-height: 1.8;
+}
+.heading-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 .mode-label {
-  font-size: 9px;
-  letter-spacing: 1px;
-  color: #8a978e;
-  border: 1px solid #dce2d6;
+  font-size: 11px;
+  color: #637959;
+  padding: 8px 13px;
   border-radius: 20px;
-  padding: 9px 12px;
+  background: #e8edde;
+}
+.heading-meta > span:last-child {
+  font-size: 11px;
+  color: #8b917f;
+}
+.heading-meta b {
+  font-weight: 400;
+  margin: 0 6px;
 }
 .demo-banner {
-  font-size: 11px;
-  background: #f0e3c7;
-  padding: 12px 16px;
-  border-radius: 10px;
-  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  background: #f0e8d9;
+  border: 1px solid #e6d8bf;
+  border-radius: 12px;
+  padding: 11px 16px;
+  color: #947341;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.demo-banner > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.demo-banner small {
+  font-size: 11px;
+  color: #9b8b70;
+  margin-left: 8px;
 }
 .demo-banner select {
+  background: #faf5e9;
+  color: #846b45;
+  border: 1px solid #ddcfb5;
+  border-radius: 7px;
+  padding: 6px 10px;
+  font-size: 12px;
   margin-left: auto;
-  border: 0;
-  background: transparent;
-  color: #5c4930;
 }
 .demo-banner a {
+  font-size: 11px;
   white-space: nowrap;
 }

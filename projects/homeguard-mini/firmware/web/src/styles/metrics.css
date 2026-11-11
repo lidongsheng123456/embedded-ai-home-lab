@@ -1,93 +1,113 @@
+/* 数值是阅读重点；硬件型号作为次级信息。 */
 .section-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 28px 0 15px;
+  gap: 12px;
+  margin: 29px 0 17px;
 }
 .section-heading h2 {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 550;
   margin: 0;
 }
 .section-heading h2 span {
-  font-family: monospace;
-  font-size: 8px;
-  color: #a2ad9a;
-  margin-left: 13px;
-  letter-spacing: 1.5px;
+  font-size: 10px;
+  color: #9ba18d;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-left: 12px;
 }
 .section-heading > span {
-  font-size: 9px;
-  color: #98a38f;
+  font-size: 11px;
+  color: #929985;
 }
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 15px;
+  gap: 17px;
 }
 .metric-card {
-  padding: 16px 18px 9px;
-  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 21px;
+  background: #fffefa;
+  transition: transform 0.25s;
+}
+.metric-card:hover {
+  transform: translateY(-3px);
 }
 .metric-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #6a7c67;
-  font-size: 10px;
+  gap: 8px;
+  color: #808b74;
+  font-size: 12px;
 }
-.metric-icon {
-  width: 27px;
-  height: 27px;
-  border-radius: 8px;
-  display: grid;
-  place-content: center;
-  font-size: 17px;
+.metric-top > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.orange {
-  background: #faf0e6;
-  color: #c68a5b;
+.metric-top svg {
+  color: #9d8368;
+  width: 17px;
+  height: 17px;
 }
-.blue {
-  background: #ecf2f8;
-  color: #78a2c7;
+.metric-card[data-metric="humidity"] svg {
+  color: #7d9da4;
 }
-.yellow {
-  background: #f9f5df;
-  color: #c6b059;
+.metric-card[data-metric="light"] svg {
+  color: #b99a56;
 }
-.green {
-  background: #eef3e8;
-  color: #8ca86d;
+.metric-card[data-metric="sound"] svg {
+  color: #9693aa;
+}
+.metric-top small {
+  font-size: 9px;
+  color: #aaa993;
 }
 .metric-value {
-  margin: 10px 0 7px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 13px 0 12px;
 }
 .metric-value b {
-  font-size: 30px;
-  font-weight: 450;
-  font-variant-numeric: tabular-nums;
+  font-size: 38px;
+  line-height: 1.3;
+  font-weight: 400;
   letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
 }
-.metric-value span {
-  font: 10px monospace;
-  color: #9ca58f;
-  margin-left: 5px;
+.metric-value > span {
+  font-size: 12px;
+  color: #9ba28c;
 }
-.metric-card p {
-  font-size: 9px;
-  color: #a5ad9b;
+.metric-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.metric-bottom p {
+  font-size: 10px;
+  color: #9ca28f;
   margin: 0;
 }
-.sparkline {
-  width: 100%;
-  height: 31px;
-  display: block;
-  margin-top: 8px;
+.metric-line {
+  height: 5px;
+  width: 30px;
+  border-radius: 4px;
+  background: #bccaae;
 }
-.sparkline path {
-  fill: none;
-  stroke: #9bb88b;
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
+.metric-line.amber {
+  background: #dbc7aa;
+}
+.metric-line.blue {
+  background: #bdcfd1;
+}
+.metric-line.violet {
+  background: #d1c9d9;
 }

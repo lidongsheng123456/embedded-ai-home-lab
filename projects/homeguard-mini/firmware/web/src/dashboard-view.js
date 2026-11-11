@@ -1,4 +1,5 @@
 /** DOM呈现层：只显示设备给出的等级与原因，不在浏览器里再算一套告警规则。 */
+import { renderDeviceDetails } from './device-details.js';
 export const byId = (id) => document.getElementById(id);
 const titles = {
   Normal: '家里，一切如常', Learning: '正在认识你的家', 'Warming up': '传感器正在预热',
@@ -43,13 +44,16 @@ export function renderStatus(state, demo) {
   byId('uptime').textContent = `${Math.floor(state.uptime / 60)} 分钟`;
   byId('gas-status').textContent = state.gasWarmingUp ? '通电预热中' : '相对指数';
   byId('gas-fill').style.width = `${Math.min(100, Math.max(0, state.gasIndex || 0))}%`;
-  byId('status-ring').style.stroke = ['#487866', '#c5a355', '#d76b56'][state.level];
+  const color = ['#78916c', '#bd9656', '#bd6b55'][state.level];
+  byId('status-ring').style.stroke = color;
+  document.documentElement.style.setProperty('--status-color', color);
   byId('status-ring').style.strokeDashoffset = state.level === 0 ? '60' : '0';
   byId('connection-label').textContent = demo ? '演示模式' : '设备已连接 · 本地';
   byId('connection-dot').className = 'dot';
   byId('updated-at').textContent = `更新于 ${new Date().toLocaleTimeString('zh-CN', { hour12: false })}`;
   byId('silence-button').disabled = false;
   byId('learn-button').disabled = false;
+  renderDeviceDetails(state);
 }
 
 export function renderOffline() {
@@ -68,36 +72,6 @@ export function renderOffline() {
   byId('status-symbol').textContent = '◌';
   byId('status-ring').style.stroke = '#a8b0a2';
   byId('gas-status').textContent = '状态未知';
-}
-
-export function createTrends() {
-  const history = new Map();
-  return {
-    clear() {
-      history.clear();
-      document.querySelectorAll('[data-trend]').forEach((svg) => { svg.replaceChildren(); });
-    },
-    add(state) {
-      for (const svg of document.querySelectorAll('[data-trend]')) {
-        const key = svg.dataset.trend;
-        const samples = history.get(key) ?? [];
-        const value = state[key];
-        if (typeof value !== 'number' || !Number.isFinite(value)) {
-          history.delete(key);
-          svg.replaceChildren();
-          continue;
-        }
-        samples.push(value);
-        if (samples.length > 40) samples.shift();
-        history.set(key, samples);
-        const min = Math.min(...samples) - 0.5;
-        const range = Math.max(...samples) - min + 0.5;
-        const points = samples.map((sample, i) =>
-          `${i ? 'L' : 'M'}${i * 200 / Math.max(1, samples.length - 1)},${32 - (sample - min) / range * 27}`);
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        line.setAttribute('d', points.join(' '));
-        svg.replaceChildren(line);
-      }
-    },
-  };
+  document.documentElement.style.setProperty('--status-color', '#a8b0a2');
+  renderDeviceDetails(null);
 }

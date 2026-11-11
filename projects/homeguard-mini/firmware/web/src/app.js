@@ -1,6 +1,8 @@
 /** 页面入口只组装通信、数据呈现与三维场景，演示和实机路径明确隔离。 */
 import { readStatus, sendCommand } from './device-api.js';
-import { byId, createTrends, renderOffline, renderStatus, validStatus } from './dashboard-view.js';
+import { byId, renderOffline, renderStatus, validStatus } from './dashboard-view.js';
+import { createTrends } from './trend-chart.js';
+import { initializeVisualUi } from './visual-ui.js';
 import { createDemoState } from './demo-state.js';
 import { createCameraController } from './camera-controller.js';
 
@@ -14,6 +16,7 @@ let busy = false;
 let commandPending = false;
 let toastTimer;
 const camera = createCameraController(toast);
+initializeVisualUi();
 
 function toast(message) {
   clearTimeout(toastTimer);
@@ -85,6 +88,11 @@ function bindControls() {
   byId('learn-dialog').addEventListener('close', () => {
     if (byId('learn-dialog').returnValue === 'confirm') command('learn');
   });
+  byId('demo-scenario').addEventListener('change', () => { trends.clear(); refresh(); });
+}
+
+/** 场景操作只影响浏览器画面，与设备控制按钮分开维护。 */
+function bindSceneControls() {
   byId('view-reset').addEventListener('click', () => scene?.reset());
   byId('motion-toggle').addEventListener('click', () => {
     if (!scene) return;
@@ -92,7 +100,21 @@ function bindControls() {
     byId('motion-toggle').textContent = scene.paused ? '开启动效' : '暂停动效';
     byId('motion-toggle').setAttribute('aria-pressed', String(scene.paused));
   });
-  byId('demo-scenario').addEventListener('change', () => { trends.clear(); refresh(); });
+  byId('quality-toggle').addEventListener('click', () => {
+    if (!scene) return;
+    scene.setBloom(!scene.bloom);
+    byId('quality-toggle').textContent = scene.bloom ? '柔光：开' : '柔光：关';
+    byId('quality-toggle').setAttribute('aria-pressed', String(scene.bloom));
+  });
+  document.querySelectorAll('[data-view]').forEach(button => {
+    button.addEventListener('click', () => {
+      scene?.setView(button.dataset.view);
+      document.querySelectorAll('[data-view]').forEach(node => {
+        node.classList.toggle('selected', node === button);
+        node.setAttribute('aria-pressed', String(node === button));
+      });
+    });
+  });
 }
 
 async function startScene() {
@@ -103,10 +125,14 @@ async function startScene() {
     byId('scene-fallback').hidden = true;
     byId('motion-toggle').textContent = scene.paused ? '开启动效' : '暂停动效';
     byId('motion-toggle').setAttribute('aria-pressed', String(scene.paused));
+    byId('quality-toggle').textContent = scene.bloom ? '柔光：开' : '柔光：关';
+    byId('quality-toggle').setAttribute('aria-pressed', String(scene.bloom));
   } catch {
     byId('scene-fallback').textContent = '当前浏览器无法启用 3D，环境数据与控制仍可使用。';
     byId('motion-toggle').disabled = true;
     byId('view-reset').disabled = true;
+    byId('quality-toggle').disabled = true;
+    document.querySelectorAll('[data-view]').forEach(button => { button.disabled = true; });
   }
 }
 
@@ -115,12 +141,13 @@ function updateClock() {
 }
 
 byId('demo-banner').hidden = !demo;
-if (demo) byId('mode-label').textContent = 'DEMO / 模拟演示数据';
+if (demo) byId('mode-label').textContent = '正在浏览模拟演示';
 bindControls();
+bindSceneControls();
 updateClock();
 setInterval(updateClock, 1000);
 refresh();
 startScene();
 window.addEventListener('pagehide', (event) => {
-  if (!event.persisted) { clearTimeout(timer); scene?.destroy(); }
+  if (!event.persisted) { clearTimeout(timer); scene?.destroy(); trends.destroy(); }
 });
