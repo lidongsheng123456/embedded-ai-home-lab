@@ -11,7 +11,10 @@
 void setup() {
   pinMode(STATUS_LED_PIN, OUTPUT);
   Serial.begin(115200);
+  // 给电脑留出重新识别原生USB串口的时间，否则Monitor可能错过第一行提示。
+  delay(1000);
   Serial.println("请输入 ON、OFF 或 TOGGLE");
+  Serial.println("输入后按 Enter 发送；本案例使用标有 USB 的Type-C口");
 }
 
 void loop() {
@@ -25,8 +28,21 @@ void loop() {
   String command = Serial.readStringUntil('\n');
   command.trim();
   command.toUpperCase();
-  if (command == "ON") digitalWrite(STATUS_LED_PIN, HIGH);
-  else if (command == "OFF") digitalWrite(STATUS_LED_PIN, LOW);
-  else if (command == "TOGGLE") digitalWrite(STATUS_LED_PIN, !digitalRead(STATUS_LED_PIN));
-  else Serial.println("未知命令");
+  if (command.isEmpty()) return;
+
+  // 明确回写收到的内容，避免“命令已发送但终端看起来没有反应”。
+  Serial.printf("[收到] %s\r\n", command.c_str());
+  if (command == "ON") {
+    digitalWrite(STATUS_LED_PIN, HIGH);
+    Serial.println("[完成] LED已点亮");
+  } else if (command == "OFF") {
+    digitalWrite(STATUS_LED_PIN, LOW);
+    Serial.println("[完成] LED已熄灭");
+  } else if (command == "TOGGLE") {
+    digitalWrite(STATUS_LED_PIN, !digitalRead(STATUS_LED_PIN));
+    Serial.printf("[完成] LED已翻转，当前电平=%d\r\n",
+                  digitalRead(STATUS_LED_PIN));
+  } else {
+    Serial.println("[错误] 未知命令，请输入 ON、OFF 或 TOGGLE");
+  }
 }
