@@ -1,0 +1,23 @@
+{
+  "nets": [
+    "BUZZ_CTRL",
+    "CAM_HREF",
+    "EFUSE_EN",
+    "I2C_SCL",
+    "I2C_SDA",
+    "MIC_BCLK",
+    "MIC_SD",
+    "MIC_WS",
+    "MQ2_ADC",
+    "MQ2_AO_RAW",
+    "TFT_CLK",
+    "TFT_CS",
+    "TFT_DAT",
+    "TFT_DC",
+    "TFT_MOSI",
+    "TFT_RST",
+    "TFT_SCLK",
+    "UART_RX17",
+    "UART_TX18"
+  ]
+}

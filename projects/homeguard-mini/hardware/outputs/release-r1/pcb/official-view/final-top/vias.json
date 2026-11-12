@@ -1,0 +1,1391 @@
+{
+  "count": 154,
+  "vias": [
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "16b83ea93e039904",
+      "x": 2354.2811,
+      "y": 1082.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "45bb23018aa55102",
+      "x": 2177.1811,
+      "y": 2535.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "085c768a7e7495d7",
+      "x": 2177.1811,
+      "y": 1984.3000000000002
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "7cf1eeac634fcca1",
+      "x": 2177.1811,
+      "y": 1433.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "2c6a678e9a898080",
+      "x": 1822.8811,
+      "y": 3248
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "ba218d8dd7dff303",
+      "x": 2381.9,
+      "y": 2397.6811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "9f6f952144cc9eaf",
+      "x": 326.7811,
+      "y": 433.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "4fc2cf3551ab9d46",
+      "x": 610.2,
+      "y": 452.7811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "1d0130e40c3d0bc6",
+      "x": 956.6811,
+      "y": 393.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "dbd12347e984a4f5",
+      "x": 2188.9811,
+      "y": 433.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "f01862c84def1142",
+      "x": 2137.7811,
+      "y": 3484.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "28f2f81e9cf3ae87",
+      "x": 2188.9811,
+      "y": 307.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "00fc4730c13aa86c",
+      "x": 1649.9,
+      "y": 877.9811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "b11ac58c189f1791",
+      "x": 2291.0811,
+      "y": 826.8
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "b4d125cee04cf2ca",
+      "x": 2818.8810999999996,
+      "y": 984.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "a69d9be4831c787a",
+      "x": 2687.7,
+      "y": 720.4811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "c524759cb035ab88",
+      "x": 2350.4,
+      "y": 1035.4811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "edbdde3a942cfdb1",
+      "x": 2807.0811,
+      "y": 1161.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "af9781cba3b3654d",
+      "x": 3476.3810999999996,
+      "y": 3385.8
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "8314770178bd387d",
+      "x": 3263.4811,
+      "y": 3425.2
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "5495381fd84bd649",
+      "x": 2885.7811,
+      "y": 3484.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "01c8320989d02f61",
+      "x": 3791.3810999999996,
+      "y": 433.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "132f3f537de1b7af",
+      "x": 3681.1000000000004,
+      "y": 2039.3811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "af16a36070cf3dc9",
+      "x": 3389.7189,
+      "y": 2181.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "cac078fc66f2c1f3",
+      "x": 1625.9811,
+      "y": 3385.8
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "62d6bd0941220849",
+      "x": 3555.0811,
+      "y": 3500
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "d6f1d6f12e9e4c30",
+      "x": 2177.1811,
+      "y": 3086.5999999999995
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "64215e1fa75bad48",
+      "x": 385.7921,
+      "y": 689
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "d14806215387ac2f",
+      "x": 1656.1299,
+      "y": 394.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "03b1615d29e4a57f",
+      "x": 695.6905,
+      "y": 327.5905
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "cd6d67846fb2459f",
+      "x": 442.9,
+      "y": 342.5811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "e44d21660cc0d132",
+      "x": 2792.1700999999994,
+      "y": 2163.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "93e3bf3edece79e9",
+      "x": 1141.7701,
+      "y": 157.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "04d1c1d6961264ce",
+      "x": 1141.7701,
+      "y": 287.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "525c8f4d45c8bd66",
+      "x": 984.2701,
+      "y": 511.8
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "b074080ea4e9b644",
+      "x": 314.9701,
+      "y": 811
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "49df786a882a14c1",
+      "x": 2598.4701,
+      "y": 1437
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "aef73650d54668eb",
+      "x": 2598.4701,
+      "y": 1141.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "48a97070ab7d7ebe",
+      "x": 3661.3999999999996,
+      "y": 3484.2700999999997
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "c4e67786fdcfed81",
+      "x": 2637.7701,
+      "y": 1968.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "6d909d9561ea3a97",
+      "x": 2834.6700999999994,
+      "y": 1968.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "f13873f9bcf50591",
+      "x": 1456.7299,
+      "y": 3549.2
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "004e6e73f9779d7f",
+      "x": 1771.6701,
+      "y": 3549.2
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "209f584330b8ec14",
+      "x": 1898,
+      "y": 2643.5409
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "4887527450fc9e91",
+      "x": 2494.0299,
+      "y": 991.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "25fba5cd6e2966f9",
+      "x": 2513.8128,
+      "y": 927.7128
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "abc1657fbce73ff6",
+      "x": 2640.7905,
+      "y": 1009.8905
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "456f544b2e4f9d11",
+      "x": 2640.7905,
+      "y": 955.2094999999999
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "4dc2ed1606279e7f",
+      "x": 1898,
+      "y": 2092.3409
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "d9b7720b2285414b",
+      "x": 1898,
+      "y": 1541.2409
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "cf32cb93b101d0a0",
+      "x": 1898,
+      "y": 990.0409
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "9abe8e7faddaf996",
+      "x": 1846.8189000000002,
+      "y": 1196.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "ccbf9396887906cc",
+      "x": 1846.8189000000002,
+      "y": 1119.9
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "d70e030d4d9c3c5b",
+      "x": 1768.4701,
+      "y": 3072.8
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "d52a8788672acd5c",
+      "x": 2673.9701000000005,
+      "y": 2285.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "e3a8446134047bea",
+      "x": 755.7,
+      "y": 456.2189
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "36b3ca7c312fb920",
+      "x": 1994.0591,
+      "y": 519.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "357642384c59c394",
+      "x": 926.2591,
+      "y": 246.4
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "FUSED_5V",
+      "primitiveId": "5ab0acece241d3f7",
+      "x": 649.4484,
+      "y": 609.4785
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "FUSED_5V",
+      "primitiveId": "85c3148321d90b14",
+      "x": 649.4484,
+      "y": 476.1788
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "+3V3",
+      "primitiveId": "9a5e353612d5dd62",
+      "x": 1894.6552,
+      "y": 732.5481
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "+3V3",
+      "primitiveId": "97dda80acc8a8665",
+      "x": 1894.6552,
+      "y": 389.019
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "+3V3",
+      "primitiveId": "207e8faf104d24a4",
+      "x": 2236.6943,
+      "y": 1732.2856
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D0",
+      "primitiveId": "a39c6f9a18205b45",
+      "x": 2179.6345,
+      "y": 2850.2528
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D6",
+      "primitiveId": "d0d355b5564695ed",
+      "x": 2180.5645,
+      "y": 2696.7032
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D3",
+      "primitiveId": "73c29a56e6d46841",
+      "x": 2179.6345,
+      "y": 2773.473
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_VSYNC",
+      "primitiveId": "6f6bd9e7baeb9f06",
+      "x": 2077.0847,
+      "y": 2273.4842
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D2",
+      "primitiveId": "4d6cf7f0c43f718e",
+      "x": 2077.2247,
+      "y": 2799.0629
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D5",
+      "primitiveId": "a1d020e26236bc10",
+      "x": 2076.2647,
+      "y": 2722.2931
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D1",
+      "primitiveId": "2857f368cc00e242",
+      "x": 2070.3047,
+      "y": 2837.5628
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D4",
+      "primitiveId": "3aeef42cd8c1ccdf",
+      "x": 2049.3948,
+      "y": 2747.883
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D7",
+      "primitiveId": "7c31a90963118cb7",
+      "x": 2180.1545,
+      "y": 2645.8733
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_PCLK",
+      "primitiveId": "258758d50dba8a4d",
+      "x": 2060.4848,
+      "y": 2304.6741
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_D6",
+      "primitiveId": "dcbff7fdb4dab192",
+      "x": 2229.6743,
+      "y": 2697.4431
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_CAM_D3",
+      "primitiveId": "07e155c859453542",
+      "x": 769.348,
+      "y": 2386.6039
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_CAM_D4",
+      "primitiveId": "6cf6cec138c27155",
+      "x": 1646.2558,
+      "y": 2721.0331
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "BUTTON39",
+      "primitiveId": "9ab99fef4ecc3796",
+      "x": 1528.4861,
+      "y": 3332.0315
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_TFT_SCLK",
+      "primitiveId": "3fc6cdff0867ca37",
+      "x": 1840,
+      "y": 2247.9
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_TFT_MOSI",
+      "primitiveId": "21b9b66470659bd4",
+      "x": 1960,
+      "y": 2222.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_TFT_RST",
+      "primitiveId": "1fecb94dc6b7db91",
+      "x": 1840,
+      "y": 2196.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_TFT_DC",
+      "primitiveId": "18266b241d308b28",
+      "x": 1960,
+      "y": 2171.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_TFT_CS",
+      "primitiveId": "c231ab217dec6ec5",
+      "x": 1980,
+      "y": 2145.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_CAM_HREF",
+      "primitiveId": "afa70720f32b27ab",
+      "x": 2000,
+      "y": 2273.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_CAM_VSYNC",
+      "primitiveId": "914399db80efe060",
+      "x": 1960,
+      "y": 2299.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_DVDT",
+      "primitiveId": "dd84badb711c38ad",
+      "x": 2606.5634,
+      "y": 923.0077
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_DVDT",
+      "primitiveId": "fbb3919fd7f07ff6",
+      "x": 2637.2132999999994,
+      "y": 1161.917
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "EFUSE_DVDT",
+      "primitiveId": "4f9db1fd96dcd889",
+      "x": 556.4586,
+      "y": 504.3887
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "EFUSE_DVDT",
+      "primitiveId": "c933984848e9d7b7",
+      "x": 717.1682,
+      "y": 554.3886
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_CC2",
+      "primitiveId": "23d9a9428b53d1bc",
+      "x": 669.1283,
+      "y": 354.8091
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_CC2",
+      "primitiveId": "ff84fec57152702d",
+      "x": 570.8685,
+      "y": 251.62939999999998
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "76a4c5f1d117ef65",
+      "x": 820.6591000000001,
+      "y": 564.4591
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "ISO_OE_N",
+      "primitiveId": "deb5ab030134cc92",
+      "x": 2543.9035,
+      "y": 2488.1837
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "ISO_OE_N",
+      "primitiveId": "2ed42904d2596b8c",
+      "x": 2535.5736,
+      "y": 2150.9545
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "ISO_OE_N",
+      "primitiveId": "89099ca6b98fc9b7",
+      "x": 2077.0547,
+      "y": 1773.4854999999998
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "ISO_OE_N",
+      "primitiveId": "ad7db9df98f20036",
+      "x": 2179.6545,
+      "y": 2594.5334
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "ISO_OE_N",
+      "primitiveId": "0a3f0612f8f8efc2",
+      "x": 2238.4243,
+      "y": 2567.8435
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_MCU",
+      "primitiveId": "9033fb0a3eef9b1a",
+      "x": 2519.7336,
+      "y": 2192.4944
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_MCU",
+      "primitiveId": "5af76109b53abb14",
+      "x": 2480.6937,
+      "y": 2292.8942
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_MCU",
+      "primitiveId": "55af00444961002a",
+      "x": 2212.3844,
+      "y": 2411.3439
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_MCU",
+      "primitiveId": "a5ff4ba89ce713fe",
+      "x": 1798.7853999999998,
+      "y": 3147.642
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_PERIPH",
+      "primitiveId": "c4155e774c6bd382",
+      "x": 2701.0131,
+      "y": 2088.5847
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "PG_PERIPH",
+      "primitiveId": "6f26ebf0d770ab8b",
+      "x": 2701.0131,
+      "y": 2361.424
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_MIC_WS",
+      "primitiveId": "85b4638d19a2902f",
+      "x": 1825.9854,
+      "y": 1645.5258
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_MIC_WS",
+      "primitiveId": "161db77cbe7e9024",
+      "x": 1825.9854,
+      "y": 1837.4753
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_MIC_BCLK",
+      "primitiveId": "86cf2f3c728fc9ac",
+      "x": 1731.7656,
+      "y": 2222.8944
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_MIC_BCLK",
+      "primitiveId": "4e068d779e15d741",
+      "x": 1731.7656,
+      "y": 2981.4824
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_MCU_5V",
+      "primitiveId": "6f21d83c02412e22",
+      "x": 2430.4,
+      "y": 729.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_POWER_EN",
+      "primitiveId": "9f6e01a7ebe0bdcf",
+      "x": 2420.3,
+      "y": 1437
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_POWER_EN",
+      "primitiveId": "ea5fa1ccd7610617",
+      "x": 2658.4000000000005,
+      "y": 1338.6
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "USB_POWER_EN",
+      "primitiveId": "b358c7883c57b9c6",
+      "x": 2533,
+      "y": 1078
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_3V3",
+      "primitiveId": "0b4845e16ec1451f",
+      "x": 1632.9,
+      "y": 3248
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_3V3",
+      "primitiveId": "ae758906a648cd9f",
+      "x": 2126,
+      "y": 2396.7
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_3V3",
+      "primitiveId": "7be6c0ceb947eb84",
+      "x": 2066,
+      "y": 1905.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_3V3",
+      "primitiveId": "88d3c4e7ce3cdbd9",
+      "x": 2186,
+      "y": 1354.3000000000002
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "GND",
+      "primitiveId": "af820443aaa02938",
+      "x": 690,
+      "y": 620
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SDA",
+      "primitiveId": "8ba0b9da788b743c",
+      "x": 2175,
+      "y": 1757.9
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SCL",
+      "primitiveId": "42df0870335cfee1",
+      "x": 2175,
+      "y": 1722.3
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "UART_TX18",
+      "primitiveId": "0406176310c426f3",
+      "x": 2175,
+      "y": 1671.1
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_MOSI",
+      "primitiveId": "655d8c61bbf5107d",
+      "x": 2377.5,
+      "y": 2267.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_MOSI",
+      "primitiveId": "8ac981cb42698b1a",
+      "x": 2427.5,
+      "y": 2392.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_SCLK",
+      "primitiveId": "f9430aebed067eea",
+      "x": 2300,
+      "y": 2287.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_SCLK",
+      "primitiveId": "40c526259c771ab1",
+      "x": 2332.5,
+      "y": 2327.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_SCLK",
+      "primitiveId": "436298dd600e5d3b",
+      "x": 3182.5,
+      "y": 2422.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "UART_TX18",
+      "primitiveId": "7029ef31322c8ec4",
+      "x": 2172.5,
+      "y": 1517.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "BUZZ_CTRL",
+      "primitiveId": "ca7e99eef401283c",
+      "x": 2270,
+      "y": 1467.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "BUZZ_CTRL",
+      "primitiveId": "c5d3c0dc4de6bf1d",
+      "x": 3622.5,
+      "y": 3332.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_HREF",
+      "primitiveId": "b9bb9cea05519cd9",
+      "x": 2245,
+      "y": 2340
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "CAM_HREF",
+      "primitiveId": "aee6b6017770f470",
+      "x": 2455,
+      "y": 2550
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SDA",
+      "primitiveId": "5621d607355173a0",
+      "x": 2320,
+      "y": 1895
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SDA",
+      "primitiveId": "6430ba02039aa565",
+      "x": 3010,
+      "y": 3392.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SDA",
+      "primitiveId": "6a0c90251bcf2149",
+      "x": 2625,
+      "y": 2490
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SCL",
+      "primitiveId": "d83b9a9d83e81d7b",
+      "x": 2317.5,
+      "y": 1932.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SCL",
+      "primitiveId": "cb0195d8b9cf9cb0",
+      "x": 3087.5,
+      "y": 3350
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SCL",
+      "primitiveId": "17eb3078db290648",
+      "x": 2757.5,
+      "y": 2032.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "I2C_SCL",
+      "primitiveId": "850251f513872070",
+      "x": 2855,
+      "y": 2447.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "UART_RX17",
+      "primitiveId": "bbd38fe086bb7e70",
+      "x": 2947.5,
+      "y": 1660
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "909a62d1918b7f42",
+      "x": 2250,
+      "y": 1910
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "63167ce3b838fd34",
+      "x": 2342.5,
+      "y": 1957.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "383e3a1a2d10fde5",
+      "x": 2475,
+      "y": 1980
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "3dcb54ae1ee47451",
+      "x": 2675,
+      "y": 2185
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "70f752791e840f1f",
+      "x": 3270,
+      "y": 2280
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_RST",
+      "primitiveId": "0700f4b3b6d593e0",
+      "x": 3350,
+      "y": 2360
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_CS",
+      "primitiveId": "2d0068cc0e480f47",
+      "x": 3425,
+      "y": 2457.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_CS",
+      "primitiveId": "b726b0d2c97832ae",
+      "x": 2202.5,
+      "y": 1855
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_CS",
+      "primitiveId": "50150128220eca71",
+      "x": 2180,
+      "y": 1475
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_CS",
+      "primitiveId": "2361866b484355fd",
+      "x": 2270,
+      "y": 1385
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_CS",
+      "primitiveId": "71ef301023a22490",
+      "x": 3347.5,
+      "y": 2397.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_DC",
+      "primitiveId": "84a1ab63cdb86170",
+      "x": 2077.5,
+      "y": 1967.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_DC",
+      "primitiveId": "de14958a543f4401",
+      "x": 2180,
+      "y": 1400
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_DC",
+      "primitiveId": "386fee6aa717834b",
+      "x": 2415,
+      "y": 1372.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_DC",
+      "primitiveId": "4d6907f330925cc2",
+      "x": 3422.5,
+      "y": 2397.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "TFT_DC",
+      "primitiveId": "ceb8d7141f95323f",
+      "x": 3482.5,
+      "y": 2457.5
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MQ2_AO_RAW",
+      "primitiveId": "ebc289e0ce423036",
+      "x": 2570,
+      "y": 1190
+    },
+    {
+      "diameter": 24,
+      "holeDiameter": 12,
+      "locked": false,
+      "net": "MCU_MIC_WS",
+      "primitiveId": "e24655cdde5aa711",
+      "x": 440,
+      "y": 2692.4143
+    }
+  ]
+}

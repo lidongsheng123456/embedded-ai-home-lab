@@ -1,0 +1,111 @@
+{
+  "status": "source-only",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "d734014dc8d7c031",
+  "parts": [
+    {
+      "ref": "J12",
+      "part": "header",
+      "module": "camera",
+      "x": 0,
+      "y": 0,
+      "pins": {
+        "1": "GND",
+        "2": "+3V3",
+        "3": "CAM_D0",
+        "4": "CAM_D1",
+        "5": "CAM_D2",
+        "6": "CAM_D3",
+        "7": "CAM_D4",
+        "8": "CAM_D5",
+        "9": "CAM_D6",
+        "10": "CAM_D7",
+        "11": "GND",
+        "12": "CAM_PCLK",
+        "13": "GND",
+        "14": "CAM_VSYNC",
+        "15": "GND",
+        "16": "CAM_HREF",
+        "17": "I2C_SCL",
+        "18": "I2C_SDA",
+        "19": "GND",
+        "20": "+3V3"
+      }
+    },
+    {
+      "ref": "C28",
+      "part": "c100n",
+      "module": "camera",
+      "x": 400,
+      "y": 0,
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C29",
+      "part": "c22u",
+      "module": "camera",
+      "x": 800,
+      "y": 0,
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R18",
+      "part": "r10k",
+      "module": "defaults",
+      "x": 1200,
+      "y": 0,
+      "pins": {
+        "1": "+3V3",
+        "2": "TFT_CS"
+      }
+    },
+    {
+      "ref": "R19",
+      "part": "r10k",
+      "module": "defaults",
+      "x": 1600,
+      "y": 0,
+      "pins": {
+        "1": "+3V3",
+        "2": "TFT_RST"
+      }
+    },
+    {
+      "ref": "R20",
+      "part": "r22",
+      "module": "clock",
+      "x": 2000,
+      "y": 0,
+      "pins": {
+        "1": "TFT_CLK",
+        "2": "TFT_SCLK"
+      }
+    },
+    {
+      "ref": "R21",
+      "part": "r22",
+      "module": "data",
+      "x": 2400,
+      "y": 0,
+      "pins": {
+        "1": "TFT_DAT",
+        "2": "TFT_MOSI"
+      }
+    }
+  ],
+  "constraints": [
+    "J12为载板自定义20针，不可与摄像头18针直接插合",
+    "J12采用C3405 2x10针2.54mm带防反插框插座",
+    "仅3.3V模块；无外部XCLK；FLASH不接",
+    "转换线目标不超过50mm，按模块丝印逐根制作",
+    "R20/R21在PCB靠近U2外围侧输出，不放在长线末端",
+    "R18/R19使TFT在信号未接通时保持CS/RST高"
+  ],
+  "hardwareTested": false
+}

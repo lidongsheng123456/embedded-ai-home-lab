@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="510" viewBox="0 0 1100 510">
+<rect width="1100" height="510" fill="#f6f8fc"/>
+<g font-family="Microsoft YaHei, sans-serif" fill="#1c3046" text-anchor="middle">
+<text x="550" y="42" font-size="25">OV2640 模块：镜头面朝向读者，排针位于下方</text>
+<rect x="65" y="65" width="970" height="350" rx="20" fill="white" stroke="#467087" stroke-width="2"/>
+<circle cx="550" cy="175" r="72" fill="#263747"/><circle cx="550" cy="175" r="51" fill="#102333"/><circle cx="550" cy="175" r="30" fill="#427e9a"/>
+<text x="550" y="272" font-size="17">以下为丝印行列，不是标准连接器针号</text>
+<g font-size="17"><text x="110" y="313">上行</text><text x="110" y="370">下行</text>
+<text x="210" y="313">GND</text><text x="300" y="313">SCL</text><text x="390" y="313">SDA</text><text x="480" y="313">D0</text><text x="570" y="313">D2</text><text x="660" y="313">D4</text><text x="750" y="313">D6</text><text x="840" y="313">PCLK</text><text x="950" y="313">PWDN</text>
+<text x="210" y="370">3.3</text><text x="300" y="370">VSYNC</text><text x="390" y="370">HREF</text><text x="480" y="370">RST</text><text x="570" y="370">D1</text><text x="660" y="370">D3</text><text x="750" y="370">D5</text><text x="840" y="370">D7</text><text x="950" y="370">FLASH</text></g>
+<text x="550" y="452" font-size="19">RST → 3.3 V　　PWDN → GND　　FLASH 不连接</text>
+<text x="550" y="484" font-size="16" fill="#566e7b">非尺寸图；模块侧机械尺寸待确认。焊接面观察会左右镜像。</text>
+</g></svg>

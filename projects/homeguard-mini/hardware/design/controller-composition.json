@@ -1,0 +1,2787 @@
+{
+  "schemaVersion": 1,
+  "connectivity": {
+    "schemaVersion": "1.4",
+    "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "documentId": "4795d64e2b14bb93",
+    "components": [
+      {
+        "id": "cmp-J7",
+        "uniqueId": "7b8e347fa15b47e39b86bd72427601d5",
+        "ref": "J7",
+        "role": "devboard_left_socket",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "f880dc92903f4e6790a2924af03c1a92",
+          "name": "={Manufacturer Part}"
+        },
+        "footprint": "854b56247e6c6b38",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "HDR-TH_ESQ-122-39-L-S",
+          "uuid": "854b56247e6c6b38"
+        },
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "x": 250,
+            "y": 650,
+            "noConnected": false
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "x": 250,
+            "y": 640,
+            "noConnected": false
+          },
+          {
+            "number": "3",
+            "name": "3",
+            "x": 250,
+            "y": 630,
+            "noConnected": true
+          },
+          {
+            "number": "4",
+            "name": "4",
+            "x": 250,
+            "y": 620,
+            "noConnected": false
+          },
+          {
+            "number": "5",
+            "name": "5",
+            "x": 250,
+            "y": 610,
+            "noConnected": false
+          },
+          {
+            "number": "6",
+            "name": "6",
+            "x": 250,
+            "y": 600,
+            "noConnected": false
+          },
+          {
+            "number": "7",
+            "name": "7",
+            "x": 250,
+            "y": 590,
+            "noConnected": false
+          },
+          {
+            "number": "8",
+            "name": "8",
+            "x": 250,
+            "y": 580,
+            "noConnected": false
+          },
+          {
+            "number": "9",
+            "name": "9",
+            "x": 250,
+            "y": 570,
+            "noConnected": false
+          },
+          {
+            "number": "10",
+            "name": "10",
+            "x": 250,
+            "y": 560,
+            "noConnected": false
+          },
+          {
+            "number": "11",
+            "name": "11",
+            "x": 250,
+            "y": 550,
+            "noConnected": false
+          },
+          {
+            "number": "12",
+            "name": "12",
+            "x": 250,
+            "y": 540,
+            "noConnected": false
+          },
+          {
+            "number": "13",
+            "name": "13",
+            "x": 250,
+            "y": 530,
+            "noConnected": false
+          },
+          {
+            "number": "14",
+            "name": "14",
+            "x": 250,
+            "y": 520,
+            "noConnected": true
+          },
+          {
+            "number": "15",
+            "name": "15",
+            "x": 250,
+            "y": 510,
+            "noConnected": false
+          },
+          {
+            "number": "16",
+            "name": "16",
+            "x": 250,
+            "y": 500,
+            "noConnected": false
+          },
+          {
+            "number": "17",
+            "name": "17",
+            "x": 250,
+            "y": 490,
+            "noConnected": false
+          },
+          {
+            "number": "18",
+            "name": "18",
+            "x": 250,
+            "y": 480,
+            "noConnected": false
+          },
+          {
+            "number": "19",
+            "name": "19",
+            "x": 250,
+            "y": 470,
+            "noConnected": false
+          },
+          {
+            "number": "20",
+            "name": "20",
+            "x": 250,
+            "y": 460,
+            "noConnected": false
+          },
+          {
+            "number": "21",
+            "name": "21",
+            "x": 250,
+            "y": 450,
+            "noConnected": true
+          },
+          {
+            "number": "22",
+            "name": "22",
+            "x": 250,
+            "y": 440,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 270,
+          "y": 545,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "maxX": 280.5,
+            "maxY": 660.5,
+            "minX": 259.5,
+            "minY": 429.5
+          }
+        }
+      },
+      {
+        "id": "cmp-J8",
+        "uniqueId": "93b62327ef1140d6a19b48073d001987",
+        "ref": "J8",
+        "role": "devboard_right_socket",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "f880dc92903f4e6790a2924af03c1a92",
+          "name": "={Manufacturer Part}"
+        },
+        "footprint": "854b56247e6c6b38",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "HDR-TH_ESQ-122-39-L-S",
+          "uuid": "854b56247e6c6b38"
+        },
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "x": 560,
+            "y": 650,
+            "noConnected": false
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "x": 560,
+            "y": 640,
+            "noConnected": true
+          },
+          {
+            "number": "3",
+            "name": "3",
+            "x": 560,
+            "y": 630,
+            "noConnected": true
+          },
+          {
+            "number": "4",
+            "name": "4",
+            "x": 560,
+            "y": 620,
+            "noConnected": false
+          },
+          {
+            "number": "5",
+            "name": "5",
+            "x": 560,
+            "y": 610,
+            "noConnected": false
+          },
+          {
+            "number": "6",
+            "name": "6",
+            "x": 560,
+            "y": 600,
+            "noConnected": false
+          },
+          {
+            "number": "7",
+            "name": "7",
+            "x": 560,
+            "y": 590,
+            "noConnected": false
+          },
+          {
+            "number": "8",
+            "name": "8",
+            "x": 560,
+            "y": 580,
+            "noConnected": false
+          },
+          {
+            "number": "9",
+            "name": "9",
+            "x": 560,
+            "y": 570,
+            "noConnected": false
+          },
+          {
+            "number": "10",
+            "name": "10",
+            "x": 560,
+            "y": 560,
+            "noConnected": false
+          },
+          {
+            "number": "11",
+            "name": "11",
+            "x": 560,
+            "y": 550,
+            "noConnected": true
+          },
+          {
+            "number": "12",
+            "name": "12",
+            "x": 560,
+            "y": 540,
+            "noConnected": true
+          },
+          {
+            "number": "13",
+            "name": "13",
+            "x": 560,
+            "y": 530,
+            "noConnected": true
+          },
+          {
+            "number": "14",
+            "name": "14",
+            "x": 560,
+            "y": 520,
+            "noConnected": true
+          },
+          {
+            "number": "15",
+            "name": "15",
+            "x": 560,
+            "y": 510,
+            "noConnected": true
+          },
+          {
+            "number": "16",
+            "name": "16",
+            "x": 560,
+            "y": 500,
+            "noConnected": false
+          },
+          {
+            "number": "17",
+            "name": "17",
+            "x": 560,
+            "y": 490,
+            "noConnected": false
+          },
+          {
+            "number": "18",
+            "name": "18",
+            "x": 560,
+            "y": 480,
+            "noConnected": false
+          },
+          {
+            "number": "19",
+            "name": "19",
+            "x": 560,
+            "y": 470,
+            "noConnected": true
+          },
+          {
+            "number": "20",
+            "name": "20",
+            "x": 560,
+            "y": 460,
+            "noConnected": true
+          },
+          {
+            "number": "21",
+            "name": "21",
+            "x": 560,
+            "y": 450,
+            "noConnected": false
+          },
+          {
+            "number": "22",
+            "name": "22",
+            "x": 560,
+            "y": 440,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 580,
+          "y": 545,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "maxX": 590.5,
+            "maxY": 660.5,
+            "minX": 569.5,
+            "minY": 429.5
+          }
+        }
+      },
+      {
+        "id": "cmp-SW1",
+        "uniqueId": "65dbd3d5b2d846c4a0135a2db1e063f6",
+        "ref": "SW1",
+        "role": "multifunction_button",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "9b1d934c3e3a4920af227bab22a915b2",
+          "name": "={Manufacturer Part}"
+        },
+        "footprint": "d13ff54892ca4a4a",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5",
+          "uuid": "d13ff54892ca4a4a"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "B",
+            "x": 800,
+            "y": 540,
+            "noConnected": false
+          },
+          {
+            "number": "1",
+            "name": "A",
+            "x": 760,
+            "y": 540,
+            "noConnected": false
+          },
+          {
+            "number": "4",
+            "name": "D",
+            "x": 800,
+            "y": 510,
+            "noConnected": false
+          },
+          {
+            "number": "3",
+            "name": "C",
+            "x": 760,
+            "y": 510,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 780,
+          "y": 530,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "maxX": 790.5,
+            "maxY": 540.5,
+            "minX": 769.5,
+            "minY": 509.5
+          }
+        }
+      },
+      {
+        "id": "cmp-J9",
+        "uniqueId": "b180b9e454894b53964f2675ca2a0eeb",
+        "ref": "J9",
+        "role": "active_buzzer_module",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "6934d76a8ee6438388dad49508dc5ccf",
+          "name": "={Manufacturer Part}"
+        },
+        "footprint": "15e33a672dbe93f1",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CONN-TH_XH-3A",
+          "uuid": "15e33a672dbe93f1"
+        },
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "x": 760,
+            "y": 320,
+            "noConnected": false
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "x": 760,
+            "y": 310,
+            "noConnected": false
+          },
+          {
+            "number": "3",
+            "name": "3",
+            "x": 760,
+            "y": 300,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 780,
+          "y": 310,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "maxX": 790.5,
+            "maxY": 330.5,
+            "minX": 769.5,
+            "minY": 289.5
+          }
+        }
+      },
+      {
+        "id": "cmp-R3",
+        "uniqueId": "1fb1efa431df4b878be3f95338add2d5",
+        "ref": "R3",
+        "role": "button_pullup",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "e9c34dedae26495c91dced1a655b8614",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 900,
+            "y": 569.9999999999999,
+            "noConnected": false
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 900,
+            "y": 609.9999999999999,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 900,
+          "y": 590,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "maxX": 904.5,
+            "maxY": 600.4999999999999,
+            "minX": 895.5,
+            "minY": 579.4999999999999
+          }
+        }
+      },
+      {
+        "id": "cmp-C7",
+        "uniqueId": "c0ec23ab8ead48f5be71b055acad79e1",
+        "ref": "C7",
+        "role": "button_filter",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+          "name": "={Value}"
+        },
+        "footprint": "4e8d6b488071f5da",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C0805",
+          "uuid": "4e8d6b488071f5da"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 900,
+            "y": 489.9999999999999,
+            "noConnected": false
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 900,
+            "y": 529.9999999999999,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 900,
+          "y": 510,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "maxX": 908.5,
+            "maxY": 520.4999999999999,
+            "minX": 891.5,
+            "minY": 499.4999999999999
+          }
+        }
+      },
+      {
+        "id": "cmp-R4",
+        "uniqueId": "ec2edfbafe414c7aa47f7a308a8cfb3a",
+        "ref": "R4",
+        "role": "buzzer_pulldown",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "70d0676a7e554bf2bb2f7d2e56e17c75",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 900,
+            "y": 289.9999999999999,
+            "noConnected": false
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 900,
+            "y": 329.9999999999999,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 900,
+          "y": 310,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "maxX": 904.5,
+            "maxY": 320.4999999999999,
+            "minX": 895.5,
+            "minY": 299.4999999999999
+          }
+        }
+      },
+      {
+        "id": "cmp-C8",
+        "uniqueId": "81c10ee5bb7a4a79b123e2dcffcff85a",
+        "ref": "C8",
+        "role": "buzzer_decoupling",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+          "name": "={Value}"
+        },
+        "footprint": "4e8d6b488071f5da",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C0805",
+          "uuid": "4e8d6b488071f5da"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 1000,
+            "y": 289.9999999999999,
+            "noConnected": false
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 1000,
+            "y": 329.9999999999999,
+            "noConnected": false
+          }
+        ],
+        "placement": {
+          "x": 1000,
+          "y": 310,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "maxX": 1008.5,
+            "maxY": 320.4999999999999,
+            "minX": 991.5,
+            "minY": 299.4999999999999
+          }
+        }
+      }
+    ],
+    "nets": [
+      {
+        "id": "net-1",
+        "name": "MCU_3V3",
+        "scope": "global",
+        "role": "power"
+      },
+      {
+        "id": "net-2",
+        "name": "MCU_MIC_BCLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-3",
+        "name": "MCU_MIC_WS",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-4",
+        "name": "MCU_MIC_SD",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-5",
+        "name": "MCU_CAM_D2",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-6",
+        "name": "MCU_TFT_RST",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-7",
+        "name": "MCU_CAM_PCLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-8",
+        "name": "MCU_UART_RX17",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-9",
+        "name": "MCU_UART_TX18",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-10",
+        "name": "MCU_I2C_SDA",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-11",
+        "name": "MCU_MQ2_ADC",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-12",
+        "name": "MCU_I2C_SCL",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-13",
+        "name": "MCU_TFT_CS",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-14",
+        "name": "MCU_TFT_MOSI",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-15",
+        "name": "MCU_TFT_SCLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-16",
+        "name": "MCU_CAM_D3",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-17",
+        "name": "MCU_TFT_DC",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-18",
+        "name": "GND",
+        "scope": "global",
+        "role": "ground"
+      },
+      {
+        "id": "net-19",
+        "name": "MCU_CAM_D0",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-20",
+        "name": "MCU_CAM_D1",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-21",
+        "name": "MCU_CAM_D7",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-22",
+        "name": "MCU_CAM_D6",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-23",
+        "name": "MCU_CAM_D5",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-24",
+        "name": "BUTTON39",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-25",
+        "name": "MCU_CAM_D4",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-26",
+        "name": "MCU_CAM_HREF",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-27",
+        "name": "MCU_CAM_VSYNC",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-28",
+        "name": "MCU_BUZZ_CTRL",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "net-29",
+        "name": "+3V3",
+        "scope": "global",
+        "role": "power"
+      },
+      {
+        "id": "net-30",
+        "name": "BUZZ_CTRL",
+        "scope": "global",
+        "role": "signal"
+      }
+    ],
+    "connections": [
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "1",
+        "netId": "net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "2",
+        "netId": "net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "4",
+        "netId": "net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "5",
+        "netId": "net-3",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "6",
+        "netId": "net-4",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "7",
+        "netId": "net-5",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "8",
+        "netId": "net-6",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "9",
+        "netId": "net-7",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "10",
+        "netId": "net-8",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "11",
+        "netId": "net-9",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "12",
+        "netId": "net-10",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "13",
+        "netId": "net-11",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "15",
+        "netId": "net-12",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "16",
+        "netId": "net-13",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "17",
+        "netId": "net-14",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "18",
+        "netId": "net-15",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "19",
+        "netId": "net-16",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "20",
+        "netId": "net-17",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J7",
+        "pinNumber": "22",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "1",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "4",
+        "netId": "net-19",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "5",
+        "netId": "net-20",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "6",
+        "netId": "net-21",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "7",
+        "netId": "net-22",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "8",
+        "netId": "net-23",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "9",
+        "netId": "net-24",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "10",
+        "netId": "net-25",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "16",
+        "netId": "net-26",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "17",
+        "netId": "net-27",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "18",
+        "netId": "net-28",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "21",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J8",
+        "pinNumber": "22",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-SW1",
+        "pinNumber": "2",
+        "netId": "net-24",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-SW1",
+        "pinNumber": "1",
+        "netId": "net-24",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-SW1",
+        "pinNumber": "4",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-SW1",
+        "pinNumber": "3",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J9",
+        "pinNumber": "1",
+        "netId": "net-29",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J9",
+        "pinNumber": "2",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J9",
+        "pinNumber": "3",
+        "netId": "net-30",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R3",
+        "pinNumber": "2",
+        "netId": "net-24",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R3",
+        "pinNumber": "1",
+        "netId": "net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C7",
+        "pinNumber": "2",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C7",
+        "pinNumber": "1",
+        "netId": "net-24",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R4",
+        "pinNumber": "2",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R4",
+        "pinNumber": "1",
+        "netId": "net-30",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C8",
+        "pinNumber": "2",
+        "netId": "net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C8",
+        "pinNumber": "1",
+        "netId": "net-29",
+        "kind": "netlist"
+      }
+    ],
+    "issues": [],
+    "modules": [
+      {
+        "id": "devboard_left",
+        "name": "ESP32-S3 LEFT",
+        "coreComponents": [
+          "cmp-J7"
+        ],
+        "peripheralComponents": [],
+        "internalNets": [],
+        "ports": []
+      },
+      {
+        "id": "devboard_right",
+        "name": "ESP32-S3 RIGHT",
+        "coreComponents": [
+          "cmp-J8"
+        ],
+        "peripheralComponents": [],
+        "internalNets": [],
+        "ports": []
+      },
+      {
+        "id": "button",
+        "name": "GPIO39 / SILENCE + LEARN",
+        "coreComponents": [
+          "cmp-SW1"
+        ],
+        "peripheralComponents": [
+          "cmp-R3",
+          "cmp-C7"
+        ],
+        "internalNets": [],
+        "ports": []
+      },
+      {
+        "id": "buzzer",
+        "name": "ACTIVE BUZZER MODULE / 3V3",
+        "coreComponents": [
+          "cmp-J9"
+        ],
+        "peripheralComponents": [
+          "cmp-R4",
+          "cmp-C8"
+        ],
+        "internalNets": [],
+        "ports": []
+      }
+    ]
+  },
+  "paperless": true,
+  "paperlessRowBreaks": [
+    2
+  ],
+  "keepouts": [],
+  "modules": [
+    {
+      "id": "devboard_left",
+      "title": "ESP32-S3 LEFT",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "J7",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -115.5,
+            "maxX": 10.5,
+            "maxY": 115.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 115,
+              "maxX": -2.60693359375,
+              "maxY": 123
+            }
+          ],
+          "pins": [
+            {
+              "number": "1",
+              "name": "1",
+              "x": -20,
+              "y": 105,
+              "rotation": 180,
+              "net": "MCU_3V3"
+            },
+            {
+              "number": "2",
+              "name": "2",
+              "x": -20,
+              "y": 95,
+              "rotation": 180,
+              "net": "MCU_3V3"
+            },
+            {
+              "number": "3",
+              "name": "3",
+              "x": -20,
+              "y": 85,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "4",
+              "name": "4",
+              "x": -20,
+              "y": 75,
+              "rotation": 180,
+              "net": "MCU_MIC_BCLK"
+            },
+            {
+              "number": "5",
+              "name": "5",
+              "x": -20,
+              "y": 65,
+              "rotation": 180,
+              "net": "MCU_MIC_WS"
+            },
+            {
+              "number": "6",
+              "name": "6",
+              "x": -20,
+              "y": 55,
+              "rotation": 180,
+              "net": "MCU_MIC_SD"
+            },
+            {
+              "number": "7",
+              "name": "7",
+              "x": -20,
+              "y": 45,
+              "rotation": 180,
+              "net": "MCU_CAM_D2"
+            },
+            {
+              "number": "8",
+              "name": "8",
+              "x": -20,
+              "y": 35,
+              "rotation": 180,
+              "net": "MCU_TFT_RST"
+            },
+            {
+              "number": "9",
+              "name": "9",
+              "x": -20,
+              "y": 25,
+              "rotation": 180,
+              "net": "MCU_CAM_PCLK"
+            },
+            {
+              "number": "10",
+              "name": "10",
+              "x": -20,
+              "y": 15,
+              "rotation": 180,
+              "net": "MCU_UART_RX17"
+            },
+            {
+              "number": "11",
+              "name": "11",
+              "x": -20,
+              "y": 5,
+              "rotation": 180,
+              "net": "MCU_UART_TX18"
+            },
+            {
+              "number": "12",
+              "name": "12",
+              "x": -20,
+              "y": -5,
+              "rotation": 180,
+              "net": "MCU_I2C_SDA"
+            },
+            {
+              "number": "13",
+              "name": "13",
+              "x": -20,
+              "y": -15,
+              "rotation": 180,
+              "net": "MCU_MQ2_ADC"
+            },
+            {
+              "number": "14",
+              "name": "14",
+              "x": -20,
+              "y": -25,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "15",
+              "name": "15",
+              "x": -20,
+              "y": -35,
+              "rotation": 180,
+              "net": "MCU_I2C_SCL"
+            },
+            {
+              "number": "16",
+              "name": "16",
+              "x": -20,
+              "y": -45,
+              "rotation": 180,
+              "net": "MCU_TFT_CS"
+            },
+            {
+              "number": "17",
+              "name": "17",
+              "x": -20,
+              "y": -55,
+              "rotation": 180,
+              "net": "MCU_TFT_MOSI"
+            },
+            {
+              "number": "18",
+              "name": "18",
+              "x": -20,
+              "y": -65,
+              "rotation": 180,
+              "net": "MCU_TFT_SCLK"
+            },
+            {
+              "number": "19",
+              "name": "19",
+              "x": -20,
+              "y": -75,
+              "rotation": 180,
+              "net": "MCU_CAM_D3"
+            },
+            {
+              "number": "20",
+              "name": "20",
+              "x": -20,
+              "y": -85,
+              "rotation": 180,
+              "net": "MCU_TFT_DC"
+            },
+            {
+              "number": "21",
+              "name": "21",
+              "x": -20,
+              "y": -95,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "22",
+              "name": "22",
+              "x": -20,
+              "y": -105,
+              "rotation": 180,
+              "net": "GND"
+            }
+          ]
+        }
+      ],
+      "wires": [],
+      "flags": [
+        {
+          "net": "MCU_3V3",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 105,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "1",
+            "zoneId": "devboard_left",
+            "net": "MCU_3V3"
+          }
+        },
+        {
+          "net": "MCU_3V3",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 95,
+          "direction": "left",
+          "offset": 100,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "2",
+            "zoneId": "devboard_left",
+            "net": "MCU_3V3"
+          }
+        },
+        {
+          "net": "MCU_MIC_BCLK",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 75,
+          "direction": "left",
+          "offset": 20,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "4",
+            "zoneId": "devboard_left",
+            "net": "MCU_MIC_BCLK"
+          }
+        },
+        {
+          "net": "MCU_MIC_WS",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 65,
+          "direction": "left",
+          "offset": 130,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "5",
+            "zoneId": "devboard_left",
+            "net": "MCU_MIC_WS"
+          }
+        },
+        {
+          "net": "MCU_MIC_SD",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 55,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "6",
+            "zoneId": "devboard_left",
+            "net": "MCU_MIC_SD"
+          }
+        },
+        {
+          "net": "MCU_CAM_D2",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 45,
+          "direction": "left",
+          "offset": 115,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "7",
+            "zoneId": "devboard_left",
+            "net": "MCU_CAM_D2"
+          }
+        },
+        {
+          "net": "MCU_TFT_RST",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 35,
+          "direction": "left",
+          "offset": 220,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "8",
+            "zoneId": "devboard_left",
+            "net": "MCU_TFT_RST"
+          }
+        },
+        {
+          "net": "MCU_CAM_PCLK",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 25,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "9",
+            "zoneId": "devboard_left",
+            "net": "MCU_CAM_PCLK"
+          }
+        },
+        {
+          "net": "MCU_UART_RX17",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 15,
+          "direction": "left",
+          "offset": 130,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "10",
+            "zoneId": "devboard_left",
+            "net": "MCU_UART_RX17"
+          }
+        },
+        {
+          "net": "MCU_UART_TX18",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 5,
+          "direction": "left",
+          "offset": 255,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "11",
+            "zoneId": "devboard_left",
+            "net": "MCU_UART_TX18"
+          }
+        },
+        {
+          "net": "MCU_I2C_SDA",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -5,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "12",
+            "zoneId": "devboard_left",
+            "net": "MCU_I2C_SDA"
+          }
+        },
+        {
+          "net": "MCU_MQ2_ADC",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -15,
+          "direction": "left",
+          "offset": 120,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "13",
+            "zoneId": "devboard_left",
+            "net": "MCU_MQ2_ADC"
+          }
+        },
+        {
+          "net": "MCU_I2C_SCL",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -35,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "15",
+            "zoneId": "devboard_left",
+            "net": "MCU_I2C_SCL"
+          }
+        },
+        {
+          "net": "MCU_TFT_CS",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -45,
+          "direction": "left",
+          "offset": 120,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "16",
+            "zoneId": "devboard_left",
+            "net": "MCU_TFT_CS"
+          }
+        },
+        {
+          "net": "MCU_TFT_MOSI",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -55,
+          "direction": "left",
+          "offset": 225,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "17",
+            "zoneId": "devboard_left",
+            "net": "MCU_TFT_MOSI"
+          }
+        },
+        {
+          "net": "MCU_TFT_SCLK",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -65,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "18",
+            "zoneId": "devboard_left",
+            "net": "MCU_TFT_SCLK"
+          }
+        },
+        {
+          "net": "MCU_CAM_D3",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -75,
+          "direction": "left",
+          "offset": 130,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "19",
+            "zoneId": "devboard_left",
+            "net": "MCU_CAM_D3"
+          }
+        },
+        {
+          "net": "MCU_TFT_DC",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -85,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "20",
+            "zoneId": "devboard_left",
+            "net": "MCU_TFT_DC"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -105,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J7",
+            "pinNumber": "22",
+            "zoneId": "devboard_left",
+            "net": "GND"
+          }
+        }
+      ]
+    },
+    {
+      "id": "devboard_right",
+      "title": "ESP32-S3 RIGHT",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "J8",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -115.5,
+            "maxX": 10.5,
+            "maxY": 115.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 115,
+              "maxX": -2.60693359375,
+              "maxY": 123
+            }
+          ],
+          "pins": [
+            {
+              "number": "1",
+              "name": "1",
+              "x": -20,
+              "y": 105,
+              "rotation": 180,
+              "net": "GND"
+            },
+            {
+              "number": "2",
+              "name": "2",
+              "x": -20,
+              "y": 95,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "3",
+              "name": "3",
+              "x": -20,
+              "y": 85,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "4",
+              "name": "4",
+              "x": -20,
+              "y": 75,
+              "rotation": 180,
+              "net": "MCU_CAM_D0"
+            },
+            {
+              "number": "5",
+              "name": "5",
+              "x": -20,
+              "y": 65,
+              "rotation": 180,
+              "net": "MCU_CAM_D1"
+            },
+            {
+              "number": "6",
+              "name": "6",
+              "x": -20,
+              "y": 55,
+              "rotation": 180,
+              "net": "MCU_CAM_D7"
+            },
+            {
+              "number": "7",
+              "name": "7",
+              "x": -20,
+              "y": 45,
+              "rotation": 180,
+              "net": "MCU_CAM_D6"
+            },
+            {
+              "number": "8",
+              "name": "8",
+              "x": -20,
+              "y": 35,
+              "rotation": 180,
+              "net": "MCU_CAM_D5"
+            },
+            {
+              "number": "9",
+              "name": "9",
+              "x": -20,
+              "y": 25,
+              "rotation": 180,
+              "net": "BUTTON39"
+            },
+            {
+              "number": "10",
+              "name": "10",
+              "x": -20,
+              "y": 15,
+              "rotation": 180,
+              "net": "MCU_CAM_D4"
+            },
+            {
+              "number": "11",
+              "name": "11",
+              "x": -20,
+              "y": 5,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "12",
+              "name": "12",
+              "x": -20,
+              "y": -5,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "13",
+              "name": "13",
+              "x": -20,
+              "y": -15,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "14",
+              "name": "14",
+              "x": -20,
+              "y": -25,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "15",
+              "name": "15",
+              "x": -20,
+              "y": -35,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "16",
+              "name": "16",
+              "x": -20,
+              "y": -45,
+              "rotation": 180,
+              "net": "MCU_CAM_HREF"
+            },
+            {
+              "number": "17",
+              "name": "17",
+              "x": -20,
+              "y": -55,
+              "rotation": 180,
+              "net": "MCU_CAM_VSYNC"
+            },
+            {
+              "number": "18",
+              "name": "18",
+              "x": -20,
+              "y": -65,
+              "rotation": 180,
+              "net": "MCU_BUZZ_CTRL"
+            },
+            {
+              "number": "19",
+              "name": "19",
+              "x": -20,
+              "y": -75,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "20",
+              "name": "20",
+              "x": -20,
+              "y": -85,
+              "rotation": 180,
+              "net": ""
+            },
+            {
+              "number": "21",
+              "name": "21",
+              "x": -20,
+              "y": -95,
+              "rotation": 180,
+              "net": "GND"
+            },
+            {
+              "number": "22",
+              "name": "22",
+              "x": -20,
+              "y": -105,
+              "rotation": 180,
+              "net": "GND"
+            }
+          ]
+        }
+      ],
+      "wires": [],
+      "flags": [
+        {
+          "net": "GND",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 105,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "1",
+            "zoneId": "devboard_right",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "MCU_CAM_D0",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 75,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "4",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D0"
+          }
+        },
+        {
+          "net": "MCU_CAM_D1",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 65,
+          "direction": "left",
+          "offset": 115,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "5",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D1"
+          }
+        },
+        {
+          "net": "MCU_CAM_D7",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 55,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "6",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D7"
+          }
+        },
+        {
+          "net": "MCU_CAM_D6",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 45,
+          "direction": "left",
+          "offset": 115,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "7",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D6"
+          }
+        },
+        {
+          "net": "MCU_CAM_D5",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 35,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "8",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D5"
+          }
+        },
+        {
+          "net": "BUTTON39",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 25,
+          "direction": "left",
+          "offset": 115,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "9",
+            "zoneId": "devboard_right",
+            "net": "BUTTON39"
+          }
+        },
+        {
+          "net": "MCU_CAM_D4",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 15,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "10",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_D4"
+          }
+        },
+        {
+          "net": "MCU_CAM_HREF",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -45,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "16",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_HREF"
+          }
+        },
+        {
+          "net": "MCU_CAM_VSYNC",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -55,
+          "direction": "left",
+          "offset": 130,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "17",
+            "zoneId": "devboard_right",
+            "net": "MCU_CAM_VSYNC"
+          }
+        },
+        {
+          "net": "MCU_BUZZ_CTRL",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -65,
+          "direction": "left",
+          "offset": 255,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "18",
+            "zoneId": "devboard_right",
+            "net": "MCU_BUZZ_CTRL"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -95,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "21",
+            "zoneId": "devboard_right",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": -105,
+          "direction": "left",
+          "offset": 75,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J8",
+            "pinNumber": "22",
+            "zoneId": "devboard_right",
+            "net": "GND"
+          }
+        }
+      ]
+    },
+    {
+      "id": "button",
+      "title": "GPIO39 / SILENCE + LEARN",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "SW1",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -20.5,
+            "maxX": 10.5,
+            "maxY": 10.5
+          },
+          "textBboxes": [
+            {
+              "minX": 35,
+              "minY": 40,
+              "maxX": 50.1689453125,
+              "maxY": 48
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "B",
+              "net": "BUTTON39",
+              "x": 20,
+              "y": 10,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "A",
+              "net": "BUTTON39",
+              "x": -20,
+              "y": 10,
+              "rotation": 180
+            },
+            {
+              "number": "4",
+              "name": "D",
+              "net": "GND",
+              "x": 20,
+              "y": -20,
+              "rotation": 0
+            },
+            {
+              "number": "3",
+              "name": "C",
+              "net": "GND",
+              "x": -20,
+              "y": -20,
+              "rotation": 180
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "R3",
+          "x": 90,
+          "y": 90.00000000000011,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "minX": 85.5,
+            "minY": 79.5,
+            "maxX": 94.5,
+            "maxY": 100.5
+          },
+          "textBboxes": [
+            {
+              "minX": 100,
+              "minY": 90.00000000000011,
+              "maxX": 108.9482421875,
+              "maxY": 98.00000000000011
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "BUTTON39",
+              "x": 90,
+              "y": 70,
+              "rotation": 270
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "MCU_3V3",
+              "x": 90,
+              "y": 110,
+              "rotation": 90
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "C7",
+          "x": 105,
+          "y": -29.999999999999886,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "minX": 96.5,
+            "minY": -40.5,
+            "maxX": 113.5,
+            "maxY": -19.5
+          },
+          "textBboxes": [
+            {
+              "minX": 120,
+              "minY": -29.999999999999886,
+              "maxX": 128.9482421875,
+              "maxY": -21.999999999999886
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": 105,
+              "y": -50,
+              "rotation": 270
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "BUTTON39",
+              "x": 105,
+              "y": -10,
+              "rotation": 90
+            }
+          ]
+        }
+      ],
+      "wires": [
+        {
+          "net": "GND",
+          "points": [
+            [
+              -20,
+              -20
+            ],
+            [
+              -25,
+              -20
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -25,
+              -20
+            ],
+            [
+              -25,
+              -25
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -25,
+              -25
+            ],
+            [
+              25,
+              -25
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              105,
+              -10
+            ],
+            [
+              105,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              105,
+              10
+            ],
+            [
+              105,
+              65
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              105,
+              65
+            ],
+            [
+              90,
+              65
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              90,
+              65
+            ],
+            [
+              90,
+              70
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              20,
+              10
+            ],
+            [
+              25,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              25,
+              10
+            ],
+            [
+              105,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              -20,
+              10
+            ],
+            [
+              -25,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              -25,
+              10
+            ],
+            [
+              -25,
+              20
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              -25,
+              20
+            ],
+            [
+              25,
+              20
+            ]
+          ]
+        },
+        {
+          "net": "BUTTON39",
+          "points": [
+            [
+              25,
+              20
+            ],
+            [
+              25,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              20,
+              -20
+            ],
+            [
+              25,
+              -20
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              25,
+              -25
+            ],
+            [
+              25,
+              -20
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              25,
+              -20
+            ],
+            [
+              25,
+              -15
+            ]
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": 25,
+          "pinY": -15,
+          "direction": "right",
+          "offset": 20,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "GND",
+            "x": 25,
+            "y": -15
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": 105,
+          "pinY": -50,
+          "direction": "down",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-C7",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "MCU_3V3",
+          "kind": "power",
+          "pinX": 90,
+          "pinY": 110,
+          "direction": "up",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R3",
+            "pinNumber": "1",
+            "net": "MCU_3V3"
+          }
+        },
+        {
+          "net": "BUTTON39",
+          "kind": "net_port_bi",
+          "pinX": 0,
+          "pinY": 20,
+          "direction": "up",
+          "offset": 10,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "BUTTON39",
+            "x": 0,
+            "y": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "buzzer",
+      "title": "ACTIVE BUZZER MODULE / 3V3",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "J9",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -20.5,
+            "maxX": 10.5,
+            "maxY": 20.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 20,
+              "maxX": -2.60693359375,
+              "maxY": 28
+            }
+          ],
+          "pins": [
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": -20,
+              "y": 10,
+              "rotation": 180
+            },
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": -20,
+              "y": 0,
+              "rotation": 180
+            },
+            {
+              "number": "3",
+              "name": "3",
+              "net": "BUZZ_CTRL",
+              "x": -20,
+              "y": -10,
+              "rotation": 180
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "C8",
+          "x": -150,
+          "y": -29.999999999999886,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "minX": -158.5,
+            "minY": -40.5,
+            "maxX": -141.5,
+            "maxY": -19.5
+          },
+          "textBboxes": [
+            {
+              "minX": -135,
+              "minY": -29.999999999999886,
+              "maxX": -126.0517578125,
+              "maxY": -21.999999999999886
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": -150,
+              "y": -50,
+              "rotation": 270
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": -150,
+              "y": -10,
+              "rotation": 90
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "R4",
+          "x": -75,
+          "y": -104.99999999999989,
+          "rotation": 270,
+          "mirror": false,
+          "bbox": {
+            "minX": -79.5,
+            "minY": -115.5,
+            "maxX": -70.5,
+            "maxY": -94.5
+          },
+          "textBboxes": [
+            {
+              "minX": -65,
+              "minY": -104.99999999999989,
+              "maxX": -56.0517578125,
+              "maxY": -96.99999999999989
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": -75,
+              "y": -125,
+              "rotation": 270
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "BUZZ_CTRL",
+              "x": -75,
+              "y": -85,
+              "rotation": 90
+            }
+          ]
+        }
+      ],
+      "wires": [
+        {
+          "net": "BUZZ_CTRL",
+          "points": [
+            [
+              -75,
+              -85
+            ],
+            [
+              -75,
+              -10
+            ]
+          ]
+        },
+        {
+          "net": "BUZZ_CTRL",
+          "points": [
+            [
+              -75,
+              -10
+            ],
+            [
+              -20,
+              -10
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -150,
+              -10
+            ],
+            [
+              -150,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -150,
+              10
+            ],
+            [
+              -25,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -25,
+              10
+            ],
+            [
+              -20,
+              10
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -25,
+              10
+            ],
+            [
+              -25,
+              15
+            ]
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": -20,
+          "pinY": 0,
+          "direction": "left",
+          "offset": 150,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J9",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": -150,
+          "pinY": -50,
+          "direction": "down",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-C8",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": -75,
+          "pinY": -125,
+          "direction": "down",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R4",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "+3V3",
+          "kind": "power",
+          "pinX": -25,
+          "pinY": 15,
+          "direction": "up",
+          "offset": 10,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "+3V3",
+            "x": -25,
+            "y": 15
+          }
+        },
+        {
+          "net": "BUZZ_CTRL",
+          "kind": "net_port_bi",
+          "pinX": -75,
+          "pinY": -10,
+          "direction": "up",
+          "offset": 15,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "BUZZ_CTRL",
+            "x": -75,
+            "y": -10
+          }
+        }
+      ]
+    }
+  ]
+}

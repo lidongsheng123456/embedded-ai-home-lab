@@ -46,6 +46,7 @@
 10. [使用内网 Gitea 管理项目](docs/10-Gitea管理.md)
 11. [EasyEDA 从入门到完整系统的渐进电路学习路线](docs/11-EasyEDA渐进电路学习路线.md)
 12. [手机与电脑可视化大屏：预览、使用和源码](firmware/web/README.md)
+13. [R1 载板原理图、PCB 与打样资料](hardware/README.md)（四层载板已完成设计检查；首板仍需实物验证）
 
 ## 目录结构
 

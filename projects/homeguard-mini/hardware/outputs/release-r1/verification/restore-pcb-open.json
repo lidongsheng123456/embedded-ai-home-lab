@@ -1,0 +1,17 @@
+{
+  "active": {
+    "projectUuid": "8faa3b70e39c9659bcf4cff82bc2f5c0ace26c56740bedfc16947f1eebbbd0c0",
+    "projectName": "HomeGuard Mini R1 备份恢复核验 20261112",
+    "documentUuid": "e06d6bd616ed4ccd",
+    "documentType": "pcb",
+    "tabId": "e06d6bd616ed4ccd@8faa3b70e39c9659bcf4cff82bc2f5c0ace26c56740bedfc16947f1eebbbd0c0"
+  },
+  "opened": {
+    "uuid": "e06d6bd616ed4ccd",
+    "type": "pcb",
+    "name": "PCB2",
+    "parent": "8faa3b70e39c9659bcf4cff82bc2f5c0ace26c56740bedfc16947f1eebbbd0c0",
+    "active": false
+  },
+  "ready": true
+}

@@ -1,0 +1,1237 @@
+{
+  "passed": false,
+  "summary": {
+    "danglingEnds": 0,
+    "acuteAngles": 0,
+    "nonOrthogonal": 0,
+    "trackOverPad": 0,
+    "clearance": 1,
+    "silkscreenFlipped": 0,
+    "overlappingVias": 0,
+    "singleLayerVias": 0,
+    "widthMismatches": 23,
+    "duplicateSegments": 0,
+    "parallelCoupling": 45,
+    "antennaKeepout": 0,
+    "netlessPours": 0,
+    "viaCrossesPlane": 0,
+    "floatingIslands": 0,
+    "powerNotPoured": 2,
+    "netlessViaInPad": 0,
+    "widthUnderSpec": 2,
+    "silkOverPad": 0,
+    "silkOffBoard": 0,
+    "decapTooFar": 12,
+    "viaInPad": 0,
+    "copperNearEdge": 0,
+    "fiducialMissing": 1,
+    "zoneViolation": 0,
+    "internalOnEdge": 0,
+    "connectorPlugClearance": 4,
+    "connectorMatingBlocked": 0,
+    "connectorOpeningInward": 0,
+    "errors": 1,
+    "warnings": 66,
+    "total": 90
+  },
+  "trackCount": 855,
+  "viaCount": 154,
+  "padCount": 346,
+  "findings": [
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C14",
+      "widths": [
+        8,
+        24
+      ],
+      "message": "2-pin part C14: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C15",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C15: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C17",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C17: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C18",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C18: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C19",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C19: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C2",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C2: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C20",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C20: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C21",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C21: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C22",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C22: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "BUCK_SW",
+      "designator": "C23",
+      "widths": [
+        24.02,
+        8
+      ],
+      "message": "2-pin part C23: entering track widths differ (24.0 vs 8.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C24",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C24: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "USB_MCU_5V",
+      "designator": "C25",
+      "widths": [
+        40,
+        8
+      ],
+      "message": "2-pin part C25: entering track widths differ (40.0 vs 8.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C26",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C26: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C28",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C28: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C29",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C29: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C3",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C3: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C4",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part C4: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C5",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C5: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C6",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C6: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "C8",
+      "widths": [
+        8,
+        24.02
+      ],
+      "message": "2-pin part C8: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "GND",
+      "designator": "D1",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part D1: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "LED_ANODE",
+      "designator": "R15",
+      "widths": [
+        8,
+        24
+      ],
+      "message": "2-pin part R15: entering track widths differ (8.0 vs 24.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-mismatch",
+      "level": "INFO",
+      "net": "USB_POWER_EN",
+      "designator": "R16",
+      "widths": [
+        8,
+        40
+      ],
+      "message": "2-pin part R16: entering track widths differ (8.0 vs 40.0 mil) [规范 §1.2 推荐线宽 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "BUCK_BST",
+        "BUCK_SW"
+      ],
+      "layer": 1,
+      "primitives": [
+        "5cb53af13553cac5",
+        "18156e217b6c96b1"
+      ],
+      "message": "parallel traces 37.4 mil apart over 31 mil (\u003c 58.4 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "BUCK_BST",
+        "BUCK_SW"
+      ],
+      "layer": 1,
+      "primitives": [
+        "9f34367b6e179d42",
+        "7c3ebd16d72c4880"
+      ],
+      "message": "parallel traces 66.9 mil apart over 80 mil (\u003c 72.1 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "FUSED_5V",
+        "USB_VBUS"
+      ],
+      "layer": 1,
+      "primitives": [
+        "f7d91fd618c95ccb",
+        "a2524f400562a6b8"
+      ],
+      "message": "parallel traces 118.3 mil apart over 61 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "FUSED_5V",
+        "USB_VBUS"
+      ],
+      "layer": 1,
+      "primitives": [
+        "f7d91fd618c95ccb",
+        "4b1405259419bed3"
+      ],
+      "message": "parallel traces 118.3 mil apart over 44 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "EFUSE_EN",
+        "FUSED_5V"
+      ],
+      "layer": 1,
+      "primitives": [
+        "ef5153fbb2142e26",
+        "bff614739bab9b5c"
+      ],
+      "message": "parallel traces 60.2 mil apart over 31 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "EFUSE_EN",
+        "FUSED_5V"
+      ],
+      "layer": 1,
+      "primitives": [
+        "d1ea70d94ee52cd5",
+        "782cbe9d45dd7759"
+      ],
+      "message": "parallel traces 83.6 mil apart over 35 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "FUSED_5V",
+        "USB_VBUS"
+      ],
+      "layer": 1,
+      "primitives": [
+        "015edb285399cdc5",
+        "1f916a2f5fa4ff9c"
+      ],
+      "message": "parallel traces 65.0 mil apart over 56 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "EFUSE_DVDT",
+        "FUSED_5V"
+      ],
+      "layer": 2,
+      "primitives": [
+        "71db96d895e5f8c3",
+        "3f3704027caede9c"
+      ],
+      "message": "parallel traces 67.7 mil apart over 22 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "EFUSE_DVDT",
+        "FUSED_5V"
+      ],
+      "layer": 2,
+      "primitives": [
+        "71db96d895e5f8c3",
+        "8e3b395d3741a076"
+      ],
+      "message": "parallel traces 93.0 mil apart over 28 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "CAM_D2",
+        "CAM_D3"
+      ],
+      "layer": 2,
+      "primitives": [
+        "8300724c29b2dc95",
+        "50ad910bc937117e"
+      ],
+      "message": "parallel traces 17.8 mil apart over 371 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_CAM_PCLK",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "dae1aa68ce9d128b",
+        "0c4ad42aefcb2d73"
+      ],
+      "message": "parallel traces 16.1 mil apart over 143 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_CAM_D3",
+        "MCU_CAM_D5"
+      ],
+      "layer": 1,
+      "primitives": [
+        "8cc67fcf9cc457cf",
+        "1ed69f42ec197830"
+      ],
+      "message": "parallel traces 17.5 mil apart over 89 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_CAM_D3",
+        "MCU_CAM_D5"
+      ],
+      "layer": 1,
+      "primitives": [
+        "970b0a22a781e860",
+        "7b5b8124f92b91e6"
+      ],
+      "message": "parallel traces 17.3 mil apart over 310 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "CAM_D2",
+        "CAM_D5"
+      ],
+      "layer": 2,
+      "primitives": [
+        "1762af00d1f4d336",
+        "15937be7715281ca"
+      ],
+      "message": "parallel traces 23.8 mil apart over 179 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "CAM_D4",
+        "CAM_D5"
+      ],
+      "layer": 2,
+      "primitives": [
+        "c325d80deef1838f",
+        "5e9948ae1da76ec1"
+      ],
+      "message": "parallel traces 20.4 mil apart over 449 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_TFT_MOSI",
+        "MCU_TFT_SCLK"
+      ],
+      "layer": 2,
+      "primitives": [
+        "ec5b06c3296825a4",
+        "61dd11ba88e0daf8"
+      ],
+      "message": "parallel traces 20.0 mil apart over 82 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_TFT_DC",
+        "MCU_TFT_SCLK"
+      ],
+      "layer": 2,
+      "primitives": [
+        "ceaecf5c2aafeebe",
+        "e9d6aacce5f89276"
+      ],
+      "message": "parallel traces 19.5 mil apart over 868 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_TFT_CS",
+        "MCU_TFT_MOSI"
+      ],
+      "layer": 2,
+      "primitives": [
+        "61dd11ba88e0daf8",
+        "184be2fef35fa893"
+      ],
+      "message": "parallel traces 20.0 mil apart over 242 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_CAM_HREF",
+        "MCU_TFT_DC"
+      ],
+      "layer": 2,
+      "primitives": [
+        "b7f085634c0905a3",
+        "bba00b7f14bb2e62"
+      ],
+      "message": "parallel traces 20.0 mil apart over 40 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_CAM_HREF",
+        "MCU_CAM_VSYNC"
+      ],
+      "layer": 2,
+      "primitives": [
+        "bba00b7f14bb2e62",
+        "7a300d474b57cc61"
+      ],
+      "message": "parallel traces 20.0 mil apart over 134 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "EFUSE_DVDT",
+        "FUSED_5V"
+      ],
+      "layer": 1,
+      "primitives": [
+        "5d66cfb61da632e8",
+        "bdbfcdf30f25b8d5"
+      ],
+      "message": "parallel traces 106.5 mil apart over 34 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "ISO_OE_N",
+        "MCU_MIC_SD"
+      ],
+      "layer": 1,
+      "primitives": [
+        "913ae79934e61776",
+        "446879b433e3c409"
+      ],
+      "message": "parallel traces 16.1 mil apart over 28 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_BUZZ_CTRL",
+        "MCU_I2C_SCL"
+      ],
+      "layer": 1,
+      "primitives": [
+        "cb4d2f1b800b50dc",
+        "f45e8a2fbac73a3f"
+      ],
+      "message": "parallel traces 16.1 mil apart over 25 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_MIC_BCLK",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "b4d19f72e1c6831b",
+        "29b03c6fe30ad92f"
+      ],
+      "message": "parallel traces 19.7 mil apart over 22 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_UART_RX17",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "ec2d13b994d594b0",
+        "5ab70e3de4095de8"
+      ],
+      "message": "parallel traces 16.1 mil apart over 85 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_MIC_BCLK",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "ec2d13b994d594b0",
+        "9fe89a4a98f838fc"
+      ],
+      "message": "parallel traces 21.6 mil apart over 105 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_UART_RX17",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "5de951cc29dd98e1",
+        "94f2db37b2308c2b"
+      ],
+      "message": "parallel traces 16.8 mil apart over 250 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_MIC_WS",
+        "MCU_UART_TX18"
+      ],
+      "layer": 1,
+      "primitives": [
+        "34e045dc103d5a27",
+        "9e3d7e1fe80fd891"
+      ],
+      "message": "parallel traces 19.3 mil apart over 72 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "95521ca5fdaf624f",
+        "6e6473e45ff2f1af"
+      ],
+      "message": "parallel traces 63.5 mil apart over 160 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "d0f60d4e02ed122b",
+        "4418d143ffb6f1c8"
+      ],
+      "message": "parallel traces 114.6 mil apart over 415 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "d0f60d4e02ed122b",
+        "c6c07ac2e2acbbcd"
+      ],
+      "message": "parallel traces 40.4 mil apart over 471 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "d0f60d4e02ed122b",
+        "3bb951417ddfdff3"
+      ],
+      "message": "parallel traces 102.6 mil apart over 85 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "d0f60d4e02ed122b",
+        "e46d0c3e75f8a231"
+      ],
+      "message": "parallel traces 39.6 mil apart over 56 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "USB_MCU_5V",
+        "USB_POWER_EN"
+      ],
+      "layer": 2,
+      "primitives": [
+        "d0f60d4e02ed122b",
+        "1a7d3cb5f8b9d125"
+      ],
+      "message": "parallel traces 39.6 mil apart over 145 mil (\u003c 120.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "BUZZ_CTRL",
+        "MCU_3V3"
+      ],
+      "layer": 2,
+      "primitives": [
+        "f9be1a2e55739daf",
+        "a6f148e498762045"
+      ],
+      "message": "parallel traces 23.0 mil apart over 735 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "BUZZ_CTRL",
+        "MCU_3V3"
+      ],
+      "layer": 2,
+      "primitives": [
+        "914ababb68afa058",
+        "a6f148e498762045"
+      ],
+      "message": "parallel traces 19.4 mil apart over 912 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "I2C_SDA",
+        "MCU_3V3"
+      ],
+      "layer": 2,
+      "primitives": [
+        "74932a3efa760879",
+        "90d5cf5d1bb43c37"
+      ],
+      "message": "parallel traces 20.0 mil apart over 145 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MCU_3V3",
+        "TFT_RST"
+      ],
+      "layer": 2,
+      "primitives": [
+        "f7ee37d51b8dc284",
+        "7fdcdfbe7d0fd75f"
+      ],
+      "message": "parallel traces 21.2 mil apart over 262 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MIC_SD",
+        "MIC_WS"
+      ],
+      "layer": 1,
+      "primitives": [
+        "f7a13fafac050fd4",
+        "73d361ab97900f02"
+      ],
+      "message": "parallel traces 17.5 mil apart over 1345 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "TFT_CS",
+        "UART_TX18"
+      ],
+      "layer": 2,
+      "primitives": [
+        "b5003e28e0e11652",
+        "97576a97b5fc3398"
+      ],
+      "message": "parallel traces 17.5 mil apart over 98 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "BUZZ_CTRL",
+        "MIC_SD"
+      ],
+      "layer": 1,
+      "primitives": [
+        "c2eeee8912eceedb",
+        "c0c573e27cac7468"
+      ],
+      "message": "parallel traces 23.0 mil apart over 97 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "I2C_SCL",
+        "TFT_CS"
+      ],
+      "layer": 2,
+      "primitives": [
+        "b2208a7caa29332d",
+        "97576a97b5fc3398"
+      ],
+      "message": "parallel traces 17.5 mil apart over 20 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "TFT_DAT",
+        "TFT_RST"
+      ],
+      "layer": 1,
+      "primitives": [
+        "624116970d982abe",
+        "d0ae7984c40552ee"
+      ],
+      "message": "parallel traces 23.0 mil apart over 48 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "TFT_CS",
+        "TFT_RST"
+      ],
+      "layer": 1,
+      "primitives": [
+        "4e6309cb1a0a0683",
+        "b9aec7469f1d372c"
+      ],
+      "message": "parallel traces 19.4 mil apart over 34 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "parallel-coupling",
+      "level": "WARN",
+      "nets": [
+        "MIC_SD",
+        "MIC_WS"
+      ],
+      "layer": 1,
+      "primitives": [
+        "586b346719e0a8d7",
+        "c0c573e27cac7468"
+      ],
+      "message": "parallel traces 21.2 mil apart over 130 mil (\u003c 24.0 mil = 3×W) — crosstalk/3W risk [规范 §4.2 减少串扰 — pcb-design-rules.md]"
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C2",
+      "message": "decoupling cap C2 sits 1284mil (32.6mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 2007.9,
+        "y": 3484.3
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+5V",
+      "designator": "C20",
+      "message": "decoupling cap C20 sits 150mil (3.8mm) from the nearest +5V pin U8.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 2059.1,
+        "y": 307.1
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C21",
+      "message": "decoupling cap C21 sits 418mil (10.6mm) from the nearest +3V3 pin U8.1 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 1775.3,
+        "y": 826.8
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C22",
+      "message": "decoupling cap C22 sits 459mil (11.7mm) from the nearest +3V3 pin U8.1 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 2114.5,
+        "y": 826.8
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+5V",
+      "designator": "C26",
+      "message": "decoupling cap C26 sits 131mil (3.3mm) from the nearest +5V pin U10.5 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 2429.1,
+        "y": 984.3
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C28",
+      "message": "decoupling cap C28 sits 1325mil (33.6mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3346.5,
+        "y": 3385.8
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C29",
+      "message": "decoupling cap C29 sits 1224mil (31.1mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3086.9,
+        "y": 3425.2
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C3",
+      "message": "decoupling cap C3 sits 1179mil (29.9mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 2755.9,
+        "y": 3484.3
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+5V",
+      "designator": "C4",
+      "message": "decoupling cap C4 sits 1231mil (31.3mm) from the nearest +5V pin U10.5 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3661.4,
+        "y": 433.1
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C5",
+      "message": "decoupling cap C5 sits 1250mil (31.7mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3759.8,
+        "y": 1988.2
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C6",
+      "message": "decoupling cap C6 sits 974mil (24.7mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3519.7,
+        "y": 2181.1
+      }
+    },
+    {
+      "type": "decap-too-far",
+      "level": "WARN",
+      "net": "+3V3",
+      "designator": "C8",
+      "message": "decoupling cap C8 sits 1463mil (37.2mm) from the nearest +3V3 pin U6.3 — a decap must hug its IC (≤100mil / 2.54mm) [规范 §3.1 去耦电容紧贴IC — pcb-design-rules.md]",
+      "at": {
+        "x": 3425.2,
+        "y": 3500
+      }
+    },
+    {
+      "type": "fiducial-missing",
+      "level": "INFO",
+      "message": "board has 240 top-layer pads (SMT-scale) but only 0 fiducial(s) (FID*/MARK*) — SMT wants ≥3 non-collinear 1mm marks (JLC panel rails add their own; local marks needed for fine-pitch) [规范 §9 Mark点设计 — pcb-design-rules.md]"
+    },
+    {
+      "type": "clearance",
+      "level": "ERROR",
+      "nets": [
+        "I2C_SDA",
+        "ISO_OE_N"
+      ],
+      "designator": "U3",
+      "primitives": [
+        "8ba0b9da788b743c"
+      ],
+      "message": "via (net I2C_SDA) sits ~6.7mil from pad U3.19 (net ISO_OE_N) — under the 8mil spacing rule [规范 §1.1 最小间距 — pcb-design-rules.md]",
+      "at": {
+        "x": 2175,
+        "y": 1757.9
+      }
+    },
+    {
+      "type": "connector-plug-clearance",
+      "level": "WARN",
+      "designator": "J11",
+      "primitives": [
+        "e9fc8d19ff369a8c",
+        "ac224f3b7169f9fc"
+      ],
+      "message": "J11 ↔ J5 center distance 13.83mm (544mil) \u003c 18.88mm required by their plug envelopes (J11 18.00mm[table:usb-a], J5 19.75mm[fallback]) — the receptacle footprints may clear, but the plugs/overmolds will collide [plug-width=fallback — no envelope table entry, estimated from the rendered bbox] [规范 §3.5 插头护套包络 ≠ 母座本体宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 3452.76,
+        "y": 1604.33
+      }
+    },
+    {
+      "type": "connector-plug-clearance",
+      "level": "WARN",
+      "designator": "J12",
+      "primitives": [
+        "922c3b4155ef9387",
+        "38924c09638a693f"
+      ],
+      "message": "J12 ↔ J3 center distance 15.52mm (611mil) \u003c 25.00mm required by their plug envelopes (J12 35.25mm[fallback], J3 14.75mm[fallback]) — the receptacle footprints may clear, but the plugs/overmolds will collide [plug-width=fallback — no envelope table entry, estimated from the rendered bbox] [规范 §3.5 插头护套包络 ≠ 母座本体宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 2795.28,
+        "y": 3405.51
+      }
+    },
+    {
+      "type": "connector-plug-clearance",
+      "level": "WARN",
+      "designator": "J12",
+      "primitives": [
+        "922c3b4155ef9387",
+        "749b1dea23b7b514"
+      ],
+      "message": "J12 ↔ J9 center distance 19.21mm (756mil) \u003c 23.77mm required by their plug envelopes (J12 35.25mm[fallback], J9 12.28mm[fallback]) — the receptacle footprints may clear, but the plugs/overmolds will collide [plug-width=fallback — no envelope table entry, estimated from the rendered bbox] [规范 §3.5 插头护套包络 ≠ 母座本体宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 3110.24,
+        "y": 3405.51
+      }
+    },
+    {
+      "type": "connector-plug-clearance",
+      "level": "WARN",
+      "designator": "J7",
+      "primitives": [
+        "4bf1e7daa090f3d9",
+        "31a049673e236ae8"
+      ],
+      "message": "J7 ↔ J8 center distance 25.40mm (1000mil) \u003c 58.63mm required by their plug envelopes (J7 58.63mm[fallback], J8 58.63mm[fallback]) — the receptacle footprints may clear, but the plugs/overmolds will collide [plug-width=fallback — no envelope table entry, estimated from the rendered bbox] [规范 §3.5 插头护套包络 ≠ 母座本体宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 974.5,
+        "y": 2086.62
+      }
+    },
+    {
+      "type": "power-not-poured",
+      "level": "WARN",
+      "net": "+3V3",
+      "message": "power net +3V3 (26 pads) has no copper pour/plane — power should be poured, not carried by thin tracks: `pcb pour-fit --net +3V3` (2-layer) or `pcb power-planes` (4-layer) [规范 §5.2 铺铜策略 — pcb-design-rules.md]"
+    },
+    {
+      "type": "power-not-poured",
+      "level": "WARN",
+      "net": "+5V",
+      "message": "power net +5V (12 pads) has no copper pour/plane — power should be poured, not carried by thin tracks: `pcb pour-fit --net +5V` (2-layer) or `pcb power-planes` (4-layer) [规范 §5.2 铺铜策略 — pcb-design-rules.md]"
+    },
+    {
+      "type": "width-under-spec",
+      "level": "WARN",
+      "net": "+5V",
+      "primitives": [
+        "1b08ca6c9fd60110"
+      ],
+      "widths": [
+        10.6,
+        15.75
+      ],
+      "message": "power net +5V: 5 track(s) below the power-trunk spec width 15.7 mil (thinnest 10.6 mil) — widen for current capacity (route-short sizes by role; pour it instead, or --width-power to override) [规范 §1.2 推荐线宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 2428.98,
+        "y": 627.76
+      }
+    },
+    {
+      "type": "width-under-spec",
+      "level": "WARN",
+      "net": "GND",
+      "primitives": [
+        "e9366abc061f3812"
+      ],
+      "widths": [
+        8,
+        19.69
+      ],
+      "message": "power net GND: 11 track(s) below the gnd spec width 19.7 mil (thinnest 8 mil) — widen for current capacity (route-short sizes by role; pour it instead, or --width-power to override) [规范 §1.2 推荐线宽 — pcb-design-rules.md]",
+      "at": {
+        "x": 354.3,
+        "y": 689
+      }
+    }
+  ],
+  "limitations": [
+    "pad U10.1: POLYGON pad geometry is not supported by pcb net-path",
+    "pad U10.4: POLYGON pad geometry is not supported by pcb net-path",
+    "pad U10.7: POLYGON pad geometry is not supported by pcb net-path",
+    "pad U10.10: POLYGON pad geometry is not supported by pcb net-path",
+    "4 pad(s) have captured source shapes unsupported by exact pad-contact inspection"
+  ],
+  "incomplete": true,
+  "coverage": {
+    "complete": false,
+    "componentsInventoryKnown": true,
+    "padsInventoryKnown": true,
+    "componentCount": 79,
+    "totalPads": 346,
+    "knownGeometryPads": 342,
+    "unsupportedGeometryPads": 4,
+    "unknownGeometryPads": 0,
+    "legacyGeometryPads": 0,
+    "unverifiedPads": [
+      {
+        "componentPrimitiveId": "b28790ac64d5e7ee",
+        "designator": "U10",
+        "primitiveId": "b28790ac64d5e7eee4",
+        "padNumber": "1",
+        "status": "unsupported",
+        "reason": "POLYGON pad geometry is not supported by pcb net-path"
+      },
+      {
+        "componentPrimitiveId": "b28790ac64d5e7ee",
+        "designator": "U10",
+        "primitiveId": "b28790ac64d5e7eee5",
+        "padNumber": "4",
+        "status": "unsupported",
+        "reason": "POLYGON pad geometry is not supported by pcb net-path"
+      },
+      {
+        "componentPrimitiveId": "b28790ac64d5e7ee",
+        "designator": "U10",
+        "primitiveId": "b28790ac64d5e7eee6",
+        "padNumber": "7",
+        "status": "unsupported",
+        "reason": "POLYGON pad geometry is not supported by pcb net-path"
+      },
+      {
+        "componentPrimitiveId": "b28790ac64d5e7ee",
+        "designator": "U10",
+        "primitiveId": "b28790ac64d5e7eee7",
+        "padNumber": "10",
+        "status": "unsupported",
+        "reason": "POLYGON pad geometry is not supported by pcb net-path"
+      }
+    ],
+    "limitations": [
+      "4 pad(s) have captured source shapes unsupported by exact pad-contact inspection"
+    ]
+  }
+}

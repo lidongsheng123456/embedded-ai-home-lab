@@ -6,6 +6,7 @@
 **/downloads/
 **/compile_commands.json
 **/node_modules/
+.easyeda/
 
 # Local secrets
 **/app_config.h

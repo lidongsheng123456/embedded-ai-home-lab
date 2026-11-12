@@ -1,0 +1,336 @@
+{
+  "status": "source-only",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "aa246f793129b3d3",
+  "parts": [
+    {
+      "ref": "U1",
+      "part": "bus",
+      "pins": {
+        "1": null,
+        "2": "MCU_CAM_D0",
+        "3": "MCU_CAM_D1",
+        "4": "MCU_CAM_D2",
+        "5": "MCU_CAM_D3",
+        "6": "MCU_CAM_D4",
+        "7": "MCU_CAM_D5",
+        "8": "MCU_CAM_D6",
+        "9": "MCU_CAM_D7",
+        "10": "GND",
+        "11": "CAM_D7",
+        "12": "CAM_D6",
+        "13": "CAM_D5",
+        "14": "CAM_D4",
+        "15": "CAM_D3",
+        "16": "CAM_D2",
+        "17": "CAM_D1",
+        "18": "CAM_D0",
+        "19": "ISO_OE_N",
+        "20": "MCU_3V3"
+      },
+      "module": "bus1",
+      "x": 0,
+      "y": 600
+    },
+    {
+      "ref": "C9",
+      "part": "c100n",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "GND"
+      },
+      "module": "bus1",
+      "x": 200,
+      "y": 800
+    },
+    {
+      "ref": "U2",
+      "part": "bus",
+      "pins": {
+        "1": null,
+        "2": "MCU_CAM_PCLK",
+        "3": "MCU_CAM_VSYNC",
+        "4": "MCU_CAM_HREF",
+        "5": "MCU_TFT_SCLK",
+        "6": "MCU_TFT_MOSI",
+        "7": "MCU_TFT_RST",
+        "8": "MCU_TFT_DC",
+        "9": "MCU_TFT_CS",
+        "10": "GND",
+        "11": "TFT_CS",
+        "12": "TFT_DC",
+        "13": "TFT_RST",
+        "14": "TFT_DAT",
+        "15": "TFT_CLK",
+        "16": "CAM_HREF",
+        "17": "CAM_VSYNC",
+        "18": "CAM_PCLK",
+        "19": "ISO_OE_N",
+        "20": "MCU_3V3"
+      },
+      "module": "bus2",
+      "x": 500,
+      "y": 600
+    },
+    {
+      "ref": "C10",
+      "part": "c100n",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "GND"
+      },
+      "module": "bus2",
+      "x": 700,
+      "y": 800
+    },
+    {
+      "ref": "U3",
+      "part": "bus",
+      "pins": {
+        "1": null,
+        "2": "MCU_I2C_SDA",
+        "3": "MCU_I2C_SCL",
+        "4": "MCU_UART_RX17",
+        "5": "MCU_UART_TX18",
+        "6": "MCU_MIC_BCLK",
+        "7": "MCU_MIC_WS",
+        "8": "MCU_MIC_SD",
+        "9": "MCU_BUZZ_CTRL",
+        "10": "GND",
+        "11": "BUZZ_CTRL",
+        "12": "MIC_SD",
+        "13": "MIC_WS",
+        "14": "MIC_BCLK",
+        "15": "UART_TX18",
+        "16": "UART_RX17",
+        "17": "I2C_SCL",
+        "18": "I2C_SDA",
+        "19": "ISO_OE_N",
+        "20": "MCU_3V3"
+      },
+      "module": "bus3",
+      "x": 1000,
+      "y": 600
+    },
+    {
+      "ref": "C11",
+      "part": "c100n",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "GND"
+      },
+      "module": "bus3",
+      "x": 1200,
+      "y": 800
+    },
+    {
+      "ref": "U4",
+      "part": "bus",
+      "pins": {
+        "1": null,
+        "2": "MCU_MQ2_ADC",
+        "3": "GND",
+        "4": "GND",
+        "5": "GND",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "GND",
+        "10": "GND",
+        "11": null,
+        "12": null,
+        "13": null,
+        "14": null,
+        "15": null,
+        "16": null,
+        "17": null,
+        "18": "MQ2_ADC",
+        "19": "ISO_OE_N",
+        "20": "MCU_3V3"
+      },
+      "module": "bus4",
+      "x": 1500,
+      "y": 600
+    },
+    {
+      "ref": "C12",
+      "part": "c100n",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "GND"
+      },
+      "module": "bus4",
+      "x": 1700,
+      "y": 800
+    },
+    {
+      "ref": "U5",
+      "part": "supervisor",
+      "pins": {
+        "1": "GND",
+        "2": "PG_MCU",
+        "3": "MCU_3V3"
+      },
+      "module": "monitor1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "ref": "C13",
+      "part": "c100n",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "GND"
+      },
+      "module": "monitor1",
+      "x": 200,
+      "y": 100
+    },
+    {
+      "ref": "U6",
+      "part": "supervisor",
+      "pins": {
+        "1": "GND",
+        "2": "PG_PERIPH",
+        "3": "+3V3"
+      },
+      "module": "monitor2",
+      "x": 500,
+      "y": 0
+    },
+    {
+      "ref": "C14",
+      "part": "c100n",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "module": "monitor2",
+      "x": 700,
+      "y": 100
+    },
+    {
+      "ref": "Q1",
+      "part": "mos",
+      "pins": {
+        "1": "PG_MCU",
+        "2": "ISO_MID",
+        "3": "ISO_OE_N"
+      },
+      "module": "enable",
+      "x": 1000,
+      "y": 0
+    },
+    {
+      "ref": "Q2",
+      "part": "mos",
+      "pins": {
+        "1": "PG_PERIPH",
+        "2": "GND",
+        "3": "ISO_MID"
+      },
+      "module": "enable",
+      "x": 1200,
+      "y": -200
+    },
+    {
+      "ref": "R5",
+      "part": "r10k",
+      "pins": {
+        "1": "MCU_3V3",
+        "2": "ISO_OE_N"
+      },
+      "module": "enable",
+      "x": 1200,
+      "y": 100
+    },
+    {
+      "ref": "R6",
+      "part": "r100k",
+      "pins": {
+        "1": "PG_MCU",
+        "2": "GND"
+      },
+      "module": "enable",
+      "x": 800,
+      "y": -200
+    },
+    {
+      "ref": "R7",
+      "part": "r100k",
+      "pins": {
+        "1": "PG_PERIPH",
+        "2": "GND"
+      },
+      "module": "enable",
+      "x": 1000,
+      "y": -300
+    },
+    {
+      "ref": "R8",
+      "part": "r4k7",
+      "pins": {
+        "1": "+3V3",
+        "2": "I2C_SDA"
+      },
+      "module": "bus3",
+      "x": 1200,
+      "y": 800
+    },
+    {
+      "ref": "R9",
+      "part": "r4k7",
+      "pins": {
+        "1": "+3V3",
+        "2": "I2C_SCL"
+      },
+      "module": "bus3",
+      "x": 1400,
+      "y": 800
+    }
+  ],
+  "channels": [
+    [
+      "CAM_D0",
+      "CAM_D1",
+      "CAM_D2",
+      "CAM_D3",
+      "CAM_D4",
+      "CAM_D5",
+      "CAM_D6",
+      "CAM_D7"
+    ],
+    [
+      "CAM_PCLK",
+      "CAM_VSYNC",
+      "CAM_HREF",
+      "TFT_CLK",
+      "TFT_DAT",
+      "TFT_RST",
+      "TFT_DC",
+      "TFT_CS"
+    ],
+    [
+      "I2C_SDA",
+      "I2C_SCL",
+      "UART_RX17",
+      "UART_TX18",
+      "MIC_BCLK",
+      "MIC_WS",
+      "MIC_SD",
+      "BUZZ_CTRL"
+    ],
+    [
+      "MQ2_ADC"
+    ]
+  ],
+  "powerPolicy": "两路3.3V均稳定后才接通信号；MCU断电使用总线开关Ioff，外围断电或欠压由监控器撤销使能。",
+  "constraints": [
+    "OE默认10k上拉MCU_3V3",
+    "两MOS门极各100k下拉",
+    "未使用A通道接GND，B通道NC",
+    "pin1为器件NC",
+    "PG解除延时130～270ms，典型200ms；掉电响应最大50us（数据手册给定测试条件）"
+  ],
+  "hardwareTested": false
+}

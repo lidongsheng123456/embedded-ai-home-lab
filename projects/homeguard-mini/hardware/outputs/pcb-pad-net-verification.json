@@ -1,0 +1,22 @@
+{
+  "status": "live-verified",
+  "scope": "schematic-to-PCB component identity and pad-net assignment; does not prove routed copper connectivity",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "documentId": "e06d6bd616ed4ccd",
+  "parts": 79,
+  "pads": 346,
+  "explicitNoConnect": 30,
+  "nets": 75,
+  "inputs": {
+    "schematic": {
+      "path": ".work\\full-sch-connectivity-1.json",
+      "sha256": "10937e41c260b764aba80e5fec59188a93f37ffaa3a7f604dd78b7b246311896"
+    },
+    "pcb": {
+      "path": ".work\\pcb-silk-input-1.json",
+      "sha256": "09e3d4bf3c2be74d2816eb358d3b2dff3c691dde48386958aebfcc0ada9c93d9"
+    }
+  },
+  "hardwareTested": false,
+  "pcbManufacturingAccepted": false
+}

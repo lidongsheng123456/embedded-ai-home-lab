@@ -1,0 +1,6 @@
+{
+  "nets": [
+    "MCU_CAM_HREF",
+    "MCU_CAM_VSYNC"
+  ]
+}

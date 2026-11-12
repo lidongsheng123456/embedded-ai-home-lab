@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "meta": {
+    "name": "Keep labels visible after assembly and clear of fasteners",
+    "project": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "doc": "e06d6bd616ed4ccd"
+  },
+  "steps": [
+    {
+      "id": "present-0",
+      "action": "pcb.silk.set",
+      "payload": {
+        "primitiveIds": [
+          "4bf1e7daa090f3d9e54"
+        ],
+        "x": 275.5905511811024
+      }
+    },
+    {
+      "id": "present-1",
+      "action": "pcb.silk.set",
+      "payload": {
+        "primitiveIds": [
+          "31a049673e236ae8e54"
+        ],
+        "x": 1633.8582677165355
+      }
+    },
+    {
+      "id": "present-2",
+      "action": "pcb.silk.set",
+      "payload": {
+        "primitiveIds": [
+          "295516ea5c0c2e3c"
+        ],
+        "x": 472.4409448818898,
+        "y": 3740.1574803149606,
+        "fontSize": 65
+      }
+    },
+    {
+      "id": "present-3",
+      "action": "pcb.silk.set",
+      "payload": {
+        "primitiveIds": [
+          "49b6d6f3ed81b03b"
+        ],
+        "x": 472.4409448818898,
+        "y": 3622.047244094488
+      }
+    },
+    {
+      "id": "save",
+      "action": "pcb.save",
+      "assert": {
+        "$.saved": "true"
+      }
+    }
+  ]
+}

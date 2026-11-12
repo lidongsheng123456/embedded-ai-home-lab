@@ -1,0 +1,17 @@
+{
+  "status": "live-verified",
+  "scope": "single schematic page only",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "4795d64e2b14bb93",
+  "parts": 8,
+  "physicalPins": 59,
+  "explicitNoConnect": 12,
+  "visibleNetports": 34,
+  "saved": true,
+  "closedAndReloaded": true,
+  "gate": "pass",
+  "sourceSha256": "fd8a642d04d2869c2ff50c27336c8be36b4ef3118b5c8a5e2dad5eb9ed0ff5e5",
+  "readbackSha256": "b7af1013ebfad2ba3ac5bbe190484b15b336805fecdb39e2c0cbfac5b70874e1",
+  "hardwareTested": false,
+  "fullBoardReady": false
+}

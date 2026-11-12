@@ -1,0 +1,12 @@
+﻿{
+  "id": "req_7623",
+  "ok": true,
+  "result": {
+    "friendlyName": "HomeGuard Mini R1 备份恢复核验 20261112",
+    "opened": true,
+    "uuid": "8faa3b70e39c9659bcf4cff82bc2f5c0ace26c56740bedfc16947f1eebbbd0c0",
+    "verified": true
+  },
+  "type": "response",
+  "version": "v1"
+}

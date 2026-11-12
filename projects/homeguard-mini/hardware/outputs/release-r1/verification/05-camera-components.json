@@ -1,0 +1,3735 @@
+{
+  "id": "req_7396",
+  "type": "response",
+  "version": "v1",
+  "windowId": "e7616346-33a9-47e6-bf5d-e143a642607c",
+  "createdAt": "2026-11-11T19:31:27.9744079Z",
+  "ok": true,
+  "result": {
+    "components": [
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 240.5,
+          "maxY": 255.5,
+          "minX": 199.5,
+          "minY": 134.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "2.54-2*10P简牛",
+          "uuid": "b8a7b2f8e00aae49"
+        },
+        "componentType": "part",
+        "designator": "J12",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Manufacturer Part}",
+          "uuid": "b8a7b2f8e00aae49"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "IDC-TH_20P-P2.54-V-R2-C10-S2.54",
+          "uuid": "597b9fea7aae98c7"
+        },
+        "manufacturer": "BOOMELE(博穆精密)",
+        "manufacturerId": "2.54-2*10P简牛",
+        "mirror": false,
+        "name": "={Manufacturer Part}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Color": "黑色",
+          "Connector Type": "简牛座",
+          "Contact Material": "黄铜",
+          "Contact Plating": "金",
+          "Current Rating": "3A",
+          "Datasheet": "https://item.szlcsc.com/datasheet/2.54-2*10P%25E7%25AE%2580%25E7%2589%259B/3806.html",
+          "Description": "连接器类型:简牛座;间距:2.54mm;结构:2x10P;额定电流:3A;安装方式:直插;行距:2.54mm;排数:2;每排PIN数:10;触头材质:黄铜;触头镀层:金;工作温度:-55℃~+105℃;",
+          "EasyEDA Agent Component ID": "cmp-J12",
+          "EasyEDA Agent Role": "camera",
+          "Holder Type": "直插",
+          "JLCPCB Part Class": "Extended Part",
+          "LCSC Part Name": "2.54mm 2x10P 排数:2 每排P数:10",
+          "Number of PINs Per Row": "10",
+          "Number of Positions or Pins": "2x10P",
+          "Number of Rows": "2",
+          "Operating Temperature": "-55℃~+105℃",
+          "PCB Layer": "Default",
+          "Pitch": "2.54mm",
+          "Row Spacing": "2.54mm",
+          "Supplier Footprint": "插件,P=2.54mm"
+        },
+        "pins": [
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "7c323025b1d4ccf8-e3",
+            "rotation": 180,
+            "x": 190,
+            "y": 240
+          },
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "7c323025b1d4ccf8-e7",
+            "rotation": 0,
+            "x": 250,
+            "y": 240
+          },
+          {
+            "net": "CAM_D0",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "3",
+            "pinNumber": "3",
+            "primitiveId": "7c323025b1d4ccf8-e11",
+            "rotation": 180,
+            "x": 190,
+            "y": 230
+          },
+          {
+            "net": "CAM_D1",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "4",
+            "pinNumber": "4",
+            "primitiveId": "7c323025b1d4ccf8-e15",
+            "rotation": 0,
+            "x": 250,
+            "y": 230
+          },
+          {
+            "net": "CAM_D2",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "5",
+            "pinNumber": "5",
+            "primitiveId": "7c323025b1d4ccf8-e19",
+            "rotation": 180,
+            "x": 190,
+            "y": 220
+          },
+          {
+            "net": "CAM_D3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "6",
+            "pinNumber": "6",
+            "primitiveId": "7c323025b1d4ccf8-e23",
+            "rotation": 0,
+            "x": 250,
+            "y": 220
+          },
+          {
+            "net": "CAM_D4",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "7",
+            "pinNumber": "7",
+            "primitiveId": "7c323025b1d4ccf8-e27",
+            "rotation": 180,
+            "x": 190,
+            "y": 210
+          },
+          {
+            "net": "CAM_D5",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "8",
+            "pinNumber": "8",
+            "primitiveId": "7c323025b1d4ccf8-e31",
+            "rotation": 0,
+            "x": 250,
+            "y": 210
+          },
+          {
+            "net": "CAM_D6",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "9",
+            "pinNumber": "9",
+            "primitiveId": "7c323025b1d4ccf8-e35",
+            "rotation": 180,
+            "x": 190,
+            "y": 200
+          },
+          {
+            "net": "CAM_D7",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "10",
+            "pinNumber": "10",
+            "primitiveId": "7c323025b1d4ccf8-e39",
+            "rotation": 0,
+            "x": 250,
+            "y": 200
+          },
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "11",
+            "pinNumber": "11",
+            "primitiveId": "7c323025b1d4ccf8-e44",
+            "rotation": 180,
+            "x": 190,
+            "y": 190
+          },
+          {
+            "net": "CAM_PCLK",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "12",
+            "pinNumber": "12",
+            "primitiveId": "7c323025b1d4ccf8-e48",
+            "rotation": 0,
+            "x": 250,
+            "y": 190
+          },
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "13",
+            "pinNumber": "13",
+            "primitiveId": "7c323025b1d4ccf8-e52",
+            "rotation": 180,
+            "x": 190,
+            "y": 180
+          },
+          {
+            "net": "CAM_VSYNC",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "14",
+            "pinNumber": "14",
+            "primitiveId": "7c323025b1d4ccf8-e56",
+            "rotation": 0,
+            "x": 250,
+            "y": 180
+          },
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "15",
+            "pinNumber": "15",
+            "primitiveId": "7c323025b1d4ccf8-e60",
+            "rotation": 180,
+            "x": 190,
+            "y": 170
+          },
+          {
+            "net": "CAM_HREF",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "16",
+            "pinNumber": "16",
+            "primitiveId": "7c323025b1d4ccf8-e64",
+            "rotation": 0,
+            "x": 250,
+            "y": 170
+          },
+          {
+            "net": "I2C_SCL",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "17",
+            "pinNumber": "17",
+            "primitiveId": "7c323025b1d4ccf8-e68",
+            "rotation": 180,
+            "x": 190,
+            "y": 160
+          },
+          {
+            "net": "I2C_SDA",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "18",
+            "pinNumber": "18",
+            "primitiveId": "7c323025b1d4ccf8-e72",
+            "rotation": 0,
+            "x": 250,
+            "y": 160
+          },
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "19",
+            "pinNumber": "19",
+            "primitiveId": "7c323025b1d4ccf8-e76",
+            "rotation": 180,
+            "x": 190,
+            "y": 150
+          },
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "20",
+            "pinNumber": "20",
+            "primitiveId": "7c323025b1d4ccf8-e80",
+            "rotation": 0,
+            "x": 250,
+            "y": 150
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "7c323025b1d4ccf8",
+        "rotation": 0,
+        "subPartName": "HDR-IDC-2.54-2X10P.1",
+        "supplier": "LCSC",
+        "supplierId": "C3405",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "HDR-IDC-2.54-2X10P",
+          "uuid": "b603c5fa37e75b35"
+        },
+        "uniqueId": "gge65",
+        "x": 220,
+        "y": 195
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 410.5,
+          "maxY": 338.5,
+          "minX": 389.5,
+          "minY": 321.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CL21B104KBCNNNC",
+          "uuid": "99fe484e72a78db4"
+        },
+        "componentType": "part",
+        "designator": "C28",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "99fe484e72a78db4"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C0805",
+          "uuid": "4e8d6b488071f5da"
+        },
+        "manufacturer": "SAMSUNG(三星)",
+        "manufacturerId": "CL21B104KBCNNNC",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/CL21B104KBCNNNC/2063.html",
+          "Description": "容值:100nF;精度:±10%;额定电压:50V;温度系数:X7R;",
+          "EasyEDA Agent Component ID": "cmp-C28",
+          "EasyEDA Agent Role": "camera",
+          "JLCPCB Part Class": "Extended Part",
+          "LCSC Part Name": "100nF ±10% 50V",
+          "PCB Layer": "Default",
+          "Supplier Footprint": "0805",
+          "Temperature Coefficient": "X7R",
+          "Tolerance": "±10%",
+          "Value": "100nF",
+          "Voltage Rating": "50V"
+        },
+        "pins": [
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "ba911ed9d2671d17-e4",
+            "rotation": 0,
+            "x": 420,
+            "y": 330
+          },
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "ba911ed9d2671d17-e10",
+            "rotation": 180,
+            "x": 380,
+            "y": 330
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "ba911ed9d2671d17",
+        "rotation": 0,
+        "subPartName": "CL21B104KBCNNNC.1",
+        "supplier": "LCSC",
+        "supplierId": "C1711",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CL21B104KBCNNNC",
+          "uuid": "ba4efdf7ac0adcbf"
+        },
+        "uniqueId": "gge66",
+        "x": 400,
+        "y": 330
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 375.5,
+          "maxY": 443.5,
+          "minX": 364.5,
+          "minY": 426.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CL31A226KAHNNNE",
+          "uuid": "724328752c6aa15f"
+        },
+        "componentType": "part",
+        "designator": "C29",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "724328752c6aa15f"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C1206",
+          "uuid": "4e2ab28a74c0dd4a"
+        },
+        "manufacturer": "SAMSUNG(三星)",
+        "manufacturerId": "CL31A226KAHNNNE",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/CL31A226KAHNNNE/13537.html",
+          "Description": "容值:22uF;精度:±10%;额定电压:25V;温度系数:X5R;",
+          "EasyEDA Agent Component ID": "cmp-C29",
+          "EasyEDA Agent Role": "camera",
+          "JLCPCB Part Class": "Basic Part",
+          "LCSC Part Name": "22uF ±10% 25V",
+          "PCB Layer": "Default",
+          "Supplier Footprint": "1206",
+          "Temperature Coefficient": "X5R",
+          "Tolerance": "±10%",
+          "Value": "22uF",
+          "Voltage Rating": "25V"
+        },
+        "pins": [
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "9852eb3c33119a47-e5",
+            "rotation": 180,
+            "x": 355,
+            "y": 435
+          },
+          {
+            "net": "GND",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "9852eb3c33119a47-e9",
+            "rotation": 0,
+            "x": 385,
+            "y": 435
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "9852eb3c33119a47",
+        "rotation": 0,
+        "subPartName": "CL31A226KAHNNNE.1",
+        "supplier": "LCSC",
+        "supplierId": "C12891",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CL31A226KAHNNNE",
+          "uuid": "4135947257acf3e6"
+        },
+        "uniqueId": "gge67",
+        "x": 370,
+        "y": 435
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 630.5,
+          "maxY": 419.5,
+          "minX": 609.5,
+          "minY": 410.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F1002T5E_C17414",
+          "uuid": "19e83344727c52d2"
+        },
+        "componentType": "part",
+        "designator": "R18",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "19e83344727c52d2"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "manufacturer": "UNI-ROYAL(厚声)",
+        "manufacturerId": "0805W8F1002T5E",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/0805W8F1002T5E/18102.html",
+          "Description": "电阻类型:厚膜电阻;阻值:10kΩ;精度:±1%;功率:125mW;工作电压:150V;温度系数:±100ppm/℃;",
+          "EasyEDA Agent Component ID": "cmp-R18",
+          "EasyEDA Agent Role": "defaults",
+          "JLCPCB Part Class": "Basic Part",
+          "LCSC Part Name": "厚膜电阻 10kΩ ±1%",
+          "Operating Temperature": "-55℃~+155℃",
+          "PCB Layer": "Default",
+          "Power(Watts)": "125mW",
+          "Supplier Footprint": "0805",
+          "Temperature Coefficient": "±100ppm/℃",
+          "Tolerance": "±1%",
+          "Type": "厚膜电阻",
+          "Value": "10kΩ",
+          "Voltage-Supply(Max)": "150V"
+        },
+        "pins": [
+          {
+            "net": "TFT_CS",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "3b2b3b9644c31790-e3",
+            "rotation": 0,
+            "x": 640,
+            "y": 415
+          },
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "3b2b3b9644c31790-e7",
+            "rotation": 180,
+            "x": 600,
+            "y": 415
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "3b2b3b9644c31790",
+        "rotation": 0,
+        "subPartName": "0805W8F1002T5E.1",
+        "supplier": "LCSC",
+        "supplierId": "C17414",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F1002T5E",
+          "uuid": "744dbff6c827fa34"
+        },
+        "uniqueId": "gge68",
+        "x": 620,
+        "y": 415
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 625.5,
+          "maxY": 444.5,
+          "minX": 604.5,
+          "minY": 435.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F1002T5E_C17414",
+          "uuid": "19e83344727c52d2"
+        },
+        "componentType": "part",
+        "designator": "R19",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "19e83344727c52d2"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "manufacturer": "UNI-ROYAL(厚声)",
+        "manufacturerId": "0805W8F1002T5E",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/0805W8F1002T5E/18102.html",
+          "Description": "电阻类型:厚膜电阻;阻值:10kΩ;精度:±1%;功率:125mW;工作电压:150V;温度系数:±100ppm/℃;",
+          "EasyEDA Agent Component ID": "cmp-R19",
+          "EasyEDA Agent Role": "defaults",
+          "JLCPCB Part Class": "Basic Part",
+          "LCSC Part Name": "厚膜电阻 10kΩ ±1%",
+          "Operating Temperature": "-55℃~+155℃",
+          "PCB Layer": "Default",
+          "Power(Watts)": "125mW",
+          "Supplier Footprint": "0805",
+          "Temperature Coefficient": "±100ppm/℃",
+          "Tolerance": "±1%",
+          "Type": "厚膜电阻",
+          "Value": "10kΩ",
+          "Voltage-Supply(Max)": "150V"
+        },
+        "pins": [
+          {
+            "net": "TFT_RST",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "64a1e673aa144a44-e3",
+            "rotation": 0,
+            "x": 635,
+            "y": 440
+          },
+          {
+            "net": "+3V3",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "64a1e673aa144a44-e7",
+            "rotation": 180,
+            "x": 595,
+            "y": 440
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "64a1e673aa144a44",
+        "rotation": 0,
+        "subPartName": "0805W8F1002T5E.1",
+        "supplier": "LCSC",
+        "supplierId": "C17414",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F1002T5E",
+          "uuid": "744dbff6c827fa34"
+        },
+        "uniqueId": "gge69",
+        "x": 615,
+        "y": 440
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 145.5,
+          "maxY": 39.5,
+          "minX": 124.5,
+          "minY": 30.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F220JT5E",
+          "uuid": "94382c791c506c9a"
+        },
+        "componentType": "part",
+        "designator": "R20",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "94382c791c506c9a"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "manufacturer": "UNI-ROYAL(厚声)",
+        "manufacturerId": "0805W8F220JT5E",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/0805W8F220JT5E/18249.html",
+          "Description": "电阻类型:厚膜电阻;阻值:22Ω;精度:±1%;功率:125mW;工作电压:150V;温度系数:±100ppm/℃;",
+          "EasyEDA Agent Component ID": "cmp-R20",
+          "EasyEDA Agent Role": "clock",
+          "JLCPCB Part Class": "Basic Part",
+          "LCSC Part Name": "厚膜电阻 22Ω ±1%",
+          "Operating Temperature": "-55℃~+155℃",
+          "PCB Layer": "Default",
+          "Power(Watts)": "125mW",
+          "Supplier Footprint": "0805",
+          "Temperature Coefficient": "±100ppm/℃",
+          "Tolerance": "±1%",
+          "Type": "厚膜电阻",
+          "Value": "22Ω",
+          "Voltage-Supply(Max)": "150V"
+        },
+        "pins": [
+          {
+            "net": "TFT_SCLK",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "088e3f2e661c8108-e3",
+            "rotation": 0,
+            "x": 155,
+            "y": 35
+          },
+          {
+            "net": "TFT_CLK",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "088e3f2e661c8108-e7",
+            "rotation": 180,
+            "x": 115,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "088e3f2e661c8108",
+        "rotation": 0,
+        "subPartName": "0805W8F220JT5E.1",
+        "supplier": "LCSC",
+        "supplierId": "C17561",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F220JT5E",
+          "uuid": "c51f6a315b7d4c34"
+        },
+        "uniqueId": "gge70",
+        "x": 135,
+        "y": 35
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 605.5,
+          "maxY": 39.5,
+          "minX": 584.5,
+          "minY": 30.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F220JT5E",
+          "uuid": "94382c791c506c9a"
+        },
+        "componentType": "part",
+        "designator": "R21",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "={Value}",
+          "uuid": "94382c791c506c9a"
+        },
+        "footprint": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "manufacturer": "UNI-ROYAL(厚声)",
+        "manufacturerId": "0805W8F220JT5E",
+        "mirror": false,
+        "name": "={Value}",
+        "net": "",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Datasheet": "https://item.szlcsc.com/datasheet/0805W8F220JT5E/18249.html",
+          "Description": "电阻类型:厚膜电阻;阻值:22Ω;精度:±1%;功率:125mW;工作电压:150V;温度系数:±100ppm/℃;",
+          "EasyEDA Agent Component ID": "cmp-R21",
+          "EasyEDA Agent Role": "data",
+          "JLCPCB Part Class": "Basic Part",
+          "LCSC Part Name": "厚膜电阻 22Ω ±1%",
+          "Operating Temperature": "-55℃~+155℃",
+          "PCB Layer": "Default",
+          "Power(Watts)": "125mW",
+          "Supplier Footprint": "0805",
+          "Temperature Coefficient": "±100ppm/℃",
+          "Tolerance": "±1%",
+          "Type": "厚膜电阻",
+          "Value": "22Ω",
+          "Voltage-Supply(Max)": "150V"
+        },
+        "pins": [
+          {
+            "net": "TFT_MOSI",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "2",
+            "pinNumber": "2",
+            "primitiveId": "1d9277c02a42469f-e3",
+            "rotation": 0,
+            "x": 615,
+            "y": 35
+          },
+          {
+            "net": "TFT_DAT",
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "1",
+            "pinNumber": "1",
+            "primitiveId": "1d9277c02a42469f-e7",
+            "rotation": 180,
+            "x": 575,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "1d9277c02a42469f",
+        "rotation": 0,
+        "subPartName": "0805W8F220JT5E.1",
+        "supplier": "LCSC",
+        "supplierId": "C17561",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "0805W8F220JT5E",
+          "uuid": "c51f6a315b7d4c34"
+        },
+        "uniqueId": "gge71",
+        "x": 595,
+        "y": 35
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 429.5,
+          "maxY": 445.5,
+          "minX": 419.5,
+          "minY": 424.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "mirror": false,
+        "name": "GND",
+        "net": "GND",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "",
+          "Global Net Name": "GND",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "40ac49e94ef4789c-e15",
+            "rotation": 180,
+            "x": 410,
+            "y": 435
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "40ac49e94ef4789c",
+        "rotation": 90,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "74fe8a8f93dd1d1b"
+        },
+        "x": 410,
+        "y": 435
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 464.5,
+          "maxY": 340.5,
+          "minX": 454.5,
+          "minY": 319.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "mirror": false,
+        "name": "GND",
+        "net": "GND",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "",
+          "Global Net Name": "GND",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "2c3099d048934854-e15",
+            "rotation": 180,
+            "x": 445,
+            "y": 330
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "2c3099d048934854",
+        "rotation": 90,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "74fe8a8f93dd1d1b"
+        },
+        "x": 445,
+        "y": 330
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 195.49999999999997,
+          "maxY": 279.5,
+          "minX": 174.49999999999997,
+          "minY": 269.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "GND",
+          "uuid": "2f1cac074a5c4182"
+        },
+        "mirror": false,
+        "name": "GND",
+        "net": "GND",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "",
+          "Global Net Name": "GND",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "4d2b4ee50908547d-e15",
+            "rotation": 270,
+            "x": 184.99999999999997,
+            "y": 260
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "4d2b4ee50908547d",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Ground-GND",
+          "uuid": "74fe8a8f93dd1d1b"
+        },
+        "x": 185,
+        "y": 260
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 260.5,
+          "maxY": 265.5,
+          "minX": 249.5,
+          "minY": 259.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "e784ea55d0178eab"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "+3V3",
+          "uuid": "e784ea55d0178eab"
+        },
+        "mirror": false,
+        "name": "+3V3",
+        "net": "+3V3",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Power-5V",
+          "Global Net Name": "+3V3",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "4d1e331d4aa37815-e11",
+            "rotation": 270,
+            "x": 255,
+            "y": 255
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "4d1e331d4aa37815",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "9150c16f841b399e"
+        },
+        "x": 255,
+        "y": 255
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 500.5,
+          "maxY": 155.5,
+          "minX": 494.5,
+          "minY": 144.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "e784ea55d0178eab"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "+3V3",
+          "uuid": "e784ea55d0178eab"
+        },
+        "mirror": false,
+        "name": "+3V3",
+        "net": "+3V3",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Power-5V",
+          "Global Net Name": "+3V3",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "da44d4d32d33d622-e11",
+            "rotation": 180,
+            "x": 490,
+            "y": 150
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "da44d4d32d33d622",
+        "rotation": 270,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "9150c16f841b399e"
+        },
+        "x": 490,
+        "y": 150
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 560.5,
+          "maxY": 425.5,
+          "minX": 554.5,
+          "minY": 414.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "e784ea55d0178eab"
+        },
+        "componentType": "netflag",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "+3V3",
+          "uuid": "e784ea55d0178eab"
+        },
+        "mirror": false,
+        "name": "+3V3",
+        "net": "+3V3",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Power-5V",
+          "Global Net Name": "+3V3",
+          "Relevance": "[]"
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "Pin1",
+            "pinNumber": "1",
+            "primitiveId": "08c5ec5ddd6b380d-e11",
+            "rotation": 0,
+            "x": 565,
+            "y": 420
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "08c5ec5ddd6b380d",
+        "rotation": 90,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Power-5V",
+          "uuid": "9150c16f841b399e"
+        },
+        "x": 565,
+        "y": 420
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 165.49999999999997,
+          "maxY": 235.50000000000003,
+          "minX": 134.49999999999997,
+          "minY": 224.50000000000003
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D0",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D0",
+        "net": "CAM_D0",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "b48a4b0c449104c9-e11",
+            "rotation": 0,
+            "x": 174.99999999999997,
+            "y": 230.00000000000003
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "b48a4b0c449104c9",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 175,
+        "y": 230
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 300.5,
+          "maxY": 235.5,
+          "minX": 269.5,
+          "minY": 224.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D1",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D1",
+        "net": "CAM_D1",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "cbb514f3da7f05d2-e11",
+            "rotation": 180,
+            "x": 260,
+            "y": 230
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "cbb514f3da7f05d2",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 260,
+        "y": 230
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 85.5,
+          "maxY": 225.5,
+          "minX": 54.5,
+          "minY": 214.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D2",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D2",
+        "net": "CAM_D2",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "427616fdc6f7ac65-e11",
+            "rotation": 0,
+            "x": 95,
+            "y": 220
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "427616fdc6f7ac65",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 95,
+        "y": 220
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 380.5,
+          "maxY": 225.5,
+          "minX": 349.5,
+          "minY": 214.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D3",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D3",
+        "net": "CAM_D3",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "4fedc4dcdf18eb04-e11",
+            "rotation": 180,
+            "x": 340,
+            "y": 220
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "4fedc4dcdf18eb04",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 340,
+        "y": 220
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 165.49999999999997,
+          "maxY": 215.50000000000003,
+          "minX": 134.49999999999997,
+          "minY": 204.50000000000003
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D4",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D4",
+        "net": "CAM_D4",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "3fe531506e9bd3a6-e11",
+            "rotation": 0,
+            "x": 174.99999999999997,
+            "y": 210.00000000000003
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "3fe531506e9bd3a6",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 175,
+        "y": 210
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 300.5,
+          "maxY": 215.5,
+          "minX": 269.5,
+          "minY": 204.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D5",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D5",
+        "net": "CAM_D5",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "5dd111178844708d-e11",
+            "rotation": 180,
+            "x": 260,
+            "y": 210
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "5dd111178844708d",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 260,
+        "y": 210
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 85.5,
+          "maxY": 205.5,
+          "minX": 54.5,
+          "minY": 194.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D6",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D6",
+        "net": "CAM_D6",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "da5aa71cd38c7903-e11",
+            "rotation": 0,
+            "x": 95,
+            "y": 200
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "da5aa71cd38c7903",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 95,
+        "y": 200
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 380.5,
+          "maxY": 205.5,
+          "minX": 349.5,
+          "minY": 194.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_D7",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_D7",
+        "net": "CAM_D7",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "031d65bf2338d6bd-e11",
+            "rotation": 180,
+            "x": 340,
+            "y": 200
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "031d65bf2338d6bd",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 340,
+        "y": 200
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 460.5,
+          "maxY": 195.5,
+          "minX": 429.5,
+          "minY": 184.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_PCLK",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_PCLK",
+        "net": "CAM_PCLK",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "3d518134b296a718-e11",
+            "rotation": 180,
+            "x": 420,
+            "y": 190
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "3d518134b296a718",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 420,
+        "y": 190
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 300.5,
+          "maxY": 185.5,
+          "minX": 269.5,
+          "minY": 174.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_VSYNC",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_VSYNC",
+        "net": "CAM_VSYNC",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "65d5c81c543ed424-e11",
+            "rotation": 180,
+            "x": 260,
+            "y": 180
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "65d5c81c543ed424",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 260,
+        "y": 180
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 400.5,
+          "maxY": 175.5,
+          "minX": 369.5,
+          "minY": 164.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "CAM_HREF",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "CAM_HREF",
+        "net": "CAM_HREF",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "de4d269157ce1643-e11",
+            "rotation": 180,
+            "x": 360,
+            "y": 170
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "de4d269157ce1643",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 360,
+        "y": 170
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 165.49999999999997,
+          "maxY": 165.50000000000003,
+          "minX": 134.49999999999997,
+          "minY": 154.50000000000003
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "I2C_SCL",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "I2C_SCL",
+        "net": "I2C_SCL",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "baefbd326f9bbb87-e11",
+            "rotation": 0,
+            "x": 174.99999999999997,
+            "y": 160.00000000000003
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "baefbd326f9bbb87",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 175,
+        "y": 160
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 300.5,
+          "maxY": 165.5,
+          "minX": 269.5,
+          "minY": 154.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "I2C_SDA",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "I2C_SDA",
+        "net": "I2C_SDA",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "45227ffade6be7df-e11",
+            "rotation": 180,
+            "x": 260,
+            "y": 160
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "45227ffade6be7df",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 260,
+        "y": 160
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 690.5,
+          "maxY": 420.5,
+          "minX": 659.5,
+          "minY": 409.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_CS",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_CS",
+        "net": "TFT_CS",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "b158c835040e8431-e11",
+            "rotation": 180,
+            "x": 650,
+            "y": 415
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "b158c835040e8431",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 650,
+        "y": 415
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 685.5,
+          "maxY": 445.5,
+          "minX": 654.5,
+          "minY": 434.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_RST",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_RST",
+        "net": "TFT_RST",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "7526f66f3beb85be-e11",
+            "rotation": 180,
+            "x": 645,
+            "y": 440
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "7526f66f3beb85be",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 645,
+        "y": 440
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 205.5,
+          "maxY": 40.5,
+          "minX": 174.5,
+          "minY": 29.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_SCLK",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_SCLK",
+        "net": "TFT_SCLK",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "03d7cf134774d574-e11",
+            "rotation": 180,
+            "x": 165,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "03d7cf134774d574",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 165,
+        "y": 35
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 95.5,
+          "maxY": 40.5,
+          "minX": 64.5,
+          "minY": 29.500000000000004
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_CLK",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_CLK",
+        "net": "TFT_CLK",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "4c19be29afa51821-e11",
+            "rotation": 0,
+            "x": 105,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "4c19be29afa51821",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 105,
+        "y": 35
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 665.5,
+          "maxY": 40.5,
+          "minX": 634.5,
+          "minY": 29.5
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_MOSI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_MOSI",
+        "net": "TFT_MOSI",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "fb027d91e201b0db-e11",
+            "rotation": 180,
+            "x": 625,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "fb027d91e201b0db",
+        "rotation": 0,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 625,
+        "y": 35
+      },
+      {
+        "addIntoBom": true,
+        "addIntoPcb": true,
+        "bbox": {
+          "maxX": 555.5,
+          "maxY": 40.5,
+          "minX": 524.5,
+          "minY": 29.500000000000004
+        },
+        "component": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "componentType": "netport",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "TFT_DAT",
+          "uuid": "3be9bc4efd0f3566"
+        },
+        "mirror": false,
+        "name": "TFT_DAT",
+        "net": "TFT_DAT",
+        "netlistAvailable": true,
+        "otherProperty": {
+          "Description": "Netport-BI",
+          "Relevance": ""
+        },
+        "pins": [
+          {
+            "net": null,
+            "noConnected": false,
+            "otherProperty": {},
+            "pinName": "BI",
+            "pinNumber": "1",
+            "primitiveId": "3793b7db7710bdc5-e11",
+            "rotation": 0,
+            "x": 565,
+            "y": 35
+          }
+        ],
+        "pinsAvailable": true,
+        "primitiveId": "3793b7db7710bdc5",
+        "rotation": 180,
+        "subPartName": "pid8a0e77bacb214e",
+        "symbol": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "Netport-BI",
+          "uuid": "d141d776be50c964"
+        },
+        "x": 565,
+        "y": 35
+      }
+    ],
+    "connectivitySummary": {
+      "buses": 0,
+      "netflags": 6,
+      "netlabels": 0,
+      "netports": 19,
+      "scope": "activePage",
+      "shortSymbols": 0,
+      "wires": 25
+    },
+    "count": 32,
+    "pinNetsAvailable": true,
+    "wires": [
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 0,
+        "x0": 180,
+        "x1": 190,
+        "y0": 170,
+        "y1": 170
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 1,
+        "x0": 180,
+        "x1": 180,
+        "y0": 170,
+        "y1": 150
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 2,
+        "x0": 180,
+        "x1": 190,
+        "y0": 150,
+        "y1": 150
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 3,
+        "x0": 180,
+        "x1": 180,
+        "y0": 180,
+        "y1": 170
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 4,
+        "x0": 180,
+        "x1": 190,
+        "y0": 180,
+        "y1": 180
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 5,
+        "x0": 180,
+        "x1": 180,
+        "y0": 180,
+        "y1": 190
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 6,
+        "x0": 190,
+        "x1": 180,
+        "y0": 190,
+        "y1": 190
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 7,
+        "x0": 180,
+        "x1": 180,
+        "y0": 240,
+        "y1": 190
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 8,
+        "x0": 180,
+        "x1": 185,
+        "y0": 240,
+        "y1": 240
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 9,
+        "x0": 190,
+        "x1": 185,
+        "y0": 240,
+        "y1": 240
+      },
+      {
+        "net": "",
+        "primitiveId": "c3ce8d0bf37f937e",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          180,
+          170,
+          190,
+          170,
+          180,
+          170,
+          180,
+          150,
+          180,
+          150,
+          190,
+          150,
+          180,
+          180,
+          180,
+          170,
+          180,
+          180,
+          190,
+          180,
+          180,
+          180,
+          180,
+          190,
+          190,
+          190,
+          180,
+          190,
+          180,
+          240,
+          180,
+          190,
+          180,
+          240,
+          185,
+          240,
+          190,
+          240,
+          185,
+          240,
+          185,
+          240,
+          185,
+          260
+        ],
+        "segmentIndex": 10,
+        "x0": 185,
+        "x1": 185,
+        "y0": 240,
+        "y1": 260
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 0,
+        "x0": 375,
+        "x1": 375,
+        "y0": 240,
+        "y1": 330
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 1,
+        "x0": 375,
+        "x1": 350,
+        "y0": 330,
+        "y1": 330
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 2,
+        "x0": 350,
+        "x1": 350,
+        "y0": 330,
+        "y1": 435
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 3,
+        "x0": 350,
+        "x1": 355,
+        "y0": 435,
+        "y1": 435
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 4,
+        "x0": 380,
+        "x1": 375,
+        "y0": 330,
+        "y1": 330
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 5,
+        "x0": 375,
+        "x1": 255,
+        "y0": 240,
+        "y1": 240
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 6,
+        "x0": 250,
+        "x1": 255,
+        "y0": 240,
+        "y1": 240
+      },
+      {
+        "net": "",
+        "primitiveId": "9ffa9ecf6da749db",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          375,
+          240,
+          375,
+          330,
+          375,
+          330,
+          350,
+          330,
+          350,
+          330,
+          350,
+          435,
+          350,
+          435,
+          355,
+          435,
+          380,
+          330,
+          375,
+          330,
+          375,
+          240,
+          255,
+          240,
+          250,
+          240,
+          255,
+          240,
+          255,
+          240,
+          255,
+          255
+        ],
+        "segmentIndex": 7,
+        "x0": 255,
+        "x1": 255,
+        "y0": 240,
+        "y1": 255
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 0,
+        "x0": 590,
+        "x1": 595,
+        "y0": 440,
+        "y1": 440
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 1,
+        "x0": 590,
+        "x1": 590,
+        "y0": 415,
+        "y1": 440
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 2,
+        "x0": 590,
+        "x1": 595,
+        "y0": 415,
+        "y1": 415
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 3,
+        "x0": 595,
+        "x1": 595,
+        "y0": 420,
+        "y1": 415
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 4,
+        "x0": 565,
+        "x1": 595,
+        "y0": 420,
+        "y1": 420
+      },
+      {
+        "net": "",
+        "primitiveId": "ffe6d8be10f45191",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          590,
+          440,
+          595,
+          440,
+          590,
+          415,
+          590,
+          440,
+          590,
+          415,
+          595,
+          415,
+          595,
+          420,
+          595,
+          415,
+          565,
+          420,
+          595,
+          420,
+          600,
+          415,
+          595,
+          415
+        ],
+        "segmentIndex": 5,
+        "x0": 600,
+        "x1": 595,
+        "y0": 415,
+        "y1": 415
+      },
+      {
+        "net": "",
+        "primitiveId": "92a3e2322d0a2364",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          410,
+          435,
+          385,
+          435
+        ],
+        "segmentIndex": 0,
+        "x0": 410,
+        "x1": 385,
+        "y0": 435,
+        "y1": 435
+      },
+      {
+        "net": "",
+        "primitiveId": "f841c2fa0e1c7d74",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          445,
+          330,
+          420,
+          330
+        ],
+        "segmentIndex": 0,
+        "x0": 445,
+        "x1": 420,
+        "y0": 330,
+        "y1": 330
+      },
+      {
+        "net": "",
+        "primitiveId": "0241d3144036ff98",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          175,
+          230,
+          190,
+          230
+        ],
+        "segmentIndex": 0,
+        "x0": 175,
+        "x1": 190,
+        "y0": 230,
+        "y1": 230
+      },
+      {
+        "net": "",
+        "primitiveId": "fd2aeace8a2fae00",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          260,
+          230,
+          250,
+          230
+        ],
+        "segmentIndex": 0,
+        "x0": 260,
+        "x1": 250,
+        "y0": 230,
+        "y1": 230
+      },
+      {
+        "net": "",
+        "primitiveId": "4615f8bfae765897",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          95,
+          220,
+          190,
+          220
+        ],
+        "segmentIndex": 0,
+        "x0": 95,
+        "x1": 190,
+        "y0": 220,
+        "y1": 220
+      },
+      {
+        "net": "",
+        "primitiveId": "ecc8624ef7da9dce",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          340,
+          220,
+          250,
+          220
+        ],
+        "segmentIndex": 0,
+        "x0": 340,
+        "x1": 250,
+        "y0": 220,
+        "y1": 220
+      },
+      {
+        "net": "",
+        "primitiveId": "24758867b4c65508",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          175,
+          210,
+          190,
+          210
+        ],
+        "segmentIndex": 0,
+        "x0": 175,
+        "x1": 190,
+        "y0": 210,
+        "y1": 210
+      },
+      {
+        "net": "",
+        "primitiveId": "15e37690eed0340d",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          260,
+          210,
+          250,
+          210
+        ],
+        "segmentIndex": 0,
+        "x0": 260,
+        "x1": 250,
+        "y0": 210,
+        "y1": 210
+      },
+      {
+        "net": "",
+        "primitiveId": "8c28299485790938",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          95,
+          200,
+          190,
+          200
+        ],
+        "segmentIndex": 0,
+        "x0": 95,
+        "x1": 190,
+        "y0": 200,
+        "y1": 200
+      },
+      {
+        "net": "",
+        "primitiveId": "85a6c6cec004f934",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          340,
+          200,
+          250,
+          200
+        ],
+        "segmentIndex": 0,
+        "x0": 340,
+        "x1": 250,
+        "y0": 200,
+        "y1": 200
+      },
+      {
+        "net": "",
+        "primitiveId": "5fadb95d1224cb8b",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          420,
+          190,
+          250,
+          190
+        ],
+        "segmentIndex": 0,
+        "x0": 420,
+        "x1": 250,
+        "y0": 190,
+        "y1": 190
+      },
+      {
+        "net": "",
+        "primitiveId": "1452a8ffb5fb01ff",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          260,
+          180,
+          250,
+          180
+        ],
+        "segmentIndex": 0,
+        "x0": 260,
+        "x1": 250,
+        "y0": 180,
+        "y1": 180
+      },
+      {
+        "net": "",
+        "primitiveId": "5a0e4751e7465721",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          360,
+          170,
+          250,
+          170
+        ],
+        "segmentIndex": 0,
+        "x0": 360,
+        "x1": 250,
+        "y0": 170,
+        "y1": 170
+      },
+      {
+        "net": "",
+        "primitiveId": "f83dc87cf93250aa",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          175,
+          160,
+          190,
+          160
+        ],
+        "segmentIndex": 0,
+        "x0": 175,
+        "x1": 190,
+        "y0": 160,
+        "y1": 160
+      },
+      {
+        "net": "",
+        "primitiveId": "d0017cf079b67c4f",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          260,
+          160,
+          250,
+          160
+        ],
+        "segmentIndex": 0,
+        "x0": 260,
+        "x1": 250,
+        "y0": 160,
+        "y1": 160
+      },
+      {
+        "net": "",
+        "primitiveId": "b3b9ba5effd24f95",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          490,
+          150,
+          250,
+          150
+        ],
+        "segmentIndex": 0,
+        "x0": 490,
+        "x1": 250,
+        "y0": 150,
+        "y1": 150
+      },
+      {
+        "net": "",
+        "primitiveId": "e1ca97af1096cd78",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          650,
+          415,
+          640,
+          415
+        ],
+        "segmentIndex": 0,
+        "x0": 650,
+        "x1": 640,
+        "y0": 415,
+        "y1": 415
+      },
+      {
+        "net": "",
+        "primitiveId": "2f375c6dd66076e9",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          645,
+          440,
+          635,
+          440
+        ],
+        "segmentIndex": 0,
+        "x0": 645,
+        "x1": 635,
+        "y0": 440,
+        "y1": 440
+      },
+      {
+        "net": "",
+        "primitiveId": "bb67e140a26d2867",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          165,
+          35,
+          155,
+          35
+        ],
+        "segmentIndex": 0,
+        "x0": 165,
+        "x1": 155,
+        "y0": 35,
+        "y1": 35
+      },
+      {
+        "net": "",
+        "primitiveId": "5b125ace0d2e7fc8",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          105,
+          35,
+          115,
+          35
+        ],
+        "segmentIndex": 0,
+        "x0": 105,
+        "x1": 115,
+        "y0": 35,
+        "y1": 35
+      },
+      {
+        "net": "",
+        "primitiveId": "44e12516f173ac69",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          625,
+          35,
+          615,
+          35
+        ],
+        "segmentIndex": 0,
+        "x0": 625,
+        "x1": 615,
+        "y0": 35,
+        "y1": 35
+      },
+      {
+        "net": "",
+        "primitiveId": "e51b9c64e69208a5",
+        "rawEncoding": "flat-segments",
+        "rawLine": [
+          565,
+          35,
+          575,
+          35
+        ],
+        "segmentIndex": 0,
+        "x0": 565,
+        "x1": 575,
+        "y0": 35,
+        "y1": 35
+      }
+    ],
+    "wiresAvailable": true
+  },
+  "context": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "d734014dc8d7c031",
+    "documentType": "schematic",
+    "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "pageVisibility": "hidden"
+  },
+  "mutationContext": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "d734014dc8d7c031",
+    "documentType": "schematic",
+    "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "pageVisibility": "hidden"
+  },
+  "mutationContextAvailable": true,
+  "seq": 6468,
+  "seqAbandoned": 8,
+  "abandonedIds": [
+    "req_3046",
+    "req_3090",
+    "req_5413",
+    "req_5497",
+    "req_5573",
+    "req_5856",
+    "req_5919",
+    "req_5962"
+  ]
+}

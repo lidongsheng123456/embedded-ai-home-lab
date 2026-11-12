@@ -1,0 +1,11 @@
+{
+  "status": "live-verified",
+  "scope": "sensor subcircuit only",
+  "createdAt": "2026-11-11T14:52:55.5726857Z",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "bc53c0a5b55ae550",
+  "parts": 14,
+  "pins": 45,
+  "visibleNetports": 16,
+  "fullBoardReady": false
+}

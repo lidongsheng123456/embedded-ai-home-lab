@@ -1,0 +1,8 @@
+{
+  "nets": [
+    "USB_POWER_EN"
+  ],
+  "roots": {
+    "USB_POWER_EN": "R17.1"
+  }
+}

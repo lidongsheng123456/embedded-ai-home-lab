@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "parts": 79,
+  "bomGroups": 33,
+  "smdParts": 67,
+  "throughHoleParts": [
+    "J1",
+    "J10",
+    "J11",
+    "J12",
+    "J2",
+    "J3",
+    "J4",
+    "J5",
+    "J6",
+    "J7",
+    "J8",
+    "J9"
+  ],
+  "midCenterOffsets": [],
+  "scope": "BOM 位号、数量、实际 MPN/C 编号完整性；坐标参考点、板面、旋转与新鲜 PCB 逐项对账。吸取中心保留官方输出，贴片厂需核对极性及角度。",
+  "sources": {
+    ".easyeda\\artifacts\\20261112-032940-schematic_bom-cd3845b3.csv": "2561aaa509eaab6d61425ca9f2e25a00f40e1d307087e0e13f2ef3b37aa56f77",
+    "projects\\homeguard-mini\\hardware\\outputs\\release-r1\\verification\\pcb-final.board.json": "988e03e944e3735ee3cd0c68bb6899fdd9c8593ff3fadb9ad14370ebcd66dc8c",
+    "projects\\homeguard-mini\\hardware\\outputs\\release-r1\\assembly\\placement-official.csv": "d61078eca702ed5caea66775fba55eaa4d19922e5414d9dd2bf5e91a7e892ad3"
+  }
+}

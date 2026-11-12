@@ -9,7 +9,6 @@ namespace {
 constexpr uint8_t MQ2_SAMPLE_COUNT = 16;
 constexpr float ADC_REFERENCE_VOLTAGE = 3.3f;
 constexpr float ADC_MAX_VALUE = 4095.0f;
-constexpr float MQ2_DIVIDER_RESTORE_RATIO = 1.5f;
 constexpr float MQ2_EXPECTED_MAX_VOLTAGE = 4.0f;
 }  // namespace
 
@@ -35,7 +34,7 @@ void SensorHub::read(HomeState &state) {
   state.gasRaw = gasSum / MQ2_SAMPLE_COUNT;
   const float adcVoltage =
       state.gasRaw * ADC_REFERENCE_VOLTAGE / ADC_MAX_VALUE;
-  // 10kΩ+20kΩ分压后GPIO得到原电压的2/3，因此乘1.5还原模块AO电压。
+  // 分压还原系数由硬件版本决定，避免载板10kΩ/10kΩ仍按面包板系数计算。
   state.gasVoltage = adcVoltage * MQ2_DIVIDER_RESTORE_RATIO;
   state.gasIndex = constrain(
       state.gasVoltage / MQ2_EXPECTED_MAX_VOLTAGE * 100.0f, 0.0f, 100.0f);

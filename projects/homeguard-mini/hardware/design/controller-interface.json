@@ -1,0 +1,251 @@
+{
+  "status": "source-only",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "4795d64e2b14bb93",
+  "orientation": "开发板正面天线向上、USB向下；母座1脚均对应最上方",
+  "components": [
+    {
+      "ref": "J7",
+      "pins": [
+        {
+          "number": "1",
+          "function": "3V3",
+          "net": "MCU_3V3"
+        },
+        {
+          "number": "2",
+          "function": "3V3",
+          "net": "MCU_3V3"
+        },
+        {
+          "number": "3",
+          "function": "EN",
+          "state": "no-connect",
+          "reason": "unused strap/control pin"
+        },
+        {
+          "number": "4",
+          "function": "GPIO4",
+          "net": "MCU_MIC_BCLK"
+        },
+        {
+          "number": "5",
+          "function": "GPIO5",
+          "net": "MCU_MIC_WS"
+        },
+        {
+          "number": "6",
+          "function": "GPIO6",
+          "net": "MCU_MIC_SD"
+        },
+        {
+          "number": "7",
+          "function": "GPIO7",
+          "net": "MCU_CAM_D2"
+        },
+        {
+          "number": "8",
+          "function": "GPIO15",
+          "net": "MCU_TFT_RST"
+        },
+        {
+          "number": "9",
+          "function": "GPIO16",
+          "net": "MCU_CAM_PCLK"
+        },
+        {
+          "number": "10",
+          "function": "GPIO17",
+          "net": "MCU_UART_RX17"
+        },
+        {
+          "number": "11",
+          "function": "GPIO18",
+          "net": "MCU_UART_TX18"
+        },
+        {
+          "number": "12",
+          "function": "GPIO8",
+          "net": "MCU_I2C_SDA"
+        },
+        {
+          "number": "13",
+          "function": "GPIO3",
+          "net": "MCU_MQ2_ADC"
+        },
+        {
+          "number": "14",
+          "function": "GPIO46",
+          "state": "no-connect",
+          "reason": "unused strap/control pin"
+        },
+        {
+          "number": "15",
+          "function": "GPIO9",
+          "net": "MCU_I2C_SCL"
+        },
+        {
+          "number": "16",
+          "function": "GPIO10",
+          "net": "MCU_TFT_CS"
+        },
+        {
+          "number": "17",
+          "function": "GPIO11",
+          "net": "MCU_TFT_MOSI"
+        },
+        {
+          "number": "18",
+          "function": "GPIO12",
+          "net": "MCU_TFT_SCLK"
+        },
+        {
+          "number": "19",
+          "function": "GPIO13",
+          "net": "MCU_CAM_D3"
+        },
+        {
+          "number": "20",
+          "function": "GPIO14",
+          "net": "MCU_TFT_DC"
+        },
+        {
+          "number": "21",
+          "function": "5V",
+          "state": "no-connect",
+          "reason": "USB supplies devboard; prevent header/USB power contention"
+        },
+        {
+          "number": "22",
+          "function": "GND",
+          "net": "GND"
+        }
+      ]
+    },
+    {
+      "ref": "J8",
+      "pins": [
+        {
+          "number": "1",
+          "function": "GND",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "function": "GPIO43",
+          "state": "no-connect",
+          "reason": "CH343 / placeholder XCLK"
+        },
+        {
+          "number": "3",
+          "function": "GPIO44",
+          "state": "no-connect",
+          "reason": "CH343 / placeholder XCLK"
+        },
+        {
+          "number": "4",
+          "function": "GPIO1",
+          "net": "MCU_CAM_D0"
+        },
+        {
+          "number": "5",
+          "function": "GPIO2",
+          "net": "MCU_CAM_D1"
+        },
+        {
+          "number": "6",
+          "function": "GPIO42",
+          "net": "MCU_CAM_D7"
+        },
+        {
+          "number": "7",
+          "function": "GPIO41",
+          "net": "MCU_CAM_D6"
+        },
+        {
+          "number": "8",
+          "function": "GPIO40",
+          "net": "MCU_CAM_D5"
+        },
+        {
+          "number": "9",
+          "function": "GPIO39",
+          "net": "BUTTON39"
+        },
+        {
+          "number": "10",
+          "function": "GPIO38",
+          "net": "MCU_CAM_D4"
+        },
+        {
+          "number": "11",
+          "function": "GPIO37",
+          "state": "no-connect",
+          "reason": "OPI PSRAM"
+        },
+        {
+          "number": "12",
+          "function": "GPIO36",
+          "state": "no-connect",
+          "reason": "OPI PSRAM"
+        },
+        {
+          "number": "13",
+          "function": "GPIO35",
+          "state": "no-connect",
+          "reason": "OPI PSRAM"
+        },
+        {
+          "number": "14",
+          "function": "GPIO0",
+          "state": "no-connect",
+          "reason": "unused strap/control pin"
+        },
+        {
+          "number": "15",
+          "function": "GPIO45",
+          "state": "no-connect",
+          "reason": "unused strap/control pin"
+        },
+        {
+          "number": "16",
+          "function": "GPIO48",
+          "net": "MCU_CAM_HREF"
+        },
+        {
+          "number": "17",
+          "function": "GPIO47",
+          "net": "MCU_CAM_VSYNC"
+        },
+        {
+          "number": "18",
+          "function": "GPIO21",
+          "net": "MCU_BUZZ_CTRL"
+        },
+        {
+          "number": "19",
+          "function": "GPIO20",
+          "state": "no-connect",
+          "reason": "native USB"
+        },
+        {
+          "number": "20",
+          "function": "GPIO19",
+          "state": "no-connect",
+          "reason": "native USB"
+        },
+        {
+          "number": "21",
+          "function": "GND",
+          "net": "GND"
+        },
+        {
+          "number": "22",
+          "function": "GND",
+          "net": "GND"
+        }
+      ]
+    }
+  ],
+  "powerDecision": "用户确认：载板统一电源，短USB线给开发板供电；开发板5V排针不接电源，3V3排针仅供低功耗接口隔离逻辑和按键，不承担传感器负载。"
+}

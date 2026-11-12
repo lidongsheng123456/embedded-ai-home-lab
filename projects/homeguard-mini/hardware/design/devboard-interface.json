@@ -1,0 +1,88 @@
+{
+  "status": "candidate-unverified",
+  "source": "用户于2026-11-11提供的泽杰ESP32-S3 N X R X引脚图；正面天线向上、双USB向下",
+  "pinsPerRow": 22,
+  "rowCenterDistanceMm": 25.4,
+  "pinPitchMm": 2.54,
+  "mechanicalSource": "用户提供的泽杰产品尺寸图：两排25.40mm，首尾针53.34mm，板宽27.94mm，标称板长57.15mm；厂商声明手工测量可能误差0.5～1mm，仍需1:1实物套合",
+  "powerEvidence": {
+    "usbPortsTogetherAllowed": true,
+    "header5VInputAllowed": true,
+    "header3V3InputAllowed": true,
+    "usbAndHeaderTogetherAllowed": null,
+    "regulatorPart": null,
+    "availablePeripheral3V3CurrentMa": null
+  },
+  "leftTopToBottom": [
+    "3V3",
+    "3V3",
+    "EN",
+    "GPIO4",
+    "GPIO5",
+    "GPIO6",
+    "GPIO7",
+    "GPIO15",
+    "GPIO16",
+    "GPIO17",
+    "GPIO18",
+    "GPIO8",
+    "GPIO3",
+    "GPIO46",
+    "GPIO9",
+    "GPIO10",
+    "GPIO11",
+    "GPIO12",
+    "GPIO13",
+    "GPIO14",
+    "5V",
+    "GND"
+  ],
+  "rightTopToBottom": [
+    "GND",
+    "GPIO43",
+    "GPIO44",
+    "GPIO1",
+    "GPIO2",
+    "GPIO42",
+    "GPIO41",
+    "GPIO40",
+    "GPIO39",
+    "GPIO38",
+    "GPIO37",
+    "GPIO36",
+    "GPIO35",
+    "GPIO0",
+    "GPIO45",
+    "GPIO48",
+    "GPIO47",
+    "GPIO21",
+    "GPIO20",
+    "GPIO19",
+    "GND",
+    "GND"
+  ],
+  "reservedForOpiPsram": [
+    "GPIO35",
+    "GPIO36",
+    "GPIO37"
+  ],
+  "cameraBuildMustNotConnect": [
+    "GPIO43",
+    "GPIO44"
+  ],
+  "cameraPclk": "GPIO16",
+  "nativeUsbPins": [
+    "GPIO19",
+    "GPIO20"
+  ],
+  "mechanicalVerification": "厂商标称尺寸已取得；实物套合未验证。用户实物为外接天线座版本。",
+  "purchaseUrl": "https://item.jd.com/10217491410382.html",
+  "powerDecision": {
+    "source": "用户于2026-11-11明确选择",
+    "method": "载板统一接电源，短USB线给开发板供电",
+    "header5V": "no-connect",
+    "header3V3": "MCU_3V3，单独电源域，仅给接口隔离逻辑和按键供电",
+    "sensorPower": "载板独立3.3V稳压；传感器负载不经过开发板",
+    "usbAnd5VHeader": "禁止并接"
+  }
+}
