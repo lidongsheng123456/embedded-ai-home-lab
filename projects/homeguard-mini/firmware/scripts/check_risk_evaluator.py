@@ -1,8 +1,21 @@
-"""编译真实规则、采集和报警输出，验证故障边界；不连接设备，不读取本机配置。"""
+"""编译真实规则、采集、报警与雷达，验证故障边界；不连接设备，不读取本机配置。"""
 from pathlib import Path
 import os
 import shutil
 import subprocess
+
+
+def run_check(project, compiler, name, sources, defines=()):
+    """使用相同严格编译选项运行一个真实模块测试，失败时立即终止。"""
+    output = project / ".pio/checks"
+    output.mkdir(parents=True, exist_ok=True)
+    executable = output / (name + (".exe" if os.name == "nt" else ""))
+    subprocess.run([
+        compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror", *defines,
+        "-I", str(project / "tests/host"), "-I", str(project / "include"),
+        *[str(project / source) for source in sources], "-o", str(executable),
+    ], check=True)
+    subprocess.run([str(executable)], check=True)
 
 
 def main():
@@ -10,36 +23,23 @@ def main():
     compiler = shutil.which("g++") or shutil.which("clang++")
     if not compiler:
         raise SystemExit("请安装g++或clang++并加入PATH。")
-    output = project / ".pio/checks"
-    output.mkdir(parents=True, exist_ok=True)
-    executable = output / ("risk_evaluator.exe" if os.name == "nt" else "risk_evaluator")
-    subprocess.run([
-        compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror",
-        "-I", str(project / "tests/host"), "-I", str(project / "include"),
-        str(project / "src/domain/risk_evaluator.cpp"),
-        str(project / "src/domain/anomaly_model.cpp"),
-        str(project / "tests/risk_evaluator_test.cpp"), "-o", str(executable),
-    ], check=True)
-    subprocess.run([str(executable)], check=True)
+    run_check(project, compiler, "risk_evaluator", [
+        "src/domain/risk_evaluator.cpp", "src/domain/anomaly_model.cpp",
+        "tests/risk_evaluator_test.cpp",
+    ])
     for carrier in (0, 1):
-        sensor_executable = output / (f"sensor_hub_{carrier}" + (".exe" if os.name == "nt" else ""))
-        subprocess.run([
-            compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror",
-            f"-DHOMEGUARD_CARRIER_R1={carrier}",
-            "-I", str(project / "tests/host"), "-I", str(project / "include"),
-            str(project / "src/drivers/sensor_hub.cpp"),
-            str(project / "tests/sensor_hub_test.cpp"), "-o", str(sensor_executable),
-        ], check=True)
-        subprocess.run([str(sensor_executable)], check=True)
-    alarm_executable = output / ("alarm_output.exe" if os.name == "nt" else "alarm_output")
-    subprocess.run([
-        compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror",
-        "-I", str(project / "tests/host"), "-I", str(project / "include"),
-        str(project / "src/drivers/buzzer_pulse.cpp"),
-        str(project / "src/app/alarm_output.cpp"),
-        str(project / "tests/alarm_output_test.cpp"), "-o", str(alarm_executable),
-    ], check=True)
-    subprocess.run([str(alarm_executable)], check=True)
+        run_check(project, compiler, f"sensor_hub_{carrier}", [
+            "src/drivers/sensor_hub.cpp", "tests/sensor_hub_test.cpp",
+        ], [f"-DHOMEGUARD_CARRIER_R1={carrier}"])
+    run_check(project, compiler, "alarm_output", [
+        "src/drivers/buzzer_pulse.cpp", "src/app/alarm_output.cpp", "tests/alarm_output_test.cpp",
+    ])
+    run_check(project, compiler, "ld2410_protocol", [
+        "src/drivers/ld2410_protocol.cpp", "tests/ld2410_protocol_test.cpp",
+    ])
+    run_check(project, compiler, "radar_sensor", [
+        "src/drivers/ld2410_protocol.cpp", "src/drivers/radar_sensor.cpp", "tests/radar_sensor_test.cpp",
+    ])
 
 
 if __name__ == "__main__":

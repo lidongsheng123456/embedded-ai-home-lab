@@ -21,6 +21,13 @@ constexpr uint32_t MQ2_WARMUP_MS = 3UL * 60UL * 1000UL;
 constexpr uint32_t WIFI_FALLBACK_MS = 15000;
 constexpr uint32_t WIFI_RETRY_MS = 30000;
 constexpr uint32_t WIFI_POLL_MS = 500;
+// 雷达持续主动上报；500ms没有有效帧就标未知，这是本项目的失联判断阈值。
+constexpr uint32_t RADAR_STALE_MS = 500;
+constexpr uint32_t RADAR_FRAME_GAP_MS = 100; // 半帧中断过久，不再拼接旧字节。
+constexpr uint32_t RADAR_POLL_MS = 2;
+constexpr size_t RADAR_RX_BUFFER_BYTES = 1024;
+constexpr size_t RADAR_RX_BATCH_BYTES = 256; // 每轮有界读取，持续噪声不能独占CPU。
+constexpr uint32_t RADAR_TASK_STACK_BYTES = 3072; // ESP32任务栈参数单位是字节。
 
 // 提醒级别每3秒响100ms，避免普通提醒一直鸣叫。
 constexpr uint32_t WARNING_BEEP_PERIOD_MS = 3000;
