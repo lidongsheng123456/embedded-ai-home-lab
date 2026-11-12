@@ -69,6 +69,34 @@ services / ui ───────────┤
 网页收到的“静音/重新学习”命令由网络层记录为一次性请求，主循环取走后交给应用层
 执行；网络层持有`const HomeState&`只读引用，不能跨层修改业务状态或GPIO。
 
+## 可选 DeepSeek 云解读
+
+新手配置与操作见[DeepSeek 云解读](../docs/13-DeepSeek云解读.md)。未提供本机
+`include/cloud_config.h` 时默认关闭。密钥不进入网页、串口日志或 Git；配置后会编进固件，
+不要分享包含真实密钥的固件。
+
+```text
+网页手动 POST /api/ai → AiAdvisor复制只读快照 → 请求队列
+  → 后台 DeepSeekClient（校时、HTTPS证书验证）→ DeepSeek 官方
+  → 结果队列 → 主循环收取 → 网页 GET /api/ai 查询文字
+```
+
+`deepseek_protocol` 只组织和解析 JSON，`deepseek_client` 只处理官方连接，
+`ai_advisor` 管理任务、内存和设备级冷却；网页模块独立查询，不因云失败把传感器显示成离线。
+后台不访问 `HomeState`、GPIO 或风险模型。环境解读只产生文字；一句话控制可以提出白名单
+指令，由`app/ai_command_handler.cpp`在主循环一次性执行，结果以本机驱动反馈为准。
+支持蜂鸣器短响、静音10分钟、恢复提醒及相机拍照，不修改本地风险规则。
+每次请求必须手动触发，失败不自动重发。请求和结果队列都只存一份固定大小数据。
+`drivers/camera_snapshot`只保留最后一张AI照片，`GET /api/ai/photo.jpg`读取缓存不会再次拍照。
+
+协议可在电脑上离线测试，需要 g++ 或 clang++，并先执行一次 PlatformIO Build 安装 ArduinoJson：
+
+```powershell
+python scripts/check_deepseek_protocol.py
+```
+
+不需要密钥，不产生 API 费用；固件编译和电脑测试不能代替实机 HTTPS 与并发验证。
+
 ## 浏览器大屏
 
 大屏的[使用说明与源码导读](web/README.md)包含本机演示和烧录后访问步骤。
