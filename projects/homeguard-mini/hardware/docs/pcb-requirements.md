@@ -1,6 +1,6 @@
 # R1 PCB 设计与外观验收要求
 
-来源：用户要求可制造、符合行业最佳实践且外观整齐。以下为设计约束；最终实现与检查范围见[制造复核](fabrication-review.md)，打样文件见[R1 交付说明](../outputs/release-r1/README.md)。
+来源：用户要求可制造、符合行业最佳实践且外观整齐。以下为设计约束；最终实现与检查范围见[制造复核](fabrication-review.md)，打样文件见[R1 交付说明](../releases/r1/README.md)。
 
 ## 电气与制造
 

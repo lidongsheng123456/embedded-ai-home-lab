@@ -44,7 +44,8 @@ for(const [net,pins] of netGroups) {
   requireState(pins.length>=2,'单引脚网络：'+net);
 }
 const sha=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
-const result={status:'live-verified',scope:'project schematic connectivity and native netlist only',projectId:observed.projectId,
+// 这里只核对传入文件，不能把历史快照重验称为当前编辑器现场验收。
+const result={status:'offline-verified',liveEditorChecked:false,scope:'project schematic connectivity and native netlist only',projectId:observed.projectId,
   parts:actual.length,physicalPins:actualPins.size,explicitNoConnect:[...actualPins.values()].filter(p=>p.nc).length,nets:netGroups.size,
   allNetsHaveMultiplePins:true,inputs:Object.fromEntries([observedPath,netsPath,...sourcePaths].map(p=>[p,sha(p)])),hardwareTested:false,pcbManufacturingAccepted:false};
 writeFileSync(out,JSON.stringify(result,null,2)+'\n',{flag:'wx'});

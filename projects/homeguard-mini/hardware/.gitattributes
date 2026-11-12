@@ -1,3 +1,4 @@
-# 制造文件、现场证据及其哈希输入须保留原始字节，避免换行转换破坏校验。
-outputs/** -text -whitespace
-design/*.json -text whitespace=cr-at-eol
+# 制造文件、现场证据及其哈希输入保留原始字节，防止换行转换破坏校验。
+releases/** -text -whitespace
+archive/** -text -whitespace
+design/**/*.json -text whitespace=cr-at-eol

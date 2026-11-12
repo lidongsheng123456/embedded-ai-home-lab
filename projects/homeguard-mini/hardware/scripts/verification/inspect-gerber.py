@@ -8,7 +8,7 @@ import re
 import sys
 import zipfile
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '.work' / 'python'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / '.work' / 'python'))
 from gerbonara import ExcellonFile, GerberFile, LayerStack
 from gerbonara.utils import MM
 from shapely.geometry import LineString, Point, Polygon, GeometryCollection

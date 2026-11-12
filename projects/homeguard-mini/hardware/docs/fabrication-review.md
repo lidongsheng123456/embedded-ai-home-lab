@@ -1,6 +1,6 @@
 # R1 制造复核与告警处置
 
-本记录对应 `outputs/release-r1/verification/pcb-final.board.json` 及同目录原生 DRC，制造 ZIP 的身份与哈希记录在 [独立制造报告](../outputs/release-r1/pcb/gerber-preview/manufacturing-inspection.json)。所有结果为设计/文件检查，尚无实物测试。
+本记录对应 `releases/r1/verification/pcb-final.board.json` 及同目录原生 DRC，制造 ZIP 的身份与哈希记录在 [独立制造报告](../releases/r1/pcb/gerber-preview/manufacturing-inspection.json)。所有结果为设计/文件检查，尚无实物测试。
 
 ## 通过的检查
 

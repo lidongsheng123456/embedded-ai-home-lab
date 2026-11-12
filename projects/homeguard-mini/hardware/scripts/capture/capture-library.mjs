@@ -1,11 +1,16 @@
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { hardwareRoot } from '../project-paths.mjs';
 import { resolve, dirname } from 'node:path';
 
 // 只读采集当前站点的真实器件绑定，避免把历史库 UUID 当成当前器件。
-const hardware = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const project = '9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965';
+const hardware = hardwareRoot;
+// 本地工程身份会随路径变化，由调用者从当前编辑器读取后显式传入。
+const project = process.argv[2];
+if (!project) throw new Error('用法：node capture-library.mjs 当前工程UUID [新选型输出.json]');
+const out = process.argv[3] ? resolve(process.argv[3])
+  : resolve(hardware, 'design', 'library', 'library-candidate.json');
+if (existsSync(out)) throw new Error(`拒绝覆盖已有选型：${out}`);
 const library = '0819f05c4eef4c71ace90d822a990e87';
 const targets = {
   xh3: ['6934d76a8ee6438388dad49508dc5ccf', 'C2908601'],
@@ -32,8 +37,6 @@ for (const [role, [uuid, lcsc]] of Object.entries(targets)) {
   catalog[role] = device;
   console.log(`${role}: ${lcsc}, ${device.name}, ${device.association?.footprint?.uuid}`);
 }
-const out = resolve(hardware, 'design', 'library-candidate.json');
-if (existsSync(out)) throw new Error(`拒绝覆盖已有选型：${out}`);
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, JSON.stringify({ status: 'candidate-unverified', project, library,
   capturedAt: new Date().toISOString(), devices: catalog }, null, 2) + '\n');

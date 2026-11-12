@@ -49,7 +49,8 @@ for (const port of ports) {
   }
 }
 const hash = path => createHash('sha256').update(readFileSync(path)).digest('hex');
-const summary = { status: 'live-verified', scope: 'single schematic page only',
+// 保存与重载事实来自传入回执，本脚本没有连接当前编辑器。
+const summary = { status: 'offline-verified', liveEditorChecked: false, scope: 'single schematic page only',
   projectId: target.projectId, pageId: target.documentId, parts: parts.length,
   physicalPins: pins, explicitNoConnect: nc, visibleNetports: ports.length,
   saved: true, closedAndReloaded: true, gate: gate.verdict,

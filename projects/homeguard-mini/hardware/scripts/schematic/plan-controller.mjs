@@ -1,15 +1,16 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { hardwarePath } from '../project-paths.mjs';
 
 // 每次从新鲜回读取得真实引脚；未决脚保留为明确未接，不伪装成NC。
 const [snapshotPath, textPath, outputStem] = process.argv.slice(2);
 if (!snapshotPath || !textPath || !outputStem) {
-  throw new Error('用法：node scripts/plan-controller.mjs snapshot.json text.json output-stem');
+  throw new Error('用法：node scripts/schematic/plan-controller.mjs snapshot.json text.json output-stem');
 }
 const load = path => JSON.parse(readFileSync(path, 'utf8').replace(/^\uFEFF/, ''));
 const observed = load(snapshotPath);
 const text = load(textPath);
-const source = load('design/controller-interface.json');
+const source = load(hardwarePath('design/interfaces/controller-interface.json'));
 if (!observed.ok || observed.context.documentUuid !== source.pageId ||
     observed.context.projectUuid !== source.projectId) throw new Error('工程或页面不匹配');
 const actual = observed.result.components.filter(c => c.componentType === 'part');

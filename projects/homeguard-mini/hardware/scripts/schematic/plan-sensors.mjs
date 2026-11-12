@@ -1,16 +1,21 @@
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { hardwareRoot } from '../project-paths.mjs';
 
 // 原始回读只读使用；目标网络写入新副本，绝不修改现场证据。
-const base = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const outputStem = process.argv[4] ?? `sensors-layout-${Date.now()}`;
+const base = hardwareRoot;
+const outputStem = process.argv[4] ? resolve(process.argv[4])
+  : resolve(base, '.work', `sensors-layout-${Date.now()}`);
+const output = `${outputStem}.json`;
+const target = `${outputStem}-connectivity.json`;
+if ([output, target].some(existsSync)) throw new Error('保留旧候选，请使用新的输出名称');
 const load = name => JSON.parse(readFileSync(resolve(base, name), 'utf8').replace(/^\uFEFF/, ''));
-const source = load('design/sensors-candidate.json');
-const raw = load(process.argv[2] ?? '.work/sensors-placed.json');
-const labels = load(process.argv[3] ?? '.work/sensors-designators.json');
-const connectivity = load('.work/sensors-connectivity-empty.json');
-if (!raw.ok || raw.context.documentUuid !== source.documentId) throw new Error('回读页面不一致');
+const source = load('design/schematic/sensors-candidate.json');
+const raw = load(process.argv[2] ? resolve(process.argv[2]) : '.work/sensors-placed.json');
+const labels = load(process.argv[3] ? resolve(process.argv[3]) : '.work/sensors-designators.json');
+const connectivity = load(process.argv[5] ? resolve(process.argv[5]) : '.work/sensors-connectivity-empty.json');
+if (!raw.ok || raw.context.documentUuid !== source.documentId ||
+    raw.context.projectUuid !== source.projectId) throw new Error('工程或回读页面不一致');
 const measured = raw.result.components.filter(c => c.componentType === 'part');
 if (measured.length !== source.components.length) throw new Error('器件数不一致');
 const netNames = [...new Set(source.components.flatMap(c => Object.values(c.nets)))];
@@ -72,9 +77,10 @@ const result = { schemaVersion: 1, connectivity,
   sheetBorder: { minX: 10, minY: 10, maxX: 1160, maxY: 815 },
   keepouts: [{ minX: 460, minY: 10, maxX: 1160, maxY: 190 }],
   measurements, layoutModules, maxCandidates: 100000 };
-const output = resolve(base, `.work/${outputStem}.json`);
-if (existsSync(output)) throw new Error('保留旧候选，请使用新的输出名称');
-writeFileSync(output, JSON.stringify(result, null, 2) + '\n');
-writeFileSync(resolve(base, 'design/sensors-target-connectivity.json'), JSON.stringify(connectivity, null, 2) + '\n');
+// 规划只生成新候选，不能回写已被发布证据引用的设计输入。
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+writeFileSync(target, JSON.stringify(connectivity, null, 2) + '\n', { flag: 'wx' });
 console.log(`已生成${measurements.length}件、${netNames.length}网的目标副本；未写EDA。`);
 console.log(output);
+console.log(target);

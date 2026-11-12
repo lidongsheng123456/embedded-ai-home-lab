@@ -1,0 +1,40 @@
+{
+  "id": "req_7733",
+  "type": "response",
+  "version": "v1",
+  "windowId": "e7616346-33a9-47e6-bf5d-e143a642607c",
+  "createdAt": "2026-11-12T04:30:15.4817236Z",
+  "ok": true,
+  "result": {
+    "saved": true
+  },
+  "context": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "4795d64e2b14bb93",
+    "documentType": "schematic",
+    "tabId": "4795d64e2b14bb93@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "pageVisibility": "hidden"
+  },
+  "mutationContext": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "4795d64e2b14bb93",
+    "documentType": "schematic",
+    "tabId": "4795d64e2b14bb93@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "pageVisibility": "hidden"
+  },
+  "mutationContextAvailable": true,
+  "seq": 6742,
+  "seqAbandoned": 8,
+  "abandonedIds": [
+    "req_3046",
+    "req_3090",
+    "req_5413",
+    "req_5497",
+    "req_5573",
+    "req_5856",
+    "req_5919",
+    "req_5962"
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  "schemaVersion": 1,
+  "pathBase": "hardware/",
+  "scope": "硬件目录分层迁移；sha256 为迁移前原始文件字节，说明与脚本另行维护。",
+  "files": {
+    "design/camera-adapter.md": {
+      "to": "docs/camera-adapter.md",
+      "sha256": "0dcae01676a365ee1f58af8d52354896a5f774e56db3d4f7bfa0ddd45195c4a3"
+    },
+    "design/camera-bottom-escape-request.json": {
+      "to": "design/pcb/camera-bottom-escape-request.json",
+      "sha256": "5ee50c6271331dfaa15fdbb684bca686a73c8a40c3045d76a1f8f5d0716e9a0c"
+    },
+    "design/camera-composition.json": {
+      "to": "design/schematic/camera-composition.json",
+      "sha256": "4cf7cece1c0a56554cc9c9a902032fb95e3d3067d7b7e25ca6101516f1559a9e"
+    },
+    "design/camera-connectivity.json": {
+      "to": "design/schematic/camera-connectivity.json",
+      "sha256": "57b2bf746c71b7546c45a58594fb809eb3b7d2ceeb3dc48f2c6d6771595b9084"
+    },
+    "design/camera-connector-interface.json": {
+      "to": "design/interfaces/camera-connector-interface.json",
+      "sha256": "0b70ef436ea6fde29d84278108e80edae898d85efc4445c78e65ff7fd193982f"
+    },
+    "design/camera-interface.json": {
+      "to": "design/interfaces/camera-interface.json",
+      "sha256": "7a33bf8ef2e223b1bf8f487d16d8eca5ef108cc938d609bf0f581955808f6da9"
+    },
+    "design/camera-library.json": {
+      "to": "design/library/camera-library.json",
+      "sha256": "a873cd3fe809a7e88b45edcba9c40cf10b61bcad068965cd61a0633ef7075cb7"
+    },
+    "design/camera-presentation.json": {
+      "to": "design/schematic/camera-presentation.json",
+      "sha256": "56ede584d4105bd21b21b71b7a69b38881c48ede920f6e20799ee9fdba425103"
+    },
+    "design/controller-composition.json": {
+      "to": "design/schematic/controller-composition.json",
+      "sha256": "fd8a642d04d2869c2ff50c27336c8be36b4ef3118b5c8a5e2dad5eb9ed0ff5e5"
+    },
+    "design/controller-interface.json": {
+      "to": "design/interfaces/controller-interface.json",
+      "sha256": "0dd30eb7559981ca28a7232a31a7d52a853e44ec937a370a420ad8eb803a3d6b"
+    },
+    "design/devboard-interface.json": {
+      "to": "design/interfaces/devboard-interface.json",
+      "sha256": "87f85d75b94e0ce92d393dbe20a1f9dd9d137b113d62c01973084ccbe10919d1"
+    },
+    "design/display-bottom-escape-request.json": {
+      "to": "design/pcb/display-bottom-escape-request.json",
+      "sha256": "b94d004839186770bfbfed77d644754c26c6cd76b5eb0f221ca23725ae351985"
+    },
+    "design/electrical-review.md": {
+      "to": "docs/electrical-review.md",
+      "sha256": "e627a96abc618af711eaff32689915c772fab847bac03d94278d280d10721e68"
+    },
+    "design/fabrication-review.md": {
+      "to": "docs/fabrication-review.md",
+      "sha256": "be6dd6a387104eddc9e01f7987d5e57e9eed3dfd419a72b1a7f9478402431b3a"
+    },
+    "design/first-board-validation.md": {
+      "to": "docs/first-board-validation.md",
+      "sha256": "ca0696637e040434726dadb6f2c241c0bcfb77100226257bc112b1dd18c03fcd"
+    },
+    "design/ground-plane-boundary.json": {
+      "to": "design/pcb/ground-plane-boundary.json",
+      "sha256": "c67825fa85185ec012222418a921127f5ddf0ae7323283e4b4faac5e1c009665"
+    },
+    "design/isolation-composition.json": {
+      "to": "design/schematic/isolation-composition.json",
+      "sha256": "7b3b61143b18dc63af2a92da28beea6c09df651caf114d34fe7ea5d435716911"
+    },
+    "design/isolation-connectivity.json": {
+      "to": "design/schematic/isolation-connectivity.json",
+      "sha256": "611b69c0c45068b207ff555702e046c8a1459f79ded0656a3209e2d81aefa48e"
+    },
+    "design/isolation-interface.json": {
+      "to": "design/interfaces/isolation-interface.json",
+      "sha256": "964d20afe607c6cf501d55e135182331f0078cee490a87e9c2b5dbaaa3d57b57"
+    },
+    "design/isolation-library.json": {
+      "to": "design/library/isolation-library.json",
+      "sha256": "e1110886c8df8a165f4c9628006834ddc4a96308b6fffa78c07f908004690036"
+    },
+    "design/library-candidate.json": {
+      "to": "design/library/library-candidate.json",
+      "sha256": "988a5e56e17455007461008d705f232469c082e5a1df1fd7b267be33c3ab9306"
+    },
+    "design/mcu-io-bottom-request.json": {
+      "to": "design/pcb/mcu-io-bottom-request.json",
+      "sha256": "08ac343a7c04b89175f4ebf8f9e89a486e239988b451a7c16d1eca0953c3f97b"
+    },
+    "design/mounting-footprint.json": {
+      "to": "design/pcb/mounting-footprint.json",
+      "sha256": "9dafd1d3d2dd6486f8811cffef3d74ac1d745e84d7a27ca445b51c8c221e086c"
+    },
+    "design/pcb-manufacturing-rules.json": {
+      "to": "design/pcb/pcb-manufacturing-rules.json",
+      "sha256": "8da063d6241e118845009cff0ef5d2a613eea9a6319a0d557d8bb758c90110ca"
+    },
+    "design/pcb-placement-intent.json": {
+      "to": "design/pcb/pcb-placement-intent.json",
+      "sha256": "f70b0827547424fefb2c46ca7979c259f1914f31a6efa632733eeeeff09cc599"
+    },
+    "design/pcb-requirements.md": {
+      "to": "docs/pcb-requirements.md",
+      "sha256": "ec6ef0fb19be01f1b1df836d54681fb55570503e00ce0e0b684aeb68e1bab9d2"
+    },
+    "design/pcb-silk-presentation.json": {
+      "to": "design/pcb/pcb-silk-presentation.json",
+      "sha256": "f2bf4a798a204ec0a149bcc2228f97df6af8614706fa838edad84c8b2d0111c5"
+    },
+    "design/pending-physical-checks.md": {
+      "to": "docs/pending-physical-checks.md",
+      "sha256": "0e5d40203394db562818e4b6c2785701c55d86cc789f914872bf63519ecabb55"
+    },
+    "design/power-composition.json": {
+      "to": "design/schematic/power-composition.json",
+      "sha256": "ff46c03e82285beb6384acc287879c1ed99605ecf0b750b0d93f4a7eeb3079a0"
+    },
+    "design/power-connectivity.json": {
+      "to": "design/schematic/power-connectivity.json",
+      "sha256": "aaeb34e9fdd23dcd39e4b8f036bf1e2fab64f98c4f189efb464826933abd7431"
+    },
+    "design/power-interface.json": {
+      "to": "design/interfaces/power-interface.json",
+      "sha256": "669cedb329025f8ed31004f92e529daf076b3db0331e4dc291aeff114a76ef48"
+    },
+    "design/power-library.json": {
+      "to": "design/library/power-library.json",
+      "sha256": "e894eeaa1740df3638f3a627a4c8c36403492a3f37bd1376926b5916c2be027c"
+    },
+    "design/remaining-bottom-request.json": {
+      "to": "design/pcb/remaining-bottom-request.json",
+      "sha256": "f4256e7036d35b0f92c3efa0b6464e38970328720c74354b880fbc659f1a6ef9"
+    },
+    "design/sensors-candidate.json": {
+      "to": "design/schematic/sensors-candidate.json",
+      "sha256": "2e98b04c62e972b04bd942dc566b1afa89e55cce79bbe5cee8d70df1764bc051"
+    },
+    "design/sensors-composition.json": {
+      "to": "design/schematic/sensors-composition.json",
+      "sha256": "223aff4d3872b2be0028ef2885e46e80bae123491f56fb3a15cb702860b9dcaa"
+    },
+    "design/sensors-target-connectivity.json": {
+      "to": "design/schematic/sensors-target-connectivity.json",
+      "sha256": "702da9118bcd0db62a0c551f9c7b496f6e8b7580b2de27f970253109bb8d78d4"
+    },
+    "design/usb-enable-bottom-request.json": {
+      "to": "design/pcb/usb-enable-bottom-request.json",
+      "sha256": "60643e9da449ef4bb6931e7261d91ede3e147dc1992fbaecd8cb1b4723729787"
+    },
+    "outputs/camera-adapter-orientation.svg": {
+      "to": "archive/checkpoints/camera-adapter-orientation.svg",
+      "sha256": "b7d258443ca8ea66be1ef62108a69250550bcbe570ca315e198c35b0e7a19e14"
+    },
+    "outputs/camera-final-schematic.svg": {
+      "to": "archive/checkpoints/camera-final-schematic.svg",
+      "sha256": "72ec49339d735d6b1884ff626526aed28aa4645eaea3d659deff856d119cbc76"
+    },
+    "outputs/camera-final-verification.json": {
+      "to": "archive/checkpoints/camera-final-verification.json",
+      "sha256": "a5ceec51222c119fbbe816deb74933906dc679cd69db49998b54208da8579a1c"
+    },
+    "outputs/camera-schematic.svg": {
+      "to": "archive/checkpoints/camera-schematic.svg",
+      "sha256": "5038de5e9254b8d479be10a6f93454794ff220b007a2a99c57f64a44adf4a8e4"
+    },
+    "outputs/camera-verification.json": {
+      "to": "archive/checkpoints/camera-verification.json",
+      "sha256": "624afedbbf6483ef47b0a3a3f43cedc1f8e706deea79d54055315a071bbe34eb"
+    },
+    "outputs/controller-schematic.svg": {
+      "to": "archive/checkpoints/controller-schematic.svg",
+      "sha256": "68bd95aacdf71d817dade32c5fdea3bc139101320aba9df4ae9d3f2b481f46f3"
+    },
+    "outputs/controller-verification.json": {
+      "to": "archive/checkpoints/controller-verification.json",
+      "sha256": "ed45d06454a398b95a20150ef4d25494bef3af73fb111a0ceb117fe7e5625198"
+    },
+    "outputs/homeguard-mini-schematic-checkpoint.epro2": {
+      "to": "archive/checkpoints/homeguard-mini-schematic-checkpoint.epro2",
+      "sha256": "969ba4e729e5ea1adc94c597870166cd6d9283461624e665f11e6cd2333d68ad"
+    },
+    "outputs/isolation-display-schematic.svg": {
+      "to": "archive/checkpoints/isolation-display-schematic.svg",
+      "sha256": "79b7b815cab040e3578ac047e01abf6b4e03d1d73115de579421da4f51a2dbdc"
+    },
+    "outputs/isolation-display-verification.json": {
+      "to": "archive/checkpoints/isolation-display-verification.json",
+      "sha256": "da96bee7535b34b1d0b39b338fad88441e681c252e57518c35abc5e69bdb8089"
+    },
+    "outputs/isolation-schematic.svg": {
+      "to": "archive/checkpoints/isolation-schematic.svg",
+      "sha256": "e47270d3f1195b3e6161181caf6c6d8206fc547672018612206eb9ef9434a1d9"
+    },
+    "outputs/isolation-verification.json": {
+      "to": "archive/checkpoints/isolation-verification.json",
+      "sha256": "20045f47e6d013c6c13756316b9b8ea5dce380aa901d0d2262db39b64c4e617a"
+    },
+    "outputs/pcb-pad-net-verification.json": {
+      "to": "archive/checkpoints/pcb-pad-net-verification.json",
+      "sha256": "0d72be2bed2fc600272a7fda44a33369afb8607c0fda5fceedc4597409345f54"
+    },
+    "outputs/power-schematic-white.svg": {
+      "to": "archive/checkpoints/power-schematic-white.svg",
+      "sha256": "b8dac0a46a806b0bc0c813be6bd33e617544cc97dcbc5a13942f7e3cb0d51f1a"
+    },
+    "outputs/power-schematic.svg": {
+      "to": "archive/checkpoints/power-schematic.svg",
+      "sha256": "b8dac0a46a806b0bc0c813be6bd33e617544cc97dcbc5a13942f7e3cb0d51f1a"
+    },
+    "outputs/power-verification.json": {
+      "to": "archive/checkpoints/power-verification.json",
+      "sha256": "ba754908f46ca543452208e0a7469252c26cb447e3cb0e35485c2d0dbbb3615f"
+    },
+    "outputs/project-connectivity-verification.json": {
+      "to": "archive/checkpoints/project-connectivity-verification.json",
+      "sha256": "8d132eec0853ff35f5d8c1d455257bfa766cf84c183962e87e469562d657835a"
+    },
+    "outputs/release-r1/README.md": {
+      "to": "releases/r1/README.md",
+      "sha256": "86a8f599240f36ace329663eff0c1c6235accdd92850e47ae38e279eea3e6691"
+    },
+    "outputs/release-r1/assembly/assembly-verification.json": {
+      "to": "releases/r1/assembly/assembly-verification.json",
+      "sha256": "75ddab7d87442c13fc44de69ace58bb6c1fda19c71d2d2d56d2a24bf8780a5a6"
+    },
+    "outputs/release-r1/assembly/bom-all.csv": {
+      "to": "releases/r1/assembly/bom-all.csv",
+      "sha256": "e2eb6c47964fca98d6f772d757ff77f4e19a56aa87790f1b48f7d33ed8cc44ae"
+    },
+    "outputs/release-r1/assembly/bom-official.tsv": {
+      "to": "releases/r1/assembly/bom-official.tsv",
+      "sha256": "2561aaa509eaab6d61425ca9f2e25a00f40e1d307087e0e13f2ef3b37aa56f77"
+    },
+    "outputs/release-r1/assembly/bom-smd.csv": {
+      "to": "releases/r1/assembly/bom-smd.csv",
+      "sha256": "1b347f074ac4ec5a6fbb659cd119f4aa112ed9987ac7a0e39bb753949a2b24de"
+    },
+    "outputs/release-r1/assembly/fit-template-1to1.pdf": {
+      "to": "releases/r1/assembly/fit-template-1to1.pdf",
+      "sha256": "b1b4feee035f925ab462e8bd5dd3398f1b62620231d56b309d34f7339cb88a89"
+    },
+    "outputs/release-r1/assembly/placement-official.csv": {
+      "to": "releases/r1/assembly/placement-official.csv",
+      "sha256": "d61078eca702ed5caea66775fba55eaa4d19922e5414d9dd2bf5e91a7e892ad3"
+    },
+    "outputs/release-r1/assembly/placement-smd.csv": {
+      "to": "releases/r1/assembly/placement-smd.csv",
+      "sha256": "043c89ee421a321b28670c0488749b33ea1a9ce76344d041f1997c107c5fa315"
+    },
+    "outputs/release-r1/homeguard-mini-r1.epro2": {
+      "to": "releases/r1/homeguard-mini-r1.epro2",
+      "sha256": "ec6d6bebca43b064138977c9c143e7b36b14a095c2f9faedd9ae221a8476c9e0"
+    },
+    "outputs/release-r1/manifest.json": {
+      "to": "releases/r1/manifest.json",
+      "sha256": "0ad0c27db266151b2081bd10ba8d069ed5cc1110e822b7493eb6d23a606a883a"
+    },
+    "outputs/release-r1/manufacturing/homeguard-mini-r1-gerber.zip": {
+      "to": "releases/r1/manufacturing/homeguard-mini-r1-gerber.zip",
+      "sha256": "3b51d641261c1381496430da4975e8634623318505a142476f1f2d975407221d"
+    },
+    "outputs/release-r1/pcb/copper-layers.svg": {
+      "to": "releases/r1/pcb/copper-layers.svg",
+      "sha256": "92d1a67c4a61f97a4f0553d042f9674a434be68b8542172cbdadf1cc796b581d"
+    },
+    "outputs/release-r1/pcb/gerber-preview/manufacturing-inspection.json": {
+      "to": "releases/r1/pcb/gerber-preview/manufacturing-inspection.json",
+      "sha256": "adfa2bdf4125410337649a645744f53eb305113b4d9fd649ce55f95594f846bf"
+    },
+    "outputs/release-r1/pcb/gerber-preview/pcb-bottom.png": {
+      "to": "releases/r1/pcb/gerber-preview/pcb-bottom.png",
+      "sha256": "9a30b797d9745b3acf6344e0bfb4dc59b6c6fe15b31e194df545d1c18d2efbce"
+    },
+    "outputs/release-r1/pcb/gerber-preview/pcb-bottom.svg": {
+      "to": "releases/r1/pcb/gerber-preview/pcb-bottom.svg",
+      "sha256": "00108086dd0a601fe5411a6ca12009b1b57fbd4d8f7b89f286f7c11d8374de8c"
+    },
+    "outputs/release-r1/pcb/gerber-preview/pcb-top.png": {
+      "to": "releases/r1/pcb/gerber-preview/pcb-top.png",
+      "sha256": "3bbb69fcf1e9b60753b6ae2a092ed96003f7164bb80bb499929d5b4bde1cd265"
+    },
+    "outputs/release-r1/pcb/gerber-preview/pcb-top.svg": {
+      "to": "releases/r1/pcb/gerber-preview/pcb-top.svg",
+      "sha256": "7624a7bf82ec64995a5890745146f76a327d76bb41aca0e25e645cfd05ee3959"
+    },
+    "outputs/release-r1/pcb/model-3d/board-after.json": {
+      "to": "releases/r1/pcb/model-3d/board-after.json",
+      "sha256": "ee8cc1f3b5407de2104d074a2ce05a96df9481f6bb82ac42b33a14515e479afb"
+    },
+    "outputs/release-r1/pcb/model-3d/board-before.json": {
+      "to": "releases/r1/pcb/model-3d/board-before.json",
+      "sha256": "1d091344c23863cb97245e90af0f0bbb9da5effc0fc9b8e2a5c87be3b432d03e"
+    },
+    "outputs/release-r1/pcb/model-3d/board.obj.zip": {
+      "to": "releases/r1/pcb/model-3d/board.obj.zip",
+      "sha256": "d130e458b2d5e83286cbd460b80ac5ed59bed51100a29fc4d8b09e15c9ddd06e"
+    },
+    "outputs/release-r1/pcb/model-3d/export-response.json": {
+      "to": "releases/r1/pcb/model-3d/export-response.json",
+      "sha256": "37fbef54d037848429fad1f8af71a60e4175e137200b1f6389f1555aa9502e62"
+    },
+    "outputs/release-r1/pcb/model-3d/manifest.json": {
+      "to": "releases/r1/pcb/model-3d/manifest.json",
+      "sha256": "65bd2c555d4a6623d6e368b0f5bc105f6ad8525ff33080cacb0d65da42f03e06"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/components.json": {
+      "to": "releases/r1/pcb/official-view/final-top/components.json",
+      "sha256": "07cb42d0dc6a389062dca97113cb83f867e586b3289e7f1ad4211e5761f1e63c"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/drc.json": {
+      "to": "releases/r1/pcb/official-view/final-top/drc.json",
+      "sha256": "0adf2161214843baf9b6ed41e8cfad06e2c8474843e04ca775077787e2174b89"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/nets.json": {
+      "to": "releases/r1/pcb/official-view/final-top/nets.json",
+      "sha256": "c8d4f6524d9c77a7c14dca528a43c08a44cf0845170cab51dc1ffdc11a67468c"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/pours.json": {
+      "to": "releases/r1/pcb/official-view/final-top/pours.json",
+      "sha256": "4f0751b69c97a99632a08e8e765245fd678cb333456d8e57d1f9042f72a05d93"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/stage.json": {
+      "to": "releases/r1/pcb/official-view/final-top/stage.json",
+      "sha256": "7fa150d4d821648852febf828e1d1b7201b63a085456f9a098051983182707ff"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/tracks.json": {
+      "to": "releases/r1/pcb/official-view/final-top/tracks.json",
+      "sha256": "67808358f7f24643db695a5283529c990d3e127fb4ba8d90c91db9579fc06b16"
+    },
+    "outputs/release-r1/pcb/official-view/final-top/vias.json": {
+      "to": "releases/r1/pcb/official-view/final-top/vias.json",
+      "sha256": "0534489df2de0813f42d43e2ce452e8b24d175297ae9b1aa71fa110c9ef10500"
+    },
+    "outputs/release-r1/pcb/pcb-3d.png": {
+      "to": "releases/r1/pcb/pcb-3d.png",
+      "sha256": "45238e25fbe2f694066e2e7ec87b4ff2b26ef531ec0c06c406def8060cfa0045"
+    },
+    "outputs/release-r1/schematics/01-sensors.png": {
+      "to": "releases/r1/schematics/01-sensors.png",
+      "sha256": "4ed849cff49d12db11b3e4799f623c4f52bdd6816d821326934a09ce903f9e02"
+    },
+    "outputs/release-r1/schematics/01-sensors.svg": {
+      "to": "releases/r1/schematics/01-sensors.svg",
+      "sha256": "b5e123182c8e5bbc5a15ba67cd808cb024263e9c156835b8c4f106e10307978d"
+    },
+    "outputs/release-r1/schematics/02-controller.png": {
+      "to": "releases/r1/schematics/02-controller.png",
+      "sha256": "85658854be16f460a5c419088a960900295afa509bad276a566ac1c343f21e28"
+    },
+    "outputs/release-r1/schematics/02-controller.svg": {
+      "to": "releases/r1/schematics/02-controller.svg",
+      "sha256": "c8782b7aac9e251c8dd208c1fe817b8670e166279f9b46958ef719b0ccf171f5"
+    },
+    "outputs/release-r1/schematics/03-isolation.png": {
+      "to": "releases/r1/schematics/03-isolation.png",
+      "sha256": "001e659d190892f7ea4224f796adaa4233e45d17263fd0bba6c243dcd91782a1"
+    },
+    "outputs/release-r1/schematics/03-isolation.svg": {
+      "to": "releases/r1/schematics/03-isolation.svg",
+      "sha256": "5f8d25d9d3e69cf9eb185cf12a96b01de4177c3b2c4f6480387b3a8117e0a142"
+    },
+    "outputs/release-r1/schematics/04-power.png": {
+      "to": "releases/r1/schematics/04-power.png",
+      "sha256": "202f760562011c5cc12db1b137538090340ff700b3d594d27b22b3b2ff26585f"
+    },
+    "outputs/release-r1/schematics/04-power.svg": {
+      "to": "releases/r1/schematics/04-power.svg",
+      "sha256": "53a9557ba3c16f6ce0c6230399d5a427347a5769977b06a9858cddcba2dc1090"
+    },
+    "outputs/release-r1/schematics/05-camera.png": {
+      "to": "releases/r1/schematics/05-camera.png",
+      "sha256": "c14a194b7385421c88fb2473d7ed1cb65e00702f31107bbaab03da19197919d9"
+    },
+    "outputs/release-r1/schematics/05-camera.svg": {
+      "to": "releases/r1/schematics/05-camera.svg",
+      "sha256": "01ae9a5349464659bf831c8079b9c853424179c5a9b4dc35a0be9a1ba9a1c09e"
+    },
+    "outputs/release-r1/verification/01-sensors-check.json": {
+      "to": "releases/r1/verification/01-sensors-check.json",
+      "sha256": "f2768f81f26c2eaad8df8cdcd3fb8d14ef9192ae15b2df993190a75caa568fcd"
+    },
+    "outputs/release-r1/verification/01-sensors-components.json": {
+      "to": "releases/r1/verification/01-sensors-components.json",
+      "sha256": "fb122dc095744f4fe2c70044f1959d53979b304f2a293b9e71e5ca1380c420f4"
+    },
+    "outputs/release-r1/verification/01-sensors-drc.json": {
+      "to": "releases/r1/verification/01-sensors-drc.json",
+      "sha256": "9ee597cd74ebdaab7ea5353f0417c31bf604f3af8ac122d533e5e7fc8874e123"
+    },
+    "outputs/release-r1/verification/01-sensors-export.json": {
+      "to": "releases/r1/verification/01-sensors-export.json",
+      "sha256": "851e93d243808dcb923a789ee84a2aaf0b5889e2aac14cd78d25e73cbe718a88"
+    },
+    "outputs/release-r1/verification/01-sensors-reload.json": {
+      "to": "releases/r1/verification/01-sensors-reload.json",
+      "sha256": "1e4fb65b0db462174d47d0af8d801492e9a2ba663c51b26e0fbb3262ff45e8e2"
+    },
+    "outputs/release-r1/verification/01-sensors-save.json": {
+      "to": "releases/r1/verification/01-sensors-save.json",
+      "sha256": "2831fa57c30a57aa632076f2c1c99bf3329fc33b8e4dc64b0f28fe9322909e96"
+    },
+    "outputs/release-r1/verification/02-controller-check.json": {
+      "to": "releases/r1/verification/02-controller-check.json",
+      "sha256": "97383670e3e480e6cc0e43d3847a5dc0ef52db47469f4422f4972eb2228d2ed3"
+    },
+    "outputs/release-r1/verification/02-controller-components.json": {
+      "to": "releases/r1/verification/02-controller-components.json",
+      "sha256": "fc007d4b5a329f0a7e1ca3f07de4f15f295f5642d22c1f63a11a37dde459e2c7"
+    },
+    "outputs/release-r1/verification/02-controller-drc.json": {
+      "to": "releases/r1/verification/02-controller-drc.json",
+      "sha256": "4744c10445eeab20c0499a86ca597d254d5f7fcbaa5bfdb3029c75ad11a63381"
+    },
+    "outputs/release-r1/verification/02-controller-export.json": {
+      "to": "releases/r1/verification/02-controller-export.json",
+      "sha256": "bc8b43d105444f1a4844e1e4271bc4bf6b9eca3714d3e18cdd2a69f6d705cfa9"
+    },
+    "outputs/release-r1/verification/02-controller-reload.json": {
+      "to": "releases/r1/verification/02-controller-reload.json",
+      "sha256": "fe1f794a75f40ceae9689b35f1bb251a382d1445edf888561cc199b476fa8bcc"
+    },
+    "outputs/release-r1/verification/02-controller-save.json": {
+      "to": "releases/r1/verification/02-controller-save.json",
+      "sha256": "c4a55d9c259c44a98a7d34fad55fc7e4f8c850f3bc2659a348363b5d165fb9ec"
+    },
+    "outputs/release-r1/verification/03-isolation-check.json": {
+      "to": "releases/r1/verification/03-isolation-check.json",
+      "sha256": "852af4e89743386ad3e1a1f3c924708da37b308ea940436d2681b2257654ef8c"
+    },
+    "outputs/release-r1/verification/03-isolation-components.json": {
+      "to": "releases/r1/verification/03-isolation-components.json",
+      "sha256": "e304d02181c71c3a19e905fa95e943f505a94a4537a7a39c9fa34e375259dd8d"
+    },
+    "outputs/release-r1/verification/03-isolation-drc.json": {
+      "to": "releases/r1/verification/03-isolation-drc.json",
+      "sha256": "7091c7eb446435cd24c1971543a59be8648fe191d67bf3242a92b7a997d1bcd6"
+    },
+    "outputs/release-r1/verification/03-isolation-export.json": {
+      "to": "releases/r1/verification/03-isolation-export.json",
+      "sha256": "d4a0f55171cbc54811f1d2358067ce41e1d96db33b4a953b59d160320b187299"
+    },
+    "outputs/release-r1/verification/03-isolation-reload.json": {
+      "to": "releases/r1/verification/03-isolation-reload.json",
+      "sha256": "0856bf469283fa144aa8ec59ce19f157a1e4250ccb821b9e9ac2bf11abed0cbe"
+    },
+    "outputs/release-r1/verification/03-isolation-save.json": {
+      "to": "releases/r1/verification/03-isolation-save.json",
+      "sha256": "f36eec43557762da4ecb3248cfd28f88b1924f59880f666ca486d1aaf0bf752e"
+    },
+    "outputs/release-r1/verification/04-power-check.json": {
+      "to": "releases/r1/verification/04-power-check.json",
+      "sha256": "7180e3f01e63855227103f2361b4d525282ffb2078acd13674d8989901f2bffd"
+    },
+    "outputs/release-r1/verification/04-power-components.json": {
+      "to": "releases/r1/verification/04-power-components.json",
+      "sha256": "6a4b8e6d96325dccf8bea09fed456c4f7f67fcc68dcd0b0759732884f57ae8d4"
+    },
+    "outputs/release-r1/verification/04-power-drc.json": {
+      "to": "releases/r1/verification/04-power-drc.json",
+      "sha256": "bd3fdd4b3f226c013f3d793b66f9e08f38a36f383b863b8c57d71e5503fc6337"
+    },
+    "outputs/release-r1/verification/04-power-export.json": {
+      "to": "releases/r1/verification/04-power-export.json",
+      "sha256": "5fc8b7d4c93173da43ebf189de663d389d3d8e0abe5eec30a6c3064876b07a7c"
+    },
+    "outputs/release-r1/verification/04-power-reload.json": {
+      "to": "releases/r1/verification/04-power-reload.json",
+      "sha256": "794243aa72b96bb9c6f3b0d5ba862da29a4a0daf08ff66bd3334117d05a67b60"
+    },
+    "outputs/release-r1/verification/04-power-save.json": {
+      "to": "releases/r1/verification/04-power-save.json",
+      "sha256": "5b130933e201622ddb1602d267832a1f92bb5103608b1d373fccaec6fde87b11"
+    },
+    "outputs/release-r1/verification/05-camera-check.json": {
+      "to": "releases/r1/verification/05-camera-check.json",
+      "sha256": "09449e897641e3d4a3be1e2d8834f24c79e1c48e23d050c5102a956f8cb7d23e"
+    },
+    "outputs/release-r1/verification/05-camera-components.json": {
+      "to": "releases/r1/verification/05-camera-components.json",
+      "sha256": "3ffd9ad6d92900143c25265162b3a5d7c18381469b7143a8f7e924f63c0ebea9"
+    },
+    "outputs/release-r1/verification/05-camera-drc.json": {
+      "to": "releases/r1/verification/05-camera-drc.json",
+      "sha256": "8a5ecf62a6c1a69a0dc80cf07e566a1760b87fa45ef80b323516927197cecb21"
+    },
+    "outputs/release-r1/verification/05-camera-export.json": {
+      "to": "releases/r1/verification/05-camera-export.json",
+      "sha256": "0da1b9c17c1fa4e9e99f89f55486ef3743d24ee77dcb8089eba451c34845cb87"
+    },
+    "outputs/release-r1/verification/05-camera-reload.json": {
+      "to": "releases/r1/verification/05-camera-reload.json",
+      "sha256": "116fc0addd8eea0f7b92b1d2b6166e185ea136601b52a9686e54d43ad8637559"
+    },
+    "outputs/release-r1/verification/05-camera-save.json": {
+      "to": "releases/r1/verification/05-camera-save.json",
+      "sha256": "d8b409097ab81a2859b4528604685fa41fcf600a09d912aa5f8ace71292bcacf"
+    },
+    "outputs/release-r1/verification/3d-export.json": {
+      "to": "releases/r1/verification/3d-export.json",
+      "sha256": "17f988641a4fae5436f45cd7299bcad645b992318d96850195b7b82f6cd6ac13"
+    },
+    "outputs/release-r1/verification/formal-pcb-open.json": {
+      "to": "releases/r1/verification/formal-pcb-open.json",
+      "sha256": "e037383e4725d83257e210f94c413f78fb3f444043ebd0c1f9524579a9c383e6"
+    },
+    "outputs/release-r1/verification/gerber-export.json": {
+      "to": "releases/r1/verification/gerber-export.json",
+      "sha256": "f2bab9b2328bd5e2224113804994c7ace5d69ec00b0020dfaba6575798040368"
+    },
+    "outputs/release-r1/verification/pcb-dfm.json": {
+      "to": "releases/r1/verification/pcb-dfm.json",
+      "sha256": "4db8556f06ded21a1fa5c9f135fb131d6ab742340040354ebde5d9eb72d5a3f2"
+    },
+    "outputs/release-r1/verification/pcb-final.board.json": {
+      "to": "releases/r1/verification/pcb-final.board.json",
+      "sha256": "988e03e944e3735ee3cd0c68bb6899fdd9c8593ff3fadb9ad14370ebcd66dc8c"
+    },
+    "outputs/release-r1/verification/pcb-final.board.json.capture.json": {
+      "to": "releases/r1/verification/pcb-final.board.json.capture.json",
+      "sha256": "1b54ba74720f7e1a3cabaa51b4048a9661879434855e9dc2d8f28ac72c4691a8"
+    },
+    "outputs/release-r1/verification/pcb-final.drc.json": {
+      "to": "releases/r1/verification/pcb-final.drc.json",
+      "sha256": "e566260c63d16cfad6dde887de14999954bd69b87876333689812b7afbda6103"
+    },
+    "outputs/release-r1/verification/pcb-final.pour.json": {
+      "to": "releases/r1/verification/pcb-final.pour.json",
+      "sha256": "41f9f3973df28c6693800e4e709b6aea90090e3ac54e940fedce6af8cf234e81"
+    },
+    "outputs/release-r1/verification/pcb-final.save.json": {
+      "to": "releases/r1/verification/pcb-final.save.json",
+      "sha256": "8f9bd97216c8b094805ddf59f9dc6fce9db1f2c98bd5bc3352cce33b450d51d8"
+    },
+    "outputs/release-r1/verification/pcb-pad-net.json": {
+      "to": "releases/r1/verification/pcb-pad-net.json",
+      "sha256": "bb8dd42e51813d35dd0299c45230b8601d0fc738838476fd919f8199d9b856bd"
+    },
+    "outputs/release-r1/verification/pcb-reload-round2.json": {
+      "to": "releases/r1/verification/pcb-reload-round2.json",
+      "sha256": "1d3af1e61234f52261eab3b0f328845937a4a5c61e5dd7d1e17b9ebdf2fdd5b8"
+    },
+    "outputs/release-r1/verification/placement-export.json": {
+      "to": "releases/r1/verification/placement-export.json",
+      "sha256": "0d957926ba4a34a04e3bf9cc318c4f4e6467f683130af362b6d0867534222e1b"
+    },
+    "outputs/release-r1/verification/project-connectivity.json": {
+      "to": "releases/r1/verification/project-connectivity.json",
+      "sha256": "478c1b65d41afa422a497ade002deabceb15217f4f03e95354d0d093d7765a4b"
+    },
+    "outputs/release-r1/verification/project-export-v2.json": {
+      "to": "releases/r1/verification/project-export-v2.json",
+      "sha256": "4beec8a973b55ddead016f2848c34529cc2a75dbb3f5a36a4d442563843ecbd5"
+    },
+    "outputs/release-r1/verification/release-verification.json": {
+      "to": "releases/r1/verification/release-verification.json",
+      "sha256": "b36ee6880894807963fe1f666a94a015ad222044453f814925aefd33b9b8e209"
+    },
+    "outputs/release-r1/verification/restore-import.json": {
+      "to": "releases/r1/verification/restore-import.json",
+      "sha256": "838127144ce1d63f8fd897dd45bd4dea7edf195eaf4a82ecf6aa8aba0029418f"
+    },
+    "outputs/release-r1/verification/restore-open.json": {
+      "to": "releases/r1/verification/restore-open.json",
+      "sha256": "eb5c9b219c2c15ed58e71b444cef9f258129ac568123d9793a1341ac72046bc6"
+    },
+    "outputs/release-r1/verification/restore-pcb-drc.json": {
+      "to": "releases/r1/verification/restore-pcb-drc.json",
+      "sha256": "e566260c63d16cfad6dde887de14999954bd69b87876333689812b7afbda6103"
+    },
+    "outputs/release-r1/verification/restore-pcb-open.json": {
+      "to": "releases/r1/verification/restore-pcb-open.json",
+      "sha256": "e42b3ccd9c29dd240507fde1300e8a937e4806171aa31a6567d552cb6df1354a"
+    },
+    "outputs/release-r1/verification/restore-pcb.board.json": {
+      "to": "releases/r1/verification/restore-pcb.board.json",
+      "sha256": "006efd0212dcb1858af6ce8b8defba5b4a4db25f8dde51f57383afeffe814867"
+    },
+    "outputs/release-r1/verification/restore-pcb.board.json.capture.json": {
+      "to": "releases/r1/verification/restore-pcb.board.json.capture.json",
+      "sha256": "de5415b8a721f137adfc69f435b1d9f18c748826db263f008e6b3dbcc532cb7d"
+    },
+    "outputs/release-r1/verification/restore-schematic-connectivity.json": {
+      "to": "releases/r1/verification/restore-schematic-connectivity.json",
+      "sha256": "952643fd345f80c0465e92271c6335d3795f03144508bff853c8a8c2dc7484af"
+    },
+    "outputs/release-r1/verification/restore-schematic-nets-v2.json": {
+      "to": "releases/r1/verification/restore-schematic-nets-v2.json",
+      "sha256": "2b5a7ff4fd78eecd90cbd4cca45bff3653950687181d6b75f7e8a7ec45ca9ff7"
+    },
+    "outputs/release-r1/verification/round1-pcb-final-r1.board.json": {
+      "to": "releases/r1/verification/round1-pcb-final-r1.board.json",
+      "sha256": "ff246d71e6fda4444d2fc1823687cb8727d615d06a1b3f2bd295f3dde014e2cd"
+    },
+    "outputs/release-r1/verification/round1-pcb-final-r1.drc.json": {
+      "to": "releases/r1/verification/round1-pcb-final-r1.drc.json",
+      "sha256": "e566260c63d16cfad6dde887de14999954bd69b87876333689812b7afbda6103"
+    },
+    "outputs/release-r1/verification/round1-pcb-final-r1.save.json": {
+      "to": "releases/r1/verification/round1-pcb-final-r1.save.json",
+      "sha256": "d4bd9d69c6caf8605620d1bd602ff137a810454f2874523a8097be7711a1acff"
+    },
+    "outputs/release-r1/verification/round1-reload.json": {
+      "to": "releases/r1/verification/round1-reload.json",
+      "sha256": "71584bf300b30369965b6c044f9bac7984e9e556ff0bdad131ef62e85fc9b51f"
+    },
+    "outputs/release-r1/verification/schematic-connectivity.json": {
+      "to": "releases/r1/verification/schematic-connectivity.json",
+      "sha256": "10937e41c260b764aba80e5fec59188a93f37ffaa3a7f604dd78b7b246311896"
+    },
+    "outputs/release-r1/verification/schematic-nets.json": {
+      "to": "releases/r1/verification/schematic-nets.json",
+      "sha256": "189b1854e13c6478cd52fb303de90ec20e2d22a0ba44b03036ddbe6c28e835ca"
+    },
+    "outputs/release-r1/verification/viewport-export.json": {
+      "to": "releases/r1/verification/viewport-export.json",
+      "sha256": "98660d116c4b43f7fe64cfa57730571f57cba885a9f61aa7425ac79377820d7f"
+    },
+    "outputs/sensors-schematic.svg": {
+      "to": "archive/checkpoints/sensors-schematic.svg",
+      "sha256": "d9e32ef8b9aad41660a69fd2a967d7666d6c542067839b341ce3db078e25009e"
+    },
+    "outputs/sensors-verification.json": {
+      "to": "archive/checkpoints/sensors-verification.json",
+      "sha256": "39ef9e48d39ac9b218f4a9b7566bdb5b019c83ec19835a62f0804b8f7bc97224"
+    },
+    "scripts/capture-library.mjs": {
+      "to": "scripts/capture/capture-library.mjs",
+      "sha256": "edbeb6adc66e41fda8366243f98c3a2ca566570841c45032111313a189f86b18"
+    },
+    "scripts/compile-unwired-page.mjs": {
+      "to": "scripts/schematic/compile-unwired-page.mjs",
+      "sha256": "4992e28c3093eb8c2e5f1e78cc9017696b66392860d4e511f2edadf15d95dd57"
+    },
+    "scripts/compile-unwired-page.test.mjs": {
+      "to": "scripts/schematic/compile-unwired-page.test.mjs",
+      "sha256": "c1beefb51d0c3f6a875605253edcdc5af82fd7046845784144bac76ec1a78f7f"
+    },
+    "scripts/complete-markers.mjs": {
+      "to": "scripts/schematic/complete-markers.mjs",
+      "sha256": "e2a748cc73058c9c6412d7f401b098c945fe52ac2132eb70f2d75a0fb2b7b2c0"
+    },
+    "scripts/complete-wires.mjs": {
+      "to": "scripts/schematic/complete-wires.mjs",
+      "sha256": "ae702d70b4f86e4d2c2f1a101984e48b64b21d5f771b1c6c0380cec98e66c539"
+    },
+    "scripts/inspect-gerber.py": {
+      "to": "scripts/verification/inspect-gerber.py",
+      "sha256": "71792ebedf94040bda3f9f4c853d8fa754f286c51bd6df932e774ac0b7a9eb27"
+    },
+    "scripts/pcb-copper-geometry.mjs": {
+      "to": "scripts/pcb/pcb-copper-geometry.mjs",
+      "sha256": "43ab40eab06171f2b4d6baea8ec85b0b5407c027eac4b3571c6346179b6f6aab"
+    },
+    "scripts/pcb_geometry.py": {
+      "to": "scripts/pcb/pcb_geometry.py",
+      "sha256": "20a45237ad1eae2ef302e994befa708f7202befdfd4e0e5edcfb1b3b27a0877c"
+    },
+    "scripts/plan-bottom-escapes.py": {
+      "to": "scripts/pcb/plan-bottom-escapes.py",
+      "sha256": "c10c4089c8d811eb9c5a0e540254e917c708605d2f1e8d04b1a850bca6ba32a7"
+    },
+    "scripts/plan-carrier-placement.mjs": {
+      "to": "scripts/pcb/plan-carrier-placement.mjs",
+      "sha256": "543d2fe33821729f416968dec4c69dcf76a3929c62e8384a95048f8fd8bfdadd"
+    },
+    "scripts/plan-connectivity-edits.mjs": {
+      "to": "scripts/schematic/plan-connectivity-edits.mjs",
+      "sha256": "9a4ff9e361daf8be059cf99e1d8f6c71f0f6a502d715b7b92bea5d92e4d4eeb9"
+    },
+    "scripts/plan-controller.mjs": {
+      "to": "scripts/schematic/plan-controller.mjs",
+      "sha256": "f6a019215dbbacd1267e0436c9b5b2bfc5376cac61b9d8175d79ea8d52c4926f"
+    },
+    "scripts/plan-ground-vias.mjs": {
+      "to": "scripts/pcb/plan-ground-vias.mjs",
+      "sha256": "55994aef66b164a5b05d8a5f1a651cb05eb3ff60ab3810c169aafcdcc9275309"
+    },
+    "scripts/plan-mount-cutouts.mjs": {
+      "to": "scripts/pcb/plan-mount-cutouts.mjs",
+      "sha256": "ef34f19a0af54af688240afeaa497daec24b72d91ddcde1a42deb09cf5a1f343"
+    },
+    "scripts/plan-power-escape-repair.py": {
+      "to": "scripts/pcb/plan-power-escape-repair.py",
+      "sha256": "e2a598b1c9b548a7a9e45546aadada16005c620b5c7cb63106b28662d60a9f78"
+    },
+    "scripts/plan-power-widths.mjs": {
+      "to": "scripts/pcb/plan-power-widths.mjs",
+      "sha256": "b57f8e71c96ce01530fdd19c3f1ef415fd4ed56ced3e4b044c816d2c91e25a44"
+    },
+    "scripts/plan-sensors.mjs": {
+      "to": "scripts/schematic/plan-sensors.mjs",
+      "sha256": "8e2be4470b82cb51ba37d47d9cd4ca1702eb888c198b60e180091167837ee4ab"
+    },
+    "scripts/plan-signal-routing.py": {
+      "to": "scripts/pcb/plan-signal-routing.py",
+      "sha256": "6ec2b0906ccf784c83b482ed091d2fa3ce49f96cd2ee8aaa21b4ca8851a96a29"
+    },
+    "scripts/plan-usb-power-branch.py": {
+      "to": "scripts/pcb/plan-usb-power-branch.py",
+      "sha256": "bfded49efae60ac2c61620830e5ddfeb22054f0a1e1044876b12819937b1f241"
+    },
+    "scripts/prepare-assembly.py": {
+      "to": "scripts/assembly/prepare-assembly.py",
+      "sha256": "6ee21905d13654685ca766aefe1a4322e3e0339ae262e20c0c782bc98a51ec81"
+    },
+    "scripts/prepare-sensors.mjs": {
+      "to": "scripts/schematic/prepare-sensors.mjs",
+      "sha256": "40f5092ffc480c2e85a1637cbf38cffe1216a0e4e524a7482dcfa9348422c00c"
+    },
+    "scripts/render-fit-template.py": {
+      "to": "scripts/render/render-fit-template.py",
+      "sha256": "63e536c63e7139b55d537a40108289b8f083a4097095904ec5b8cfd3672fc7a4"
+    },
+    "scripts/render-obj-preview.mjs": {
+      "to": "scripts/render/render-obj-preview.mjs",
+      "sha256": "8a106860c1c0c0d7e485b2946222d765f93a11934fba3bb2315c6bf76d786daa"
+    },
+    "scripts/render-pcb-copper.mjs": {
+      "to": "scripts/render/render-pcb-copper.mjs",
+      "sha256": "dcf4563e3813ffa8ecbad160615c0c4e6e2665aad8f3cd638d2ee5ef5530f452"
+    },
+    "scripts/verify-pcb-connectivity.mjs": {
+      "to": "scripts/verification/verify-pcb-connectivity.mjs",
+      "sha256": "1a65988510f73c76b95d0a64e6be4cf628f5639f92dd639ee23ac468b48a3a01"
+    },
+    "scripts/verify-project-connectivity.mjs": {
+      "to": "scripts/verification/verify-project-connectivity.mjs",
+      "sha256": "60f673747709aaeadada76bf18542608b04d174d5d4e4e24279313db04f18101"
+    },
+    "scripts/verify-schematic.mjs": {
+      "to": "scripts/verification/verify-schematic.mjs",
+      "sha256": "7c7eb3b3f6463d3ac223bef70c697170a3514825a2de62b77269cfadb4bff78b"
+    }
+  },
+  "authoredFilesChanged": [
+    ".gitattributes",
+    "README.md",
+    "docs/camera-adapter.md",
+    "docs/fabrication-review.md",
+    "docs/first-board-validation.md",
+    "docs/pcb-requirements.md",
+    "docs/pending-physical-checks.md",
+    "releases/r1/README.md",
+    "releases/r1/manifest.json",
+    "scripts/README.md",
+    "scripts/capture/capture-library.mjs",
+    "scripts/pcb/pcb_geometry.py",
+    "scripts/render/render-fit-template.py",
+    "scripts/schematic/plan-controller.mjs",
+    "scripts/schematic/plan-sensors.mjs",
+    "scripts/schematic/prepare-sensors.mjs",
+    "scripts/verification/inspect-gerber.py",
+    "scripts/verification/verify-pcb-connectivity.mjs",
+    "scripts/verification/verify-project-connectivity.mjs",
+    "scripts/verification/verify-schematic.mjs"
+  ]
+}

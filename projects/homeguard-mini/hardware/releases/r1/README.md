@@ -30,7 +30,7 @@ SHA-256 见 [manifest.json](manifest.json)。原始制造 ZIP 未修改。独立
 - [四层铜图](pcb/copper-layers.svg) 来自最终 PCB 回读，是辅助审查图。
 - [1:1 插合模板](assembly/fit-template-1to1.pdf) 按“实际大小 / 100%”打印，关闭适应页面，先量 50 mm 标尺。
 
-开发板双排各 22 孔、2.54 mm 针距、25.40 mm 排距。开发板 USB-C 插入后外露段不超过 9 mm，采用朝向合适的低矮直角头；载板 USB-A 插头护套宽不超过 18 mm、插入后外露不超过 28 mm。模块配对插头投影不超过插座外形每侧 0.5 mm。需要实物确认的问题已记录在[清单](../../design/pending-physical-checks.md)。
+开发板双排各 22 孔、2.54 mm 针距、25.40 mm 排距。开发板 USB-C 插入后外露段不超过 9 mm，采用朝向合适的低矮直角头；载板 USB-A 插头护套宽不超过 18 mm、插入后外露不超过 28 mm。模块配对插头投影不超过插座外形每侧 0.5 mm。需要实物确认的问题已记录在[清单](../../docs/pending-physical-checks.md)。
 
 ## BOM 与装配
 
@@ -40,12 +40,12 @@ J1～J12 后装。**J10 是贴片电源脚加通孔外壳脚的混合 USB-C，�
 
 贴片前由加工方确认 U7、U10、U9 的封装与旋转，C25 正负极、D1 阴极、D2 极性，以及 J10 混合焊接工艺。坐标已与 PCB 的参考点、角度和板面逐项对账，尚未做机器首件验证。板上未加独立光学定位点，贴片加工应使用板厂工艺边定位点；自拼板量产需另做工艺设计。
 
-顶面 C25 电容外形线四角及 J11 USB 外壳线与开窗有少量交叠，总面积约 0.221 mm²，不涉及文字、1 脚或正负号。采用板厂常规“丝印避开焊盘开窗”裁切；不能裁掉文字。底面针序表与开窗交叠面积为 0。详见[制造复核](../../design/fabrication-review.md)。
+顶面 C25 电容外形线四角及 J11 USB 外壳线与开窗有少量交叠，总面积约 0.221 mm²，不涉及文字、1 脚或正负号。采用板厂常规“丝印避开焊盘开窗”裁切；不能裁掉文字。底面针序表与开窗交叠面积为 0。详见[制造复核](../../docs/fabrication-review.md)。
 
 ## 验证与首板
 
 检查证据位于 `verification/`、[独立 Gerber 报告](pcb/gerber-preview/manufacturing-inspection.json) 和 [BOM/坐标核对](assembly/assembly-verification.json)。备份已导入独立工程并打开，原理图器件/网络/接线及 PCB 元件、铜、孔、板框、丝印、规则逐项一致，恢复后的原生 DRC 也通过；见 [release-verification.json](verification/release-verification.json)。已切回正式工程。原生画布截图因 EDA 窗口在后台而不可采集，未用空白或旧截图代替；交付正反面图来自实际制造文件。
 
-按[首板验收步骤](../../design/first-board-validation.md)依次验证空载电源、开发板、单模块和全负载。只用专用 5V/3A 电源；开发板由 J11 短 USB 线供电，5V 排针不另接载板。J11 只供电，烧录连接开发板自己的 USB 口。
+按[首板验收步骤](../../docs/first-board-validation.md)依次验证空载电源、开发板、单模块和全负载。只用专用 5V/3A 电源；开发板由 J11 短 USB 线供电，5V 排针不另接载板。J11 只供电，烧录连接开发板自己的 USB 口。
 
 固件为**仅编译验证**，使用 `carrier_r1_core_st7789` 或 `carrier_r1_full_st7789_camera`。实物插合、输入瞬态、反向供电、纹波、温升、线束信号质量与完整功能均须首板确认。电路检查不能保证零缺陷，也不是生命安全认证。

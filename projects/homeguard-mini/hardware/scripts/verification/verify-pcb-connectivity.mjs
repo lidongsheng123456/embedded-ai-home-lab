@@ -33,6 +33,7 @@ for(const c of sch.components){
   }
 }
 const sha=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
-const report={status:'live-verified',scope:'schematic-to-PCB component identity and pad-net assignment; does not prove routed copper connectivity',projectId:sch.projectId,documentId:board.capture.documentUuid,parts:board.components.length,pads:padCount,explicitNoConnect:ncCount,nets:netCounts.size,inputs:{schematic:{path:schematicPath,sha256:sha(schematicPath)},pcb:{path:boardPath,sha256:sha(boardPath)}},hardwareTested:false,pcbManufacturingAccepted:false};
+// 这里只核对传入文件，不能把历史快照重验称为当前编辑器现场验收。
+const report={status:'offline-verified',liveEditorChecked:false,scope:'schematic-to-PCB component identity and pad-net assignment; does not prove routed copper connectivity',projectId:sch.projectId,documentId:board.capture.documentUuid,parts:board.components.length,pads:padCount,explicitNoConnect:ncCount,nets:netCounts.size,inputs:{schematic:{path:schematicPath,sha256:sha(schematicPath)},pcb:{path:boardPath,sha256:sha(boardPath)}},hardwareTested:false,pcbManufacturingAccepted:false};
 writeFileSync(outputPath,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
 console.log(report);
