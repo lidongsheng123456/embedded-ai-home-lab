@@ -6,7 +6,7 @@
 #include "domain/risk_evaluator.h"
 #include "pins.h"
 
-HomeGuardApp::HomeGuardApp() : network_(state_, camera_) {}
+HomeGuardApp::HomeGuardApp() : network_(state_, camera_, advisor_, snapshot_) {}
 
 void HomeGuardApp::setup() {
   Serial.begin(115200);
@@ -24,6 +24,7 @@ void HomeGuardApp::setup() {
   microphone_.begin();
   model_.begin();
   state_.learningSamples = model_.samples();
+  advisor_.begin();
   network_.begin();
 
   sensors_.printStatus();
@@ -31,6 +32,8 @@ void HomeGuardApp::setup() {
 }
 
 void HomeGuardApp::loop() {
+  advisor_.update();
+  handleAiCommand();
   network_.handleClient();
   handleRemoteCommands();
   radar_.update(state_);
@@ -73,6 +76,8 @@ void HomeGuardApp::updateAlarm() {
   if (silenceScheduled_ && remaining <= 0) silenceScheduled_ = false;
   state_.silenceRemainingSeconds = silenceScheduled_
       ? (static_cast<uint32_t>(remaining) + 999) / 1000 : 0;
+  if (beepActive_ && millis() - beepStartedAt_ >= AppSettings::MANUAL_BEEP_MS) beepActive_ = false;
+  if (beepActive_) { digitalWrite(PIN_BUZZER, HIGH); return; }
   if (silenceActive() || state_.level == 0) {
     digitalWrite(PIN_BUZZER, LOW);
     return;
@@ -128,6 +133,7 @@ void HomeGuardApp::resetLearning() {
 }
 
 void HomeGuardApp::silenceAlarm() {
+  beepActive_ = false;
   silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
   silenceScheduled_ = true;
   digitalWrite(PIN_BUZZER, LOW);

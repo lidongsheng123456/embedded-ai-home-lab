@@ -21,8 +21,9 @@ String numberOrNull(float value, uint8_t decimals) {
 }
 }  // namespace
 
-NetworkService::NetworkService(const HomeState &state, CameraModule &camera)
-    : state_(state), camera_(camera) {}
+NetworkService::NetworkService(const HomeState &state, CameraModule &camera, AiAdvisor &advisor,
+                               CameraSnapshot &snapshot)
+    : state_(state), camera_(camera), advisor_(advisor), snapshot_(snapshot) {}
 
 void NetworkService::begin() {
   startNetwork();
@@ -99,6 +100,7 @@ String NetworkService::buildStatusJson() const {
 }
 
 void NetworkService::setupRoutes() {
+  setupAiRoutes();
   server_.on("/api/status", HTTP_GET, [this] {
     server_.send(200, "application/json; charset=utf-8", buildStatusJson());
   });
@@ -132,13 +134,16 @@ void NetworkService::sendCameraFrame() {
     server_.send(503, "text/plain; charset=utf-8", "Camera is not ready");
     return;
   }
+  sendJpeg(frame.data, frame.length);
+  camera_.release(frame);
+}
 
+void NetworkService::sendJpeg(const uint8_t *data, size_t length) {
   // WebServer没有适合RAM中二进制大块数据的高级接口，这里直接写HTTP响应。
   WiFiClient client = server_.client();
   client.printf("HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n"
                 "Content-Length: %u\r\nCache-Control: no-store\r\n"
                 "Connection: close\r\n\r\n",
-                static_cast<unsigned int>(frame.length));
-  client.write(frame.data, frame.length);
-  camera_.release(frame);
+                static_cast<unsigned int>(length));
+  client.write(data, length);
 }

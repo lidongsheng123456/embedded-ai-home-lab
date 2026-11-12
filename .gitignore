@@ -10,6 +10,7 @@
 # Local secrets
 **/app_config.h
 **/wifi_config.h
+**/cloud_config.h
 .env
 *.log
 

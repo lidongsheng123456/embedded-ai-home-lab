@@ -5,12 +5,14 @@
 
 #include "domain/home_state.h"
 #include "drivers/camera_module.h"
+#include "drivers/camera_snapshot.h"
+#include "services/ai_advisor.h"
 
 // 管理 Wi-Fi 和 HTTP API。业务规则仍由领域模块负责。
 class NetworkService {
  public:
   // 只借用公开状态和摄像头接口，不拥有它们，也不直接执行告警业务。
-  NetworkService(const HomeState &state, CameraModule &camera);
+  NetworkService(const HomeState &state, CameraModule &camera, AiAdvisor &advisor, CameraSnapshot &snapshot);
   // 连接家庭Wi-Fi；失败时建立热点，然后注册并启动HTTP服务。
   void begin();
   // 处理一个等待中的浏览器请求；主循环必须频繁调用。
@@ -25,11 +27,15 @@ class NetworkService {
  private:
   void startNetwork();
   void setupRoutes();
+  void setupAiRoutes();
   String buildStatusJson() const;
   void sendCameraFrame();
+  void sendJpeg(const uint8_t *data, size_t length);
 
   const HomeState &state_; // 只读引用应用层状态，从类型上阻止网络层改业务数据。
   CameraModule &camera_;   // 只通过公开接口拍照，不接触摄像头底层引脚。
+  AiAdvisor &advisor_;     // 只调用排队接口，HTTP回调不等待云端模型。
+  const CameraSnapshot &snapshot_; // 只读AI照片缓存，GET不会再次触发拍照。
   WebServer server_{80};   // HTTP默认端口80，浏览器无需在地址后写端口。
   IPAddress deviceIp_;     // 当前可访问地址，联网或热点成功后写入。
   bool learnRequested_ = false;    // 网页请求与主循环之间的一次性标记。

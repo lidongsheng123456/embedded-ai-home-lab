@@ -24,6 +24,10 @@ constexpr uint32_t WARNING_BEEP_ON_MS = 100;
 // 危险级别每1秒响250ms，用更急促的节奏与提醒级别区分。
 constexpr uint32_t DANGER_BEEP_PERIOD_MS = 1000;
 constexpr uint32_t DANGER_BEEP_ON_MS = 250;
+// AI“响一下”只发出固定200ms测试信号，不允许模型指定无限时长。
+constexpr uint32_t MANUAL_BEEP_MS = 200;
+// AI照片保存在PSRAM，仅保留一张；超出上限则报告拍摄失败。
+constexpr size_t CAMERA_SNAPSHOT_MAX_BYTES = 256 * 1024;
 
 // MQ-2数值只是相对变化，下面是课程实验阈值，不是安全标准。
 constexpr float GAS_WARNING_INDEX = 60.0f;
