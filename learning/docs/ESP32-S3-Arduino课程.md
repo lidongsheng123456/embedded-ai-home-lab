@@ -2,6 +2,24 @@
 
 这份文件是ESP32-S3学习的唯一入口。课程针对你的泽杰ESP32-S3 DevKitC N16R8焊针板：`N16` 表示16MB Flash程序存储，`R8` 表示8MB PSRAM外部内存。完成STM32课程后再开始，很多LED、按钮、ADC和总线知识可以直接复用。
 
+## 先按这个顺序练
+
+| 章节 | 要做的实验 | 学完能做什么 |
+| --- | --- | --- |
+| 1 GPIO | LED → 按钮 → 普通RGB / WS2812 | 读输入、控制灯，区分两类彩灯 |
+| 2 时间 | 任务延时 → 开机计时 | 等待时给其他工作留机会 |
+| 3 中断 | 按钮翻灯 → 消抖 | 只记录事件，主循环再办事 |
+| 4 串口 | 日志 → LED命令 → STM32桥接 | 区分键盘回显和设备回包 |
+| 5 波形 | PWM呼吸灯 → WS2812动画 | 调亮度与严格时序发颜色 |
+| 6 ADC | 旋钮 → 光敏 → 电池分压 | 安全测电压 |
+| 7 总线 | OLED → 74HC595 → 选做ILI9341 | 接屏幕、传感器和扩展芯片 |
+| 8 Wi-Fi | 网络时间 → 网页控灯 | 用手机浏览器和设备交互 |
+| 9 BLE | 手机控灯 → 蜂鸣器 | 不经路由器的近距离通信 |
+| 10 多任务 | 并行闪灯/打印 → 队列传数据 | 拆开任务，避免互相卡住 |
+| 11 内存/音频 | PSRAM → 功放 → 相机预检 | 理解图像和音频资源；预检不拍照 |
+
+**下面每章可点击展开，只看正在做的那一章。每次只运行一个案例。** 点击 `Build → Upload`，需要文字反馈再开 `Monitor`。目标现象是实验验收要求，不表示本轮已经实物测试。
+
 ## 0. 开始前
 
 ### 本课程使用的板卡配置
@@ -23,16 +41,16 @@
 | GPIO、延时、中断 | 可以 | 普通LED、按钮、共阴RGB LED |
 | UART | 可以 | 开发板USB，无需额外串口板 |
 | PWM | 可以 | 普通LED；无源蜂鸣器可后续扩展 |
-| RMT/WS2812 | 暂时只编译 | 普通四脚RGB LED不是WS2812 |
+| RMT/WS2812 | 按实物与供电准备 | 之前已选WS2812 16灯板；普通四脚RGB不能替代 |
 | ADC | 可以 | 电位器、光敏电阻、电阻 |
 | I2C | 可以 | 1.3寸SH1106 OLED |
 | SPI | 可以 | 74HC595和8个LED |
-| TFT | 暂时只编译 | 图片中没有ILI9341彩屏 |
+| TFT | 按型号选做 | 本课是ILI9341，HomeGuard的ST7789不能直接替换 |
 | Wi-Fi、BLE、FreeRTOS | 可以 | 都在ESP32-S3芯片内部 |
 | PSRAM | 可以 | N16R8自带8MB PSRAM |
-| I2S、摄像头 | 暂时只编译/预检 | 尚未确认MAX98357A和摄像头型号 |
+| I2S、摄像头 | 到货核对后做 | 已选MAX98357+4Ω3W喇叭、OV2640；本课相机案例只预检 |
 
-图片中的蓝牙模块在ESP32-S3课程里不需要使用，因为ESP32-S3自己带BLE。图片中的“音频模块”型号无法仅凭正面确定，在确认引脚和芯片前不要按MAX98357A接线。
+ESP32自带BLE，不用外接蓝牙模块。上表记录已选型号，不等于每件已到货验收；先核对实物丝印，不因旧图片缺少某模块而重复购买。
 
 ### 面包板统一基础电路
 
@@ -49,7 +67,7 @@ GPIO4 ── 按钮的一侧
 按钮的另一侧 ── GND电源轨
 ```
 
-四脚按钮要跨在面包板中间沟上，从左右两侧各取一个脚。程序使用内部上拉，所以按下为低电平、松开为高电平。
+四脚按钮跨中间沟，取两组原本不通、按下才接通的脚；用万用表确认，不只看外形。程序使用内部上拉，所以按下为低电平、松开为高电平。
 
 不要同时让USB和面包板电源模块给开发板供电。GPIO只允许0～3.3V。舵机、喇叭、电机和灯带不能由GPIO或3V3引脚直接供电；外部供电时必须与开发板共地。
 
@@ -81,6 +99,9 @@ pio device monitor -b 115200
 
 ## 1. GPIO输入输出与彩色灯
 
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
+
 ### 案例A：普通LED闪烁
 
 目标：确认USB烧录和GPIO输出正常。
@@ -97,17 +118,19 @@ pio device monitor -b 115200
 
 ### 案例B：按钮控制LED
 
+目标：读输入引脚，再决定LED输出。
+
 器件与接线：完整基础电路，GPIO2接LED、GPIO4接按钮。
 
 操作：上传 `01b_gpio_button`。
 
 现象：按住按钮点亮，松开熄灭。
 
-解释：`INPUT_PULLUP` 启用芯片内部上拉，因此按下接地时读到 `LOW`。过关标准是能解释为什么代码判断 `LOW` 才代表按下。
+解释：`INPUT_PULLUP`是输入模式，并用内部大电阻把引脚默认拉高；按下接地时读到 `LOW`，不是引脚持续对外供3.3V。一直亮/不亮先查按钮取脚是否同组。过关标准是能解释为什么代码判断 `LOW` 才代表按下。
 
 ### 案例C：你现有的共阴RGB LED
 
-普通四脚RGB LED内部其实是红、绿、蓝三颗灯，不是WS2812。图片标注它是共阴型，最长的公共脚接GND，其余三脚各自必须串联一个330Ω电阻：
+目标：分别开关三种颜色。普通四脚RGB LED内部其实是红、绿、蓝三颗灯，不是WS2812。图片标注它是共阴型，最长的公共脚接GND，其余三脚各自必须串联一个330Ω电阻：
 
 ```text
 GPIO2 ── 330Ω ── R脚
@@ -116,17 +139,28 @@ GPIO4 ── 330Ω ── B脚
 RGB最长公共脚 ─── GND
 ```
 
-不同厂家的R/G/B排列可能不同，颜色错位时只交换三个颜色脚，不要把公共脚接3.3V。上传 `01c_rgb_led` 后应依次出现红、绿、蓝、白和熄灭。
+不同厂家的R/G/B排列可能不同，颜色错位时只交换三个颜色脚，不要把公共脚接3.3V。上传 `01c_rgb_led` 后应依次出现红、绿、蓝、白和熄灭。代码用三个 `OUTPUT`分别控制灯，不是输入上拉；三色都正确才通过。
 
-### 案例D：WS2812（以后选购）
+### 案例D：WS2812单线彩灯
 
-`01d_ws2812_colors` 保留原路线中的RMT彩灯实验。WS2812只有一根数据线，每颗灯内部有控制芯片；它与四脚RGB LED不能互换。你当前没有WS2812模块，可以先Build。
+目标与器件：用已选的WS2812灯板理解“一根数据线发送颜色”。先确认实物为WS2812，不是普通四脚RGB。
+
+接线：GPIO48经合适的3.3V→5V电平转换接DIN；灯板用合格外部5V电源，与ESP32共地。不能由GPIO或开发板3V3给灯板供电，也不把外部5V与开发板USB电源并联。
+
+操作：上传 `01d_ws2812_colors`。现象：代码只给**第一颗**发颜色，依次低亮度红、绿、蓝，各500ms，不是16颗全亮。
+
+代码解释：`neopixelWrite`指定红/绿/蓝，底层用专门发送准确波形的RMT硬件；它不是 `INPUT_PULLUP`。不亮先查DIN/DOUT、共地与信号电平；第一颗稳定换色即通过。供电和转换未准备好就先只Build。
 
 与最终项目的关系：普通灯用于状态提示，RGB/WS2812可以做桌宠眼睛和情绪灯效。
 
 源码：[普通灯](../examples/esp32-s3/src/lessons/01a_gpio_blink.cpp)、[按钮](../examples/esp32-s3/src/lessons/01b_gpio_button.cpp)、[共阴RGB](../examples/esp32-s3/src/lessons/01c_rgb_led.cpp)、[WS2812](../examples/esp32-s3/src/lessons/01d_ws2812_colors.cpp)
 
+</details>
+
 ## 2. 系统时钟、任务延时和运行时间
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标和接线
 
@@ -147,7 +181,12 @@ RGB最长公共脚 ─── GND
 
 源码：[任务延时](../examples/esp32-s3/src/lessons/02a_task_delay.cpp)、[运行时间](../examples/esp32-s3/src/lessons/02b_uptime.cpp)
 
+</details>
+
 ## 3. GPIO外部中断
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标、器件与接线
 
@@ -168,7 +207,12 @@ RGB最长公共脚 ─── GND
 
 源码：[中断](../examples/esp32-s3/src/lessons/03a_gpio_interrupt.cpp)、[消抖](../examples/esp32-s3/src/lessons/03b_interrupt_debounce.cpp)
 
+</details>
+
 ## 4. UART串口
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标和接线
 
@@ -213,6 +257,8 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 
 ### 代码解释
 
+本章电脑侧的 `Serial`走USB串口，桥接案例才把字节交给GPIO17/18上的硬件UART。COM是电脑给接口的编号，不是固件运行地址。
+
 `Serial.printf` 可以把变量放进文字；`readStringUntil('\n')` 会一直读到换行。UART传的是字节，文字只是双方约定的编码。
 
 常见错误：发送工具没有附加换行时，程序会等待到超时；串口端口被占用时Upload或Monitor会失败。三条命令都能控制LED、未知命令不会死机即过关。
@@ -221,7 +267,12 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 
 源码：[日志](../examples/esp32-s3/src/lessons/04a_uart_log.cpp)、[命令](../examples/esp32-s3/src/lessons/04b_uart_command.cpp)、[STM32串口桥](../examples/esp32-s3/src/lessons/04c_uart_bridge.cpp)
 
+</details>
+
 ## 5. PWM与RMT
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 案例A：PWM呼吸灯
 
@@ -229,9 +280,11 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 
 上传 `05a_pwm_fade`，LED应逐渐变亮和变暗。LEDC硬件以5kHz快速开关，8位占空比范围是0～255。频率表示每秒开关多少次，占空比表示一个周期里亮多久。
 
-### 案例B：WS2812非阻塞动画（以后选购）
+### 案例B：WS2812非阻塞动画
 
-`05b_ws2812_animation` 使用 `millis()` 决定何时换色，不用长时间 `delay` 卡住主循环。当前没有WS2812时只Build。以后接5V灯带必须外部供电、共地并使用合适的3.3V到5V电平转换，不能由GPIO供电。
+目标/器件/接线：沿用第1章WS2812灯板、外部5V、共地和电平转换。上传 `05b_ws2812_animation`，观察第一颗换色。
+
+代码解释：用 `millis()` 判断是否到换色时间，不用长时间 `delay` 等着。灯色持续更新且主循环能做别的事即通过；灯不亮按第1章查接线，供电未准备好只Build。
 
 你现有的无源蜂鸣器也可以用PWM产生不同音高，但建议在完成三极管驱动后再接；套件喇叭绝对不能直接接GPIO。
 
@@ -241,9 +294,16 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 
 源码：[PWM](../examples/esp32-s3/src/lessons/05a_pwm_fade.cpp)、[WS2812动画](../examples/esp32-s3/src/lessons/05b_ws2812_animation.cpp)
 
+</details>
+
 ## 6. ADC模拟采集
 
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
+
 ### 案例A：电位器
+
+目标/器件：用三脚电位器调电压，看到数字随旋钮变化。接线：
 
 ```text
 电位器外侧脚1 ── 3.3V
@@ -255,6 +315,8 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 
 ### 案例B：光敏电阻
 
+目标/器件：光敏电阻配10kΩ，测明暗引起的电压变化。接线：
+
 ```text
 3.3V ── 光敏电阻 ──┬── GPIO2
                     └── 10kΩ ── GND
@@ -263,6 +325,8 @@ GPIO17和GPIO18在该案例中专门用于串口桥，不要同时连接I2S音�
 上传 `06b_adc_light`，遮挡和照亮时串口数值应明显变化。
 
 ### 案例C：安全的电池分压
+
+目标/器件：两只100kΩ把电压减半，学习保护ADC输入。
 
 先不要直接用3.7V锂电池，先用3.3V电源轨模拟输入：
 
@@ -282,9 +346,16 @@ ADC像电压尺，12位原始值大致为0～4095。ESP32 ADC并非精密仪表�
 
 源码：[电位器](../examples/esp32-s3/src/lessons/06a_adc_potentiometer.cpp)、[光敏](../examples/esp32-s3/src/lessons/06b_adc_light.cpp)、[电池分压](../examples/esp32-s3/src/lessons/06c_adc_battery.cpp)
 
+</details>
+
 ## 7. I2C和SPI总线
 
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
+
 ### 案例A：1.3寸SH1106 OLED
+
+目标/器件：现有SH1106屏，发送一幅图并定时刷新。
 
 接线：
 
@@ -303,6 +374,8 @@ OLED SCL ── GPIO9
 
 ### 案例B：SPI驱动74HC595流水灯
 
+目标/器件：74HC595、8个LED和8个1kΩ，用少量线扩展8路输出。
+
 74HC595半圆缺口朝上时，左上角是1脚，逆时针编号：
 
 | 74HC595脚 | 接到ESP32-S3 |
@@ -316,9 +389,9 @@ OLED SCL ── GPIO9
 
 上传 `07b_spi_74hc595`，应看到单个亮点从Q0移动到Q7。SPI时钟每跳一次送入一位，锁存信号让8个输出同时更新。
 
-### 案例C：ILI9341 TFT（以后选购）
+### 案例C：ILI9341 TFT（按型号选做）
 
-`07c_spi_tft` 保留原路线。默认SCK=GPIO12、MISO=13、MOSI=11、CS=10、DC=6、RST=7。当前没有ILI9341模块时只Build。
+`07c_spi_tft` 保留原路线。默认SCK=GPIO12、MISO=13、MOSI=11、CS=10、DC=6、RST=7。另接3.3V和GND，背光按模块规格。HomeGuard用的是ST7789，驱动不同，不能直接套这课；没有ILI9341就只Build，不必为通关重复买屏幕。通过标准是出现源码规定画面，黑屏先查供电和驱动。
 
 ### 常见错误与过关标准
 
@@ -328,7 +401,12 @@ OLED无显示先查地址、SDA/SCL和控制芯片型号；74HC595无输出先�
 
 源码：[OLED](../examples/esp32-s3/src/lessons/07a_i2c_oled.cpp)、[74HC595](../examples/esp32-s3/src/lessons/07b_spi_74hc595.cpp)、[TFT](../examples/esp32-s3/src/lessons/07c_spi_tft.cpp)
 
+</details>
+
 ## 8. Wi-Fi联网
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标和准备
 
@@ -361,7 +439,12 @@ STA模式表示开发板像手机一样加入路由器；NTP从网络获取时�
 
 源码：[网络时间](../examples/esp32-s3/src/lessons/08a_wifi_time.cpp)、[网页控制](../examples/esp32-s3/src/lessons/08b_wifi_web_led.cpp)
 
+</details>
+
 ## 9. BLE低功耗蓝牙
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标和器件
 
@@ -373,13 +456,20 @@ ESP32-S3芯片自带BLE，不连接套件中的外置蓝牙模块。手机安装
 2. 手机连接 `HomeGuard-Learn`，向特征值写入 `ON` 或 `OFF`；
 3. `09b_ble_buzzer` 使用GPIO5控制有源蜂鸣器，但建议先通过PN2222三极管驱动，GPIO不要直接承担蜂鸣器电流。
 
+发不出去先选支持写入的特征值，不只是系统蓝牙配对；蜂鸣器例连接 `HomeGuard-Buzzer`，写 `BEEP`，应响约150ms。回调只记请求，主循环再发控制信号。
+
 BLE Service像一个功能文件夹，Characteristic像文件夹中的数据入口。手机无需路由器即可控制灯即过关。
 
 与最终项目的关系：用于近距离配网、控制和桌宠互动。
 
 源码：[BLE灯](../examples/esp32-s3/src/lessons/09a_ble_led.cpp)、[BLE蜂鸣器](../examples/esp32-s3/src/lessons/09b_ble_buzzer.cpp)
 
+</details>
+
 ## 10. FreeRTOS多任务
+
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
 
 ### 目标和接线
 
@@ -398,27 +488,42 @@ GPIO2接外部LED，GPIO1可以接第6章电位器。学习把多个长期工作
 
 源码：[双任务](../examples/esp32-s3/src/lessons/10a_dual_tasks.cpp)、[任务队列](../examples/esp32-s3/src/lessons/10b_queue_tasks.cpp)
 
+</details>
+
 ## 11. PSRAM、I2S音频和摄像头
 
+<details>
+<summary>点击展开：目标、器件、接线、操作、现象、代码解释与过关标准</summary>
+
 ### 案例A：你的N16R8 PSRAM
+
+目标/器件/接线：只用开发板与USB，确认扩展内存可用。
 
 上传 `11a_psram_buffer`，串口应显示已在PSRAM申请153600字节。你的R8模组理论上有8MB PSRAM；如果显示没有可用PSRAM，先检查PlatformIO是否使用本仓库配置，不要急着怀疑硬件。
 
 PSRAM像比芯片内部RAM更大的外接仓库，适合图片帧、音频缓存和动画资源，但速度比内部RAM慢。
 
-### 案例B：I2S音频（确认模块后再做）
+### 案例B：I2S音频
 
-`11b_i2s_tone` 按MAX98357A数字功放编写，默认BCLK=GPIO16、LRC=17、DIN=18。你图片中的音频模块型号尚未确认，不能因为都有喇叭接口就照接。套件喇叭必须接功放输出，绝对不能直接接GPIO。
+目标与器件：MAX98357数字功放、匹配的4Ω3W喇叭，播放简单提示音。到货先核对功放供电、电平和输出标记。
+
+接线：GPIO16→BCLK、17→LRC、18→DIN；功放用符合模块规格的外部电源并与ESP32共地。喇叭两端只接功放的SPK+ / SPK−，**SPK−不接GND**。不把喇叭接GPIO，不并联两路5V供电。
+
+操作与现象：上传 `11b_i2s_tone`，听到约440Hz提示音。代码按音频节拍发送正负采样值，功放才负责推喇叭；没声先查供电、BCLK/LRC/DIN和喇叭接法。能持续发声且不复位即通过，不要求音质。
+
+GPIO17/18也用于串口桥，切换实验前断电撤掉桥接线，不能同时使用。
 
 ### 案例C：摄像头预检
 
-上传 `11c_camera_preflight`，串口应报告CPU核心数和约8MB PSRAM。摄像头没有通用引脚表，购买具体模组后必须按它的D0～D7、XCLK、PCLK、VSYNC、HREF、SDA和SCL接线。
+上传 `11c_camera_preflight`，不用接摄像头，只报告CPU核心数和约8MB PSRAM。**这个案例不会初始化相机或拍照。** 你已选带晶振OV2640，真正验机去HomeGuard的[接线](../../projects/homeguard-mini/docs/03-接线教程.md#第七步ov2640独立验机接线)与 `camera_ov2640_check`，不要套用其他相机针序。
 
-PSRAM申请成功并能解释“内存”和“Flash程序存储”的区别即过关。I2S和摄像头在取得明确模块型号前只做编译验证。
+PSRAM申请成功，能解释“运行时内存”和“断电保留程序的Flash”区别即通过；PSRAM找不到先查本工程N16R8配置。音频/相机未到货或针序未核对时只Build，不宣称实测。
 
 与最终项目的关系：PSRAM存储图像/音频，I2S驱动语音，摄像头提供视觉输入。
 
 源码：[PSRAM](../examples/esp32-s3/src/lessons/11a_psram_buffer.cpp)、[I2S](../examples/esp32-s3/src/lessons/11b_i2s_tone.cpp)、[摄像头预检](../examples/esp32-s3/src/lessons/11c_camera_preflight.cpp)
+
+</details>
 
 ## 与HomeGuard Mini的关系
 
