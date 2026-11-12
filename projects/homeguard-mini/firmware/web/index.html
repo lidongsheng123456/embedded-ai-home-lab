@@ -77,8 +77,8 @@
         <article class="scene-panel reveal">
           <div class="scene-heading">
             <div>
-              <span class="tiny-label">OUR LITTLE LIVING ROOM</span>
-              <h2>日常的一角 <span>客厅空间示意</span></h2>
+              <span class="tiny-label">OUR LITTLE HOME</span>
+              <h2>我们的温馨小家 <span>一室一厅 · 视频参考重建</span></h2>
             </div>
             <div class="view-switch" aria-label="模型视角">
               <button class="selected" data-view="overview" aria-pressed="true">
@@ -87,11 +87,18 @@
               ><button data-view="detail" aria-pressed="false">设备</button>
             </div>
           </div>
+          <div class="home-room-nav" aria-label="查看房间">
+            <button data-room="living" aria-pressed="false">客厅</button>
+            <button data-room="bedroom" aria-pressed="false">卧室</button>
+            <button data-room="kitchen" aria-pressed="false">厨房</button>
+            <button data-room="bathroom" aria-pressed="false">卫生间</button>
+            <button data-room="balcony" aria-pressed="false">阳台</button>
+          </div>
           <div
             id="room-stage"
             class="room-stage"
             role="img"
-            aria-label="可拖动的三维客厅示意，光照与设备提示随真实数据变化"
+            aria-label="按家庭视频重建的一室一厅三维示意，可切换五个空间；尺寸为估算"
           >
             <div id="scene-fallback" class="scene-fallback">
               <span class="loader-ring"></span>
@@ -129,6 +136,11 @@
               >
                 柔光：关</button
               ><button
+                id="wall-toggle"
+                class="icon-button"
+                aria-pressed="true"
+              >降低墙体：开</button
+              ><button
                 id="view-reset"
                 class="icon-button"
                 title="复位视角"
@@ -139,8 +151,8 @@
             </div>
           </div>
           <p class="scene-note">
-            <span id="model-note">正在载入本地家具</span
-            >。房间为示意，不提供户型扫描、人员定位或真实灯具控制。
+            <span id="model-note">根据家庭视频重建 · 尺寸与连接比例为估算</span
+            >。一个感知节点，读数代表设备附近；切换房间仅改变视角。
           </p>
         </article>
         <aside class="status-panel reveal">
@@ -190,7 +202,7 @@
           </div>
           <div class="privacy-note">
             <i data-lucide="lock-keyhole"></i
-            ><span>数据留在设备，安心留在家里。</span>
+            ><span>默认本地处理，云解读由你选择。</span>
           </div>
         </aside>
       </section>
@@ -292,6 +304,30 @@
             ><i data-lucide="wind"></i>
           </div>
         </article>
+      </section>
+      <section id="ai-panel" class="ai-panel reveal" aria-labelledby="ai-heading">
+        <div class="ai-intro">
+          <p class="eyebrow">A LITTLE HELP FROM DEEPSEEK</p>
+          <h2 id="ai-heading">读懂家里的小变化</h2>
+          <p>把冷暖、光线与声音，解释成你看得懂的日常建议。</p>
+          <button id="ai-analyze" class="primary-button" disabled>请 AI 解读当前环境</button>
+          <form id="ai-command-form" class="ai-command-form">
+            <label for="ai-command">也可以直接告诉设备要做什么</label>
+            <input id="ai-command" type="text" maxlength="120" autocomplete="off"
+              placeholder="例如：让蜂鸣器响一下" aria-describedby="ai-command-help" />
+            <button id="ai-send" class="primary-button" type="submit" disabled>发送给设备助手</button>
+          </form>
+          <small id="ai-command-help">支持：响一下、静音10分钟、恢复提醒、拍张照片（需摄像头就绪）。一次只做一件事。</small>
+          <small>点击会将本次传感器摘要及你输入的要求发送给 DeepSeek，使用你的 API 额度。不会上传照片或录音。</small>
+        </div>
+        <div class="ai-content">
+          <div class="ai-caption"><span id="ai-model">DeepSeek 官方 API</span><span id="ai-status">等待设备连接</span></div>
+          <p id="ai-note" class="ai-note" role="status" aria-live="polite">AI 解读不会改变本机告警等级；无网络时本地监测仍继续。</p>
+          <p id="ai-answer" class="ai-answer" hidden></p>
+          <p id="ai-action" class="ai-action" role="status" aria-live="polite">尚未执行硬件操作</p>
+          <img id="ai-photo" class="ai-photo" alt="设备助手在本机拍摄的照片" hidden />
+          <p class="ai-boundary">建议来自云模型，可能有误；请结合现场情况判断，不要等待 AI 再处理真实险情。</p>
+        </div>
       </section>
       <section id="camera-panel" class="camera-panel reveal">
         <div>

@@ -71,9 +71,11 @@
     padding: 6px 9px;
   }
   .room-stage {
-    height: 375px;
-    min-height: 375px;
+    height: 435px;
+    min-height: 435px;
   }
+  .home-room-nav { top: 81px; left: 15px; right: 15px; gap: 5px; }
+  .home-room-nav button { font-size: 10px; padding: 5px 9px; }
   .scene-hud {
     margin: 0 17px 16px;
     font-size: 10px;

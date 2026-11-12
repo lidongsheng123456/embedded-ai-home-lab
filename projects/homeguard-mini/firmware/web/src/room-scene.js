@@ -5,12 +5,13 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { animate } from 'motion';
 import { createRoom } from './room-model.js';
 import { createSceneRenderer } from './scene-renderer.js';
+import {HOME_LAYOUT, homeRoom} from './home-layout.js';
 
 /** 把三维视图挂到容器；返回更新状态、切换视角及释放资源的接口，硬件逻辑不进入这里。 */
 export function createRoomScene(container) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 90);
-  camera.position.set(10, 8, 12);
+  camera.position.set(...HOME_LAYOUT.views.overview[0]);
   const output = createSceneRenderer(container, scene, camera);
   // 室内反射环境让木材和织物有自然层次，无需在线下载HDR图片。
   const environmentSource = new RoomEnvironment();
@@ -21,15 +22,15 @@ export function createRoomScene(container) {
   environmentSource.dispose();
   environment.dispose();
   const controls = new OrbitControls(camera, output.renderer.domElement);
-  controls.target.set(0, 0.7, 0);
+  controls.target.set(...HOME_LAYOUT.views.overview[1]);
   controls.enablePan = false;
   controls.enableDamping = true;
-  controls.minDistance = 6;
+  controls.minDistance = 3.5;
   controls.maxDistance = 28;
   controls.minPolarAngle = 0.05;
   controls.maxPolarAngle = Math.PI / 2.1;
-  controls.minAzimuthAngle = -0.35;
-  controls.maxAzimuthAngle = 1.6;
+  controls.minAzimuthAngle = -Math.PI;
+  controls.maxAzimuthAngle = Math.PI;
   controls.update();
   const ambient = new THREE.HemisphereLight('#fff8e8', '#b7aa91', 2.1);
   scene.add(ambient);
@@ -44,7 +45,7 @@ export function createRoomScene(container) {
   sunlight.shadow.radius = 3;
   scene.add(sunlight);
   const warmLight = new THREE.PointLight('#ffce99', 5, 7, 2);
-  warmLight.position.set(-3.2, 1.9, -1.75);
+  warmLight.position.set(1.8, 2.3, 0.15);
   scene.add(warmLight);
   const model = createRoom();
   scene.add(model.room);
@@ -71,14 +72,8 @@ export function createRoomScene(container) {
     }
   }
 
-  function setView(name) {
+  function moveCamera(position, target) {
     viewAnimation?.stop();
-    const destinations = {
-      overview: [[10, 8, 12], [0, 0.7, 0]],
-      top: [[0.1, 20, 0.2], [0, 0, 0]],
-      detail: [[7, 4.8, 5], [2.1, 0.9, -1.9]],
-    };
-    const [position, target] = destinations[name] ?? destinations.overview;
     const startPosition = camera.position.clone();
     const startTarget = controls.target.clone();
     const endPosition = new THREE.Vector3(...position);
@@ -90,6 +85,7 @@ export function createRoomScene(container) {
         controls.update();
       } });
   }
+  function setView(name) { moveCamera(...(HOME_LAYOUT.views[name] ?? HOME_LAYOUT.views.overview)); }
   controls.addEventListener('start', () => viewAnimation?.stop());
   const animateFrame = now => {
     if (destroyed) return;
@@ -109,7 +105,7 @@ export function createRoomScene(container) {
     const { width, height } = container.getBoundingClientRect();
     if (!width || !height) return;
     camera.aspect = width / height;
-    camera.zoom = width > 620 ? 1.18 : 0.85;
+    camera.zoom = width > 620 ? 1.22 : 0.68;
     camera.updateProjectionMatrix();
     output.resize(width, height);
   });
@@ -125,6 +121,13 @@ export function createRoomScene(container) {
     get bloom() { return output.bloom; },
     setBloom(value) { output.setBloom(value); },
     setView,
+    setCutaway: model.setCutaway,
+    focusRoom(id) {
+      const zone = homeRoom(id);
+      if (!zone) return;
+      const [x, z] = zone.center;
+      moveCamera([x + 5.2, 6.2, z + 6.8], [x, 0.25, z]);
+    },
     reset() { setView('overview'); },
     update(state) {
       latest = state;
@@ -144,7 +147,6 @@ export function createRoomScene(container) {
       visibility.disconnect();
       reducedMotion.removeEventListener('change', handleMotion);
       controls.dispose();
-      model.dispose();
       scene.traverse(object => {
         object.geometry?.dispose();
         if (Array.isArray(object.material)) object.material.forEach(material => material.dispose());

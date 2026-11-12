@@ -1,5 +1,8 @@
 # 本地客厅家具
 
+本目录保留旧版示例家具及其许可供历史查阅。当前家庭视频模型已改用程序生成家具，
+构建脚本不再打包或请求这张椅子；不能把本文件当作当前模型的资源清单。
+
 `lounge-chair.glb` 来自 Khronos glTF Sample Assets 的 **Sheen Chair**：
 
 - 原作者：Eric Chadwick / Wayfair, LLC，© 2020。

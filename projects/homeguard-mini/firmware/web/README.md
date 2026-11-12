@@ -26,6 +26,13 @@ npm run preview
 6. 点击“全屏”进入浏览器支持的全屏模式；“暂停动效”可减少动态效果。
 7. 展开“设备详情”，查看环境采集有效性、雷达移动状态、MQ-2原始ADC和静音剩余时间。
 8. “柔光”只调整网页画质，不控制家里的真实灯具；手机默认关闭额外后处理。
+9. 点击客厅、卧室、厨房、卫生间或阳台切换镜头；“降低墙体”便于看清家具。
+
+模型根据家庭视频重新制作，保留米白地砖、蓝沙发、深木桌、冰箱、木床、花纹窗帘、
+厨房灶台、卫生间蹲便与阳台晾衣等特征。厨房整体在客厅范围内，推拉门与入户门平行，
+不占卧室或卫生间区域，也不在左侧隔墙开厨房门。尺寸按视频比例估算，
+不是测绘图；详见[视频建模说明](../../docs/14-家庭视频建模说明.md)。
+同一台设备的环境读数始终代表设备附近，切换房间只移动镜头，不生成各房间的虚构数据。
 
 网页、字体替代方案、Three.js均来自本地，不依赖CDN。第一次构建需要互联网安装依赖，
 依赖安装好后才可以离线构建。网页会自动压缩编入Flash，不用执行Upload Filesystem。
@@ -68,32 +75,47 @@ COM口是电脑上的串口设备，这个网页通过HTTP（浏览器访问网�
 | OV2640 | 点击获取一张JPEG；需要`full_st7789_camera`且驱动初始化成功 |
 | ST7789 / ILI9341 | 继续在板上显示数据，网页不会接管或暂停TFT刷新 |
 | 实体按键 | 与网页共用应用层操作，实体键静音也会体现在网页倒计时中 |
-| Wi-Fi / HTTP | 家庭网络或设备热点都可用，资源内置Flash，运行时不请求外网 |
+| Wi-Fi / HTTP | 本地大屏在家庭网络或设备热点中都可用，页面资源内置Flash |
+| AiAdvisor / DeepSeekClient | 配置后手动请求云解读；ESP32联网调用官方，浏览器只查询进度 |
 
 `camera_ov2640_check`是独立硬件诊断环境，不是完整大屏固件。没有摄像头的核心环境仍可使用其余功能。
 页面在一次请求结束后约2秒再次轮询；传感器本身仍按固件采集间隔更新，刷新网页不会提高采样频率。
 关闭页面或暂停3D动效不会停止设备采集、学习和报警。
+
+“读懂家里的小变化”是可选的 DeepSeek 云解读面板。[配置教程](../../docs/13-DeepSeek云解读.md)
+说明如何在本机保存密钥。`GET /api/ai` 每3秒查询状态，不调用模型；按钮才会发送一次
+同源 JSON `POST /api/ai`，设备每分钟最多接受一次，失败不自动重发。网页不持有密钥，
+支持提交一句不超过384字节的控制要求，回复用纯文本显示，不执行 HTML。工具指令由固件
+校验并在应用层执行，网页只显示`actionState`、`actionMessage`和实际缓存的照片。
+云功能需 ESP32 连接互联网；本地大屏仍不依赖外网。`?demo=1` 不访问云接口，也不模拟云回复。
 
 ## 文件职责
 
 ```text
 index.html                 页面骨架、控件和语义标签
 src/app.js                 组装模块、轮询、用户命令
+src/scene-controls.js      房间/视角导航、剖面与画质按钮，只影响浏览器
 src/device-api.js          HTTP状态与命令请求、超时处理
 src/dashboard-view.js      状态翻译与DOM显示
 src/device-details.js      硬件详情与静音倒计时，只读公开状态
 src/trend-chart.js         ECharts环境趋势图，只保留会话内40个点
 src/visual-ui.js           Lucide图标与Motion界面过渡
 src/camera-controller.js   手动拍摄、超时、快照按钮状态
+src/ai-controller.js       手动云解读提交、独立查询进度、不自动重试
+src/ai-view.js             云状态和回复的纯文本显示、按钮可用性
+src/ai-photo.js            只读取本机AI照片缓存，清理旧图片与请求
 src/room-model.js          组装房间、设备与存在标记
 src/room-architecture.js   墙面、窗洞、窗帘和地板
-src/room-furniture.js      家具摆放与生活细节
+src/home-layout.js         五个房间、比例、设备位置与镜头配置
+src/home-living.js         客厅与阳台家具
+src/home-bedroom.js        床、窗帘、空调和生活细节
+src/home-wet-rooms.js       厨房与卫生间家具
+src/home-labels.js          静态房间导览标签
+src/room-furniture.js      按空间组装家具
 src/room-materials.js      本地生成木纹和织物贴图
 src/room-geometry.js       小型几何体造型接口
-src/room-assets.js         本地glTF家具加载、失败处理和释放
 src/room-scene.js          镜头、光照、触控与状态联动
 src/scene-renderer.js      Three.js与柔和后处理、低画质降级
-assets/                   家具GLB、来源和CC0完整许可
 src/demo-state.js          只用于?demo=1的模拟状态
 src/styles/                按导航、场景、面板、手机布局拆分样式
 scripts/build.mjs          打包Three.js、gzip压缩、生成C++资源头
@@ -119,7 +141,8 @@ npm run build
 前端测试与浏览器模拟检查不等于实物验证。还需用真实手机连接设备热点，确认gzip资源
 传输、传感器联动、命令处理和摄像头快照；固件状态只能写“仅编译验证”。
 
-本次结构审查、验证结果和待实测项目见[网页改造审查记录](../../docs/12-网页改造审查记录.md)。
+早期网页改造见[网页改造审查记录](../../docs/12-网页改造审查记录.md)；本次云功能与
+家庭模型的审查见[云助手与家庭模型审查记录](../../docs/15-云助手与家庭模型审查记录.md)。
 
 ## 参考作品与许可
 
@@ -132,6 +155,6 @@ npm run build
 视觉采用奶油白、木色和柔和绿。Three.js负责3D，Postprocessing提供轻微柔光，Motion负责
 界面和镜头过渡，ECharts负责趋势，Lucide提供图标；依赖版本由锁文件固定。
 
-家具使用Khronos样例中的Sheen Chair（Eric Chadwick / Wayfair，CC0），已压缩为本地GLB。
-来源、改动与授权见[家具说明](assets/README.md)。墙面、沙发、地板等仍是代码构建的示意场景，
-不是照片级重建或真实户型。完整第三方许可和版权编入`/licenses.txt`，页面左下角可打开。
+当前家具与户型均由本地几何体和程序纹理生成，未继续打包旧版示例躺椅。
+视频只在开发电脑上用于参考，原视频和截图不进入仓库、固件或云模型。
+这是参考真实家庭视频的比例示意，不是照片级扫描；完整运行库许可编入`/licenses.txt`。

@@ -64,12 +64,16 @@
 }
 .room-stage {
   flex: 1;
-  min-height: 495px;
-  height: 495px;
+  min-height: 565px;
+  height: 565px;
   width: 100%;
   touch-action: none;
   position: relative;
 }
+.home-room-nav { position: absolute; z-index: 2; top: 87px; left: 24px; right: 24px; display: flex; gap: 7px; flex-wrap: wrap; }
+.home-room-nav button { border: 1px solid #dbdfd0; background: #fffdf2dd; border-radius: 16px; color: #78856b; padding: 6px 12px; font-size: 11px; min-height: 32px; }
+.home-room-nav button.selected { color: #536b45; background: #dfe7d5; border-color: #bcccae; }
+.home-room-nav button:hover { background: #e9eddf; }
 .room-stage canvas {
   display: block;
 }
@@ -137,6 +141,7 @@
 .scene-tools > div {
   display: flex;
   gap: 6px;
+  flex-wrap: wrap;
 }
 .icon-button {
   display: inline-flex;

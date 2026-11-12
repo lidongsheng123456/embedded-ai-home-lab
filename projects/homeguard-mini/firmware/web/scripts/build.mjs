@@ -25,15 +25,11 @@ const licenseFiles = [
 ];
 const licenses = await Promise.all(licenseFiles.map(async file =>
   `\n===== ${file} =====\n${await readFile(path.join(root, 'node_modules', file), 'utf8')}`));
-licenses.push(`\n===== Sheen Chair: Eric Chadwick / Wayfair, LLC, 2020 =====\n${
-  await readFile(path.join(root, 'assets/README.md'), 'utf8')}\n${
-  await readFile(path.join(root, 'assets/CC0-1.0.txt'), 'utf8')}`);
 const assets = [
   ['/', 'text/html; charset=utf-8', await readFile(path.join(root, 'index.html'))],
   ['/app.js', 'text/javascript; charset=utf-8', await readFile(path.join(output, 'app.js'))],
   ['/styles.css', 'text/css; charset=utf-8', await readFile(path.join(output, 'styles.css'))],
   ['/licenses.txt', 'text/plain; charset=utf-8', Buffer.from(licenses.join('\n'))],
-  ['/assets/lounge-chair.glb', 'model/gltf-binary', await readFile(path.join(root, 'assets/lounge-chair.glb'))],
 ];
 let header = '// 自动生成，请编辑firmware/web/中的源码。\n#pragma once\n';
 const entries = [];

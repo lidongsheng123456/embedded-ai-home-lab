@@ -1,0 +1,31 @@
+/* 云解读与本地监测明确分区，延续暖色主题，不把建议包装成确定结论。 */
+.ai-panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+  gap: 32px;
+  margin-top: 20px;
+  padding: 28px;
+  background: #edf0e5;
+  border: 1px solid #dfe5d3;
+  border-radius: 22px;
+}
+.ai-intro h2 { margin: 0 0 12px; font-size: 22px; font-weight: 500; }
+.ai-intro > p:not(.eyebrow) { color: #6c7d61; font-size: 13px; line-height: 1.8; }
+.ai-intro .primary-button { margin: 6px 0 13px; }
+.ai-intro small { display: block; color: #79866e; font-size: 11px; line-height: 1.9; max-width: 330px; }
+.ai-content { padding: 22px; background: #fffdf5; border-radius: 15px; min-width: 0; }
+.ai-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 11px; color: #7a896b; }
+.ai-note { margin: 17px 0; color: #79856d; font-size: 12px; line-height: 1.9; }
+.ai-answer { color: #4c5f40; font-size: 14px; line-height: 2; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ai-boundary { font-size: 10px; color: #939b83; line-height: 1.8; margin: 16px 0 0; padding-top: 12px; border-top: 1px solid #e8ebdc; }
+.ai-command-form { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 8px; }
+.ai-command-form label { width: 100%; font-size: 12px; color: #607052; }
+.ai-command-form input { flex: 1 1 180px; min-width: 0; width: 100%; border: 1px solid #cad4bd; border-radius: 10px; padding: 12px; background: #fffdf5; font: inherit; font-size: 13px; color: #4c5f40; }
+.ai-command-form .primary-button { margin: 0; }
+.ai-action { font-size: 12px; line-height: 1.9; color: #5a704c; overflow-wrap: anywhere; }
+.ai-photo { max-width: 100%; width: 100%; border-radius: 12px; margin-top: 12px; }
+@media (max-width: 800px) {
+  .ai-panel { grid-template-columns: 1fr; gap: 18px; padding: 21px; }
+  .ai-content { padding: 18px; }
+  .ai-intro small { max-width: none; }
+}

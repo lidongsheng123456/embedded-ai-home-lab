@@ -5,6 +5,8 @@ import { createTrends } from './trend-chart.js';
 import { initializeVisualUi } from './visual-ui.js';
 import { createDemoState } from './demo-state.js';
 import { createCameraController } from './camera-controller.js';
+import { createAiController } from './ai-controller.js';
+import { bindSceneControls, setSceneControlsEnabled } from './scene-controls.js';
 
 const demo = new URLSearchParams(location.search).get('demo') === '1';
 const trends = createTrends();
@@ -16,6 +18,7 @@ let busy = false;
 let commandPending = false;
 let toastTimer;
 const camera = createCameraController(toast);
+const ai = createAiController(toast);
 initializeVisualUi();
 
 function toast(message) {
@@ -35,6 +38,7 @@ async function refresh() {
     latest = state;
     renderStatus(state, demo);
     camera.update(state, demo);
+    ai.update(state, demo);
     trends.add(state);
     scene?.update(state);
   } catch {
@@ -43,6 +47,7 @@ async function refresh() {
     trends.clear();
     renderOffline();
     camera.update(null, demo);
+    ai.update(null, demo);
   } finally {
     busy = false;
     byId('silence-button').disabled = !latest || commandPending;
@@ -91,48 +96,17 @@ function bindControls() {
   byId('demo-scenario').addEventListener('change', () => { trends.clear(); refresh(); });
 }
 
-/** 场景操作只影响浏览器画面，与设备控制按钮分开维护。 */
-function bindSceneControls() {
-  byId('view-reset').addEventListener('click', () => scene?.reset());
-  byId('motion-toggle').addEventListener('click', () => {
-    if (!scene) return;
-    scene.setPaused(!scene.paused);
-    byId('motion-toggle').textContent = scene.paused ? '开启动效' : '暂停动效';
-    byId('motion-toggle').setAttribute('aria-pressed', String(scene.paused));
-  });
-  byId('quality-toggle').addEventListener('click', () => {
-    if (!scene) return;
-    scene.setBloom(!scene.bloom);
-    byId('quality-toggle').textContent = scene.bloom ? '柔光：开' : '柔光：关';
-    byId('quality-toggle').setAttribute('aria-pressed', String(scene.bloom));
-  });
-  document.querySelectorAll('[data-view]').forEach(button => {
-    button.addEventListener('click', () => {
-      scene?.setView(button.dataset.view);
-      document.querySelectorAll('[data-view]').forEach(node => {
-        node.classList.toggle('selected', node === button);
-        node.setAttribute('aria-pressed', String(node === button));
-      });
-    });
-  });
-}
-
 async function startScene() {
+  setSceneControlsEnabled(false);
   try {
     const { createRoomScene } = await import('./room-scene.js');
     scene = createRoomScene(byId('room-stage'));
     scene.update(latest);
     byId('scene-fallback').hidden = true;
-    byId('motion-toggle').textContent = scene.paused ? '开启动效' : '暂停动效';
-    byId('motion-toggle').setAttribute('aria-pressed', String(scene.paused));
-    byId('quality-toggle').textContent = scene.bloom ? '柔光：开' : '柔光：关';
-    byId('quality-toggle').setAttribute('aria-pressed', String(scene.bloom));
+    bindSceneControls(scene);
   } catch {
     byId('scene-fallback').textContent = '当前浏览器无法启用 3D，环境数据与控制仍可使用。';
-    byId('motion-toggle').disabled = true;
-    byId('view-reset').disabled = true;
-    byId('quality-toggle').disabled = true;
-    document.querySelectorAll('[data-view]').forEach(button => { button.disabled = true; });
+    setSceneControlsEnabled(false);
   }
 }
 
@@ -143,11 +117,10 @@ function updateClock() {
 byId('demo-banner').hidden = !demo;
 if (demo) byId('mode-label').textContent = '正在浏览模拟演示';
 bindControls();
-bindSceneControls();
 updateClock();
 setInterval(updateClock, 1000);
 refresh();
 startScene();
 window.addEventListener('pagehide', (event) => {
-  if (!event.persisted) { clearTimeout(timer); scene?.destroy(); trends.destroy(); }
+  if (!event.persisted) { clearTimeout(timer); scene?.destroy(); trends.destroy(); ai.destroy(); }
 });

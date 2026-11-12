@@ -4,25 +4,28 @@ import { createMaterials } from './room-materials.js';
 import { createArchitecture } from './room-architecture.js';
 import { createFurniture } from './room-furniture.js';
 import { box } from './room-geometry.js';
-import { loadRoomAssets } from './room-assets.js';
+import {HOME_LAYOUT} from './home-layout.js';
+import {createHomeLabels} from './home-labels.js';
 
 export function createRoom() {
   const room = new THREE.Group();
   const materials = createMaterials();
-  createArchitecture(room, materials);
+  const architecture = createArchitecture(room, materials);
+  architecture.setCutaway(true);
   createFurniture(room, materials);
-  box(room, [0.36, 0.4, 0.26], [2.45, 1.14, -2.48], materials.cream, 0.04);
-  box(room, [0.24, 0.17, 0.015], [2.45, 1.17, -2.34], materials.dark);
-  const beacon = box(room, [0.07, 0.016, 0.016], [2.45, 1.035, -2.335],
+  createHomeLabels(room);
+  const [x, y, z] = HOME_LAYOUT.device;
+  box(room, [0.2, 0.28, 0.15], [x, y - 0.1, z], materials.cream, 0.025);
+  box(room, [0.14, 0.11, 0.015], [x, y - 0.06, z + 0.08], materials.dark);
+  const beacon = box(room, [0.045, 0.012, 0.016], [x, y - 0.15, z + 0.08],
     new THREE.MeshStandardMaterial({ color: '#738d69', emissive: '#738d69', emissiveIntensity: 0.5 }));
   // 雷达没有人员定位能力：只显示固定标记，不放一个假装位于真实坐标的人偶。
   const person = new THREE.Mesh(new THREE.RingGeometry(0.17, 0.2, 48),
     new THREE.MeshBasicMaterial({ color: '#78916c', transparent: true, opacity: 0.5, side: THREE.DoubleSide }));
-  person.rotation.x = -Math.PI / 2; person.position.set(0.8, 0.05, 1.25);
+  person.rotation.x = -Math.PI / 2; person.position.set(...HOME_LAYOUT.presenceMarker);
   person.visible = false; room.add(person);
-  const assets = loadRoomAssets(room);
-  return { room, person, beacon, dispose: assets.dispose, anchors: {
-    device: new THREE.Vector3(2.45, 1.45, -2.48),
-    person: new THREE.Vector3(0.8, 0.25, 1.25),
+  return { room, person, beacon, setCutaway: architecture.setCutaway, anchors: {
+    device: new THREE.Vector3(x, y + 0.25, z),
+    person: new THREE.Vector3(...HOME_LAYOUT.presenceMarker).add(new THREE.Vector3(0, 0.2, 0)),
   } };
 }
