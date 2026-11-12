@@ -21,7 +21,23 @@
       "U10.6",
       "C25.1"
     ],
-    "netNaming": "USB_MCU_5V为历史网名；其新用途是受保护的开发板排针5V，不表示USB数据连接"
+    "netNaming": "USB_MCU_5V为历史网名；其新用途是受保护的开发板排针5V，不表示USB数据连接",
+    "coldStartMargin": {
+      "designator": "R13",
+      "uniqueId": "gge47",
+      "previousResistanceOhm": 27000,
+      "resistanceOhm": 24000,
+      "part": "r24k",
+      "mpn": "0805W8F2402T5E",
+      "lcsc": "C17575",
+      "footprint": "R0805",
+      "lowerResistor": "R14:10kΩ",
+      "reason": "计入芯片门限和电阻误差，降低5V输入经线缆压降后无法冷启动的风险",
+      "typicalEnableVoltageV": 4.08,
+      "enableUpperWithInitialToleranceV": 4.382,
+      "enableUpperWithTemperatureAllowanceV": 4.445,
+      "inputAcceptance": "保险丝后U7.IN的FUSED_5V冷启动达到至少4.50V；首板仍需实测"
+    }
   },
   "pcbConstraints": {
     "removeObsoleteUsbBranch": true,

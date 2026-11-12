@@ -11,6 +11,6 @@
 
 依赖顺序是接口与真实器件 → 原理图组合 → PCB 布局和连接规划。脚本读取这些输入和新鲜现场快照，先在 `.work/` 生成候选，再通过 typed CLI 执行。验证脚本独立比对目标与观察值，不以生成候选成功作为通过依据。
 
-当前接口以 `interfaces/devboard-interface.json` 和 `interfaces/header-power-change.json` 为准。后者记录删除 J11、J7.21 接保护后 5V 的变化。`schematic/*-composition.json` 和历史布局仍是 R1 来源输入，含旧 J11/NC 或工程身份，不能直接重放为当前设计。当前实现必须与新鲜原理图/PCB 回读对账。
+当前接口以 `interfaces/devboard-interface.json` 和 `interfaces/header-power-change.json` 为准。后者记录删除 J11、J7.21 接保护后 5V，以及 R13 改为 24kΩ以增加冷启动余量的变化。`interfaces/power-interface.json`、`schematic/*-composition.json` 和历史布局仍是 R1 来源输入，含旧 J11/NC、27kΩ 启动电阻或工程身份，不能直接重放为当前设计。当前实现必须与新鲜原理图/PCB 回读对账。
 
 历史版本和目录变化通过 Git 查看，不另保留迁移清单或发布副本。修改设计输入后重新核对原生工程，不能沿用历史检查结论。
