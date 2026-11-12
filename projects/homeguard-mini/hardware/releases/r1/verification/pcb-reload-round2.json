@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "windowId": "e7616346-33a9-47e6-bf5d-e143a642607c",
+  "target": "e06d6bd616ed4ccd",
+  "documentType": "pcb",
+  "saved": true,
+  "closed": true,
+  "reloaded": "e06d6bd616ed4ccd",
+  "activeRestored": "d734014dc8d7c031",
+  "startedAt": "2026-11-11T19:32:46.1837157Z",
+  "completedAt": "2026-11-11T19:33:03.3620421Z",
+  "timeSource": "cli-host-observation",
+  "targetContext": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "e06d6bd616ed4ccd",
+    "documentType": "pcb",
+    "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+  },
+  "finalContext": {
+    "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "d734014dc8d7c031",
+    "documentType": "schematic",
+    "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+  },
+  "readiness": {
+    "ready": true,
+    "scope": "component-inventory-readiness",
+    "active": {
+      "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+      "projectName": "HomeGuard Mini 载板 R1 20261111",
+      "documentUuid": "e06d6bd616ed4ccd",
+      "documentType": "pcb",
+      "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+    },
+    "componentCount": 79,
+    "componentSha256": "d11c6fb31d8d8ee7e8fe0a157241d570d795c9615d906031eb99b17e4d9cdebd",
+    "samples": 2,
+    "stableSamples": 2,
+    "requestIds": [
+      "req_7487",
+      "req_7488",
+      "req_7489",
+      "req_7490",
+      "req_7491"
+    ],
+    "observedAt": "2026-11-11T19:33:01.7345848Z"
+  },
+  "steps": [
+    {
+      "stage": "inspect",
+      "action": "document.current",
+      "startedAt": "2026-11-11T19:32:46.1837157Z",
+      "completedAt": "2026-11-11T19:32:46.1983355Z",
+      "requestId": "req_7478",
+      "responseCreatedAt": "2026-11-11T19:32:46.1978317Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "d734014dc8d7c031",
+        "documentType": "schematic",
+        "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "activate",
+      "action": "document.open",
+      "startedAt": "2026-11-11T19:32:46.1983355Z",
+      "completedAt": "2026-11-11T19:32:46.9566087Z",
+      "requestId": "req_7479",
+      "responseCreatedAt": "2026-11-11T19:32:46.9554892Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "e06d6bd616ed4ccd",
+        "documentType": "pcb",
+        "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "inspect",
+      "action": "document.current",
+      "startedAt": "2026-11-11T19:32:46.9566087Z",
+      "completedAt": "2026-11-11T19:32:47.5339355Z",
+      "requestId": "req_7480",
+      "responseCreatedAt": "2026-11-11T19:32:47.5324286Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "e06d6bd616ed4ccd",
+        "documentType": "pcb",
+        "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "save",
+      "action": "pcb.save",
+      "startedAt": "2026-11-11T19:32:49.276345Z",
+      "completedAt": "2026-11-11T19:32:49.3094552Z",
+      "requestId": "req_7483",
+      "responseCreatedAt": "2026-11-11T19:32:49.3089425Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "e06d6bd616ed4ccd",
+        "documentType": "pcb",
+        "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "close",
+      "action": "document.close",
+      "startedAt": "2026-11-11T19:32:49.3094552Z",
+      "completedAt": "2026-11-11T19:32:49.7898028Z",
+      "requestId": "req_7484",
+      "responseCreatedAt": "2026-11-11T19:32:49.7891651Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "d734014dc8d7c031",
+        "documentType": "schematic",
+        "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "close-settle",
+      "action": "document.current",
+      "startedAt": "2026-11-11T19:32:49.7898028Z",
+      "completedAt": "2026-11-11T19:32:49.935529Z",
+      "requestId": "req_7485",
+      "responseCreatedAt": "2026-11-11T19:32:49.9349707Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "d734014dc8d7c031",
+        "documentType": "schematic",
+        "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "reopen",
+      "action": "document.open",
+      "startedAt": "2026-11-11T19:32:49.935529Z",
+      "completedAt": "2026-11-11T19:33:00.2379603Z",
+      "requestId": "req_7486",
+      "responseCreatedAt": "2026-11-11T19:33:00.236498Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "e06d6bd616ed4ccd",
+        "documentType": "pcb",
+        "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "ready",
+      "startedAt": "2026-11-11T19:33:00.2379603Z",
+      "completedAt": "2026-11-11T19:33:01.7345848Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "e06d6bd616ed4ccd",
+        "documentType": "pcb",
+        "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "restore",
+      "action": "document.open",
+      "startedAt": "2026-11-11T19:33:01.7345848Z",
+      "completedAt": "2026-11-11T19:33:03.3483205Z",
+      "requestId": "req_7492",
+      "responseCreatedAt": "2026-11-11T19:33:03.3475748Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "d734014dc8d7c031",
+        "documentType": "schematic",
+        "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    },
+    {
+      "stage": "restore-verify",
+      "action": "document.current",
+      "startedAt": "2026-11-11T19:33:03.3483205Z",
+      "completedAt": "2026-11-11T19:33:03.3620421Z",
+      "requestId": "req_7493",
+      "responseCreatedAt": "2026-11-11T19:33:03.3620421Z",
+      "context": {
+        "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+        "projectName": "HomeGuard Mini 载板 R1 20261111",
+        "documentUuid": "d734014dc8d7c031",
+        "documentType": "schematic",
+        "tabId": "d734014dc8d7c031@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+      },
+      "ok": true
+    }
+  ]
+}

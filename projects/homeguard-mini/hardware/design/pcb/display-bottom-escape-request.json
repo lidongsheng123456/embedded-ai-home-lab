@@ -1,0 +1,9 @@
+{
+  "nets": [
+    "MCU_TFT_SCLK",
+    "MCU_TFT_MOSI",
+    "MCU_TFT_RST",
+    "MCU_TFT_DC",
+    "MCU_TFT_CS"
+  ]
+}

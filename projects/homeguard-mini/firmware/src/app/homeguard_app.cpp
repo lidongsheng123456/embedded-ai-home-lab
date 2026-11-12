@@ -91,8 +91,8 @@ void HomeGuardApp::updateAlarm() {
 }
 
 void HomeGuardApp::handleButtons() {
-#if HOMEGUARD_ENABLE_CAMERA
-  // 摄像头占用了原学习键的GPIO38：短按静音，按住2秒重新学习。
+#if HOMEGUARD_ENABLE_CAMERA || HOMEGUARD_CARRIER_R1
+  // R1载板与摄像头版共用单按钮，GPIO38留给图像数据。
   const bool pressed = digitalRead(PIN_BUTTON_SILENCE) == LOW;
   if (pressed && !buttonWasPressed_) {
     buttonWasPressed_ = true;

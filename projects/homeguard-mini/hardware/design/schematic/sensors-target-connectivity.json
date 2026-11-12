@@ -1,0 +1,1209 @@
+{
+  "schemaVersion": "1.4",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "documentId": "bc53c0a5b55ae550",
+  "components": [
+    {
+      "id": "cmp-C1",
+      "uniqueId": "gge4",
+      "ref": "C1",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 500,
+          "y": 580,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 500,
+          "y": 620,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 500,
+        "y": 600,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 508.5,
+          "maxY": 610.5,
+          "minX": 491.5,
+          "minY": 589.5
+        }
+      },
+      "role": "mq2_adc_filter"
+    },
+    {
+      "id": "cmp-C2",
+      "uniqueId": "gge6",
+      "ref": "C2",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 300,
+          "y": 420,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 300,
+          "y": 460,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 300,
+        "y": 440,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 308.5,
+          "maxY": 450.5,
+          "minX": 291.5,
+          "minY": 429.5
+        }
+      },
+      "role": "sht40_decoupling"
+    },
+    {
+      "id": "cmp-C3",
+      "uniqueId": "gge8",
+      "ref": "C3",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 660,
+          "y": 420,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 660,
+          "y": 460,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 660,
+        "y": 440,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 668.5,
+          "maxY": 450.5,
+          "minX": 651.5,
+          "minY": 429.5
+        }
+      },
+      "role": "bh1750_decoupling"
+    },
+    {
+      "id": "cmp-C4",
+      "uniqueId": "gge10",
+      "ref": "C4",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 300,
+          "y": 180,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 300,
+          "y": 220,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 300,
+        "y": 200,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 308.5,
+          "maxY": 210.5,
+          "minX": 291.5,
+          "minY": 189.5
+        }
+      },
+      "role": "radar_decoupling"
+    },
+    {
+      "id": "cmp-C5",
+      "uniqueId": "gge12",
+      "ref": "C5",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 1000.0000000000001,
+          "y": 660,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 1000.0000000000001,
+          "y": 700,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 1000,
+        "y": 680,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 1008.5000000000001,
+          "maxY": 690.5,
+          "minX": 991.5000000000001,
+          "minY": 669.5
+        }
+      },
+      "role": "mic_decoupling"
+    },
+    {
+      "id": "cmp-C6",
+      "uniqueId": "gge14",
+      "ref": "C6",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+        "name": "={Value}"
+      },
+      "footprint": "4e8d6b488071f5da",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "C0805",
+        "uuid": "4e8d6b488071f5da"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 1040,
+          "y": 420,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 1040,
+          "y": 460,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 1040,
+        "y": 440,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 1048.5,
+          "maxY": 450.5,
+          "minX": 1031.5,
+          "minY": 429.5
+        }
+      },
+      "role": "display_decoupling"
+    },
+    {
+      "id": "cmp-J1",
+      "uniqueId": "gge1",
+      "ref": "J1",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "6934d76a8ee6438388dad49508dc5ccf",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "15e33a672dbe93f1",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_XH-3A",
+        "uuid": "15e33a672dbe93f1"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 100,
+          "y": 690,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 100,
+          "y": 680,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 100,
+          "y": 670,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 120,
+        "y": 680,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 130.5,
+          "maxY": 700.5,
+          "minX": 109.5,
+          "minY": 659.5
+        }
+      },
+      "role": "mq2_module"
+    },
+    {
+      "id": "cmp-J2",
+      "uniqueId": "gge5",
+      "ref": "J2",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa2500d8e28e4bf1b3b8f098cc1bee55",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "00c21238bd453686",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_4P-P2.50-XH2.54-4P",
+        "uuid": "00c21238bd453686"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 100,
+          "y": 455,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 100,
+          "y": 445,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 100,
+          "y": 435,
+          "noConnected": false
+        },
+        {
+          "number": "4",
+          "name": "4",
+          "x": 100,
+          "y": 425,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 120,
+        "y": 440,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 130.5,
+          "maxY": 465.5,
+          "minX": 109.5,
+          "minY": 414.5
+        }
+      },
+      "role": "sht40_module"
+    },
+    {
+      "id": "cmp-J3",
+      "uniqueId": "gge7",
+      "ref": "J3",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa2500d8e28e4bf1b3b8f098cc1bee55",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "00c21238bd453686",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_4P-P2.50-XH2.54-4P",
+        "uuid": "00c21238bd453686"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 480,
+          "y": 455,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 480,
+          "y": 445,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 480,
+          "y": 435,
+          "noConnected": false
+        },
+        {
+          "number": "4",
+          "name": "4",
+          "x": 480,
+          "y": 425,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 500,
+        "y": 440,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 510.5,
+          "maxY": 465.5,
+          "minX": 489.5,
+          "minY": 414.5
+        }
+      },
+      "role": "bh1750_module"
+    },
+    {
+      "id": "cmp-J4",
+      "uniqueId": "gge9",
+      "ref": "J4",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "aa2500d8e28e4bf1b3b8f098cc1bee55",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "00c21238bd453686",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_4P-P2.50-XH2.54-4P",
+        "uuid": "00c21238bd453686"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 100,
+          "y": 215,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 100,
+          "y": 205,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 100,
+          "y": 195,
+          "noConnected": false
+        },
+        {
+          "number": "4",
+          "name": "4",
+          "x": 100,
+          "y": 185,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 120,
+        "y": 200,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 130.5,
+          "maxY": 225.5,
+          "minX": 109.5,
+          "minY": 174.5
+        }
+      },
+      "role": "ld2410c_module"
+    },
+    {
+      "id": "cmp-J5",
+      "uniqueId": "gge11",
+      "ref": "J5",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "fe9af120faff4e1e9c6d0306d7f4db8c",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "34a59352afc38b45",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_6P-P2.50_HCTL_XH-6A_C2908604",
+        "uuid": "34a59352afc38b45"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 780,
+          "y": 705,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 780,
+          "y": 695,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 780,
+          "y": 685,
+          "noConnected": false
+        },
+        {
+          "number": "4",
+          "name": "4",
+          "x": 780,
+          "y": 675,
+          "noConnected": false
+        },
+        {
+          "number": "5",
+          "name": "5",
+          "x": 780,
+          "y": 665,
+          "noConnected": false
+        },
+        {
+          "number": "6",
+          "name": "6",
+          "x": 780,
+          "y": 655,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 800,
+        "y": 680,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 810.5,
+          "maxY": 715.5,
+          "minX": 789.5,
+          "minY": 644.5
+        }
+      },
+      "role": "inmp441_module"
+    },
+    {
+      "id": "cmp-J6",
+      "uniqueId": "gge13",
+      "ref": "J6",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "5b1f03ba8ab04babbc6e5c3c1573ae34",
+        "name": "={Manufacturer Part}"
+      },
+      "footprint": "055a9ca2740b6f6e",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "CONN-TH_8P-P2.50_HCTL_XH-8A_C2908606",
+        "uuid": "055a9ca2740b6f6e"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 780,
+          "y": 475,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 780,
+          "y": 465,
+          "noConnected": false
+        },
+        {
+          "number": "3",
+          "name": "3",
+          "x": 780,
+          "y": 455,
+          "noConnected": false
+        },
+        {
+          "number": "4",
+          "name": "4",
+          "x": 780,
+          "y": 445,
+          "noConnected": false
+        },
+        {
+          "number": "5",
+          "name": "5",
+          "x": 780,
+          "y": 435,
+          "noConnected": false
+        },
+        {
+          "number": "6",
+          "name": "6",
+          "x": 780,
+          "y": 425,
+          "noConnected": false
+        },
+        {
+          "number": "7",
+          "name": "7",
+          "x": 780,
+          "y": 415,
+          "noConnected": false
+        },
+        {
+          "number": "8",
+          "name": "8",
+          "x": 780,
+          "y": 405,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 800,
+        "y": 440,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 810.5,
+          "maxY": 485.5,
+          "minX": 789.5,
+          "minY": 394.5
+        }
+      },
+      "role": "st7789_module"
+    },
+    {
+      "id": "cmp-R1",
+      "uniqueId": "gge2",
+      "ref": "R1",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "e9c34dedae26495c91dced1a655b8614",
+        "name": "={Value}"
+      },
+      "footprint": "7b02f1ec4e66c9db",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "R0805",
+        "uuid": "7b02f1ec4e66c9db"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 280,
+          "y": 680,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 320,
+          "y": 680,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 300,
+        "y": 680,
+        "rotation": 0,
+        "mirror": false,
+        "bbox": {
+          "maxX": 310.5,
+          "maxY": 684.5,
+          "minX": 289.5,
+          "minY": 675.5
+        }
+      },
+      "role": "mq2_upper_divider"
+    },
+    {
+      "id": "cmp-R2",
+      "uniqueId": "gge3",
+      "ref": "R2",
+      "device": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "deviceUuid": "e9c34dedae26495c91dced1a655b8614",
+        "name": "={Value}"
+      },
+      "footprint": "7b02f1ec4e66c9db",
+      "footprintRef": {
+        "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+        "name": "R0805",
+        "uuid": "7b02f1ec4e66c9db"
+      },
+      "pins": [
+        {
+          "number": "1",
+          "name": "1",
+          "x": 400,
+          "y": 580,
+          "noConnected": false
+        },
+        {
+          "number": "2",
+          "name": "2",
+          "x": 400,
+          "y": 620,
+          "noConnected": false
+        }
+      ],
+      "placement": {
+        "x": 400,
+        "y": 600,
+        "rotation": 90,
+        "mirror": false,
+        "bbox": {
+          "maxX": 404.5,
+          "maxY": 610.5,
+          "minX": 395.5,
+          "minY": 589.5
+        }
+      },
+      "role": "mq2_lower_divider"
+    }
+  ],
+  "nets": [
+    {
+      "id": "net-1",
+      "name": "+5V",
+      "scope": "global",
+      "role": "power"
+    },
+    {
+      "id": "net-2",
+      "name": "GND",
+      "scope": "global",
+      "role": "ground"
+    },
+    {
+      "id": "net-3",
+      "name": "MQ2_AO_RAW",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-4",
+      "name": "MQ2_ADC",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-5",
+      "name": "+3V3",
+      "scope": "global",
+      "role": "power"
+    },
+    {
+      "id": "net-6",
+      "name": "I2C_SDA",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-7",
+      "name": "I2C_SCL",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-8",
+      "name": "UART_RX17",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-9",
+      "name": "UART_TX18",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-10",
+      "name": "MIC_BCLK",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-11",
+      "name": "MIC_WS",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-12",
+      "name": "MIC_SD",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-13",
+      "name": "TFT_SCLK",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-14",
+      "name": "TFT_MOSI",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-15",
+      "name": "TFT_RST",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-16",
+      "name": "TFT_DC",
+      "scope": "global",
+      "role": "signal"
+    },
+    {
+      "id": "net-17",
+      "name": "TFT_CS",
+      "scope": "global",
+      "role": "signal"
+    }
+  ],
+  "connections": [
+    {
+      "componentId": "cmp-C1",
+      "pinNumber": "1",
+      "netId": "net-4",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C1",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C2",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C2",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C3",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C3",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C4",
+      "pinNumber": "1",
+      "netId": "net-1",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C4",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C5",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C5",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C6",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-C6",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J1",
+      "pinNumber": "1",
+      "netId": "net-1",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J1",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J1",
+      "pinNumber": "3",
+      "netId": "net-3",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J2",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J2",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J2",
+      "pinNumber": "3",
+      "netId": "net-6",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J2",
+      "pinNumber": "4",
+      "netId": "net-7",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J3",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J3",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J3",
+      "pinNumber": "3",
+      "netId": "net-6",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J3",
+      "pinNumber": "4",
+      "netId": "net-7",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J4",
+      "pinNumber": "1",
+      "netId": "net-1",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J4",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J4",
+      "pinNumber": "3",
+      "netId": "net-8",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J4",
+      "pinNumber": "4",
+      "netId": "net-9",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "1",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "3",
+      "netId": "net-10",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "4",
+      "netId": "net-11",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "5",
+      "netId": "net-12",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J5",
+      "pinNumber": "6",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "1",
+      "netId": "net-2",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "2",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "3",
+      "netId": "net-13",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "4",
+      "netId": "net-14",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "5",
+      "netId": "net-15",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "6",
+      "netId": "net-16",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "7",
+      "netId": "net-17",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-J6",
+      "pinNumber": "8",
+      "netId": "net-5",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-R1",
+      "pinNumber": "1",
+      "netId": "net-3",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-R1",
+      "pinNumber": "2",
+      "netId": "net-4",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-R2",
+      "pinNumber": "1",
+      "netId": "net-4",
+      "kind": "netlist"
+    },
+    {
+      "componentId": "cmp-R2",
+      "pinNumber": "2",
+      "netId": "net-2",
+      "kind": "netlist"
+    }
+  ],
+  "issues": [],
+  "modules": [
+    {
+      "id": "mq2",
+      "name": "MQ-2 5V / ADC DIVIDER",
+      "coreComponents": [
+        "cmp-J1"
+      ],
+      "peripheralComponents": [
+        "cmp-R1",
+        "cmp-R2",
+        "cmp-C1"
+      ],
+      "internalNets": [],
+      "ports": []
+    },
+    {
+      "id": "sht40",
+      "name": "SHT40 3V3",
+      "coreComponents": [
+        "cmp-J2"
+      ],
+      "peripheralComponents": [
+        "cmp-C2"
+      ],
+      "internalNets": [],
+      "ports": []
+    },
+    {
+      "id": "bh1750",
+      "name": "BH1750 3V3",
+      "coreComponents": [
+        "cmp-J3"
+      ],
+      "peripheralComponents": [
+        "cmp-C3"
+      ],
+      "internalNets": [],
+      "ports": []
+    },
+    {
+      "id": "radar",
+      "name": "LD2410C 5V / 3V3 UART",
+      "coreComponents": [
+        "cmp-J4"
+      ],
+      "peripheralComponents": [
+        "cmp-C4"
+      ],
+      "internalNets": [],
+      "ports": []
+    },
+    {
+      "id": "microphone",
+      "name": "INMP441 3V3 / LEFT CHANNEL",
+      "coreComponents": [
+        "cmp-J5"
+      ],
+      "peripheralComponents": [
+        "cmp-C5"
+      ],
+      "internalNets": [],
+      "ports": []
+    },
+    {
+      "id": "display",
+      "name": "ST7789 3V3",
+      "coreComponents": [
+        "cmp-J6"
+      ],
+      "peripheralComponents": [
+        "cmp-C6"
+      ],
+      "internalNets": [],
+      "ports": []
+    }
+  ]
+}

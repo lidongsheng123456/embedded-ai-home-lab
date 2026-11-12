@@ -1,0 +1,61 @@
+{
+  "activeUuid": "e06d6bd616ed4ccd",
+  "documents": [
+    {
+      "uuid": "83274bc0cff89087",
+      "type": "pcb",
+      "name": "PCB1",
+      "parent": "fc4785d6bd01bbfc80f1329112f70bd1b5e0b46061fcbdb9c8515ca4872cbe1c",
+      "active": false
+    },
+    {
+      "uuid": "e06d6bd616ed4ccd",
+      "type": "pcb",
+      "name": "PCB2",
+      "parent": "fc4785d6bd01bbfc80f1329112f70bd1b5e0b46061fcbdb9c8515ca4872cbe1c",
+      "active": true
+    },
+    {
+      "uuid": "aa246f793129b3d3",
+      "type": "schematic",
+      "name": "03 信号隔离与上电控制",
+      "parent": "b3a530f1580af6a3",
+      "active": false
+    },
+    {
+      "uuid": "40f462ebf0a92293",
+      "type": "schematic",
+      "name": "04 电源与 USB 供电",
+      "parent": "b3a530f1580af6a3",
+      "active": false
+    },
+    {
+      "uuid": "d734014dc8d7c031",
+      "type": "schematic",
+      "name": "05 摄像头与显示接口",
+      "parent": "b3a530f1580af6a3",
+      "active": false
+    },
+    {
+      "uuid": "7e038f9397976759",
+      "type": "schematic",
+      "name": "P1",
+      "parent": "3e66873da87c217e",
+      "active": false
+    },
+    {
+      "uuid": "bc53c0a5b55ae550",
+      "type": "schematic",
+      "name": "P1",
+      "parent": "b3a530f1580af6a3",
+      "active": false
+    },
+    {
+      "uuid": "4795d64e2b14bb93",
+      "type": "schematic",
+      "name": "主控与交互",
+      "parent": "b3a530f1580af6a3",
+      "active": false
+    }
+  ]
+}

@@ -1,0 +1,1883 @@
+{
+  "schemaVersion": 1,
+  "connectivity": {
+    "schemaVersion": "1.4",
+    "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "documentId": "d734014dc8d7c031",
+    "components": [
+      {
+        "id": "cmp-J12",
+        "uniqueId": "gge65",
+        "ref": "J12",
+        "role": "camera",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "9f73a41591a142169850133a45f5f00d",
+          "name": "={Manufacturer Part}"
+        },
+        "footprint": "597b9fea7aae98c7",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "IDC-TH_20P-P2.54-V-R2-C10-S2.54",
+          "uuid": "597b9fea7aae98c7"
+        },
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "x": -30,
+            "y": 45
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "x": 30,
+            "y": 45
+          },
+          {
+            "number": "3",
+            "name": "3",
+            "x": -30,
+            "y": 35
+          },
+          {
+            "number": "4",
+            "name": "4",
+            "x": 30,
+            "y": 35
+          },
+          {
+            "number": "5",
+            "name": "5",
+            "x": -30,
+            "y": 25
+          },
+          {
+            "number": "6",
+            "name": "6",
+            "x": 30,
+            "y": 25
+          },
+          {
+            "number": "7",
+            "name": "7",
+            "x": -30,
+            "y": 15
+          },
+          {
+            "number": "8",
+            "name": "8",
+            "x": 30,
+            "y": 15
+          },
+          {
+            "number": "9",
+            "name": "9",
+            "x": -30,
+            "y": 5
+          },
+          {
+            "number": "10",
+            "name": "10",
+            "x": 30,
+            "y": 5
+          },
+          {
+            "number": "11",
+            "name": "11",
+            "x": -30,
+            "y": -5
+          },
+          {
+            "number": "12",
+            "name": "12",
+            "x": 30,
+            "y": -5
+          },
+          {
+            "number": "13",
+            "name": "13",
+            "x": -30,
+            "y": -15
+          },
+          {
+            "number": "14",
+            "name": "14",
+            "x": 30,
+            "y": -15
+          },
+          {
+            "number": "15",
+            "name": "15",
+            "x": -30,
+            "y": -25
+          },
+          {
+            "number": "16",
+            "name": "16",
+            "x": 30,
+            "y": -25
+          },
+          {
+            "number": "17",
+            "name": "17",
+            "x": -30,
+            "y": -35
+          },
+          {
+            "number": "18",
+            "name": "18",
+            "x": 30,
+            "y": -35
+          },
+          {
+            "number": "19",
+            "name": "19",
+            "x": -30,
+            "y": -45
+          },
+          {
+            "number": "20",
+            "name": "20",
+            "x": 30,
+            "y": -45
+          }
+        ],
+        "placement": {
+          "x": 0,
+          "y": 0,
+          "bbox": {
+            "minX": -20.5,
+            "minY": -60.5,
+            "maxX": 20.5,
+            "maxY": 60.5
+          }
+        }
+      },
+      {
+        "id": "cmp-C28",
+        "uniqueId": "gge66",
+        "ref": "C28",
+        "role": "camera",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "aa6f916383374785be390c4ddc7bf610",
+          "name": "={Value}"
+        },
+        "footprint": "4e8d6b488071f5da",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C0805",
+          "uuid": "4e8d6b488071f5da"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 420
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 380
+          }
+        ],
+        "placement": {
+          "x": 400,
+          "y": 0,
+          "bbox": {
+            "minX": 389.5,
+            "minY": -8.5,
+            "maxX": 410.5,
+            "maxY": 8.5
+          }
+        }
+      },
+      {
+        "id": "cmp-C29",
+        "uniqueId": "gge67",
+        "ref": "C29",
+        "role": "camera",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "0de9d28bbcd34ca3bf2a4d78faaa50bb",
+          "name": "={Value}"
+        },
+        "footprint": "4e2ab28a74c0dd4a",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "C1206",
+          "uuid": "4e2ab28a74c0dd4a"
+        },
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "x": 785
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "x": 815
+          }
+        ],
+        "placement": {
+          "x": 800,
+          "y": 0,
+          "bbox": {
+            "minX": 794.5,
+            "minY": -8.5,
+            "maxX": 805.5,
+            "maxY": 8.5
+          }
+        }
+      },
+      {
+        "id": "cmp-R18",
+        "uniqueId": "gge68",
+        "ref": "R18",
+        "role": "defaults",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "e9c34dedae26495c91dced1a655b8614",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 1220
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 1180
+          }
+        ],
+        "placement": {
+          "x": 1200,
+          "y": 0,
+          "bbox": {
+            "minX": 1189.5,
+            "minY": -4.5,
+            "maxX": 1210.5,
+            "maxY": 4.5
+          }
+        }
+      },
+      {
+        "id": "cmp-R19",
+        "uniqueId": "gge69",
+        "ref": "R19",
+        "role": "defaults",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "e9c34dedae26495c91dced1a655b8614",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 1620
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 1580
+          }
+        ],
+        "placement": {
+          "x": 1600,
+          "y": 0,
+          "bbox": {
+            "minX": 1589.5,
+            "minY": -4.5,
+            "maxX": 1610.5,
+            "maxY": 4.5
+          }
+        }
+      },
+      {
+        "id": "cmp-R20",
+        "uniqueId": "gge70",
+        "ref": "R20",
+        "role": "clock",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "b009c079c25f4a6599596de99a11b32e",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 2020
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 1980
+          }
+        ],
+        "placement": {
+          "x": 2000,
+          "y": 0,
+          "bbox": {
+            "minX": 1989.5,
+            "minY": -4.5,
+            "maxX": 2010.5,
+            "maxY": 4.5
+          }
+        }
+      },
+      {
+        "id": "cmp-R21",
+        "uniqueId": "gge71",
+        "ref": "R21",
+        "role": "data",
+        "device": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "deviceUuid": "b009c079c25f4a6599596de99a11b32e",
+          "name": "={Value}"
+        },
+        "footprint": "7b02f1ec4e66c9db",
+        "footprintRef": {
+          "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+          "name": "R0805",
+          "uuid": "7b02f1ec4e66c9db"
+        },
+        "pins": [
+          {
+            "number": "2",
+            "name": "2",
+            "x": 2420
+          },
+          {
+            "number": "1",
+            "name": "1",
+            "x": 2380
+          }
+        ],
+        "placement": {
+          "x": 2400,
+          "y": 0,
+          "bbox": {
+            "minX": 2389.5,
+            "minY": -4.5,
+            "maxX": 2410.5,
+            "maxY": 4.5
+          }
+        }
+      }
+    ],
+    "nets": [
+      {
+        "id": "camera-net-1",
+        "name": "GND",
+        "scope": "global",
+        "role": "ground"
+      },
+      {
+        "id": "camera-net-2",
+        "name": "+3V3",
+        "scope": "global",
+        "role": "power"
+      },
+      {
+        "id": "camera-net-3",
+        "name": "CAM_D0",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-4",
+        "name": "CAM_D1",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-5",
+        "name": "CAM_D2",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-6",
+        "name": "CAM_D3",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-7",
+        "name": "CAM_D4",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-8",
+        "name": "CAM_D5",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-9",
+        "name": "CAM_D6",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-10",
+        "name": "CAM_D7",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-11",
+        "name": "CAM_PCLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-12",
+        "name": "CAM_VSYNC",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-13",
+        "name": "CAM_HREF",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-14",
+        "name": "I2C_SCL",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-15",
+        "name": "I2C_SDA",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-16",
+        "name": "TFT_CS",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-17",
+        "name": "TFT_RST",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-18",
+        "name": "TFT_CLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-19",
+        "name": "TFT_SCLK",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-20",
+        "name": "TFT_DAT",
+        "scope": "global",
+        "role": "signal"
+      },
+      {
+        "id": "camera-net-21",
+        "name": "TFT_MOSI",
+        "scope": "global",
+        "role": "signal"
+      }
+    ],
+    "connections": [
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "1",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "2",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "3",
+        "netId": "camera-net-3",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "4",
+        "netId": "camera-net-4",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "5",
+        "netId": "camera-net-5",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "6",
+        "netId": "camera-net-6",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "7",
+        "netId": "camera-net-7",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "8",
+        "netId": "camera-net-8",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "9",
+        "netId": "camera-net-9",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "10",
+        "netId": "camera-net-10",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "11",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "12",
+        "netId": "camera-net-11",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "13",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "14",
+        "netId": "camera-net-12",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "15",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "16",
+        "netId": "camera-net-13",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "17",
+        "netId": "camera-net-14",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "18",
+        "netId": "camera-net-15",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "19",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-J12",
+        "pinNumber": "20",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C28",
+        "pinNumber": "2",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C28",
+        "pinNumber": "1",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C29",
+        "pinNumber": "1",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-C29",
+        "pinNumber": "2",
+        "netId": "camera-net-1",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R18",
+        "pinNumber": "2",
+        "netId": "camera-net-16",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R18",
+        "pinNumber": "1",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R19",
+        "pinNumber": "2",
+        "netId": "camera-net-17",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R19",
+        "pinNumber": "1",
+        "netId": "camera-net-2",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R20",
+        "pinNumber": "2",
+        "netId": "camera-net-19",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R20",
+        "pinNumber": "1",
+        "netId": "camera-net-18",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R21",
+        "pinNumber": "2",
+        "netId": "camera-net-21",
+        "kind": "netlist"
+      },
+      {
+        "componentId": "cmp-R21",
+        "pinNumber": "1",
+        "netId": "camera-net-20",
+        "kind": "netlist"
+      }
+    ],
+    "modules": [
+      {
+        "id": "camera",
+        "name": "OV2640 / CUSTOM SHORT ADAPTER",
+        "coreComponents": [
+          "cmp-J12"
+        ],
+        "peripheralComponents": [
+          "cmp-C28",
+          "cmp-C29"
+        ]
+      },
+      {
+        "id": "defaults",
+        "name": "DISPLAY SAFE DEFAULTS",
+        "coreComponents": [
+          "cmp-R18"
+        ],
+        "peripheralComponents": [
+          "cmp-R19"
+        ]
+      },
+      {
+        "id": "clock",
+        "name": "DISPLAY CLOCK / SOURCE DAMPING",
+        "coreComponents": [
+          "cmp-R20"
+        ]
+      },
+      {
+        "id": "data",
+        "name": "DISPLAY DATA / SOURCE DAMPING",
+        "coreComponents": [
+          "cmp-R21"
+        ]
+      }
+    ]
+  },
+  "keepouts": [],
+  "modules": [
+    {
+      "id": "camera",
+      "title": "OV2640 / CUSTOM SHORT ADAPTER",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "J12",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -20.5,
+            "minY": -60.5,
+            "maxX": 20.5,
+            "maxY": 60.5
+          },
+          "textBboxes": [
+            {
+              "minX": -20,
+              "minY": 60,
+              "maxX": -8.7138671875,
+              "maxY": 68
+            }
+          ],
+          "pins": [
+            {
+              "number": "1",
+              "name": "1",
+              "net": "GND",
+              "x": -30,
+              "y": 45,
+              "rotation": 180
+            },
+            {
+              "number": "2",
+              "name": "2",
+              "net": "+3V3",
+              "x": 30,
+              "y": 45,
+              "rotation": 0
+            },
+            {
+              "number": "3",
+              "name": "3",
+              "net": "CAM_D0",
+              "x": -30,
+              "y": 35,
+              "rotation": 180
+            },
+            {
+              "number": "4",
+              "name": "4",
+              "net": "CAM_D1",
+              "x": 30,
+              "y": 35,
+              "rotation": 0
+            },
+            {
+              "number": "5",
+              "name": "5",
+              "net": "CAM_D2",
+              "x": -30,
+              "y": 25,
+              "rotation": 180
+            },
+            {
+              "number": "6",
+              "name": "6",
+              "net": "CAM_D3",
+              "x": 30,
+              "y": 25,
+              "rotation": 0
+            },
+            {
+              "number": "7",
+              "name": "7",
+              "net": "CAM_D4",
+              "x": -30,
+              "y": 15,
+              "rotation": 180
+            },
+            {
+              "number": "8",
+              "name": "8",
+              "net": "CAM_D5",
+              "x": 30,
+              "y": 15,
+              "rotation": 0
+            },
+            {
+              "number": "9",
+              "name": "9",
+              "net": "CAM_D6",
+              "x": -30,
+              "y": 5,
+              "rotation": 180
+            },
+            {
+              "number": "10",
+              "name": "10",
+              "net": "CAM_D7",
+              "x": 30,
+              "y": 5,
+              "rotation": 0
+            },
+            {
+              "number": "11",
+              "name": "11",
+              "net": "GND",
+              "x": -30,
+              "y": -5,
+              "rotation": 180
+            },
+            {
+              "number": "12",
+              "name": "12",
+              "net": "CAM_PCLK",
+              "x": 30,
+              "y": -5,
+              "rotation": 0
+            },
+            {
+              "number": "13",
+              "name": "13",
+              "net": "GND",
+              "x": -30,
+              "y": -15,
+              "rotation": 180
+            },
+            {
+              "number": "14",
+              "name": "14",
+              "net": "CAM_VSYNC",
+              "x": 30,
+              "y": -15,
+              "rotation": 0
+            },
+            {
+              "number": "15",
+              "name": "15",
+              "net": "GND",
+              "x": -30,
+              "y": -25,
+              "rotation": 180
+            },
+            {
+              "number": "16",
+              "name": "16",
+              "net": "CAM_HREF",
+              "x": 30,
+              "y": -25,
+              "rotation": 0
+            },
+            {
+              "number": "17",
+              "name": "17",
+              "net": "I2C_SCL",
+              "x": -30,
+              "y": -35,
+              "rotation": 180
+            },
+            {
+              "number": "18",
+              "name": "18",
+              "net": "I2C_SDA",
+              "x": 30,
+              "y": -35,
+              "rotation": 0
+            },
+            {
+              "number": "19",
+              "name": "19",
+              "net": "GND",
+              "x": -30,
+              "y": -45,
+              "rotation": 180
+            },
+            {
+              "number": "20",
+              "name": "20",
+              "net": "+3V3",
+              "x": 30,
+              "y": -45,
+              "rotation": 0
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "C28",
+          "x": 180,
+          "y": 135,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": 169.5,
+            "minY": 126.5,
+            "maxX": 190.5,
+            "maxY": 143.5
+          },
+          "textBboxes": [
+            {
+              "minX": 170,
+              "minY": 145,
+              "maxX": 182.84130859375,
+              "maxY": 153
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": 200,
+              "y": 135,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": 160,
+              "y": 135,
+              "rotation": 180
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "C29",
+          "x": 150,
+          "y": 240,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": 144.5,
+            "minY": 231.5,
+            "maxX": 155.5,
+            "maxY": 248.5
+          },
+          "textBboxes": [
+            {
+              "minX": 145,
+              "minY": 250,
+              "maxX": 157.84130859375,
+              "maxY": 258
+            }
+          ],
+          "pins": [
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": 135,
+              "y": 240,
+              "rotation": 180
+            },
+            {
+              "number": "2",
+              "name": "2",
+              "net": "GND",
+              "x": 165,
+              "y": 240,
+              "rotation": 0
+            }
+          ]
+        }
+      ],
+      "wires": [
+        {
+          "net": "GND",
+          "points": [
+            [
+              -30,
+              -25
+            ],
+            [
+              -40,
+              -25
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -30,
+              -15
+            ],
+            [
+              -40,
+              -15
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -30,
+              -45
+            ],
+            [
+              -40,
+              -45
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              -45
+            ],
+            [
+              -40,
+              -25
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              -25
+            ],
+            [
+              -40,
+              -15
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              -15
+            ],
+            [
+              -40,
+              -5
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              -5
+            ],
+            [
+              -40,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              -5
+            ],
+            [
+              -30,
+              -5
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              155,
+              135
+            ],
+            [
+              155,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              135,
+              240
+            ],
+            [
+              130,
+              240
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              130,
+              240
+            ],
+            [
+              130,
+              135
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              130,
+              135
+            ],
+            [
+              155,
+              135
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              155,
+              135
+            ],
+            [
+              160,
+              135
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -40,
+              45
+            ],
+            [
+              -35,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -35,
+              45
+            ],
+            [
+              -30,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "GND",
+          "points": [
+            [
+              -35,
+              45
+            ],
+            [
+              -35,
+              50
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              30,
+              45
+            ],
+            [
+              35,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              35,
+              45
+            ],
+            [
+              155,
+              45
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              35,
+              45
+            ],
+            [
+              35,
+              50
+            ]
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": 165,
+          "pinY": 240,
+          "direction": "right",
+          "offset": 25,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-C29",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": 200,
+          "pinY": 135,
+          "direction": "right",
+          "offset": 25,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-C28",
+            "pinNumber": "2",
+            "net": "GND"
+          }
+        },
+        {
+          "net": "GND",
+          "kind": "ground",
+          "pinX": -35,
+          "pinY": 50,
+          "direction": "up",
+          "offset": 15,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "GND",
+            "x": -35,
+            "y": 50
+          }
+        },
+        {
+          "net": "+3V3",
+          "kind": "power",
+          "pinX": 35,
+          "pinY": 50,
+          "direction": "up",
+          "offset": 10,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "+3V3",
+            "x": 35,
+            "y": 50
+          }
+        },
+        {
+          "net": "CAM_D0",
+          "kind": "net_port_bi",
+          "pinX": -30,
+          "pinY": 35,
+          "direction": "left",
+          "offset": 15,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "3",
+            "net": "CAM_D0"
+          }
+        },
+        {
+          "net": "CAM_D1",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": 35,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "4",
+            "net": "CAM_D1"
+          }
+        },
+        {
+          "net": "CAM_D2",
+          "kind": "net_port_bi",
+          "pinX": -30,
+          "pinY": 25,
+          "direction": "left",
+          "offset": 95,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "5",
+            "net": "CAM_D2"
+          }
+        },
+        {
+          "net": "CAM_D3",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": 25,
+          "direction": "right",
+          "offset": 90,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "6",
+            "net": "CAM_D3"
+          }
+        },
+        {
+          "net": "CAM_D4",
+          "kind": "net_port_bi",
+          "pinX": -30,
+          "pinY": 15,
+          "direction": "left",
+          "offset": 15,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "7",
+            "net": "CAM_D4"
+          }
+        },
+        {
+          "net": "CAM_D5",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": 15,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "8",
+            "net": "CAM_D5"
+          }
+        },
+        {
+          "net": "CAM_D6",
+          "kind": "net_port_bi",
+          "pinX": -30,
+          "pinY": 5,
+          "direction": "left",
+          "offset": 95,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "9",
+            "net": "CAM_D6"
+          }
+        },
+        {
+          "net": "CAM_D7",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": 5,
+          "direction": "right",
+          "offset": 90,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "10",
+            "net": "CAM_D7"
+          }
+        },
+        {
+          "net": "CAM_PCLK",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": -5,
+          "direction": "right",
+          "offset": 170,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "12",
+            "net": "CAM_PCLK"
+          }
+        },
+        {
+          "net": "CAM_VSYNC",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": -15,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "14",
+            "net": "CAM_VSYNC"
+          }
+        },
+        {
+          "net": "CAM_HREF",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": -25,
+          "direction": "right",
+          "offset": 110,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "16",
+            "net": "CAM_HREF"
+          }
+        },
+        {
+          "net": "I2C_SCL",
+          "kind": "net_port_bi",
+          "pinX": -30,
+          "pinY": -35,
+          "direction": "left",
+          "offset": 15,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "17",
+            "net": "I2C_SCL"
+          }
+        },
+        {
+          "net": "I2C_SDA",
+          "kind": "net_port_bi",
+          "pinX": 30,
+          "pinY": -35,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "18",
+            "net": "I2C_SDA"
+          }
+        },
+        {
+          "net": "+3V3",
+          "kind": "power",
+          "pinX": 30,
+          "pinY": -45,
+          "direction": "right",
+          "offset": 240,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-J12",
+            "pinNumber": "20",
+            "net": "+3V3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "defaults",
+      "title": "DISPLAY SAFE DEFAULTS",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "R18",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -4.5,
+            "maxX": 10.5,
+            "maxY": 4.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 5,
+              "maxX": 2.84130859375,
+              "maxY": 13
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "TFT_CS",
+              "x": 20,
+              "y": 0,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": -20,
+              "y": 0,
+              "rotation": 180
+            }
+          ]
+        },
+        {
+          "primitiveId": "",
+          "designator": "R19",
+          "x": -5,
+          "y": 25,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -15.5,
+            "minY": 20.5,
+            "maxX": 5.5,
+            "maxY": 29.5
+          },
+          "textBboxes": [
+            {
+              "minX": -15,
+              "minY": 30,
+              "maxX": -2.15869140625,
+              "maxY": 38
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "TFT_RST",
+              "x": 15,
+              "y": 25,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "+3V3",
+              "x": -25,
+              "y": 25,
+              "rotation": 180
+            }
+          ]
+        }
+      ],
+      "wires": [
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -25,
+              25
+            ],
+            [
+              -30,
+              25
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -30,
+              25
+            ],
+            [
+              -30,
+              0
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -30,
+              0
+            ],
+            [
+              -25,
+              0
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -25,
+              0
+            ],
+            [
+              -20,
+              0
+            ]
+          ]
+        },
+        {
+          "net": "+3V3",
+          "points": [
+            [
+              -25,
+              0
+            ],
+            [
+              -25,
+              5
+            ]
+          ]
+        }
+      ],
+      "flags": [
+        {
+          "net": "+3V3",
+          "kind": "power",
+          "pinX": -25,
+          "pinY": 5,
+          "direction": "left",
+          "offset": 30,
+          "anchor": {
+            "type": "wire_tree",
+            "net": "+3V3",
+            "x": -25,
+            "y": 5
+          }
+        },
+        {
+          "net": "TFT_CS",
+          "kind": "net_port_bi",
+          "pinX": 20,
+          "pinY": 0,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R18",
+            "pinNumber": "2",
+            "net": "TFT_CS"
+          }
+        },
+        {
+          "net": "TFT_RST",
+          "kind": "net_port_bi",
+          "pinX": 15,
+          "pinY": 25,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R19",
+            "pinNumber": "2",
+            "net": "TFT_RST"
+          }
+        }
+      ]
+    },
+    {
+      "id": "clock",
+      "title": "DISPLAY CLOCK / SOURCE DAMPING",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "R20",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -4.5,
+            "maxX": 10.5,
+            "maxY": 4.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 5,
+              "maxX": 2.84130859375,
+              "maxY": 13
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "TFT_SCLK",
+              "x": 20,
+              "y": 0,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "TFT_CLK",
+              "x": -20,
+              "y": 0,
+              "rotation": 180
+            }
+          ]
+        }
+      ],
+      "wires": null,
+      "flags": [
+        {
+          "net": "TFT_SCLK",
+          "kind": "net_port_bi",
+          "pinX": 20,
+          "pinY": 0,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R20",
+            "pinNumber": "2",
+            "net": "TFT_SCLK"
+          }
+        },
+        {
+          "net": "TFT_CLK",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 0,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R20",
+            "pinNumber": "1",
+            "net": "TFT_CLK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "title": "DISPLAY DATA / SOURCE DAMPING",
+      "placements": [
+        {
+          "primitiveId": "",
+          "designator": "R21",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "mirror": false,
+          "bbox": {
+            "minX": -10.5,
+            "minY": -4.5,
+            "maxX": 10.5,
+            "maxY": 4.5
+          },
+          "textBboxes": [
+            {
+              "minX": -10,
+              "minY": 5,
+              "maxX": 2.84130859375,
+              "maxY": 13
+            }
+          ],
+          "pins": [
+            {
+              "number": "2",
+              "name": "2",
+              "net": "TFT_MOSI",
+              "x": 20,
+              "y": 0,
+              "rotation": 0
+            },
+            {
+              "number": "1",
+              "name": "1",
+              "net": "TFT_DAT",
+              "x": -20,
+              "y": 0,
+              "rotation": 180
+            }
+          ]
+        }
+      ],
+      "wires": null,
+      "flags": [
+        {
+          "net": "TFT_MOSI",
+          "kind": "net_port_bi",
+          "pinX": 20,
+          "pinY": 0,
+          "direction": "right",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R21",
+            "pinNumber": "2",
+            "net": "TFT_MOSI"
+          }
+        },
+        {
+          "net": "TFT_DAT",
+          "kind": "net_port_bi",
+          "pinX": -20,
+          "pinY": 0,
+          "direction": "left",
+          "offset": 10,
+          "anchor": {
+            "type": "pin",
+            "componentId": "cmp-R21",
+            "pinNumber": "1",
+            "net": "TFT_DAT"
+          }
+        }
+      ]
+    }
+  ],
+  "paperless": true,
+  "paperlessRowBreaks": [
+    2
+  ]
+}

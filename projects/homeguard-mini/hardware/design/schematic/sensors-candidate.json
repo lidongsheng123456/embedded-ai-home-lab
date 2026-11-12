@@ -1,0 +1,256 @@
+{
+  "status": "candidate-unverified",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "documentId": "bc53c0a5b55ae550",
+  "schematicId": "b3a530f1580af6a3",
+  "pcbId": "e06d6bd616ed4ccd",
+  "units": "schematic raw, y-up; placement seed only, not final geometry",
+  "interfaces": "载板连接器自定义针序，必须按模块丝印制作转换线；不得假定模块可同序直插",
+  "components": [
+    {
+      "ref": "J1",
+      "part": "xh3",
+      "role": "mq2_module",
+      "x": 120,
+      "y": 680,
+      "nets": {
+        "1": "+5V",
+        "2": "GND",
+        "3": "MQ2_AO_RAW"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "R1",
+      "part": "r10k",
+      "role": "mq2_upper_divider",
+      "x": 300,
+      "y": 680,
+      "nets": {
+        "1": "MQ2_AO_RAW",
+        "2": "MQ2_ADC"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "R2",
+      "part": "r10k",
+      "role": "mq2_lower_divider",
+      "x": 400,
+      "y": 600,
+      "nets": {
+        "1": "MQ2_ADC",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "C1",
+      "part": "c100n",
+      "role": "mq2_adc_filter",
+      "x": 500,
+      "y": 600,
+      "nets": {
+        "1": "MQ2_ADC",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "J2",
+      "part": "xh4",
+      "role": "sht40_module",
+      "x": 120,
+      "y": 440,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "I2C_SDA",
+        "4": "I2C_SCL"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "C2",
+      "part": "c100n",
+      "role": "sht40_decoupling",
+      "x": 300,
+      "y": 440,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "J3",
+      "part": "xh4",
+      "role": "bh1750_module",
+      "x": 500,
+      "y": 440,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "I2C_SDA",
+        "4": "I2C_SCL"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "C3",
+      "part": "c100n",
+      "role": "bh1750_decoupling",
+      "x": 660,
+      "y": 440,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "J4",
+      "part": "xh4",
+      "role": "ld2410c_module",
+      "x": 120,
+      "y": 200,
+      "nets": {
+        "1": "+5V",
+        "2": "GND",
+        "3": "UART_RX17",
+        "4": "UART_TX18"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "C4",
+      "part": "c100n",
+      "role": "radar_decoupling",
+      "x": 300,
+      "y": 200,
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "J5",
+      "part": "xh6",
+      "role": "inmp441_module",
+      "x": 800,
+      "y": 680,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "MIC_BCLK",
+        "4": "MIC_WS",
+        "5": "MIC_SD",
+        "6": "GND"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "C5",
+      "part": "c100n",
+      "role": "mic_decoupling",
+      "x": 1000,
+      "y": 680,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "rotation": 90
+    },
+    {
+      "ref": "J6",
+      "part": "xh8",
+      "role": "st7789_module",
+      "x": 800,
+      "y": 440,
+      "nets": {
+        "1": "GND",
+        "2": "+3V3",
+        "3": "TFT_SCLK",
+        "4": "TFT_MOSI",
+        "5": "TFT_RST",
+        "6": "TFT_DC",
+        "7": "TFT_CS",
+        "8": "+3V3"
+      },
+      "rotation": 0
+    },
+    {
+      "ref": "C6",
+      "part": "c100n",
+      "role": "display_decoupling",
+      "x": 1040,
+      "y": 440,
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "rotation": 90
+    }
+  ],
+  "modules": [
+    {
+      "id": "mq2",
+      "title": "MQ-2 5V / ADC DIVIDER",
+      "core": "J1",
+      "peripherals": [
+        "R1",
+        "R2",
+        "C1"
+      ]
+    },
+    {
+      "id": "sht40",
+      "title": "SHT40 3V3",
+      "core": "J2",
+      "peripherals": [
+        "C2"
+      ]
+    },
+    {
+      "id": "bh1750",
+      "title": "BH1750 3V3",
+      "core": "J3",
+      "peripherals": [
+        "C3"
+      ]
+    },
+    {
+      "id": "radar",
+      "title": "LD2410C 5V / 3V3 UART",
+      "core": "J4",
+      "peripherals": [
+        "C4"
+      ]
+    },
+    {
+      "id": "microphone",
+      "title": "INMP441 3V3 / LEFT CHANNEL",
+      "core": "J5",
+      "peripherals": [
+        "C5"
+      ]
+    },
+    {
+      "id": "display",
+      "title": "ST7789 3V3",
+      "core": "J6",
+      "peripherals": [
+        "C6"
+      ]
+    }
+  ],
+  "adcDesign": {
+    "upperOhms": 10000,
+    "lowerOhms": 10000,
+    "tolerance": 0.01,
+    "maxAssumedAoV": 5.25,
+    "filterF": 1e-7,
+    "note": "替代面包板教程的10k/20k；5.25V输入、1%最坏阻差时ADC为2.65125V。仅相对气体指数，需首板重新学习。"
+  }
+}

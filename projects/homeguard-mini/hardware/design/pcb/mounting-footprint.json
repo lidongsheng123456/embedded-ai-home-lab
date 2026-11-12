@@ -1,0 +1,23 @@
+{
+  "pads": [
+    {
+      "number": "1",
+      "layer": 12,
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "shape": [
+        "ELLIPSE",
+        125.98425196850395,
+        125.98425196850395
+      ],
+      "hole": [
+        "ROUND",
+        125.98425196850395
+      ],
+      "metallization": false,
+      "padType": 0
+    }
+  ],
+  "lines": []
+}

@@ -1,0 +1,15 @@
+﻿{
+  "id": "req_7621",
+  "ok": true,
+  "result": {
+    "bytes": 675869,
+    "format": "epro2",
+    "path": "D:\\develop\\embedded-ai-home-lab\\projects\\homeguard-mini\\hardware\\outputs\\release-r1\\homeguard-mini-r1.epro2",
+    "restoreVerified": false,
+    "sha256": "ec6d6bebca43b064138977c9c143e7b36b14a095c2f9faedd9ae221a8476c9e0",
+    "uuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+    "zipIntegrityVerified": true
+  },
+  "type": "response",
+  "version": "v1"
+}

@@ -1,0 +1,48 @@
+{
+  "status": "ready-for-first-prototype",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "documentId": "e06d6bd616ed4ccd",
+  "parts": 79,
+  "physicalPads": 346,
+  "nets": 75,
+  "explicitNoConnect": 30,
+  "pcbNativeDrc": {
+    "round1": true,
+    "round2": true,
+    "restoredCopy": true,
+    "errors": 0,
+    "unroutedConnections": 0
+  },
+  "persistedAndReloaded": true,
+  "roundsGeometryEqual": true,
+  "restoredSchematicEqual": true,
+  "restoredPcbEqual": true,
+  "restoreArchiveSha256": "ec6d6bebca43b064138977c9c143e7b36b14a095c2f9faedd9ae221a8476c9e0",
+  "gerberSha256": "3b51d641261c1381496430da4975e8634623318505a142476f1f2d975407221d",
+  "manufacturingFileGeometryPassed": true,
+  "assemblyTablesPassed": true,
+  "firmware": {
+    "status": "仅编译验证",
+    "environments": [
+      "core_st7789_154",
+      "core_ili9341_240x320",
+      "camera_ov2640_check",
+      "full_st7789_camera",
+      "carrier_r1_core_st7789",
+      "carrier_r1_full_st7789_camera"
+    ]
+  },
+  "hardwareTested": false,
+  "fabOrderPlaced": false,
+  "nativeViewportAvailable": false,
+  "threeDimensionalPreview": "官方 OBJ 投影；绑定资料不等同于逐器件网格覆盖验证；外接模块、开发板、线束未建模",
+  "dfmDisposition": "原始报告非全通过，1 项包络间距误报按真实轮廓复核，全部类别处置见 design/fabrication-review.md",
+  "silkscreen": "底面文字与开窗无重叠；顶面 C25/J11 库外形线少量开窗交叠由 CAM 常规裁切",
+  "physicalPending": [
+    "开发板和插头 1:1 插合",
+    "USB/天线/线束及外壳",
+    "供电、反向阻断、纹波和温升",
+    "线束时序及全部模块功能"
+  ],
+  "checkedAt": "2026-11-11T19:49:25.543043+00:00"
+}

@@ -1,0 +1,392 @@
+{
+  "status": "source-only",
+  "projectId": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+  "pageId": "40f462ebf0a92293",
+  "parts": [
+    {
+      "ref": "J10",
+      "part": "usb_in",
+      "module": "input",
+      "x": 0,
+      "y": 0,
+      "pins": {
+        "1": "GND",
+        "2": "GND",
+        "3": "GND",
+        "4": "GND",
+        "B12": "GND",
+        "B9": "USB_VBUS",
+        "A5": "USB_CC1",
+        "B5": "USB_CC2",
+        "A9": "USB_VBUS",
+        "A12": "GND"
+      }
+    },
+    {
+      "ref": "J11",
+      "part": "usb_out",
+      "module": "usb",
+      "x": 500,
+      "y": 0,
+      "pins": {
+        "1": "USB_MCU_5V",
+        "2": null,
+        "3": null,
+        "4": "GND",
+        "5": "GND",
+        "6": "GND"
+      }
+    },
+    {
+      "ref": "U7",
+      "part": "efuse",
+      "module": "protect",
+      "x": 1000,
+      "y": 0,
+      "pins": {
+        "1": "EFUSE_DVDT",
+        "2": "EFUSE_EN",
+        "3": "FUSED_5V",
+        "4": "FUSED_5V",
+        "5": "+5V",
+        "6": null,
+        "7": "EFUSE_ILIM",
+        "8": "GND",
+        "9": "GND"
+      }
+    },
+    {
+      "ref": "U8",
+      "part": "buck",
+      "module": "buck",
+      "x": 1500,
+      "y": 0,
+      "pins": {
+        "1": "+3V3",
+        "2": "+5V",
+        "3": "+5V",
+        "4": "GND",
+        "5": "BUCK_SW",
+        "6": "BUCK_BST"
+      }
+    },
+    {
+      "ref": "U9",
+      "part": "esd",
+      "module": "cc",
+      "x": 2000,
+      "y": 0,
+      "pins": {
+        "1": null,
+        "2": null,
+        "3": "USB_CC1",
+        "4": "GND",
+        "5": "USB_CC2"
+      }
+    },
+    {
+      "ref": "U10",
+      "part": "ideal",
+      "module": "usb",
+      "x": 2500,
+      "y": 0,
+      "pins": {
+        "1": "USB_POWER_EN",
+        "2": "GND",
+        "3": null,
+        "4": "GND",
+        "5": "+5V",
+        "6": "USB_MCU_5V",
+        "7": "USB_DVDT",
+        "8": "GND",
+        "9": "GND",
+        "10": null
+      }
+    },
+    {
+      "ref": "F1",
+      "part": "fuse",
+      "module": "input",
+      "x": 0,
+      "y": 400,
+      "pins": {
+        "1": "USB_VBUS",
+        "2": "FUSED_5V"
+      }
+    },
+    {
+      "ref": "D1",
+      "part": "tvs",
+      "module": "input",
+      "x": 500,
+      "y": 400,
+      "pins": {
+        "1": "FUSED_5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "L1",
+      "part": "inductor",
+      "module": "buck",
+      "x": 1000,
+      "y": 400,
+      "pins": {
+        "1": "BUCK_SW",
+        "2": "+3V3"
+      }
+    },
+    {
+      "ref": "D2",
+      "part": "led",
+      "module": "indicator",
+      "x": 1500,
+      "y": 400,
+      "pins": {
+        "1": "LED_ANODE",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R10",
+      "part": "r5k1",
+      "module": "cc",
+      "x": 2000,
+      "y": 400,
+      "pins": {
+        "1": "USB_CC1",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R11",
+      "part": "r5k1",
+      "module": "cc",
+      "x": 2500,
+      "y": 400,
+      "pins": {
+        "1": "USB_CC2",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R12",
+      "part": "r1k",
+      "module": "protect",
+      "x": 0,
+      "y": 800,
+      "pins": {
+        "1": "EFUSE_ILIM",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R13",
+      "part": "r27k",
+      "module": "protect",
+      "x": 500,
+      "y": 800,
+      "pins": {
+        "1": "FUSED_5V",
+        "2": "EFUSE_EN"
+      }
+    },
+    {
+      "ref": "R14",
+      "part": "r10k",
+      "module": "protect",
+      "x": 1000,
+      "y": 800,
+      "pins": {
+        "1": "EFUSE_EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R15",
+      "part": "r2k2",
+      "module": "indicator",
+      "x": 1500,
+      "y": 800,
+      "pins": {
+        "1": "+3V3",
+        "2": "LED_ANODE"
+      }
+    },
+    {
+      "ref": "R16",
+      "part": "r10k",
+      "module": "usb",
+      "x": 2000,
+      "y": 800,
+      "pins": {
+        "1": "+5V",
+        "2": "USB_POWER_EN"
+      }
+    },
+    {
+      "ref": "R17",
+      "part": "r10k",
+      "module": "usb",
+      "x": 2500,
+      "y": 800,
+      "pins": {
+        "1": "USB_POWER_EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C15",
+      "part": "c100n",
+      "module": "input",
+      "x": 0,
+      "y": 1200,
+      "pins": {
+        "1": "USB_VBUS",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C16",
+      "part": "c100n",
+      "module": "protect",
+      "x": 500,
+      "y": 1200,
+      "pins": {
+        "1": "EFUSE_DVDT",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C17",
+      "part": "c100n",
+      "module": "protect",
+      "x": 1000,
+      "y": 1200,
+      "pins": {
+        "1": "FUSED_5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C18",
+      "part": "c10u",
+      "module": "protect",
+      "x": 1500,
+      "y": 1200,
+      "pins": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C19",
+      "part": "c10u",
+      "module": "buck",
+      "x": 2000,
+      "y": 1200,
+      "pins": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C20",
+      "part": "c100n",
+      "module": "buck",
+      "x": 2500,
+      "y": 1200,
+      "pins": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C21",
+      "part": "c22u",
+      "module": "buck",
+      "x": 0,
+      "y": 1600,
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C22",
+      "part": "c22u",
+      "module": "buck",
+      "x": 500,
+      "y": 1600,
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C23",
+      "part": "c100n",
+      "module": "buck",
+      "x": 1000,
+      "y": 1600,
+      "pins": {
+        "1": "BUCK_BST",
+        "2": "BUCK_SW"
+      }
+    },
+    {
+      "ref": "C24",
+      "part": "c10u",
+      "module": "usb",
+      "x": 1500,
+      "y": 1600,
+      "pins": {
+        "1": "USB_MCU_5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C25",
+      "part": "c220u",
+      "module": "usb",
+      "x": 2000,
+      "y": 1600,
+      "pins": {
+        "1": "USB_MCU_5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C26",
+      "part": "c100n",
+      "module": "usb",
+      "x": 2500,
+      "y": 1600,
+      "pins": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C27",
+      "part": "c10n",
+      "module": "usb",
+      "x": 0,
+      "y": 2000,
+      "pins": {
+        "1": "USB_DVDT",
+        "2": "GND"
+      }
+    }
+  ],
+  "constraints": [
+    "仅5V/3A专用适配器；未实现PD或USB-C电流广告检测",
+    "3A实体保险丝为故障后备；电子保险丝限流典型约2.04A",
+    "开发板由J11短USB线供电，载板与开发板5V排针不接",
+    "LM73100以10nF控制输出上升，防止开发板或电脑电源倒灌载板",
+    "J11数据脚NC；USB POWER ONLY",
+    "AP63203固定3.3V，FB直接接输出",
+    "USB-C全部外壳脚和USB-A两个固定脚接地"
+  ],
+  "hardwareTested": false
+}

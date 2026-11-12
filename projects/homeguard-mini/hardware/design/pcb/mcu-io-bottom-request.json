@@ -1,0 +1,13 @@
+{
+  "nets": [
+    "MCU_I2C_SCL",
+    "MCU_I2C_SDA",
+    "MCU_MQ2_ADC",
+    "MCU_UART_TX18",
+    "MCU_UART_RX17",
+    "MCU_MIC_SD",
+    "MCU_MIC_WS",
+    "MCU_MIC_BCLK",
+    "MCU_BUZZ_CTRL"
+  ]
+}

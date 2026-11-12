@@ -1,0 +1,18 @@
+﻿{
+  "id": "req_7622",
+  "ok": true,
+  "result": {
+    "bytes": 675869,
+    "contentVerified": false,
+    "created": true,
+    "friendlyName": "HomeGuard Mini R1 备份恢复核验 20261112",
+    "importOption": "ImportDocument",
+    "sourcePath": "projects/homeguard-mini/hardware/outputs/release-r1/homeguard-mini-r1.epro2",
+    "sourceSha256": "ec6d6bebca43b064138977c9c143e7b36b14a095c2f9faedd9ae221a8476c9e0",
+    "teamUuid": "e8d66a1c3f754e34b60c6bb54fb2e827",
+    "uuid": "8faa3b70e39c9659bcf4cff82bc2f5c0ace26c56740bedfc16947f1eebbbd0c0",
+    "verified": true
+  },
+  "type": "response",
+  "version": "v1"
+}

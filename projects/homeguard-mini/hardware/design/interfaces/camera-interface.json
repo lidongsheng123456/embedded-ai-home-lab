@@ -1,0 +1,54 @@
+{
+  "status": "source-only",
+  "source": "用户2026-11-11提供的OV2640模块商品实物图与文字说明",
+  "supplyV": 3.3,
+  "onboardOscillator": true,
+  "externalXclk": false,
+  "pinsPerRow": 9,
+  "orientation": "镜头面朝向读者、排针位于图片下方；两排丝印均从左到右记录，尚未按任何PCB封装编号换算",
+  "upperSilkLeftToRight": [
+    "GND",
+    "SCL",
+    "SDA",
+    "D0",
+    "D2",
+    "D4",
+    "D6",
+    "PCLK",
+    "PWDN"
+  ],
+  "lowerSilkLeftToRight": [
+    "3.3",
+    "VSYNC",
+    "HREF",
+    "RST",
+    "D1",
+    "D3",
+    "D5",
+    "D7",
+    "FLASH"
+  ],
+  "ties": {
+    "RST": "+3V3",
+    "PWDN": "GND",
+    "FLASH": "no-connect"
+  },
+  "gpio": {
+    "SCL": 9,
+    "SDA": 8,
+    "D0": 1,
+    "D1": 2,
+    "D2": 7,
+    "D3": 13,
+    "D4": 38,
+    "D5": 40,
+    "D6": 41,
+    "D7": 42,
+    "PCLK": 16,
+    "VSYNC": 47,
+    "HREF": 48
+  },
+  "assembly": "载板摄像头接口使用短转换线，按模块丝印接；不从照片推断针距、板尺寸或直接插合方向。",
+  "mechanicalVerified": false,
+  "hardwareTested": false
+}

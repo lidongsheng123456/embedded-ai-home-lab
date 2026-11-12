@@ -1,0 +1,129 @@
+{
+  "id": "req_7548",
+  "ok": true,
+  "result": {
+    "artifactId": "art_03a2686f-a326-4044-90e3-133632488919",
+    "artifactPath": "D:\\develop\\embedded-ai-home-lab\\.easyeda\\artifacts\\20261112-033332-pcb_gerber-03a2686f.zip",
+    "artifactSha256": "3b51d641261c1381496430da4975e8634623318505a142476f1f2d975407221d",
+    "artifactSize": 774025,
+    "colorSilkscreen": false,
+    "content": [
+      {
+        "name": "Drill_PTH_Through.DRL",
+        "size": 5225,
+        "sha256": "c66765050a06d8ccc426a74109fc428383c43a8d26ff75bed310d8c816cbf8d9",
+        "kind": "drill"
+      },
+      {
+        "name": "Drill_PTH_Through_Via.DRL",
+        "size": 2978,
+        "sha256": "04293a43189cfc6c086670872d4a8be27aa382e93a4df09b3b219779ac13b97d",
+        "kind": "drill"
+      },
+      {
+        "name": "FlyingProbeTesting.json",
+        "size": 49149,
+        "sha256": "60c8ed50e35f22582f7e59d4beed2319f8aebad0504ae66f45f9e6f1313694f6"
+      },
+      {
+        "name": "Gerber_BoardOutlineLayer.GKO",
+        "size": 9829,
+        "sha256": "554c3eb8b2e98634574cfda64d8a7812ad75beacde80d8a9b272d92f8db8b86e",
+        "kind": "outline"
+      },
+      {
+        "name": "Gerber_BottomLayer.GBL",
+        "size": 14829,
+        "sha256": "74c222e04e43d041a3e7dea26b563d119d369541249754291fd7f21d3148da87",
+        "kind": "copper"
+      },
+      {
+        "name": "Gerber_BottomSilkscreenLayer.GBO",
+        "size": 1185543,
+        "sha256": "c434b234935d79290cd8c5c9ec575e57ba9d5c792542ce130f952082585a9234",
+        "kind": "silkscreen"
+      },
+      {
+        "name": "Gerber_BottomSolderMaskLayer.GBS",
+        "size": 3798,
+        "sha256": "d4e3024f8e912da523ee9853f6754a5a3cc0dbb21f2ba855a2d37a38e0968664",
+        "kind": "solder-mask"
+      },
+      {
+        "name": "Gerber_DocumentLayer.GDL",
+        "size": 11178,
+        "sha256": "2bc015265acbeed367a235a6a6b1d802092c549db7a21eae5a2452f0dc03f7d0",
+        "kind": "gerber"
+      },
+      {
+        "name": "Gerber_DrillDrawingLayer.GDD",
+        "size": 174250,
+        "sha256": "f99061254e0aea333e33a17e322fb7c6ab7173aac931901bc58e118495052b27",
+        "kind": "gerber"
+      },
+      {
+        "name": "Gerber_InnerLayer1.G1",
+        "size": 186269,
+        "sha256": "0572d55a03c45e5b775ac81e20d462d9a397fc49d70425fde5838874f11ad840",
+        "kind": "gerber"
+      },
+      {
+        "name": "Gerber_InnerLayer2.G2",
+        "size": 186269,
+        "sha256": "6fe2bb95c736e51de3191b3429917f9d34dd40f92f313c7a65c456c17072aefc",
+        "kind": "gerber"
+      },
+      {
+        "name": "Gerber_TopLayer.GTL",
+        "size": 38675,
+        "sha256": "5d86f6d21a0c520ccb04768534e0283e98ada9e8c7944e07127dfab86515d7e0",
+        "kind": "copper"
+      },
+      {
+        "name": "Gerber_TopPasteMaskLayer.GTP",
+        "size": 37198,
+        "sha256": "3401714230b06549084dca231b74bdfc493784aadb3182e1617d20e28c3c0883",
+        "kind": "paste"
+      },
+      {
+        "name": "Gerber_TopSilkscreenLayer.GTO",
+        "size": 984343,
+        "sha256": "9788317db2e140883df1cb1e583c9359ed4657f95a54df0b9e9a70ea18e73b57",
+        "kind": "silkscreen"
+      },
+      {
+        "name": "Gerber_TopSolderMaskLayer.GTS",
+        "size": 12122,
+        "sha256": "e4a33dfecf634ba477b107f897db4574c201ee56223d7183db545e93aad45841",
+        "kind": "solder-mask"
+      },
+      {
+        "name": "PCB下单必读.txt",
+        "size": 94,
+        "sha256": "dcb3ee1c645c17a009d70726ad9ab708b68a074556fabcf75a4a059d3b43ec59"
+      }
+    ],
+    "digitalFormat": {
+      "decimalNumber": 5,
+      "integerNumber": 4
+    },
+    "exportContext": {
+      "documentType": "pcb",
+      "documentUuid": "e06d6bd616ed4ccd",
+      "pageVisibility": "hidden",
+      "projectName": "HomeGuard Mini 载板 R1 20261111",
+      "projectUuid": "9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965",
+      "tabId": "e06d6bd616ed4ccd@9c494a7b20bb98c3a89071673f890ee880a4e1079eef2c14614e04540de06965"
+    },
+    "fileName": "homeguard-mini-r1-gerber.zip",
+    "fileSha256": "3b51d641261c1381496430da4975e8634623318505a142476f1f2d975407221d",
+    "fileType": "zip",
+    "manufacturingAccepted": false,
+    "out": "projects/homeguard-mini/hardware/outputs/release-r1/manufacturing/homeguard-mini-r1-gerber.zip",
+    "semanticSha256": "4aeced6459c16a12de3e93ad11b3800fe694b2dcc8547071518390086d4ceee5",
+    "size": 774025,
+    "unit": "mm"
+  },
+  "type": "response",
+  "version": "v1"
+}
