@@ -1,0 +1,3 @@
+{"type":"DOCHEAD","ticket":25376}||{"docType":"PANEL","client":"797a9155335a4e74","uuid":"d314b47a33754cf2","updateTime":1794468055876,"version":"1794468055876","editVersion":"4.1.99","user":{}}|
+{"type":"META","ticket":25372,"id":"META"}||{"title":"Panel2","zIndex":null}|
+{"type":"CANVAS","ticket":25374,"id":"CANVAS"}||{"material":"acrylic","thickness":"0.8mm","print":"Bottom Side","craft":"Transparent","desc":"","coverColor":"white","width":"393mm","height":"579mm","originX":0,"originY":0,"orderWidth":"579mm","orderHeight":""}

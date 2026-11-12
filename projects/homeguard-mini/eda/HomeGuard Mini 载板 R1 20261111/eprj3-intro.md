@@ -1,6 +1,6 @@
 # 嘉立创EDA专业版文件夹化工程格式 `.eprj3` / EasyEDA Pro Folder-Based Project Format `.eprj3`
 
-**[English](#en)** | **[中文](#zh)** 
+**[English](#en)** | **[中文](#zh)**
 
 ---
 
@@ -56,8 +56,6 @@ For the complete specification:
 - **Format skill (primitive / document data generation)**: [easyeda/easyeda-pro-format-skill](https://github.com/easyeda/easyeda-pro-format-skill)
 - **Project skill (AI generates `.eprj3` projects directly)**: [easyeda/easyeda-eprj3-skill](https://github.com/easyeda/easyeda-eprj3-skill)
 - **Online docs**: [English](https://prodocs.easyeda.com/en/format/index/) · [中文](https://prodocs.lceda.cn/cn/format/index/)
-
-
 
 <a id="zh"></a>
 

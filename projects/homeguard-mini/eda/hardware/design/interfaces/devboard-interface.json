@@ -1,0 +1,101 @@
+{
+  "status": "candidate-unverified",
+  "source": "用户于2026-11-11提供的泽杰ESP32-S3 N X R X引脚图；正面天线向上、双USB向下",
+  "pinsPerRow": 22,
+  "rowCenterDistanceMm": 25.4,
+  "pinPitchMm": 2.54,
+  "mechanicalSource": "用户提供的泽杰产品尺寸图：两排25.40mm，首尾针53.34mm，板宽27.94mm，标称板长57.15mm；厂商声明手工测量可能误差0.5～1mm，仍需1:1实物套合",
+  "powerEvidence": {
+    "usbPortsTogetherAllowed": true,
+    "header5VInputAllowed": true,
+    "header3V3InputAllowed": true,
+    "usbAndHeaderTogetherAllowed": null,
+    "vendorReply20261112": {
+      "source": "用户提供的泽杰旗舰店客服聊天截图",
+      "header5VRequiresInOutBridge": true,
+      "inOutBridgeLocationVerified": true,
+      "inOutBridgeLocationSource": "用户2026-11-12提供的红框与箭头标注照片，IN/OUT双焊盘靠近开发板USB端；按该标注识别，不以附近排针编号代替焊盘位置",
+      "inOutBridgePhysicallySoldered": false,
+      "usbDebugWhileHeaderPoweredClaimed": true,
+      "usbReverseCurrentProtectionPresent": false,
+      "recommendedSourceCurrentA": ">1.5",
+      "note": "供电能力建议不等于实测消耗电流；客服未提供防倒灌电路。用户选择断电取下开发板后烧录，禁止插载板时接电脑USB。"
+    },
+    "regulatorPart": null,
+    "availablePeripheral3V3CurrentMa": null
+  },
+  "leftTopToBottom": [
+    "3V3",
+    "3V3",
+    "EN",
+    "GPIO4",
+    "GPIO5",
+    "GPIO6",
+    "GPIO7",
+    "GPIO15",
+    "GPIO16",
+    "GPIO17",
+    "GPIO18",
+    "GPIO8",
+    "GPIO3",
+    "GPIO46",
+    "GPIO9",
+    "GPIO10",
+    "GPIO11",
+    "GPIO12",
+    "GPIO13",
+    "GPIO14",
+    "5V",
+    "GND"
+  ],
+  "rightTopToBottom": [
+    "GND",
+    "GPIO43",
+    "GPIO44",
+    "GPIO1",
+    "GPIO2",
+    "GPIO42",
+    "GPIO41",
+    "GPIO40",
+    "GPIO39",
+    "GPIO38",
+    "GPIO37",
+    "GPIO36",
+    "GPIO35",
+    "GPIO0",
+    "GPIO45",
+    "GPIO48",
+    "GPIO47",
+    "GPIO21",
+    "GPIO20",
+    "GPIO19",
+    "GND",
+    "GND"
+  ],
+  "reservedForOpiPsram": [
+    "GPIO35",
+    "GPIO36",
+    "GPIO37"
+  ],
+  "cameraBuildMustNotConnect": [
+    "GPIO43",
+    "GPIO44"
+  ],
+  "cameraPclk": "GPIO16",
+  "nativeUsbPins": [
+    "GPIO19",
+    "GPIO20"
+  ],
+  "mechanicalVerification": "用户2026-11-12明确按厂家尺寸设计；未做实物量测或1:1套合。实物为外接天线座版本。",
+  "availablePowerSource": "用户2026-11-12确认已有5V/3A电源及对应线",
+  "purchaseUrl": "https://item.jd.com/10217491410382.html",
+  "powerDecision": {
+    "source": "用户2026-11-12厂家答复及明确选择断电取下开发板后烧录",
+    "method": "载板受保护5V直接通过母座J7.21给开发板供电，删除J11 USB-A和盒内短USB线",
+    "header5V": "USB_MCU_5V；保留历史网名，实际为受保护开发板5V输入",
+    "header3V3": "MCU_3V3，单独电源域，仅给接口隔离逻辑和按键供电",
+    "sensorPower": "载板独立3.3V稳压；传感器负载不经过开发板",
+    "usbAnd5VHeader": "禁止并接；载板先断电、开发板取下后才接电脑USB；拔USB后才装回载板",
+    "implementation": "已在原理图与PCB实施并保存重载两轮核对；直接从项目eda中的完整原生工程打开PCB2打样，版本由Git管理。实物焊接、插合和供电未验。"
+  }
+}

@@ -35,52 +35,40 @@
 
 ## 教程阅读顺序
 
-0. [第一次制作从这里开始](docs/00-先从这里开始.md)
-1. [项目原理和版本范围](docs/01-项目原理.md)
-2. [硬件清单与供电要求](docs/02-材料清单.md)
-3. [逐根接线教程](docs/03-接线教程.md)
-4. [软件安装、编译和烧录](docs/04-软件与烧录.md)
-5. [首次启动与分阶段验收](docs/05-首次启动.md)
-6. [AI 学习、使用和测试](docs/06-AI与日常使用.md)
-7. [洞洞板、外壳与 PCB](docs/07-一体化制作.md)
-8. [常见问题和故障定位](docs/08-故障排查.md)
-9. [后续 TinyML 声音分类与红外控制](docs/09-后续升级.md)
-10. [使用内网 Gitea 管理项目](docs/10-Gitea管理.md)
-11. [EasyEDA 从入门到完整系统的渐进电路学习路线](docs/11-EasyEDA渐进电路学习路线.md)
-12. [手机与电脑可视化大屏：预览、使用和源码](firmware/web/README.md)
-13. [DeepSeek 云解读：配置密钥、使用和硬件控制边界](docs/13-DeepSeek云解读.md)
-14. [按家庭视频重建温馨小家：操作和模型结构](docs/14-家庭视频建模说明.md)
-15. [云助手与家庭模型：结构审查、验证和待实测项](docs/15-云助手与家庭模型审查记录.md)
-16. [R1 载板原理图、PCB 与打样资料](hardware/README.md)（四层载板已完成设计检查；首板仍需实物验证）
-17. [嘉立创EDA完整本地工程与继续优化入口](eda/README.md)（直接打开 `.eprj3`；当前工作版本有 1 项网表检查错误待处理）
+先按顺序完成面包板，每次只加入一个模块：
 
-## 目录结构
+0. [第一次制作](docs/00-先从这里开始.md)
+1. [项目原理](docs/01-项目原理.md)
+2. [现有器件与供电](docs/02-材料清单.md)
+3. [逐根接线](docs/03-接线教程.md)
+4. [软件、编译和烧录](docs/04-软件与烧录.md)
+5. [首次启动与验收](docs/05-首次启动.md)
+6. [本地 AI 与日常使用](docs/06-AI与日常使用.md)
+7. [载板、外壳与制作](docs/07-一体化制作.md)
+8. [故障排查](docs/08-故障排查.md)
+
+需要相关功能时再读：[手机/电脑大屏](firmware/web/README.md)、[DeepSeek 配置](docs/09-DeepSeek云解读.md)。
+
+当前工程状态只维护在[验收清单](docs/10-遗留问题与验收清单.md)。打样直接在[唯一嘉立创原生工程](eda/README.md)打开 PCB2 操作，不再维护重复发布包；原生工程与代码使用 Git 管理。实物插合、上电及整机功能仍待首板验收。
+
+## 目录职责
 
 ```text
 homeguard-mini/
-├─ AGENTS.md                      # 本项目的模块化与验证规约
-├─ README.md
-├─ eda/                            # 从 LCEDA-Pro 搬入的完整本地工程，后续在此编辑
-├─ hardware/                       # 设计输入、审查、工具、冻结打样包与历史资料
-├─ docs/                           # 中文教程
+├─ README.md / AGENTS.md   入口与协作规约
+├─ docs/                  制作教程及一份当前验收清单
+├─ eda/
+│  ├─ HomeGuard Mini 载板 R1 20261111/  完整嘉立创工作工程
+│  └─ hardware/           设计输入、硬件说明与工具
 └─ firmware/
-   ├─ README.md                    # 固件分层和依赖方向
-   ├─ platformio.ini               # PlatformIO 工程配置
-   ├─ web/                         # 浏览器大屏：HTML、样式、数据呈现、Three.js
-   ├─ scripts/                     # 将网页压缩编入Flash的构建脚本
-   ├─ include/
-   │  ├─ app/                      # 应用调度接口
-   │  ├─ domain/                   # 状态、阈值、AI模型和规则
-   │  ├─ drivers/                  # 传感器、雷达、麦克风、摄像头接口
-   │  ├─ services/                 # 网络服务接口
-   │  ├─ ui/                       # 屏幕接口和网页资源查询接口
-   │  ├─ app_config.example.h      # Wi-Fi 配置模板
-   │  └─ pins.h                    # 全部引脚定义
-   └─ src/
-      ├─ app/ domain/ drivers/     # 与 include 对应的实现
-      ├─ services/ ui/
-      └─ main.cpp                  # 仅保留 setup/loop 入口
+   ├─ platformio.ini      编译环境
+   ├─ include/ / src/     按 app、domain、drivers、services、ui 对应分层
+   ├─ web/                网页源码及使用说明
+   ├─ scripts/            构建和验证工具
+   └─ tests/              领域规则和采集故障回归
 ```
+
+硬件资料集中在 `eda/`，固件与网页各有自己的入口。不要再为每轮修改增加一份总结；实际状态更新验收清单，操作更新对应教程，临时候选和重复导出放已忽略目录。版本管理直接在仓库根目录进行，不在项目内再次 `git init`。
 
 ## 最短启动路径
 

@@ -1,0 +1,2 @@
+# 设计参数保持原始换行，避免机器输入出现无关变化。
+design/**/*.json -text whitespace=cr-at-eol

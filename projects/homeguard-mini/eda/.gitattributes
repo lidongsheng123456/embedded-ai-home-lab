@@ -1,0 +1,5 @@
+# 官方原生工程由 EDA 维护，Git 不改写其记录或换行。
+**/*.eprj3 -text -whitespace
+**/*.epcb2 -text -whitespace
+**/*.esch2 -text -whitespace
+**/*.epan2 -text -whitespace

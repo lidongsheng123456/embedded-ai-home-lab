@@ -1,0 +1,66 @@
+{
+  "status": "live-verified",
+  "date": "2026-11-12",
+  "decision": "用户选择取下开发板烧录；直接排母供电，不再保留USB-A供电插座或额外跳帽",
+  "baseline": "当前Board2 / Schematic2 / PCB2新回读；历史composition不得重放",
+  "schematicChanges": {
+    "powerPage": "40f462ebf0a92293",
+    "remove": {
+      "designator": "J11",
+      "uniqueId": "gge35",
+      "mpn": "USB-AF-DIP-154-HW-S",
+      "cleanExclusiveWires": true
+    },
+    "controllerPage": "4795d64e2b14bb93",
+    "connect": {
+      "pin": "J7:21",
+      "clearNoConnect": true,
+      "net": "USB_MCU_5V"
+    },
+    "retainedSupply": [
+      "U10.6",
+      "C25.1"
+    ],
+    "netNaming": "USB_MCU_5V为历史网名；其新用途是受保护的开发板排针5V，不表示USB数据连接"
+  },
+  "pcbConstraints": {
+    "removeObsoleteUsbBranch": true,
+    "supplyMinWidthMil": 40,
+    "clearanceMil": 8,
+    "routeEndpoints": [
+      "C25.1",
+      "J7.21"
+    ],
+    "leaveOtherModulesAndRulesIntact": true,
+    "silkscreen": "REMOVE MCU BEFORE USB"
+  },
+  "assemblyConstraints": {
+    "devboardInOutBridge": "用户已提供红框位置标注，尚未实际焊接；先断开所有电源，再按标注短接IN/OUT两焊盘，不能短接5V/GND排针",
+    "flashSequence": [
+      "断开载板电源",
+      "取下开发板",
+      "接电脑USB烧录",
+      "拔掉电脑USB",
+      "装回载板",
+      "给载板上电"
+    ],
+    "noConcurrentUsb": true,
+    "peripheral3V3": "载板独立供电，不与MCU_3V3并联",
+    "powerSource": "用户确认已有5V/3A电源和对应线",
+    "mechanicalDecision": "用户确认按厂家标称尺寸设计，实物套合留作首板装配验收"
+  },
+  "acceptance": [
+    "删除J11后无孤儿线树",
+    "J7.21明确接受保护5V且不再NC",
+    "其他引脚逐脚网络不变",
+    "保存重开后两轮DRC",
+    "新Gerber与BOM和坐标一致",
+    "开发板尺寸套合与首板供电实测单列"
+  ],
+  "verification": {
+    "scope": "原理图与PCB实际写入，保存重载两轮回读；78器件、340焊盘、27明确NC、75网络对账，原生DRC均为0项。检查输出不作重复发布保存。",
+    "currentProject": "../../../README.md",
+    "acceptance": "../../../../docs/10-遗留问题与验收清单.md",
+    "hardwareTested": false
+  }
+}

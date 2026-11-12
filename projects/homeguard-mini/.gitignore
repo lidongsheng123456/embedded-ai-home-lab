@@ -1,4 +1,13 @@
 .pio/
 .vscode/
 firmware/include/app_config.h
+firmware/include/cloud_config.h
+**/node_modules/
+**/.pio/
+**/.cache/
+**/compile_commands.json
+.work/
+.easyeda/
 *.log
+**/__pycache__/
+*.pyc

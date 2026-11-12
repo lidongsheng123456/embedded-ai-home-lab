@@ -71,7 +71,7 @@ services / ui ───────────┤
 
 ## 可选 DeepSeek 云解读
 
-新手配置与操作见[DeepSeek 云解读](../docs/13-DeepSeek云解读.md)。未提供本机
+新手配置与操作见[DeepSeek 云解读](../docs/09-DeepSeek云解读.md)。未提供本机
 `include/cloud_config.h` 时默认关闭。密钥不进入网页、串口日志或 Git；配置后会编进固件，
 不要分享包含真实密钥的固件。
 
@@ -120,6 +120,17 @@ API额外公开`moving`、`sensorsValid`、`silenceRemaining`，对应移动检�
 ```powershell
 pio run
 ```
+
+故障边界可在电脑验证：`python scripts/check_risk_evaluator.py`编译真实规则/模型，
+检查光照故障不屏蔽气体、预热不屏蔽湿度、失效声音不进入学习以及旧分数失效等场景。
+测试中的Arduino/Preferences替身仅支持领域代码，不代表实物采集、Flash或Wi-Fi实测。
+
+音频由独立任务持续读DMA，5秒环境周期取期间16ms窗口的最大相对响度；模型存储升级为
+`homeguard-ai3`，旧声音基线不会复用。I2S失败显示未知；数字静音不能单独证明麦克风接线正常。
+雷达通过库的有效帧超时检查发布`radarValid`，网页、TFT和云摘要不再把失联解释为无人。
+Wi-Fi初始化不阻塞采集，断线约15秒开热点，每30秒重连，成功后关闭热点并更新IP。
+手动200ms蜂鸣器短响由驱动层独立定时器关闭，网络阻塞不延长该测试脉冲；
+一般HTTP、相机取帧和显示仍共用主循环，完整并发响应和时序必须在首板测量。
 
 ## 构建环境
 
