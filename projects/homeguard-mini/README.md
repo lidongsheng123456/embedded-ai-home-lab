@@ -47,6 +47,7 @@
 11. [EasyEDA 从入门到完整系统的渐进电路学习路线](docs/11-EasyEDA渐进电路学习路线.md)
 12. [手机与电脑可视化大屏：预览、使用和源码](firmware/web/README.md)
 13. [R1 载板原理图、PCB 与打样资料](hardware/README.md)（四层载板已完成设计检查；首板仍需实物验证）
+14. [嘉立创EDA完整本地工程与继续优化入口](eda/README.md)（直接打开 `.eprj3`；当前工作版本有 1 项网表检查错误待处理）
 
 ## 目录结构
 
@@ -54,7 +55,8 @@
 homeguard-mini/
 ├─ AGENTS.md                      # 本项目的模块化与验证规约
 ├─ README.md
-├─ hardware/                       # 电路工具产物与硬件资料
+├─ eda/                            # 从 LCEDA-Pro 搬入的完整本地工程，后续在此编辑
+├─ hardware/                       # 设计输入、审查、工具、冻结打样包与历史资料
 ├─ docs/                           # 中文教程
 └─ firmware/
    ├─ README.md                    # 固件分层和依赖方向
