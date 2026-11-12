@@ -1,0 +1,17 @@
+{
+  "active": {
+    "projectUuid": "fc4785d6bd01bbfc80f1329112f70bd1b5e0b46061fcbdb9c8515ca4872cbe1c",
+    "projectName": "HomeGuard Mini 载板 R1 20261111",
+    "documentUuid": "e06d6bd616ed4ccd",
+    "documentType": "pcb",
+    "tabId": "e06d6bd616ed4ccd@fc4785d6bd01bbfc80f1329112f70bd1b5e0b46061fcbdb9c8515ca4872cbe1c"
+  },
+  "opened": {
+    "uuid": "e06d6bd616ed4ccd",
+    "type": "pcb",
+    "name": "PCB2",
+    "parent": "fc4785d6bd01bbfc80f1329112f70bd1b5e0b46061fcbdb9c8515ca4872cbe1c",
+    "active": false
+  },
+  "ready": true
+}

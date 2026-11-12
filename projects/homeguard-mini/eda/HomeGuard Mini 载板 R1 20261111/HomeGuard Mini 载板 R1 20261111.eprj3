@@ -1,0 +1,163 @@
+{
+  "name": "HomeGuard Mini 载板 R1 20261111",
+  "owner_uuid": "e8d66a1c3f754e34b60c6bb54fb2e827",
+  "creator_uuid": "e8d66a1c3f754e34b60c6bb54fb2e827",
+  "created_at": "2026-11-11 21:50:06",
+  "updated_at": "2026-11-11 21:50:06",
+  "modifier_uuid": "e8d66a1c3f754e34b60c6bb54fb2e827",
+  "content": "HomeGuard Mini 模块载板设计，匹配固件 GPIO。设计验证中，尚未批准打样。",
+  "archive": false,
+  "cbb_project": 0,
+  "thumb": "",
+  "ticket": 1,
+  "g_ticket": 1,
+  "boards": [],
+  "block_symbol_attrs_groups": {},
+  "default_sheet": "3d1ff72fbe45857c",
+  "branch_uuid": "",
+  "pcb_count": 0,
+  "format": "folder",
+  "profile": {
+    "boards": {
+      "3c4312b1f314c7aa": {
+        "uuid": "3c4312b1f314c7aa",
+        "title": "Board1",
+        "zIndex": 1
+      },
+      "4dcd8c5e8e6e85cf": {
+        "uuid": "4dcd8c5e8e6e85cf",
+        "title": "Board2",
+        "zIndex": 2
+      }
+    },
+    "schematics": {
+      "3e66873da87c217e": {
+        "uuid": "3e66873da87c217e",
+        "name": "Schematic1",
+        "board": "3c4312b1f314c7aa",
+        "source": "",
+        "version": "1794415506360",
+        "updateTime": 1794415506360
+      },
+      "b3a530f1580af6a3": {
+        "uuid": "b3a530f1580af6a3",
+        "name": "Schematic2",
+        "board": "4dcd8c5e8e6e85cf",
+        "source": "",
+        "version": "1794415452280",
+        "updateTime": 1794415452280
+      }
+    },
+    "sheets": {
+      "7e038f9397976759": {
+        "uuid": "7e038f9397976759",
+        "title": "P1",
+        "schematic_uuid": "3e66873da87c217e",
+        "zIndex": 1,
+        "source": "",
+        "version": "1794405009984",
+        "updateTime": 1794405009984
+      },
+      "aa246f793129b3d3": {
+        "uuid": "aa246f793129b3d3",
+        "title": "03 信号隔离与上电控制",
+        "schematic_uuid": "b3a530f1580af6a3",
+        "zIndex": 3,
+        "source": "",
+        "version": "1794414726875",
+        "updateTime": 1794414726875
+      },
+      "40f462ebf0a92293": {
+        "uuid": "40f462ebf0a92293",
+        "title": "04 电源与 USB 供电",
+        "schematic_uuid": "b3a530f1580af6a3",
+        "zIndex": 4,
+        "source": "",
+        "version": "1794413722801",
+        "updateTime": 1794413722801
+      },
+      "d734014dc8d7c031": {
+        "uuid": "d734014dc8d7c031",
+        "title": "05 摄像头与显示接口",
+        "schematic_uuid": "b3a530f1580af6a3",
+        "zIndex": 5,
+        "source": "",
+        "version": "1794415452280",
+        "updateTime": 1794415452280
+      },
+      "bc53c0a5b55ae550": {
+        "uuid": "bc53c0a5b55ae550",
+        "title": "P1",
+        "schematic_uuid": "b3a530f1580af6a3",
+        "zIndex": 1,
+        "source": "",
+        "version": "1794408198251",
+        "updateTime": 1794408198251
+      },
+      "4795d64e2b14bb93": {
+        "uuid": "4795d64e2b14bb93",
+        "title": "主控与交互",
+        "schematic_uuid": "b3a530f1580af6a3",
+        "zIndex": 2,
+        "source": "",
+        "version": "1794410680470",
+        "updateTime": 1794410680470
+      }
+    },
+    "pcbs": {
+      "83274bc0cff89087": {
+        "uuid": "83274bc0cff89087",
+        "title": "PCB1",
+        "board": "3c4312b1f314c7aa",
+        "parent_uuid": "",
+        "source": "",
+        "version": "1794405008555",
+        "updateTime": 1794405008555
+      },
+      "e06d6bd616ed4ccd": {
+        "uuid": "e06d6bd616ed4ccd",
+        "title": "PCB2",
+        "board": "4dcd8c5e8e6e85cf",
+        "parent_uuid": "",
+        "source": "",
+        "version": "1794457834534",
+        "updateTime": 1794457834534
+      }
+    },
+    "panels": {
+      "88a6a79258289e1a": {
+        "uuid": "88a6a79258289e1a",
+        "title": "Panel1",
+        "zIndex": null
+      }
+    },
+    "blockSymbols": {},
+    "owner": {
+      "uuid": "e8d66a1c3f754e34b60c6bb54fb2e827"
+    },
+    "simSchematics": {},
+    "simulations": {}
+  },
+  "config": {
+    "defaultSheet": "3d1ff72fbe45857c",
+    "settings": {
+      "UNIVERSAL": {
+        "dataType": "UNIVERSAL",
+        "data": {
+          "allowLibRename": true,
+          "defaultNetName": true,
+          "wireMultipleNet": true,
+          "netFlagCrossLayerConnection": true,
+          "netLabelCrossPageConnection": true,
+          "busGenerateNetClass": true,
+          "relevanceDisplayRow": "SINGLE",
+          "relevanceBelongSchPage": "NAME",
+          "relevanceLocation": "ZONE",
+          "multipartCrossLayer": true,
+          "nonElectronicAddIntoBom": false,
+          "nonElectronicUpdatePcb": false
+        }
+      }
+    }
+  }
+}
