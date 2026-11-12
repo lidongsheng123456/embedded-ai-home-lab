@@ -28,18 +28,37 @@ void Microphone::begin() {
       .data_out_num = I2S_PIN_NO_CHANGE,
       .data_in_num = PIN_MIC_SD,
   };
-  i2s_driver_install(I2S_NUM_0, &config, 0, nullptr);
-  i2s_set_pin(I2S_NUM_0, &pins);
-  i2s_zero_dma_buffer(I2S_NUM_0);
+  if (i2s_driver_install(I2S_NUM_0, &config, 0, nullptr) != ESP_OK) {
+    Serial.println("Microphone: I2S installation failed");
+    return;
+  }
+  if (i2s_set_pin(I2S_NUM_0, &pins) != ESP_OK ||
+      xTaskCreate(sampleTask, "mic-sampler", 3072, this, 2, nullptr) != pdPASS) {
+    i2s_driver_uninstall(I2S_NUM_0);
+    Serial.println("Microphone: pin configuration or sampler startup failed");
+  }
 }
 
-float Microphone::readSoundIndex() {
+void Microphone::sampleTask(void *context) {
+  auto *self = static_cast<Microphone *>(context);
+  // 独立消费DMA，网页传输、相机和5秒采集节奏不会让音频缓冲区无人读取。
+  for (;;) {
+    self->collect();
+    vTaskDelay(1);
+  }
+}
+
+void Microphone::collect() {
   // 256个样本约等于一小段声音快照，数组只在本次调用期间使用。
   int32_t samples[256];
   size_t bytesRead = 0;
   if (i2s_read(I2S_NUM_0, samples, sizeof(samples), &bytesRead,
                pdMS_TO_TICKS(40)) != ESP_OK || bytesRead == 0) {
-    return 0.0f;
+    portENTER_CRITICAL(&mutex_);
+    healthy_ = hasSamples_ = false;
+    peak_ = 0;
+    portEXIT_CRITICAL(&mutex_);
+    return;
   }
 
   const size_t count = bytesRead / sizeof(int32_t);
@@ -51,5 +70,20 @@ float Microphone::readSoundIndex() {
   }
   const float rms = sqrtf(static_cast<float>(sumSquared / count));
   // 结果只是 0～100 的相对声音指数，不是校准分贝。
-  return constrain(20.0f * log10f(rms + 1.0f) - 10.0f, 0.0f, 100.0f);
+  const float index = constrain(20.0f * log10f(rms + 1.0f) - 10.0f, 0.0f, 100.0f);
+  portENTER_CRITICAL(&mutex_);
+  peak_ = fmaxf(peak_, index);
+  hasSamples_ = healthy_ = true;
+  lastSampleAt_ = millis();
+  portEXIT_CRITICAL(&mutex_);
+}
+
+float Microphone::readSoundIndex() {
+  portENTER_CRITICAL(&mutex_);
+  const float value = healthy_ && hasSamples_ && millis() - lastSampleAt_ < 250
+                          ? peak_ : NAN;
+  peak_ = 0;
+  hasSamples_ = false;
+  portEXIT_CRITICAL(&mutex_);
+  return value;
 }

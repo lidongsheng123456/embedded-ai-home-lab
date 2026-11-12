@@ -24,6 +24,8 @@ AiSnapshot capture(const HomeState &state) {
   snapshot.presence = state.presence;
   snapshot.moving = state.moving;
   snapshot.sensorsValid = state.sensorsValid;
+  snapshot.soundValid = state.soundValid;
+  snapshot.radarValid = state.radarValid;
   snapshot.gasWarmingUp = state.gasWarmingUp;
   snapshot.cameraReady = state.cameraReady;
   snapshot.level = state.level;

@@ -10,7 +10,10 @@ void RiskEvaluator::update(HomeState &state, AnomalyModel &model) {
 }
 
 void RiskEvaluator::updateModel(HomeState &state, AnomalyModel &model) {
-  if (!state.sensorsValid) return;
+  if (!state.sensorsValid) {
+    state.anomalyScore = NAN; // 旧分数不能当成本次有效预测继续触发告警。
+    return;
+  }
 
   // 光照可能从个位数跳到几万lux，先取对数可缩小量级差距。
   const float features[AnomalyModel::FEATURE_COUNT] = {
@@ -30,48 +33,47 @@ void RiskEvaluator::evaluateRules(HomeState &state, const AnomalyModel &model) {
   state.state = model.trained() ? "Normal" : "Learning";
   state.reason = model.trained() ? "No abnormal condition" : "Keep the room in its normal state";
 
-  if (state.gasWarmingUp) {
-    state.level = 0;
-    state.state = "Warming up";
-    state.reason = "MQ-2 is warming up; alarm is paused";
-    return;
-  }
-
-  if (!state.sensorsValid) {
-    state.level = 1;
-    state.state = "Sensor warning";
-    state.reason = "Check SHT40/BH1750 wiring";
-    return;
-  }
-
-  if (state.gasIndex >= AppSettings::GAS_DANGER_INDEX ||
+  // 固定规则各自使用可用数据；光照坏了不能屏蔽气体、湿度或声音提醒。
+  const float gas = state.gasWarmingUp ? NAN : state.gasIndex;
+  const float sound = state.soundValid ? state.sound : NAN;
+  if (gas >= AppSettings::GAS_DANGER_INDEX ||
       state.humidity >= AppSettings::HUMIDITY_DANGER_PERCENT ||
-      state.sound >= AppSettings::SOUND_DANGER_INDEX ||
+      sound >= AppSettings::SOUND_DANGER_INDEX ||
       state.anomalyScore >= AppSettings::AI_DANGER_SCORE) {
     state.level = 2;
     state.state = "High risk";
-    if (state.gasIndex >= AppSettings::GAS_DANGER_INDEX)
+    if (gas >= AppSettings::GAS_DANGER_INDEX)
       state.reason = "MQ-2 gas index changed sharply";
     else if (state.humidity >= AppSettings::HUMIDITY_DANGER_PERCENT)
       state.reason = "Humidity is very high: mold risk";
-    else if (state.sound >= AppSettings::SOUND_DANGER_INDEX)
+    else if (sound >= AppSettings::SOUND_DANGER_INDEX)
       state.reason = "Sudden loud sound detected";
     else state.reason = "AI detected a large environmental change";
     return;
   }
 
-  if (state.gasIndex >= AppSettings::GAS_WARNING_INDEX ||
+  if (gas >= AppSettings::GAS_WARNING_INDEX ||
       state.humidity >= AppSettings::HUMIDITY_WARNING_PERCENT ||
-      state.sound >= AppSettings::SOUND_WARNING_INDEX ||
+      sound >= AppSettings::SOUND_WARNING_INDEX ||
       state.anomalyScore >= AppSettings::AI_WARNING_SCORE) {
     state.level = 1;
     state.state = "Attention";
-    if (state.gasIndex >= AppSettings::GAS_WARNING_INDEX)
+    if (gas >= AppSettings::GAS_WARNING_INDEX)
       state.reason = "MQ-2 gas index is elevated";
     else if (state.humidity >= AppSettings::HUMIDITY_WARNING_PERCENT)
       state.reason = "Humidity remains high";
-    else if (state.sound >= AppSettings::SOUND_WARNING_INDEX)
+    else if (sound >= AppSettings::SOUND_WARNING_INDEX)
       state.reason = "Unusual loud sound";
     else state.reason = "AI detected an unusual environment";
+    return;
+  }
+  if (!isfinite(state.temperature) || !isfinite(state.humidity) ||
+      !isfinite(state.light) || !state.soundValid || !state.radarValid) {
+    state.level = 1;
+    state.state = "Sensor warning";
+    state.reason = "Sensor data missing; valid rules remain active";
+  } else if (state.gasWarmingUp) {
+    state.state = "Warming up";
+    state.reason = "MQ-2 warming up; other valid rules remain active";
   }
 }

@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <math.h>
 
+#include "domain/app_settings.h"
 #include "ui/web_assets.h"
 
 #if __has_include("app_config.h")
@@ -17,7 +18,7 @@
 
 namespace {
 String numberOrNull(float value, uint8_t decimals) {
-  return isnan(value) ? "null" : String(value, static_cast<unsigned int>(decimals));
+  return !isfinite(value) ? "null" : String(value, static_cast<unsigned int>(decimals));
 }
 }  // namespace
 
@@ -31,7 +32,10 @@ void NetworkService::begin() {
   server_.begin();
 }
 
-void NetworkService::handleClient() { server_.handleClient(); }
+void NetworkService::handleClient() {
+  updateNetwork();
+  server_.handleClient();
+}
 
 bool NetworkService::takeLearnRequest() {
   // “读取后清零”保证一次网页点击只执行一次，而不是每轮loop重复执行。
@@ -49,26 +53,50 @@ bool NetworkService::takeSilenceRequest() {
 
 void NetworkService::startNetwork() {
   WiFi.setHostname(DEVICE_HOSTNAME);
+  WiFi.mode(WIFI_AP_STA);
+  WiFi.setAutoReconnect(true);
+  disconnectedAt_ = lastWifiRetryAt_ = millis();
   if (strlen(HOME_WIFI_SSID) > 0) {
-    WiFi.mode(WIFI_STA);
     WiFi.begin(HOME_WIFI_SSID, HOME_WIFI_PASSWORD);
-    Serial.printf("Connecting to Wi-Fi %s", HOME_WIFI_SSID);
-    for (uint8_t i = 0; i < 30 && WiFi.status() != WL_CONNECTED; ++i) {
-      delay(500);
-      Serial.print('.');
-    }
-    Serial.println();
-  }
+    Serial.println("Wi-Fi connecting; sensor loop remains active");
+  } else startAccessPoint();
+}
 
+void NetworkService::updateNetwork() {
+  const uint32_t now = millis();
+  if (now - lastWifiPollAt_ < AppSettings::WIFI_POLL_MS) return;
+  lastWifiPollAt_ = now;
   if (WiFi.status() == WL_CONNECTED) {
     deviceIp_ = WiFi.localIP();
-    Serial.printf("Wi-Fi connected: http://%s\n", deviceIp_.toString().c_str());
-  } else {
-    WiFi.mode(WIFI_AP);
-    WiFi.softAP(FALLBACK_AP_NAME, FALLBACK_AP_PASSWORD);
+    if (!wasConnected_) {
+      Serial.printf("Wi-Fi connected: http://%s\n", deviceIp_.toString().c_str());
+      if (apActive_) WiFi.softAPdisconnect(false);
+      apActive_ = false;
+    }
+    wasConnected_ = true;
+    return;
+  }
+  if (wasConnected_) {
+    disconnectedAt_ = now;
+    wasConnected_ = false;
+    deviceIp_ = IPAddress(); // 旧地址已经不可用，屏幕不能继续提示访问它。
+  }
+  if (!apActive_ && now - disconnectedAt_ >= AppSettings::WIFI_FALLBACK_MS)
+    startAccessPoint();
+  if (strlen(HOME_WIFI_SSID) > 0 && now - lastWifiRetryAt_ >= AppSettings::WIFI_RETRY_MS) {
+    lastWifiRetryAt_ = now;
+    WiFi.reconnect(); // 保留热点，避免重试期间手机也失去本地访问入口。
+  }
+}
+
+void NetworkService::startAccessPoint() {
+  apActive_ = WiFi.softAP(FALLBACK_AP_NAME, FALLBACK_AP_PASSWORD);
+  if (apActive_) {
     deviceIp_ = WiFi.softAPIP();
     Serial.printf("AP mode: %s, open http://%s\n", FALLBACK_AP_NAME,
                   deviceIp_.toString().c_str());
+  } else {
+    Serial.println("AP startup failed; will retry");
   }
 }
 
@@ -83,11 +111,13 @@ String NetworkService::buildStatusJson() const {
   json += F(",\"temp\":"); json += numberOrNull(state_.temperature, 1);
   json += F(",\"humidity\":"); json += numberOrNull(state_.humidity, 1);
   json += F(",\"light\":"); json += numberOrNull(state_.light, 0);
-  json += F(",\"sound\":"); json += String(state_.sound, 0);
-  json += F(",\"score\":"); json += String(state_.anomalyScore, 2);
+  json += F(",\"sound\":"); json += numberOrNull(state_.sound, 0);
+  json += F(",\"score\":"); json += numberOrNull(state_.anomalyScore, 2);
   json += F(",\"presence\":"); json += state_.presence ? F("true") : F("false");
   json += F(",\"moving\":"); json += state_.moving ? F("true") : F("false");
   json += F(",\"sensorsValid\":"); json += state_.sensorsValid ? F("true") : F("false");
+  json += F(",\"soundValid\":"); json += state_.soundValid ? F("true") : F("false");
+  json += F(",\"radarValid\":"); json += state_.radarValid ? F("true") : F("false");
   json += F(",\"silenceRemaining\":"); json += state_.silenceRemainingSeconds;
   json += F(",\"camera\":"); json += state_.cameraReady ? F("true") : F("false");
   json += F(",\"samples\":"); json += state_.learningSamples;

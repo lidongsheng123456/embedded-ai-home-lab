@@ -3,8 +3,8 @@
 #include <math.h>
 
 void AnomalyModel::begin() {
-  // v2的第一项特征由CO2改为MQ-2相对指数，不能继续读取旧模型。
-  preferences_.begin("homeguard-ai2", false);
+  // v3改用周期内声音峰值，不能沿用v2单个声音窗口的统计基线。
+  preferences_.begin("homeguard-ai3", false);
   count_ = preferences_.getUInt("count", 0);
   if (count_ > 0) {
     if (preferences_.getBytesLength("mean") == sizeof(mean_)) {

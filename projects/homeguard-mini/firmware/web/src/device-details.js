@@ -9,7 +9,9 @@ export function renderDeviceDetails(state) {
   }
   text('sensors-health', state.sensorsValid === true ? '已获得有效数据'
     : state.sensorsValid === false ? '等待有效数据，请检查接线' : '旧版固件未提供此信息');
-  text('radar-detail', !state.presence ? '暂未检测到人'
+  text('radar-detail', state.radarValid === false ? '雷达失联，请检查供电和串口接线'
+    : state.radarValid !== true ? '旧版固件未提供雷达有效性，状态未知'
+    : !state.presence ? '暂未检测到人'
     : state.moving === true ? '有人 · 检测到移动'
     : state.moving === false ? '有人 · 暂未检测到移动' : '有人 · 移动状态未知');
   text('gas-raw', Number.isFinite(state.gasRaw) ? `${state.gasRaw} / 4095` : '--');

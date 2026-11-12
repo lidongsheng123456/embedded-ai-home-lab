@@ -12,7 +12,7 @@ class RadarSensor {
   RadarSensor();
   // 按LD2410C要求的256000波特率启动串口并探测模块。
   void begin();
-  // 读取雷达最新数据；没有新数据时保持HomeState原值不变。
+  // 读取协议帧并检查库的有效帧超时；失联发布未知，不沿用旧presence。
   void update(HomeState &state);
   // 表示模块通信初始化是否成功。
   bool ready() const { return ready_; }

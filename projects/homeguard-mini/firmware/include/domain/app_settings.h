@@ -17,6 +17,10 @@ constexpr uint32_t BUTTON_MIN_PRESS_MS = 40;
 constexpr uint32_t BUTTON_LONG_PRESS_MS = 2000;
 // MQ-2每次通电后的短期预热时间；新模块首次使用仍需按教程老化。
 constexpr uint32_t MQ2_WARMUP_MS = 3UL * 60UL * 1000UL;
+// 首次连接或运行中断线超过15秒，开启本机热点；同时每30秒尝试恢复路由器连接。
+constexpr uint32_t WIFI_FALLBACK_MS = 15000;
+constexpr uint32_t WIFI_RETRY_MS = 30000;
+constexpr uint32_t WIFI_POLL_MS = 500;
 
 // 提醒级别每3秒响100ms，避免普通提醒一直鸣叫。
 constexpr uint32_t WARNING_BEEP_PERIOD_MS = 3000;

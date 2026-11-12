@@ -11,6 +11,8 @@ const reasons = {
   'Keep the room in its normal state': '正在收集正常环境数据，请保持房间状态稳定。',
   'MQ-2 is warming up; alarm is paused': 'MQ-2 通电预热中，此阶段暂停报警与学习。',
   'Check SHT40/BH1750 wiring': '请检查温湿度、光照传感器的供电与接线。',
+  'Sensor data missing; valid rules remain active': '有模块数据缺失，请检查接线；其他有效指标仍继续提醒。',
+  'MQ-2 warming up; other valid rules remain active': 'MQ-2 正在预热；湿度、声音等有效指标仍继续提醒。',
   'MQ-2 gas index changed sharply': 'MQ-2 相对气体指数明显上升，请检查实际环境。',
   'Humidity is very high: mold risk': '当前湿度很高，请留意潮湿与通风情况。',
   'Sudden loud sound detected': '检测到相对强烈的声音变化，请确认现场情况。',
@@ -36,8 +38,10 @@ export function renderStatus(state, demo) {
   for (const [key, decimals] of Object.entries(values)) byId(key).textContent = number(state[key], decimals);
   byId('state-title').textContent = titles[state.state] ?? state.state;
   byId('state-reason').textContent = reasons[state.reason] ?? state.reason;
-  byId('presence').textContent = state.presence ? '感知到有人' : '暂未检测到人';
-  byId('scene-presence').textContent = state.presence ? '◎ 有人在家' : '◌ 空间安静中';
+  byId('presence').textContent = state.radarValid !== true ? '雷达数据未知'
+    : state.presence ? '感知到有人' : '暂未检测到人';
+  byId('scene-presence').textContent = state.radarValid !== true ? '雷达数据未知 · 请检查连接或固件版本'
+    : state.presence ? '◎ 有人在家' : '◌ 空间安静中';
   byId('status-symbol').textContent = state.level === 2 ? '!' : state.level === 1 ? '↗' : '◎';
   byId('samples').textContent = `${state.samples} / 120`;
   byId('learning-progress').style.width = `${Math.min(100, Math.max(0, state.samples / 120 * 100))}%`;

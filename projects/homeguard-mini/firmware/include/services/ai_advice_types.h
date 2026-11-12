@@ -18,6 +18,8 @@ struct AiSnapshot {
   bool presence;
   bool moving;
   bool sensorsValid;
+  bool soundValid; // 未采集成功的音频不能让模型理解为“安静”。
+  bool radarValid; // 失联与无人是不同状态。
   bool gasWarmingUp;
   bool cameraReady; // 只有初始化成功时才向模型开放拍照工具。
   uint8_t level;

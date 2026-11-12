@@ -26,6 +26,8 @@ class NetworkService {
 
  private:
   void startNetwork();
+  void updateNetwork();
+  void startAccessPoint();
   void setupRoutes();
   void setupAiRoutes();
   String buildStatusJson() const;
@@ -40,4 +42,9 @@ class NetworkService {
   IPAddress deviceIp_;     // 当前可访问地址，联网或热点成功后写入。
   bool learnRequested_ = false;    // 网页请求与主循环之间的一次性标记。
   bool silenceRequested_ = false;  // 避免HTTP回调直接操作业务和硬件。
+  bool apActive_ = false;          // 热点已成功建立，不能以请求成功冒充可用。
+  bool wasConnected_ = false;      // 用于识别运行中的断网边沿。
+  uint32_t disconnectedAt_ = 0;    // 无符号差值允许millis正常回绕。
+  uint32_t lastWifiPollAt_ = 0;
+  uint32_t lastWifiRetryAt_ = 0;
 };

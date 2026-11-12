@@ -48,11 +48,12 @@ void DisplayView::render(const HomeState &state, const IPAddress &deviceIp) {
   tft_.drawString(numberOrNull(state.light, 0) + " lux", valueX,
                   firstY + row * 3);
   tft_.drawString("Sound", labelX, firstY + row * 4);
-  tft_.drawString(String(state.sound, 0), valueX, firstY + row * 4);
+  tft_.drawString(numberOrNull(state.sound, 0), valueX, firstY + row * 4);
   tft_.drawString("Presence", labelX, firstY + row * 5);
-  tft_.drawString(state.presence ? "YES" : "NO", valueX, firstY + row * 5);
+  tft_.drawString(!state.radarValid ? "UNKNOWN" : state.presence ? "YES" : "NO",
+                  valueX, firstY + row * 5);
   tft_.drawString("AI score", labelX, firstY + row * 6);
-  tft_.drawString(String(state.anomalyScore, 2), valueX, firstY + row * 6);
+  tft_.drawString(numberOrNull(state.anomalyScore, 2), valueX, firstY + row * 6);
   tft_.setTextColor(TFT_CYAN, TFT_BLACK);
   tft_.drawCentreString(deviceIp.toString(), tft_.width() / 2, tft_.height() - 18, 2);
 }

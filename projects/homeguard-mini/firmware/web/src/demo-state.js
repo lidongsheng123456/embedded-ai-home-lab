@@ -5,7 +5,7 @@ export function createDemoState(scenario = 'normal', tick = 0) {
     gasRaw: 620, gasVoltage: 0.75, gasIndex: 19 + wave, gasWarmingUp: false,
     temp: 25.6 + wave * 0.3, humidity: 52 + wave, light: 428 + wave * 32,
     sound: 32 + wave * 5, score: 0.62, presence: true, camera: false,
-    moving: false, sensorsValid: true, silenceRemaining: 0,
+    moving: false, radarValid: true, sensorsValid: true, silenceRemaining: 0,
     samples: 120, level: 0, state: 'Normal', reason: 'No abnormal condition',
     uptime: 3600 + tick * 2,
   };

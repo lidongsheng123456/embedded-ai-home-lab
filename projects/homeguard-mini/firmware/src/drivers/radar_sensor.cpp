@@ -11,7 +11,9 @@ void RadarSensor::begin() {
 }
 
 void RadarSensor::update(HomeState &state) {
-  if (!ready_ || !radar_.read()) return;
-  state.presence = radar_.presenceDetected();
-  state.moving = radar_.movingTargetDetected();
+  // read()返回true也可能只是收到字节；连接状态才包含有效帧的超时检查。
+  radar_.read();
+  state.radarValid = radar_.isConnected();
+  state.presence = state.radarValid && radar_.presenceDetected();
+  state.moving = state.radarValid && radar_.movingTargetDetected();
 }

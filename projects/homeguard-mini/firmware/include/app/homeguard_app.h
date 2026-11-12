@@ -5,6 +5,7 @@
 #include "drivers/camera_module.h"
 #include "drivers/camera_snapshot.h"
 #include "drivers/microphone.h"
+#include "drivers/buzzer_pulse.h"
 #include "drivers/radar_sensor.h"
 #include "drivers/sensor_hub.h"
 #include "services/network_service.h"
@@ -49,6 +50,7 @@ class HomeGuardApp {
   AiAdvisor advisor_;       // 可选云解读；独立任务等待官方API，不阻塞本地监测。
   NetworkService network_;  // Wi-Fi、HTTP接口和网页请求入口。
   Microphone microphone_;   // INMP441声音指数采集。
+  BuzzerPulse manualBeep_;  // 手动短响由独立定时器兜底关闭。
   RadarSensor radar_;       // LD2410C人体存在和移动检测。
   DisplayView display_;     // ST7789或兼容ILI9341本地显示。
   uint32_t lastSensorAt_ = 0;   // 上一次传感器采集时刻。

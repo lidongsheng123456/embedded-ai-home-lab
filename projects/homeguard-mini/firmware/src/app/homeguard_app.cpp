@@ -16,6 +16,7 @@ void HomeGuardApp::setup() {
   if (PIN_BUTTON_LEARN >= 0) pinMode(PIN_BUTTON_LEARN, INPUT_PULLUP);
   pinMode(PIN_BUTTON_SILENCE, INPUT_PULLUP);
   digitalWrite(PIN_BUZZER, LOW);
+  manualBeep_.begin();
 
   display_.begin();
   sensors_.begin();
@@ -58,6 +59,7 @@ bool HomeGuardApp::silenceActive() const {
 
 void HomeGuardApp::readSensors() {
   state_.sound = microphone_.readSoundIndex();
+  state_.soundValid = isfinite(state_.sound);
   sensors_.read(state_);
   RiskEvaluator::update(state_, model_);
   state_.learningSamples = model_.samples();
@@ -134,6 +136,7 @@ void HomeGuardApp::resetLearning() {
 
 void HomeGuardApp::silenceAlarm() {
   beepActive_ = false;
+  manualBeep_.cancel();
   silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
   silenceScheduled_ = true;
   digitalWrite(PIN_BUZZER, LOW);

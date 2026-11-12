@@ -12,14 +12,18 @@ void addSnapshot(JsonObject data, const AiSnapshot &s) {
   if (isfinite(s.temperature)) data["temperatureC"] = s.temperature;
   if (isfinite(s.humidity)) data["humidityPercent"] = s.humidity;
   if (isfinite(s.light)) data["illuminanceLux"] = s.light;
-  data["relativeSoundIndex"] = s.sound;
+  if (s.soundValid && isfinite(s.sound)) data["relativeSoundIndex"] = s.sound;
   data["relativeGasIndex"] = s.gasIndex;
   data["gasRawAdc"] = s.gasRaw;
   data["gasVoltage"] = s.gasVoltage;
   data["anomalyScore"] = s.anomalyScore;
   data["learningSamples"] = s.learningSamples;
-  data["presence"] = s.presence;
-  data["moving"] = s.moving;
+  if (s.radarValid) {
+    data["presence"] = s.presence;
+    data["moving"] = s.moving;
+  }
+  data["soundValid"] = s.soundValid;
+  data["radarValid"] = s.radarValid;
   data["sensorsValid"] = s.sensorsValid;
   data["gasWarmingUp"] = s.gasWarmingUp;
   data["localLevel"] = s.level;

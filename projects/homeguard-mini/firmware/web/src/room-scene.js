@@ -63,7 +63,7 @@ export function createRoomScene(container) {
   function updateLabels() {
     for (const label of labels) {
       const person = label.dataset.anchor === 'person';
-      label.hidden = person && !latest?.presence;
+      label.hidden = person && !(latest?.radarValid === true && latest.presence);
       if (label.hidden) continue;
       projected.copy(model.anchors[label.dataset.anchor]).project(camera);
       const x = (projected.x * 0.5 + 0.5) * container.clientWidth;
@@ -131,7 +131,8 @@ export function createRoomScene(container) {
     reset() { setView('overview'); },
     update(state) {
       latest = state;
-      model.person.visible = Boolean(state?.presence);
+      // 失联或旧固件未报告有效性时，不继续展示上次的“有人”标记。
+      model.person.visible = state?.radarValid === true && Boolean(state.presence);
       const color = state == null ? '#a9a396' : ['#78916c', '#c39552', '#c06a57'][state.level];
       model.beacon.material.emissive.set(color);
       // 只示意照度变化，不推断天气或昼夜，离线时恢复中性照明。
