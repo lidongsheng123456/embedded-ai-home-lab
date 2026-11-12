@@ -1,4 +1,4 @@
-"""编译真实规则、采集、报警与雷达，验证故障边界；不连接设备，不读取本机配置。"""
+"""编译真实规则与硬件访问模块，验证故障边界；不连接设备，不读取本机配置。"""
 from pathlib import Path
 import os
 import shutil
@@ -40,6 +40,10 @@ def main():
     run_check(project, compiler, "radar_sensor", [
         "src/drivers/ld2410_protocol.cpp", "src/drivers/radar_sensor.cpp", "tests/radar_sensor_test.cpp",
     ])
+    for camera, carrier in ((0, 0), (1, 0), (0, 1), (1, 1)):
+        run_check(project, compiler, f"button_input_{camera}_{carrier}", [
+            "src/drivers/button_input.cpp", "tests/button_input_test.cpp",
+        ], [f"-DHOMEGUARD_ENABLE_CAMERA={camera}", f"-DHOMEGUARD_CARRIER_R1={carrier}"])
 
 
 if __name__ == "__main__":

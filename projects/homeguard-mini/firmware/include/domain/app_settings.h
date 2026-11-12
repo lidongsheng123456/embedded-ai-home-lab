@@ -9,9 +9,10 @@ constexpr uint32_t SENSOR_INTERVAL_MS = 5000;
 constexpr uint32_t DISPLAY_INTERVAL_MS = 1000;
 // 用户静音后只关闭声音10分钟，监测和网页仍继续工作。
 constexpr uint32_t SILENCE_DURATION_MS = 10UL * 60UL * 1000UL;
-// 无摄像头版本的两个独立按键使用简单时间消抖。
-constexpr uint32_t BUTTON_DEBOUNCE_MS = 300;
-// 摄像头版本只有一个按键：短于40ms视为机械抖动，不处理。
+// 独立定时任务每5ms读一次按键；状态连续稳定20ms才确认，按下和松开都消抖。
+constexpr uint32_t BUTTON_POLL_MS = 5;
+constexpr uint32_t BUTTON_DEBOUNCE_MS = 20;
+// 短于40ms的完整按压不作为用户操作；不是主循环的轮询间隔。
 constexpr uint32_t BUTTON_MIN_PRESS_MS = 40;
 // 按住至少2秒再松开表示清空旧模型，短按只静音。
 constexpr uint32_t BUTTON_LONG_PRESS_MS = 2000;

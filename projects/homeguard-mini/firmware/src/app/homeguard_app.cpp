@@ -12,8 +12,7 @@ void HomeGuardApp::setup() {
   Serial.begin(115200);
   delay(500);
 
-  if (PIN_BUTTON_LEARN >= 0) pinMode(PIN_BUTTON_LEARN, INPUT_PULLUP);
-  pinMode(PIN_BUTTON_SILENCE, INPUT_PULLUP);
+  if (!buttons_.begin()) Serial.println("Buttons timer unavailable: physical buttons disabled");
   alarm_.begin();
 
   display_.begin();
@@ -32,6 +31,7 @@ void HomeGuardApp::setup() {
 
 void HomeGuardApp::loop() {
   advisor_.update();
+  handleButtons(); // 先处理上轮已记录的操作，避免再次进入慢请求后才执行。
   handleAiCommand();
   network_.handleClient();
   handleRemoteCommands();
@@ -80,33 +80,14 @@ void HomeGuardApp::updateAlarm() {
 }
 
 void HomeGuardApp::handleButtons() {
-#if HOMEGUARD_ENABLE_CAMERA || HOMEGUARD_CARRIER_R1
-  // R1载板与摄像头版共用单按钮，GPIO38留给图像数据。
-  const bool pressed = digitalRead(PIN_BUTTON_SILENCE) == LOW;
-  if (pressed && !buttonWasPressed_) {
-    buttonWasPressed_ = true;
-    buttonPressedAt_ = millis();
-    return;
-  }
-  if (pressed || !buttonWasPressed_) return;
-
-  buttonWasPressed_ = false;
-  const uint32_t duration = millis() - buttonPressedAt_;
-  if (duration >= AppSettings::BUTTON_LONG_PRESS_MS) {
-    resetLearning();
-  } else if (duration >= AppSettings::BUTTON_MIN_PRESS_MS) {
-    silenceAlarm();
-  }
-#else
-  if (millis() - lastButtonAt_ < AppSettings::BUTTON_DEBOUNCE_MS) return;
-  if (digitalRead(PIN_BUTTON_LEARN) == LOW) {
-    resetLearning();
-    lastButtonAt_ = millis();
-  } else if (digitalRead(PIN_BUTTON_SILENCE) == LOW) {
-    silenceAlarm();
-    lastButtonAt_ = millis();
-  }
-#endif
+  const uint8_t events = buttons_.takeEvents();
+  const bool single = PIN_BUTTON_LEARN < 0;
+  const uint8_t learn = single ? ButtonInput::PrimaryLong
+      : ButtonInput::SecondaryShort | ButtonInput::SecondaryLong;
+  const uint8_t silence = single ? ButtonInput::PrimaryShort
+      : ButtonInput::PrimaryShort | ButtonInput::PrimaryLong;
+  if (events & learn) resetLearning();
+  if (events & silence) silenceAlarm();
 }
 
 void HomeGuardApp::handleRemoteCommands() {

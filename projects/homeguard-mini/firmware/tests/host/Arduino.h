@@ -10,10 +10,12 @@ using String = std::string;
 // 以下入口供SensorHub故障注入使用，具体返回值由测试设置。
 constexpr int ADC_11db = 3;
 constexpr int OUTPUT = 3;
+constexpr int INPUT_PULLUP = 5;
 constexpr int LOW = 0;
 constexpr int HIGH = 1;
 void pinMode(int, int);
 void digitalWrite(int, int);
+int digitalRead(int);
 void delay(unsigned long);
 uint32_t millis();
 int analogRead(int);

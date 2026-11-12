@@ -5,6 +5,7 @@
 #include "drivers/camera_module.h"
 #include "drivers/camera_snapshot.h"
 #include "drivers/microphone.h"
+#include "drivers/button_input.h"
 #include "app/alarm_output.h"
 #include "drivers/radar_sensor.h"
 #include "drivers/sensor_hub.h"
@@ -29,7 +30,7 @@ class HomeGuardApp {
   void readSensors();
   // 发布静音倒计时，再把等级交给报警节奏模块；不直接写GPIO。
   void updateAlarm();
-  // 读取实体按键；摄像头版本用短按/长按复用一个按键。
+  // 取走驱动记录的手势；单键/双键模式在应用层映射成静音与学习操作。
   void handleButtons();
   // 把网页产生的一次性请求转换成真正的应用操作。
   void handleRemoteCommands();
@@ -51,11 +52,9 @@ class HomeGuardApp {
   NetworkService network_;  // Wi-Fi、HTTP接口和网页请求入口。
   Microphone microphone_;   // INMP441声音指数采集。
   AlarmOutput alarm_;       // 安排普通/手动提醒，驱动独立关闭每次脉冲。
+  ButtonInput buttons_;     // 独立采样并保存手势，后台不直接改模型或告警状态。
   RadarSensor radar_;       // LD2410C人体存在和移动检测。
   DisplayView display_;     // ST7789或兼容ILI9341本地显示。
   uint32_t lastSensorAt_ = 0;   // 上一次传感器采集时刻。
   uint32_t lastDisplayAt_ = 0;  // 上一次TFT刷新时刻。
-  uint32_t lastButtonAt_ = 0;   // 无摄像头版本的按键消抖时刻。
-  uint32_t buttonPressedAt_ = 0;  // 单按键版本按下的起始时刻。
-  bool buttonWasPressed_ = false; // 记录上一轮按键状态，用于识别松开事件。
 };
