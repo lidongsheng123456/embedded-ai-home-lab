@@ -12,11 +12,9 @@ void HomeGuardApp::setup() {
   Serial.begin(115200);
   delay(500);
 
-  pinMode(PIN_BUZZER, OUTPUT);
   if (PIN_BUTTON_LEARN >= 0) pinMode(PIN_BUTTON_LEARN, INPUT_PULLUP);
   pinMode(PIN_BUTTON_SILENCE, INPUT_PULLUP);
-  digitalWrite(PIN_BUZZER, LOW);
-  manualBeep_.begin();
+  alarm_.begin();
 
   display_.begin();
   sensors_.begin();
@@ -78,18 +76,7 @@ void HomeGuardApp::updateAlarm() {
   if (silenceScheduled_ && remaining <= 0) silenceScheduled_ = false;
   state_.silenceRemainingSeconds = silenceScheduled_
       ? (static_cast<uint32_t>(remaining) + 999) / 1000 : 0;
-  if (beepActive_ && millis() - beepStartedAt_ >= AppSettings::MANUAL_BEEP_MS) beepActive_ = false;
-  if (beepActive_) { digitalWrite(PIN_BUZZER, HIGH); return; }
-  if (silenceActive() || state_.level == 0) {
-    digitalWrite(PIN_BUZZER, LOW);
-    return;
-  }
-  const bool danger = state_.level == 2;
-  const uint32_t period = danger ? AppSettings::DANGER_BEEP_PERIOD_MS
-                                 : AppSettings::WARNING_BEEP_PERIOD_MS;
-  const uint32_t activeTime = danger ? AppSettings::DANGER_BEEP_ON_MS
-                                     : AppSettings::WARNING_BEEP_ON_MS;
-  digitalWrite(PIN_BUZZER, millis() % period < activeTime ? HIGH : LOW);
+  alarm_.update(state_.level, silenceActive());
 }
 
 void HomeGuardApp::handleButtons() {
@@ -135,10 +122,8 @@ void HomeGuardApp::resetLearning() {
 }
 
 void HomeGuardApp::silenceAlarm() {
-  beepActive_ = false;
-  manualBeep_.cancel();
+  alarm_.cancel();
   silenceUntil_ = millis() + AppSettings::SILENCE_DURATION_MS;
   silenceScheduled_ = true;
-  digitalWrite(PIN_BUZZER, LOW);
   Serial.println("Alarm silenced for 10 minutes");
 }

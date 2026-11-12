@@ -5,7 +5,7 @@
 #include "drivers/camera_module.h"
 #include "drivers/camera_snapshot.h"
 #include "drivers/microphone.h"
-#include "drivers/buzzer_pulse.h"
+#include "app/alarm_output.h"
 #include "drivers/radar_sensor.h"
 #include "drivers/sensor_hub.h"
 #include "services/network_service.h"
@@ -27,7 +27,7 @@ class HomeGuardApp {
   bool silenceActive() const;
   // 完成一次声音、环境数据采集和风险计算，并输出串口日志。
   void readSensors();
-  // 根据告警等级产生不同蜂鸣节奏；静音或正常时确保蜂鸣器关闭。
+  // 发布静音倒计时，再把等级交给报警节奏模块；不直接写GPIO。
   void updateAlarm();
   // 读取实体按键；摄像头版本用短按/长按复用一个按键。
   void handleButtons();
@@ -50,7 +50,7 @@ class HomeGuardApp {
   AiAdvisor advisor_;       // 可选云解读；独立任务等待官方API，不阻塞本地监测。
   NetworkService network_;  // Wi-Fi、HTTP接口和网页请求入口。
   Microphone microphone_;   // INMP441声音指数采集。
-  BuzzerPulse manualBeep_;  // 手动短响由独立定时器兜底关闭。
+  AlarmOutput alarm_;       // 安排普通/手动提醒，驱动独立关闭每次脉冲。
   RadarSensor radar_;       // LD2410C人体存在和移动检测。
   DisplayView display_;     // ST7789或兼容ILI9341本地显示。
   uint32_t lastSensorAt_ = 0;   // 上一次传感器采集时刻。
@@ -58,6 +58,4 @@ class HomeGuardApp {
   uint32_t lastButtonAt_ = 0;   // 无摄像头版本的按键消抖时刻。
   uint32_t buttonPressedAt_ = 0;  // 单按键版本按下的起始时刻。
   bool buttonWasPressed_ = false; // 记录上一轮按键状态，用于识别松开事件。
-  uint32_t beepStartedAt_ = 0; // 短响起点，用无符号时间差兼容millis回绕。
-  bool beepActive_ = false;   // 独立短响不改变原来的静音或风险状态。
 };

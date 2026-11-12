@@ -1,4 +1,4 @@
-"""编译真实风险规则和模型，验证传感器故障边界；不连接设备，不读取本机配置。"""
+"""编译真实规则、采集和报警输出，验证故障边界；不连接设备，不读取本机配置。"""
 from pathlib import Path
 import os
 import shutil
@@ -31,6 +31,15 @@ def main():
             str(project / "tests/sensor_hub_test.cpp"), "-o", str(sensor_executable),
         ], check=True)
         subprocess.run([str(sensor_executable)], check=True)
+    alarm_executable = output / ("alarm_output.exe" if os.name == "nt" else "alarm_output")
+    subprocess.run([
+        compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror",
+        "-I", str(project / "tests/host"), "-I", str(project / "include"),
+        str(project / "src/drivers/buzzer_pulse.cpp"),
+        str(project / "src/app/alarm_output.cpp"),
+        str(project / "tests/alarm_output_test.cpp"), "-o", str(alarm_executable),
+    ], check=True)
+    subprocess.run([str(alarm_executable)], check=True)
 
 
 if __name__ == "__main__":

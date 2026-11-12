@@ -1,20 +1,17 @@
 #include "app/homeguard_app.h"
 
-#include "pins.h"
-
 void HomeGuardApp::handleAiCommand() {
   AiDeviceCommand command;
   if (!advisor_.takeCommand(command)) return;
   switch (command) {
-    case AiDeviceCommand::Beep:
-      beepActive_ = manualBeep_.start();
-      beepStartedAt_ = millis();
-      advisor_.finishCommand(beepActive_, beepActive_
+    case AiDeviceCommand::Beep: {
+      const bool started = alarm_.test();
+      advisor_.finishCommand(started, started
           ? "已向蜂鸣器输出200毫秒短响信号；是否有声音需确认模块接线。"
           : "短响定时器不可用，本次没有启动蜂鸣器。");
       break;
+    }
     case AiDeviceCommand::SilenceAlarm:
-      beepActive_ = false;
       silenceAlarm();
       advisor_.finishCommand(true, "已执行静音10分钟；环境监测、屏幕显示和风险判断继续运行。");
       break;
