@@ -53,6 +53,10 @@ bool NetworkService::takeBuzzerTestRequest() {
 void NetworkService::startNetwork() {
   WiFi.setHostname(DEVICE_HOSTNAME);
   WiFi.mode(WIFI_AP_STA);
+#if HOMEGUARD_ENABLE_CAMERA
+  // 连续取图关闭STA省电，减少等待唤醒的延迟；会增加耗电，供电与稳定性需实物确认。
+  WiFi.setSleep(false);
+#endif
   WiFi.setAutoReconnect(true);
   disconnectedAt_ = lastWifiRetryAt_ = millis();
   if (strlen(HOME_WIFI_SSID) > 0) {
