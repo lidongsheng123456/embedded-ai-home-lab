@@ -21,6 +21,10 @@ export function createCameraController(notify) {
     button.disabled = !available;
     image.hidden = !success;
     byId('camera-placeholder').hidden = success;
+    if (success) {
+      byId('photo-time').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+      byId('photo-resolution').textContent = `${image.naturalWidth} × ${image.naturalHeight}`;
+    }
     if (!success) notify('快照获取失败，请检查摄像头与设备连接。');
   }
 
@@ -43,6 +47,7 @@ export function createCameraController(notify) {
   return {
     update(state, demo) {
       available = !demo && Boolean(state?.camera);
+      if (available && image.hidden) byId('photo-time').textContent = '手动快照';
       button.disabled = !available || pending;
       byId('camera-note').textContent = demo ? '演示模式不访问真实摄像头'
         : !state ? '设备离线，快照暂不可用'

@@ -1,31 +1,38 @@
-/** 页面入口只组装通信、数据呈现与三维场景，演示和实机路径明确隔离。 */
+/** 入口只调度实时轮询、历史选择、画面展示与用户操作。 */
 import { readStatus, sendCommand } from './device-api.js';
-import { byId, renderOffline, renderStatus, validStatus } from './dashboard-view.js';
-import { createTrends } from './trend-chart.js';
-import { initializeVisualUi } from './visual-ui.js';
+import { byId, renderStatus, renderConnection, validStatus } from './dashboard-view.js';
 import { createDemoState } from './demo-state.js';
 import { createCameraController } from './camera-controller.js';
-import { createAiController } from './ai-controller.js';
-import { bindSceneControls, setSceneControlsEnabled } from './scene-controls.js';
+import { createHistoryController } from './history-controller.js';
 
 const demo = new URLSearchParams(location.search).get('demo') === '1';
-const trends = createTrends();
-let scene = null;
 let latest = null;
 let tick = 0;
 let timer;
+let toastTimer;
 let busy = false;
 let commandPending = false;
-let toastTimer;
+let selection = { live: true };
 const camera = createCameraController(toast);
-const ai = createAiController(toast);
-initializeVisualUi();
+const history = createHistoryController(value => { selection = value; paint(); }, { demo });
 
 function toast(message) {
   clearTimeout(toastTimer);
   byId('toast').textContent = message;
   byId('toast').hidden = false;
   toastTimer = setTimeout(() => { byId('toast').hidden = true; }, 4500);
+}
+
+function paint() {
+  const state = selection.live ? latest : selection.state;
+  const at = selection.live ? latest?.recordedAt ?? Date.now() : selection.at;
+  renderStatus(state, { historical: !selection.live, demo, at });
+  camera.update(selection.live ? latest : null, demo);
+  if (!selection.live) {
+    byId('camera-note').textContent = '历史回放仅含传感器数据，不保存照片或录像';
+    byId('photo-time').textContent = '回到实时后可拍摄';
+  }
+  if (commandPending) byId('silence-button').disabled = true;
 }
 
 async function refresh() {
@@ -36,91 +43,39 @@ async function refresh() {
     const state = demo ? createDemoState(byId('demo-scenario').value, tick++) : await readStatus();
     if (!validStatus(state)) throw new Error('设备状态格式不完整');
     latest = state;
-    renderStatus(state, demo);
-    camera.update(state, demo);
-    ai.update(state, demo);
-    trends.add(state);
-    scene?.update(state);
-  } catch {
-    latest = null;
-    scene?.update(null);
-    trends.clear();
-    renderOffline();
-    camera.update(null, demo);
-    ai.update(null, demo);
-  } finally {
+  } catch { latest = null; }
+  finally {
     busy = false;
-    byId('silence-button').disabled = !latest || commandPending;
-    byId('learn-button').disabled = !latest || commandPending;
-    // 前一请求结束后再计时，慢设备不会堆积多个并行轮询请求。
+    renderConnection(Boolean(latest), demo);
+    history.update(latest, latest?.recordedAt);
+    paint();
+    // 串行轮询，不让慢设备堆积请求；回放期间实时通道仍持续更新。
     timer = setTimeout(refresh, 2000);
   }
 }
 
-async function command(name) {
-  if (commandPending || !latest) return;
-  if (demo) {
-    toast('这是演示模式，没有向真实设备发送命令。');
-    return;
-  }
+byId('silence-button').addEventListener('click', async () => {
+  if (commandPending || !selection.live || !latest || demo) return;
   commandPending = true;
-  byId('silence-button').disabled = true;
-  byId('learn-button').disabled = true;
+  paint();
   try {
-    await sendCommand(name);
-    toast(name === 'learn' ? '设备已接收重新学习请求。' : '设备已接收静音 10 分钟请求。');
-    await refresh();
-  } catch {
-    toast('命令发送失败，请检查设备连接后重试。');
-  } finally {
-    commandPending = false;
-    byId('silence-button').disabled = !latest;
-    byId('learn-button').disabled = !latest;
-  }
-}
-
-function bindControls() {
-  byId('fullscreen-button').addEventListener('click', async () => {
-    try {
-      if (document.fullscreenElement) await document.exitFullscreen();
-      else await document.documentElement.requestFullscreen();
-    } catch {
-      toast('当前浏览器不支持网页全屏，可以使用浏览器的全屏功能。');
-    }
-  });
-  byId('silence-button').addEventListener('click', () => command('silence'));
-  byId('learn-button').addEventListener('click', () => byId('learn-dialog').showModal());
-  byId('learn-dialog').addEventListener('close', () => {
-    if (byId('learn-dialog').returnValue === 'confirm') command('learn');
-  });
-  byId('demo-scenario').addEventListener('change', () => { trends.clear(); refresh(); });
-}
-
-async function startScene() {
-  setSceneControlsEnabled(false);
+    await sendCommand('silence');
+    toast('已提交静音10分钟，等待设备状态确认。');
+  } catch { toast('静音未确认，请查看设备；不会自动重试。'); }
+  finally { commandPending = false; paint(); }
+});
+byId('fullscreen-button').addEventListener('click', async () => {
   try {
-    const { createRoomScene } = await import('./room-scene.js');
-    scene = createRoomScene(byId('room-stage'));
-    scene.update(latest);
-    byId('scene-fallback').hidden = true;
-    bindSceneControls(scene);
-  } catch {
-    byId('scene-fallback').textContent = '当前浏览器无法启用 3D，环境数据与控制仍可使用。';
-    setSceneControlsEnabled(false);
-  }
-}
-
-function updateClock() {
-  byId('clock').textContent = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false });
-}
-
+    if (document.fullscreenElement) await document.exitFullscreen();
+    else await document.documentElement.requestFullscreen();
+  } catch { toast('iPhone可将网页添加到主屏幕，获得更完整的展示空间。'); }
+});
+byId('demo-scenario').addEventListener('change', refresh);
 byId('demo-banner').hidden = !demo;
-if (demo) byId('mode-label').textContent = '正在浏览模拟演示';
-bindControls();
+const updateClock = () => { byId('clock').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false }); };
 updateClock();
 setInterval(updateClock, 1000);
-refresh();
-startScene();
-window.addEventListener('pagehide', (event) => {
-  if (!event.persisted) { clearTimeout(timer); scene?.destroy(); trends.destroy(); ai.destroy(); }
+void refresh();
+window.addEventListener('pagehide', event => {
+  if (!event.persisted) { clearTimeout(timer); history.destroy(); }
 });

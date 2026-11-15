@@ -1,6 +1,6 @@
-/** DOM呈现层：只显示设备给出的等级与原因，不在浏览器里再算一套告警规则。 */
-import { renderDeviceDetails } from './device-details.js';
-export const byId = (id) => document.getElementById(id);
+/** 只呈现设备发布的状态与原因，历史回放和实时模式使用同一套展示。 */
+import { metricValue } from './history-model.js';
+export const byId = id => document.getElementById(id);
 const titles = {
   Normal: '家里，一切如常', Learning: '正在认识你的家', 'Warming up': '传感器正在预热',
   'Sensor warning': '有传感器需要检查', 'High risk': '环境变化较大', Attention: '留意一下家里的变化',
@@ -22,60 +22,41 @@ const reasons = {
   'Unusual loud sound': '相对声音指数偏高，建议确认声音来源。',
   'AI detected an unusual environment': '当前环境与平时有所不同，建议留意。',
 };
-const number = (value, decimals = 0) =>
-  typeof value === 'number' && Number.isFinite(value) ? value.toFixed(decimals) : '--';
 
-// 仅验证页面需要的数据类型，不替固件决定任何报警阈值。
 export function validStatus(state) {
   return state != null && typeof state === 'object' && typeof state.state === 'string'
     && typeof state.reason === 'string' && typeof state.presence === 'boolean'
     && typeof state.camera === 'boolean' && [0, 1, 2].includes(state.level)
-    && Number.isFinite(state.samples) && Number.isFinite(state.uptime);
+    && Number.isFinite(state.uptime);
 }
 
-export function renderStatus(state, demo) {
-  const values = { temp: 1, humidity: 0, light: 0, sound: 0, gasIndex: 0, gasVoltage: 2, score: 2 };
-  for (const [key, decimals] of Object.entries(values)) byId(key).textContent = number(state[key], decimals);
-  byId('state-title').textContent = titles[state.state] ?? state.state;
-  byId('state-reason').textContent = reasons[state.reason] ?? state.reason;
-  byId('presence').textContent = state.radarValid !== true ? '雷达数据未知'
-    : state.presence ? '感知到有人' : '暂未检测到人';
-  byId('scene-presence').textContent = state.radarValid !== true ? '雷达数据未知 · 请检查连接或固件版本'
-    : state.presence ? '◎ 有人在家' : '◌ 空间安静中';
-  byId('status-symbol').textContent = state.level === 2 ? '!' : state.level === 1 ? '↗' : '◎';
-  byId('samples').textContent = `${state.samples} / 120`;
-  byId('learning-progress').style.width = `${Math.min(100, Math.max(0, state.samples / 120 * 100))}%`;
-  byId('uptime').textContent = `${Math.floor(state.uptime / 60)} 分钟`;
-  byId('gas-status').textContent = state.gasWarmingUp ? '通电预热中' : '相对指数';
-  byId('gas-fill').style.width = `${Math.min(100, Math.max(0, state.gasIndex || 0))}%`;
-  const color = ['#78916c', '#bd9656', '#bd6b55'][state.level];
-  byId('status-ring').style.stroke = color;
-  document.documentElement.style.setProperty('--status-color', color);
-  byId('status-ring').style.strokeDashoffset = state.level === 0 ? '60' : '0';
-  byId('connection-label').textContent = demo ? '演示模式' : '设备已连接 · 本地';
-  byId('connection-dot').className = 'dot';
-  byId('updated-at').textContent = `更新于 ${new Date().toLocaleTimeString('zh-CN', { hour12: false })}`;
-  byId('silence-button').disabled = false;
-  byId('learn-button').disabled = false;
-  renderDeviceDetails(state);
+const number = (value, decimals = 0) => value === null ? '--' : value.toFixed(decimals);
+export function renderStatus(state, { historical = false, demo = false, at = Date.now() } = {}) {
+  for (const key of ['temp', 'humidity', 'light', 'sound', 'gasIndex'])
+    byId(key).textContent = number(metricValue(state, key), key === 'temp' ? 1 : 0);
+  const radar = state?.radarValid === true;
+  byId('presence').textContent = !radar ? '未知' : state.presence ? '有人' : '无人';
+  byId('movement').textContent = !radar ? '--' : state.moving ? '移动中' : state.presence ? '静止' : '';
+  byId('temp-note').textContent = metricValue(state, 'temp') === null ? '温度数据未知' : '设备附近的温度';
+  byId('humidity-note').textContent = metricValue(state, 'humidity') === null ? '湿度数据未知' : '设备附近的湿度';
+  byId('light-note').textContent = metricValue(state, 'light') === null ? '光照数据未知' : '设备附近的光照';
+  byId('sound-note').textContent = metricValue(state, 'sound') === null ? '声音数据未知' : '相对强度 · 非分贝';
+  byId('gasIndex-note').textContent = state?.gasWarmingUp ? '传感器预热中' : '相对指数 · 非浓度';
+  byId('presence-note').textContent = radar ? '感知存在 · 不定位' : '雷达数据未知';
+  byId('state-title').textContent = state ? titles[state.state] ?? state.state : historical ? '此时没有有效记录' : '设备暂时离线';
+  byId('state-reason').textContent = state ? reasons[state.reason] ?? state.reason
+    : historical ? '设备或电脑离线期间不补造数据。' : '正在自动重连，请检查家中供电与网络。';
+  byId('status-symbol').textContent = !state ? '◌' : state.level === 2 ? '!' : state.level === 1 ? '↗' : '◎';
+  document.documentElement.style.setProperty('--status-color', !state ? '#8d9688' : ['#62876b', '#b68b3e', '#bd6c58'][state.level]);
+  byId('updated-at').textContent = historical ? `历史 · ${formatTime(at)}` : state ? `最近采集 ${formatTime(at)}` : '连接中断 · 数据未知';
+  byId('silence-button').disabled = !state || historical || demo;
+  const seconds = state?.silenceRemaining;
+  byId('silence-button').textContent = Number.isFinite(seconds) && seconds > 0
+    ? `已静音 ${Math.ceil(seconds / 60)} 分` : '静音10分钟';
 }
 
-export function renderOffline() {
-  byId('connection-label').textContent = '设备已断开';
-  byId('connection-dot').className = 'dot offline';
-  byId('state-title').textContent = '暂时连接不上设备';
-  byId('state-reason').textContent = '请检查设备供电、Wi-Fi 与当前访问的 IP。正在自动重试。';
-  byId('presence').textContent = '未知';
-  byId('scene-presence').textContent = '设备离线 · 状态未知';
-  byId('updated-at').textContent = '连接中断，数据暂不可用';
-  for (const id of ['temp', 'humidity', 'light', 'sound', 'gasIndex', 'gasVoltage', 'score', 'samples', 'uptime']) {
-    byId(id).textContent = '--';
-  }
-  for (const id of ['learning-progress', 'gas-fill']) byId(id).style.width = '0%';
-  for (const id of ['silence-button', 'learn-button', 'photo-button']) byId(id).disabled = true;
-  byId('status-symbol').textContent = '◌';
-  byId('status-ring').style.stroke = '#a8b0a2';
-  byId('gas-status').textContent = '状态未知';
-  document.documentElement.style.setProperty('--status-color', '#a8b0a2');
-  renderDeviceDetails(null);
+export function renderConnection(online, demo) {
+  byId('connection-label').textContent = demo ? '模拟演示' : online ? '设备在线' : '设备离线';
+  byId('connection-dot').className = online ? 'dot' : 'dot offline';
 }
+export const formatTime = at => new Date(at).toLocaleTimeString('zh-CN', { hour12: false });

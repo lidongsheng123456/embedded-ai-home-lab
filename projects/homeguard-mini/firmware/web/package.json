@@ -9,14 +9,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview.mjs",
+    "remote": "node scripts/remote.mjs",
     "test": "node --test tests"
-  },
-  "dependencies": {
-    "echarts": "5.6.0",
-    "lucide": "0.468.0",
-    "motion": "12.23.24",
-    "postprocessing": "6.36.7",
-    "three": "0.170.0"
   },
   "devDependencies": {
     "esbuild": "0.25.12"

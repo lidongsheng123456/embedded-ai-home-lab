@@ -2,14 +2,10 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { webAssets } from '../asset-manifest.mjs';
 
 const root = new URL('../../.pio/web/', import.meta.url);
-const files = new Map([
-  ['/', ['index.html', 'text/html; charset=utf-8']],
-  ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
-  ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
-  ['/licenses.txt', ['licenses.txt', 'text/plain; charset=utf-8']],
-]);
+const files = new Map(webAssets.map(asset => [asset.path, asset]));
 const port = Number(process.env.HOMEGUARD_PREVIEW_PORT || 4173);
 createServer(async (request, response) => {
   const pathname = new URL(request.url, 'http://localhost').pathname;
@@ -20,8 +16,8 @@ createServer(async (request, response) => {
     return;
   }
   try {
-    const content = await readFile(fileURLToPath(new URL(asset[0], root)));
-    response.writeHead(200, { 'Content-Type': asset[1], 'Cache-Control': 'no-store' });
+    const content = await readFile(fileURLToPath(new URL(asset.file, root)));
+    response.writeHead(200, { 'Content-Type': asset.contentType, 'Cache-Control': 'no-store' });
     response.end(content);
   } catch {
     response.writeHead(503);
