@@ -1,4 +1,4 @@
-/** 本机网关入口：配置与传感器历史只保存在已忽略的.pio/remote中。 */
+/** 本机网关入口：配置、传感器历史与录像只保存在已忽略的.pio/remote中。 */
 import { randomBytes } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -6,6 +6,8 @@ import { createGateway } from '../server/gateway.mjs';
 import { validateDeviceUrl } from '../server/device-proxy.mjs';
 import { createHistoryStore } from '../server/history-store.mjs';
 import { createHistoryRecorder } from '../server/history-recorder.mjs';
+import { createRecordingStore } from '../server/recording-store.mjs';
+import { createCameraRecorder } from '../server/camera-recorder.mjs';
 
 const configFile = new URL('../../.pio/remote/config.json', import.meta.url);
 const assetRoot = new URL('../../.pio/web/', import.meta.url);
@@ -33,16 +35,20 @@ if (!Number.isInteger(config.port) || config.port < 1024 || config.port > 65535)
 const historyFile = new URL('../../.pio/remote/history.ndjson', import.meta.url);
 const store = await createHistoryStore(fileURLToPath(historyFile));
 const recorder = createHistoryRecorder({ device, store });
-const server = createGateway({ ...config, device, assetRoot, recorder });
+const recordingStore = await createRecordingStore(fileURLToPath(new URL('../../.pio/remote/recordings/', import.meta.url)));
+const cameraRecorder = createCameraRecorder({ device, store: recordingStore,
+  isReady: () => recorder.live()?.state?.camera === true });
+const server = createGateway({ ...config, device, assetRoot, recorder, cameraRecorder });
 server.on('error', () => { console.error('网关启动失败，请检查端口占用和本机配置'); process.exitCode = 1; });
 server.listen(config.port, '127.0.0.1', () => {
   recorder.start();
+  cameraRecorder.start();
   console.log(`本机网关：http://127.0.0.1:${config.port}`);
   console.log(`独立登录信息保存在：${fileURLToPath(configFile)}`);
-  console.log('传感器历史：每5秒记录，保留最近24小时；关闭网页后继续记录，不保存照片。');
+  console.log('传感器每5秒记录；摄像头约每秒录一帧，保留最近24小时、最多4GiB，关闭网页后继续记录。');
 });
 for (const signal of ['SIGINT', 'SIGTERM']) process.once(signal, async () => {
   server.close();
   server.closeAllConnections();
-  await recorder.stop();
+  await Promise.all([recorder.stop(), cameraRecorder.stop()]);
 });

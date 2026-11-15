@@ -5,11 +5,14 @@ import { gzipSync } from 'node:zlib';
 import { createAccess, isSameOrigin } from './access.mjs';
 import { deviceRoutes, proxyDevice } from './device-proxy.mjs';
 import { webAssets } from '../asset-manifest.mjs';
+import { handleRecording } from './recording-routes.mjs';
+import { createCameraStream } from './camera-stream.mjs';
 
 const assets = new Map(webAssets.map(asset => [asset.path, asset]));
 
-export function createGateway({ username, password, device, assetRoot, upstreamFetch, recorder }) {
+export function createGateway({ username, password, device, assetRoot, upstreamFetch, recorder, cameraRecorder }) {
   const authenticate = createAccess(username, password);
+  const streamCamera = createCameraStream(cameraRecorder);
   let pending = 0;
   const server = createServer(async (request, response) => {
     response.setHeader('Cache-Control', 'no-store');
@@ -20,6 +23,8 @@ export function createGateway({ username, password, device, assetRoot, upstreamF
     if (!authenticate(request, response)) return;
     try {
       const url = new URL(request.url, 'http://localhost');
+      if (streamCamera(request, response, url)) return;
+      if (await handleRecording(request, response, url, cameraRecorder)) return;
       if (recorder && ['/api/history', '/api/status'].includes(url.pathname)) {
         if (request.method !== 'GET') {
           response.writeHead(405, { Allow: 'GET' }); response.end(); return;
@@ -30,8 +35,9 @@ export function createGateway({ username, password, device, assetRoot, upstreamF
         }
         const live = recorder.live();
         const history = url.pathname === '/api/history';
-        const body = JSON.stringify(history ? recorder.history(since)
-          : live?.state ? { ...live.state, recordedAt: live.at } : { error: '设备离线' });
+        const body = JSON.stringify(history ? { ...recorder.history(since), video: cameraRecorder?.history() ?? null }
+          : live?.state ? { ...live.state, recordedAt: live.at,
+            cameraLive: cameraRecorder ? Boolean(cameraRecorder.live()) : undefined } : { error: '设备离线' });
         const headers = { 'Content-Type': 'application/json; charset=utf-8', Vary: 'Accept-Encoding' };
         const compressed = /\bgzip\b/.test(request.headers['accept-encoding'] || '');
         if (compressed) headers['Content-Encoding'] = 'gzip';
