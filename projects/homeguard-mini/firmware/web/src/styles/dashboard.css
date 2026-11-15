@@ -27,3 +27,13 @@ footer { display:flex; justify-content:space-between; gap:6px; color:var(--muted
 .metric-card line { stroke:#9aab94; stroke-width:1; stroke-dasharray:2 3; opacity:.7; vector-effect:non-scaling-stroke; }
 
 .camera-symbol { width:120px; height:76px; margin:0 auto 10px; }
+.camera-actions { display:flex; gap:6px; flex-shrink:0; }
+#photo-expand,#photo-close,#playback-speed { min-height:44px; font-size:12px; padding:0 10px; }
+#video-recording-status { display:block; margin-top:4px; font-size:10px; }
+.camera-expanded { overflow:hidden; }
+.camera-panel.expanded { position:fixed; inset:0; z-index:100; width:100%; height:100vh; height:100dvh; border:0; border-radius:0; background:#f5f1e8; padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); }
+.camera-panel.expanded .camera-content { min-height:0; border:0; background:#1e2722; }
+.camera-panel.expanded #camera-image { object-fit:contain; }
+.camera-panel.expanded #photo-expand { display:none; }
+#video-timeline { width:100%; height:4px; display:block; background:#e7e8df; border-radius:2px; }
+#video-timeline path { stroke:#56816b; stroke-width:4; fill:none; }

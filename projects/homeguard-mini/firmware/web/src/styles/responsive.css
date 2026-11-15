@@ -3,14 +3,19 @@
   .dashboard { padding:10px 12px; padding-top:max(8px,env(safe-area-inset-top)); padding-bottom:max(6px,env(safe-area-inset-bottom)); gap:8px; }
   .topbar { min-height:40px; } .brand { gap:7px; } .brand-symbol { font-size:29px; } h1 { font-size:19px; } h1 span { display:none; } .brand p { font-size:10px; margin-top:2px; } .connection { gap:5px; font-size:11px; } #clock { display:none; } .icon-button { width:44px; }
   .status-strip { min-height:58px; padding:8px 10px; gap:8px; } .status-symbol { font-size:23px; } .status-strip h2 { font-size:14px; } .status-strip p { font-size:11px; line-height:1.35; margin-top:3px; } .quiet-button { min-width:70px; padding:0 8px; font-size:11px; max-width:90px; }
-  .content-grid { grid-template-columns:1fr; grid-template-rows:1.2fr 1fr; gap:8px; }
-  .metric-grid { gap:6px; } .metric-card { padding:10px; border-radius:10px; } .metric-heading h3 { font-size:12px; } .metric-heading span { display:none; } .metric-value { margin:2px 0; } .metric-value b { font-size:30px; } .metric-value small { font-size:10px; margin-left:3px; } .metric-card p { font-size:10px; line-height:1.3; min-height:13px; } .metric-card svg { height:25px; margin-top:3px; } .metric-range { font-size:9px; margin-top:2px; }
+  .content-grid { grid-template-columns:1fr; grid-template-rows:1fr 1.15fr; gap:8px; }
+  .metric-grid { gap:6px; } .metric-card { padding:8px; border-radius:10px; } .metric-heading h3 { font-size:12px; } .metric-heading span { display:none; } .metric-value { margin:2px 0; } .metric-value b { font-size:30px; } .metric-value small { font-size:10px; margin-left:3px; } .metric-card p { font-size:10px; line-height:1.3; min-height:13px; } .metric-card svg { height:22px; margin-top:3px; } .metric-range { font-size:9px; margin-top:2px; }
   .camera-panel { padding:10px; gap:6px; border-radius:10px; } .panel-heading h2 { font-size:13px; } .eyebrow { display:none; } .muted { font-size:10px; } .camera-footer { font-size:10px; } #photo-button { font-size:11px; min-height:44px; padding:0 12px; } .camera-symbol { width:70px; height:44px; margin:0 auto 2px; } #camera-note { font-size:10px; } .camera-content { border-radius:6px; }
   .history-panel { padding:9px 10px 7px; border-radius:10px; } .history-heading { gap:8px; } .history-heading h2 { font-size:13px; } #recording-status { font-size:10px; max-width:170px; line-height:1.3; } #view-time { font-size:12px; white-space:nowrap; } #history-window { font-size:11px; padding:0 6px; max-width:85px; } .playback-controls { gap:8px; margin-top:3px; } .playback-controls button { min-width:64px; padding:0 9px; font-size:11px; } .timeline input { height:36px; } #history-note { font-size:9px; line-height:1.3; }
   footer { font-size:9px; }
+  .camera-actions button,#playback-speed { font-size:10px; padding:0 7px; }
+  #playback-speed { width:54px; flex-shrink:0; }
+  #photo-resolution { font-size:10px; }
+  .metric-range { display:none; }
+  .camera-panel.expanded #video-recording-status { display:block; }
 }
 @media (max-width:760px) and (max-height:740px) {
-  .dashboard { gap:6px; } .metric-card { padding:7px 9px; } .metric-card svg { height:18px; } .metric-range { display:none; } .metric-value b { font-size:27px; } .camera-description { display:none; } .content-grid { grid-template-rows:1.3fr 1fr; } .camera-panel { gap:4px; } #history-note { display:none; }
+  .dashboard { gap:6px; } .metric-card { padding:7px 9px; } .metric-card svg { height:18px; } .metric-range { display:none; } .metric-value b { font-size:27px; } #video-recording-status { display:none; } .content-grid { grid-template-rows:1.1fr 1fr; } .camera-panel { gap:4px; } #history-note { display:none; }
 }
 /* 极短横屏或浏览器放大时允许自然滚动，避免数据被裁切。 */
 @media (min-width:761px) and (max-height:850px) {

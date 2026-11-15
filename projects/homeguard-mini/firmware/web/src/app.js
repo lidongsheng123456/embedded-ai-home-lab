@@ -4,6 +4,7 @@ import { byId, renderStatus, renderConnection, validStatus } from './dashboard-v
 import { createDemoState } from './demo-state.js';
 import { createCameraController } from './camera-controller.js';
 import { createHistoryController } from './history-controller.js';
+import { createCameraLayout } from './camera-layout.js';
 
 const demo = new URLSearchParams(location.search).get('demo') === '1';
 let latest = null;
@@ -14,6 +15,7 @@ let busy = false;
 let commandPending = false;
 let selection = { live: true };
 const camera = createCameraController();
+const cameraLayout = createCameraLayout();
 const history = createHistoryController(value => { selection = value; paint(); }, { demo });
 
 function toast(message) {
@@ -27,11 +29,7 @@ function paint() {
   const state = selection.live ? latest : selection.state;
   const at = selection.live ? latest?.recordedAt ?? Date.now() : selection.at;
   renderStatus(state, { historical: !selection.live, demo, at });
-  camera.update(selection.live ? latest : null, demo);
-  if (!selection.live) {
-    byId('camera-note').textContent = '历史回放仅含传感器数据，不保存录像';
-    byId('photo-time').textContent = '历史时段不播放实时画面';
-  }
+  camera.update(latest, demo, selection);
   if (commandPending) byId('silence-button').disabled = true;
 }
 
@@ -77,5 +75,5 @@ updateClock();
 setInterval(updateClock, 1000);
 void refresh();
 window.addEventListener('pagehide', event => {
-  if (!event.persisted) { clearTimeout(timer); history.destroy(); camera.destroy(); }
+  if (!event.persisted) { clearTimeout(timer); history.destroy(); camera.destroy(); cameraLayout.destroy(); }
 });

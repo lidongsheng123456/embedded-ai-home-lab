@@ -12,6 +12,9 @@ export function createHistoryController(onChange, { demo = false } = {}) {
   let destroyed = false;
   let supported = false;
   let sourceNow = Date.now();
+  let video = null;
+  let seekId = 0;
+  let playbackTick = 0;
   const slider = byId('history-slider');
   const play = byId('play-button');
   const liveButton = byId('live-button');
@@ -28,13 +31,22 @@ export function createHistoryController(onChange, { demo = false } = {}) {
     slider.disabled = !supported || records.length < 2;
     play.disabled = slider.disabled;
     liveButton.disabled = live;
-    byId('view-mode').textContent = live ? '实时监测' : playing ? '历史播放 · 60倍' : '历史回放';
+    const speed = Number(byId('playback-speed').value) || 1;
+    byId('view-mode').textContent = live ? '实时监测' : playing ? `录像回放 · ${speed}倍` : '历史回放';
     byId('view-time').textContent = new Date(live ? end : selected).toLocaleString('zh-CN', {
       month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false,
     });
     byId('history-start').textContent = formatTime(start);
     byId('history-end').textContent = formatTime(end);
     slider.setAttribute('aria-valuetext', formatTime(live ? end : selected));
+    const recordings = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    recordings.setAttribute('d', (video?.ranges ?? []).filter(range => range.end >= start && range.start <= end)
+      .map(range => {
+        const left = Math.max(0, (range.start - start) / Math.max(1, end - start) * 1000);
+        const right = Math.min(1000, (range.end - start) / Math.max(1, end - start) * 1000);
+        return `M${left.toFixed(1)},2H${Math.max(left + 1, right).toFixed(1)}`;
+      }).join(' '));
+    byId('video-timeline').replaceChildren(recordings);
     const subset = records.filter(row => row.at >= start && row.at <= end);
     for (const key of metrics) {
       const { path, min, max } = trendPath(subset, key, start, end);
@@ -51,7 +63,7 @@ export function createHistoryController(onChange, { demo = false } = {}) {
         ? '低：无人 · 高：有人' : `时段范围 ${min.toFixed(key === 'temp' ? 1 : 0)} — ${max.toFixed(key === 'temp' ? 1 : 0)}`;
     }
     const row = live ? null : recordAt(records, selected);
-    onChange({ live, state: row?.state ?? null, at: selected });
+    onChange({ live, state: row?.state ?? null, at: selected, video, seekId });
   }
 
   async function refresh() {
@@ -64,6 +76,15 @@ export function createHistoryController(onChange, { demo = false } = {}) {
       sourceNow = data.serverTime;
       records = mergeRecords(supported ? records : [], data.records, sourceNow);
       supported = true;
+      video = data.video ?? null;
+      byId('video-recording-status').textContent = !video ? '录像服务未启用'
+        : !video.storageHealthy ? '录像磁盘写入失败'
+        : !video.recording ? '录像已暂停'
+        : video.error !== 'none' ? '录像中断 · 等待相机'
+        : '录像中 · 近24小时';
+      byId('history-note').textContent = video
+        ? '绿条为已有录像；约1帧/秒，无声音；断线空档不补录。'
+        : '录像回放需更新电脑网关；设备直连不保存录像。';
       byId('recording-status').textContent = !data.storageHealthy ? '磁盘写入失败 · 请检查电脑'
         : !data.recording ? '电脑记录已暂停' : `电脑持续记录 · 已有 ${records.length} 条`;
       render();
@@ -76,16 +97,24 @@ export function createHistoryController(onChange, { demo = false } = {}) {
     }
   }
 
-  slider.addEventListener('input', () => { stop(); live = false; selected = Number(slider.value); render(); });
+  slider.addEventListener('input', () => { stop(); ++seekId; live = false; selected = Number(slider.value); render(); });
   liveButton.addEventListener('click', () => { stop(); live = true; render(); });
-  byId('history-window').addEventListener('change', () => { stop(); render(); });
+  byId('history-window').addEventListener('change', () => { stop(); ++seekId; render(); });
+  byId('playback-speed').addEventListener('change', () => { playbackTick = Date.now(); render(); });
   play.addEventListener('click', () => {
     if (playing) { stop(); render(); return; }
     const { start, end } = bounds();
-    if (live || selected >= end) selected = start;
+    if (live || selected >= end) {
+      ++seekId;
+      const firstVideo = video?.ranges?.find(range => range.end >= start && range.start <= end);
+      selected = firstVideo ? Math.max(start, firstVideo.start) : start;
+    }
     live = false;
+    playbackTick = Date.now();
     playing = setInterval(() => {
-      selected = Math.min(bounds().end, selected + 60_000);
+      const now = Date.now();
+      selected = Math.min(bounds().end, selected + (now - playbackTick) * (Number(byId('playback-speed').value) || 1));
+      playbackTick = now;
       if (selected >= bounds().end) stop();
       render();
     }, 1000);
