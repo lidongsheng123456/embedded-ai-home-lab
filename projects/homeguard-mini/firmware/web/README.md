@@ -57,6 +57,15 @@ npm run remote -- --device http://192.168.31.96
 cloudflared --no-autoupdate tunnel --protocol http2 --url http://127.0.0.1:4180
 ```
 
+如果在Windows命令提示符（提示符类似`C:\Users\用户名>`）中找不到`cloudflared`，且由WinGet安装，可使用下面的完整路径命令：
+
+```cmd
+"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Cloudflare.cloudflared_Microsoft.Winget.Source_8wekyb3d8bbwe\cloudflared.exe" --no-autoupdate tunnel --protocol http2 --url http://127.0.0.1:4180
+```
+
+命令提示符使用`%LOCALAPPDATA%`；PowerShell的`&`和`$env:LOCALAPPDATA`不能直接粘贴到命令提示符中。
+日志出现`Registered tunnel connection`后，再访问输出地址验证页面和数据。
+
 打开终端输出的`https://….trycloudflare.com`地址，浏览器会弹出账号密码框。
 手机关闭Wi-Fi、改用移动数据后测试，确认能读到真实数据。控制请求仍由固件判断和执行，
 摄像头取决于当前固件是否启用；登录成功不代表这些硬件功能已经验收。
