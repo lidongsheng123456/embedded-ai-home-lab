@@ -13,7 +13,7 @@ let toastTimer;
 let busy = false;
 let commandPending = false;
 let selection = { live: true };
-const camera = createCameraController(toast);
+const camera = createCameraController();
 const history = createHistoryController(value => { selection = value; paint(); }, { demo });
 
 function toast(message) {
@@ -29,8 +29,8 @@ function paint() {
   renderStatus(state, { historical: !selection.live, demo, at });
   camera.update(selection.live ? latest : null, demo);
   if (!selection.live) {
-    byId('camera-note').textContent = '历史回放仅含传感器数据，不保存照片或录像';
-    byId('photo-time').textContent = '回到实时后可拍摄';
+    byId('camera-note').textContent = '历史回放仅含传感器数据，不保存录像';
+    byId('photo-time').textContent = '历史时段不播放实时画面';
   }
   if (commandPending) byId('silence-button').disabled = true;
 }
@@ -77,5 +77,5 @@ updateClock();
 setInterval(updateClock, 1000);
 void refresh();
 window.addEventListener('pagehide', event => {
-  if (!event.persisted) { clearTimeout(timer); history.destroy(); }
+  if (!event.persisted) { clearTimeout(timer); history.destroy(); camera.destroy(); }
 });

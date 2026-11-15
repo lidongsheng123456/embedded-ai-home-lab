@@ -1,64 +1,119 @@
-/** 单张快照独立管理：状态刷新不能打断正在拍照的按钮状态，也不会自动拍摄。 */
+/** 自动串行刷新画面；页面隐藏、回放或离线时停止，不堆积拍照请求。 */
 import { byId } from './dashboard-view.js';
 
-export function createCameraController(notify) {
+const FRAME_DELAY_MS = 750;
+const RETRY_DELAY_MS = 3000;
+const REQUEST_TIMEOUT_MS = 12000;
+
+export function createCameraController() {
   const image = byId('camera-image');
   const button = byId('photo-button');
+  const placeholder = byId('camera-placeholder');
   let available = false;
-  let pending = false;
+  let paused = false;
+  let running = false;
+  let generation = 0;
   let timer;
+  let request;
+  let currentUrl;
+  let destroyed = false;
 
-  function stopPending() {
+  function stop() {
+    running = false;
+    ++generation;
     clearTimeout(timer);
-    image.onload = null;
-    image.onerror = null;
-    pending = false;
-    button.textContent = '拍摄一张快照 ↗';
+    timer = undefined;
+    request?.abort();
+    request = undefined;
   }
 
-  function finish(success) {
-    stopPending();
-    button.disabled = !available;
-    image.hidden = !success;
-    byId('camera-placeholder').hidden = success;
-    if (success) {
+  function clearImage() {
+    image.removeAttribute('src');
+    image.hidden = true;
+    placeholder.hidden = false;
+    if (currentUrl) URL.revokeObjectURL(currentUrl);
+    currentUrl = undefined;
+  }
+
+  async function nextFrame() {
+    if (!running || request) return;
+    const version = generation;
+    const controller = new AbortController();
+    request = controller;
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    let nextUrl;
+    let delay = FRAME_DELAY_MS;
+    try {
+      const response = await fetch(`/camera.jpg?t=${Date.now()}`, {
+        cache: 'no-store', signal: controller.signal,
+      });
+      if (!response.ok) throw new Error('画面获取失败');
+      const blob = await response.blob();
+      if (!blob.type.startsWith('image/') || blob.size === 0 || blob.size > 1024 * 1024)
+        throw new Error('画面格式无效');
+      if (version !== generation || !running) return;
+      nextUrl = URL.createObjectURL(blob);
+      image.src = nextUrl;
+      await image.decode();
+      if (version !== generation || !running) return;
+      if (currentUrl) URL.revokeObjectURL(currentUrl);
+      currentUrl = nextUrl;
+      nextUrl = undefined;
+      image.hidden = false;
+      placeholder.hidden = true;
       byId('photo-time').textContent = new Date().toLocaleTimeString('zh-CN', { hour12: false });
       byId('photo-resolution').textContent = `${image.naturalWidth} × ${image.naturalHeight}`;
+      byId('camera-note').textContent = '正在自动更新实时画面';
+    } catch {
+      if (version !== generation || !running) return;
+      delay = RETRY_DELAY_MS;
+      // 明确标注中断，保留最后一帧方便观察，但不把旧画面当作正在直播。
+      if (currentUrl) image.src = currentUrl;
+      byId('photo-time').textContent = '画面中断 · 正在重连';
+      byId('camera-note').textContent = '暂未收到画面，正在自动重试';
+    } finally {
+      clearTimeout(timeout);
+      if (nextUrl) URL.revokeObjectURL(nextUrl);
+      if (request === controller) request = undefined;
+      if (version === generation && running) timer = setTimeout(nextFrame, delay);
     }
-    if (!success) notify('快照获取失败，请检查摄像头与设备连接。');
   }
 
-  function capture() {
-    if (!available || pending) return;
-    pending = true;
-    button.disabled = true;
-    button.textContent = '正在拍摄…';
-    image.onload = () => finish(available);
-    image.onerror = () => finish(false);
-    timer = setTimeout(() => {
-      finish(false);
-      image.removeAttribute('src');
-    }, 10000);
-    // 只有手动点击才请求图像；轮询状态和3D房间都不会触发拍照。
-    image.src = `/camera.jpg?t=${Date.now()}`;
+  function sync() {
+    if (destroyed) return;
+    button.disabled = !available;
+    button.textContent = paused ? '继续监控 ↗' : '暂停画面';
+    const shouldRun = available && !paused && !document.hidden;
+    if (!shouldRun) {
+      if (running) stop();
+      if (available) byId('photo-time').textContent = '画面已暂停';
+    } else if (!running) {
+      running = true;
+      byId('photo-time').textContent = '正在连接画面';
+      void nextFrame();
+    }
   }
-
-  button.addEventListener('click', capture);
+  const toggle = () => { paused = !paused; sync(); };
+  button.addEventListener('click', toggle);
+  document.addEventListener('visibilitychange', sync);
   return {
     update(state, demo) {
       available = !demo && Boolean(state?.camera);
-      if (available && image.hidden) byId('photo-time').textContent = '手动快照';
-      button.disabled = !available || pending;
-      byId('camera-note').textContent = demo ? '演示模式不访问真实摄像头'
-        : !state ? '设备离线，快照暂不可用'
-        : state.camera ? '拍摄单张照片，默认不保存、不上传'
-        : '此构建未启用摄像头，或摄像头未就绪';
       if (!available) {
-        stopPending();
-        image.hidden = true;
-        image.removeAttribute('src');
-        byId('camera-placeholder').hidden = false;
+        if (running) stop();
+        clearImage();
+        byId('photo-time').textContent = '等待实时画面';
+        byId('camera-note').textContent = demo ? '演示模式不访问真实摄像头'
+          : !state ? '设备离线，正在等待恢复连接' : '摄像头未就绪，请检查固件和连接';
       }
+      sync();
+    },
+    destroy() {
+      destroyed = true;
+      stop();
+      clearImage();
+      button.removeEventListener('click', toggle);
+      document.removeEventListener('visibilitychange', sync);
     },
   };
 }
