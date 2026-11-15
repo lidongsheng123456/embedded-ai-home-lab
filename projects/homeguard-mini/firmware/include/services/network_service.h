@@ -17,10 +17,10 @@ class NetworkService {
   void begin();
   // 处理一个等待中的浏览器请求；主循环必须频繁调用。
   void handleClient();
-  // 取走网页提交的“重新学习”请求；返回true后内部标记自动清除。
-  bool takeLearnRequest();
   // 取走网页提交的“静音”请求；具体静音逻辑由应用层执行。
   bool takeSilenceRequest();
+  // 手动短响只记录一次性请求，固定时长和硬件访问由应用/驱动层负责。
+  bool takeBuzzerTestRequest();
   // 返回STA或热点模式下的设备IP，供TFT显示访问地址。
   const IPAddress &deviceIp() const { return deviceIp_; }
 
@@ -30,6 +30,7 @@ class NetworkService {
   void startAccessPoint();
   void setupRoutes();
   void setupAiRoutes();
+  void setupCameraRoutes();
   String buildStatusJson() const;
   void sendCameraFrame();
   void sendJpeg(const uint8_t *data, size_t length);
@@ -40,8 +41,8 @@ class NetworkService {
   const CameraSnapshot &snapshot_; // 只读AI照片缓存，GET不会再次触发拍照。
   WebServer server_{80};   // HTTP默认端口80，浏览器无需在地址后写端口。
   IPAddress deviceIp_;     // 当前可访问地址，联网或热点成功后写入。
-  bool learnRequested_ = false;    // 网页请求与主循环之间的一次性标记。
   bool silenceRequested_ = false;  // 避免HTTP回调直接操作业务和硬件。
+  bool buzzerTestRequested_ = false;
   bool apActive_ = false;          // 热点已成功建立，不能以请求成功冒充可用。
   bool wasConnected_ = false;      // 用于识别运行中的断网边沿。
   uint32_t disconnectedAt_ = 0;    // 无符号差值允许millis正常回绕。

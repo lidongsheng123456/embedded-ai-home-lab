@@ -91,7 +91,12 @@ void HomeGuardApp::handleButtons() {
 }
 
 void HomeGuardApp::handleRemoteCommands() {
-  if (network_.takeLearnRequest()) resetLearning();
+  if (network_.takeBuzzerTestRequest()) {
+    const bool started = alarm_.test();
+    Serial.println(started ? "Buzzer test: 200 ms pulse started"
+                           : "Buzzer test failed: timer unavailable");
+  }
+  // 同一轮同时收到测试和静音时，静音优先关闭输出。
   if (network_.takeSilenceRequest()) silenceAlarm();
 }
 

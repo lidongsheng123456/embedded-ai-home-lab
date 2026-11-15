@@ -3,8 +3,25 @@
 #include <math.h>
 
 namespace {
-String numberOrNull(float value, uint8_t decimals) {
-  return isnan(value) ? "null" : String(value, static_cast<unsigned int>(decimals));
+String numberOrUnavailable(float value, uint8_t decimals, const char *unit = "") {
+  return isfinite(value)
+             ? String(value, static_cast<unsigned int>(decimals)) + unit
+             : String("暂无数据");
+}
+
+const char *statusLabel(const String &state) {
+  // 只翻译领域层发布的状态，不在界面重新判断告警条件。
+  static const struct {
+    const char *state;
+    const char *label;
+  } labels[] = {{"Starting", "正在启动"}, {"Normal", "环境正常"},
+                {"Learning", "正在学习"}, {"High risk", "环境变化较大"},
+                {"Attention", "请留意变化"}, {"Sensor warning", "传感器待检查"},
+                {"Warming up", "传感器预热中"}};
+  for (const auto &entry : labels) {
+    if (state == entry.state) return entry.label;
+  }
+  return "状态未知";
 }
 }  // namespace
 
@@ -12,11 +29,22 @@ void DisplayView::begin() {
   tft_.init();
   tft_.setRotation(0);
   tft_.fillScreen(TFT_BLACK);
-  tft_.setTextColor(TFT_WHITE);
-  tft_.setTextFont(4);
-  tft_.drawCentreString("HomeGuard Mini", tft_.width() / 2, 78, 4);
-  tft_.setTextFont(2);
-  tft_.drawCentreString("Starting sensors...", tft_.width() / 2, 116, 2);
+  text_.begin(tft_);
+  // 16像素文泉驿字库存于Flash，支持简体中文，不需要上传文件系统。
+  text_.setFont(u8g2_font_wqy16_t_gb2312);
+  text_.setFontMode(1);
+  text_.setForegroundColor(TFT_WHITE);
+  drawCenteredText("居家环境助手", 78);
+  drawCenteredText("正在启动传感器…", 116);
+}
+
+void DisplayView::drawText(const String &text, int x, int top) {
+  // 字库使用基线坐标，统一转成顶部坐标，避免汉字与数字上下错位。
+  text_.drawUTF8(x, top + text_.getFontAscent(), text.c_str());
+}
+
+void DisplayView::drawCenteredText(const String &text, int top) {
+  drawText(text, (tft_.width() - text_.getUTF8Width(text.c_str())) / 2, top);
 }
 
 void DisplayView::render(const HomeState &state, const IPAddress &deviceIp) {
@@ -25,35 +53,29 @@ void DisplayView::render(const HomeState &state, const IPAddress &deviceIp) {
       state.level == 2 ? TFT_RED : state.level == 1 ? TFT_ORANGE : TFT_GREEN;
   tft_.fillScreen(TFT_BLACK);
   tft_.fillRect(0, 0, tft_.width(), 34, color);
-  tft_.setTextColor(TFT_BLACK, color);
-  tft_.setTextFont(2);
-  tft_.drawString(state.state, 8, 9);
-  if (state.cameraReady) tft_.drawRightString("CAM", tft_.width() - 8, 9, 2);
+  text_.setForegroundColor(TFT_BLACK);
+  drawText(statusLabel(state.state), 8, 9);
+  if (state.cameraReady) drawText("相机", tft_.width() - 40, 9);
 
-  tft_.setTextColor(TFT_WHITE, TFT_BLACK);
-  tft_.setTextFont(2);
-  const int labelX = 8;
-  const int valueX = 104;
+  const struct {
+    const char *label;
+    String value;
+  } rows[] = {
+      {"气体指数", numberOrUnavailable(state.gasIndex, 0, " /100")},
+      {"温度", numberOrUnavailable(state.temperature, 1, " ℃")},
+      {"湿度", numberOrUnavailable(state.humidity, 1, " %")},
+      {"光照", numberOrUnavailable(state.light, 0, " lx")},
+      {"声音指数", numberOrUnavailable(state.sound, 0)},
+      {"人体检测", !state.radarValid ? "未知" : state.presence ? "有人" : "无人"},
+      {"异常评分", numberOrUnavailable(state.anomalyScore, 2)}};
+  text_.setForegroundColor(TFT_WHITE);
   const int firstY = 42;
-  const int row = 24;
-  tft_.drawString("MQ-2 gas", labelX, firstY);
-  tft_.drawString(String(state.gasIndex, 0) + " /100", valueX, firstY);
-  tft_.drawString("Temp", labelX, firstY + row);
-  tft_.drawString(numberOrNull(state.temperature, 1) + " C", valueX,
-                  firstY + row);
-  tft_.drawString("Humidity", labelX, firstY + row * 2);
-  tft_.drawString(numberOrNull(state.humidity, 1) + " %", valueX,
-                  firstY + row * 2);
-  tft_.drawString("Light", labelX, firstY + row * 3);
-  tft_.drawString(numberOrNull(state.light, 0) + " lux", valueX,
-                  firstY + row * 3);
-  tft_.drawString("Sound", labelX, firstY + row * 4);
-  tft_.drawString(numberOrNull(state.sound, 0), valueX, firstY + row * 4);
-  tft_.drawString("Presence", labelX, firstY + row * 5);
-  tft_.drawString(!state.radarValid ? "UNKNOWN" : state.presence ? "YES" : "NO",
-                  valueX, firstY + row * 5);
-  tft_.drawString("AI score", labelX, firstY + row * 6);
-  tft_.drawString(numberOrNull(state.anomalyScore, 2), valueX, firstY + row * 6);
-  tft_.setTextColor(TFT_CYAN, TFT_BLACK);
-  tft_.drawCentreString(deviceIp.toString(), tft_.width() / 2, tft_.height() - 18, 2);
+  const int rowHeight = 24;
+  for (unsigned int i = 0; i < sizeof(rows) / sizeof(rows[0]); ++i) {
+    const int top = firstY + i * rowHeight;
+    drawText(rows[i].label, 8, top);
+    drawText(rows[i].value, 104, top);
+  }
+  text_.setForegroundColor(TFT_CYAN);
+  drawCenteredText(deviceIp.toString(), tft_.height() - 18);
 }

@@ -21,7 +21,7 @@ void setup() {
         "[Camera check] failed; inspect power, onboard clock, PCLK and D0-D7");
     return;
   }
-  Serial.println("[Camera check] PASS");
+  Serial.println("[Camera check] initialized; only a non-empty JPEG proves capture works");
 }
 
 void loop() {

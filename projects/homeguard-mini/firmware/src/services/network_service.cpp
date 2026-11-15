@@ -37,17 +37,16 @@ void NetworkService::handleClient() {
   server_.handleClient();
 }
 
-bool NetworkService::takeLearnRequest() {
-  // “读取后清零”保证一次网页点击只执行一次，而不是每轮loop重复执行。
-  const bool requested = learnRequested_;
-  learnRequested_ = false;
-  return requested;
-}
-
 bool NetworkService::takeSilenceRequest() {
   // HTTP回调与应用调度通过标记交接，网络层不直接碰蜂鸣器和业务模型。
   const bool requested = silenceRequested_;
   silenceRequested_ = false;
+  return requested;
+}
+
+bool NetworkService::takeBuzzerTestRequest() {
+  const bool requested = buzzerTestRequested_;
+  buzzerTestRequested_ = false;
   return requested;
 }
 
@@ -119,6 +118,7 @@ String NetworkService::buildStatusJson() const {
   json += F(",\"soundValid\":"); json += state_.soundValid ? F("true") : F("false");
   json += F(",\"radarValid\":"); json += state_.radarValid ? F("true") : F("false");
   json += F(",\"silenceRemaining\":"); json += state_.silenceRemainingSeconds;
+  json += F(",\"buzzerTestSupported\":true");
   json += F(",\"camera\":"); json += state_.cameraReady ? F("true") : F("false");
   json += F(",\"samples\":"); json += state_.learningSamples;
   json += F(",\"level\":"); json += state_.level;
@@ -131,23 +131,32 @@ String NetworkService::buildStatusJson() const {
 
 void NetworkService::setupRoutes() {
   setupAiRoutes();
+  setupCameraRoutes();
   server_.on("/api/status", HTTP_GET, [this] {
     server_.send(200, "application/json; charset=utf-8", buildStatusJson());
   });
-  server_.on("/api/learn", HTTP_POST, [this] {
-    // 网络层只记录请求，真正的业务操作由HomeGuardApp在主循环中执行。
-    learnRequested_ = true;
-    server_.send(200, "application/json", "{\"ok\":true}");
-  });
   server_.on("/api/silence", HTTP_POST, [this] {
+    if (server_.header("Origin") != "http://" + server_.hostHeader()) {
+      server_.send(403, "application/json", "{\"error\":\"same-origin request required\"}");
+      return;
+    }
     silenceRequested_ = true;
     server_.send(200, "application/json", "{\"ok\":true}");
   });
-  server_.on("/camera.jpg", HTTP_GET, [this] { sendCameraFrame(); });
+  server_.on("/api/buzzer-test", HTTP_POST, [this] {
+    // 短响必须由当前设备网页明确提交，拒绝跨站表单和缺少来源的请求。
+    if (server_.header("Origin") != "http://" + server_.hostHeader()) {
+      server_.send(403, "application/json", "{\"error\":\"same-origin request required\"}");
+      return;
+    }
+    buzzerTestRequested_ = true;
+    server_.sendHeader("Cache-Control", "no-store");
+    server_.send(202, "application/json", "{\"accepted\":true}");
+  });
   server_.onNotFound([this] {
     const WebAsset *asset = findWebAsset(server_.uri().c_str());
     if (server_.method() == HTTP_GET && asset != nullptr) {
-      // 直接从Flash发送压缩内容，浏览器负责解压和3D渲染。
+      // 直接从Flash发送压缩页面，趋势绘制由浏览器完成。
       server_.sendHeader("Content-Encoding", "gzip");
       server_.sendHeader("Cache-Control", "no-cache");
       server_.send_P(200, asset->contentType,
@@ -156,24 +165,4 @@ void NetworkService::setupRoutes() {
     }
     server_.send(404, "application/json", "{\"error\":\"not found\"}");
   });
-}
-
-void NetworkService::sendCameraFrame() {
-  CameraFrame frame;
-  if (!camera_.capture(frame)) {
-    server_.send(503, "text/plain; charset=utf-8", "Camera is not ready");
-    return;
-  }
-  sendJpeg(frame.data, frame.length);
-  camera_.release(frame);
-}
-
-void NetworkService::sendJpeg(const uint8_t *data, size_t length) {
-  // WebServer没有适合RAM中二进制大块数据的高级接口，这里直接写HTTP响应。
-  WiFiClient client = server_.client();
-  client.printf("HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n"
-                "Content-Length: %u\r\nCache-Control: no-store\r\n"
-                "Connection: close\r\n\r\n",
-                static_cast<unsigned int>(length));
-  client.write(data, length);
 }
