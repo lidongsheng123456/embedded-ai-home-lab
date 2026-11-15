@@ -1,7 +1,8 @@
 /** 实时与录像共用图像生命周期；选时回看不会向ESP32重新拍照。 */
 import { byId } from './dashboard-view.js';
 
-const FRAME_DELAY_MS = 150;
+// 直连也在解码完成后尽快取下一帧，避免每帧额外等待150ms；始终只保留一个请求。
+const FRAME_DELAY_MS = 10;
 const RETRY_DELAY_MS = 3000;
 const REQUEST_TIMEOUT_MS = 12000;
 

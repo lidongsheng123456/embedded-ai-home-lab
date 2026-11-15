@@ -44,7 +44,7 @@ test('设备上线自动显示画面，重复状态不并发取帧，下一帧�
     await settle();
     assert.equal(element('camera-image').hidden, false);
     assert.equal(element('photo-resolution').textContent, '800 × 600');
-    await timers.find(timer => timer.delay === 150).callback();
+    await timers.find(timer => timer.delay === 10).callback();
     await settle();
     assert.equal(requests.length, 2);
     assert.deepEqual(revoked, ['blob:test-1']);
@@ -63,7 +63,7 @@ test('暂停、后台、离线与演示均停止取图，恢复后自动继续�
     await settle();
     element('photo-button').click();
     assert.equal(element('photo-button').textContent, '继续监控 ↗');
-    assert.equal(timers.find(timer => timer.delay === 150).cancelled, true);
+    assert.equal(timers.find(timer => timer.delay === 10).cancelled, true);
     element('photo-button').click();
     await settle();
     assert.equal(requests.length, 2);
@@ -97,7 +97,7 @@ test('回放或离线后迟到的取图结果不能重新显示画面', async ()
     complete(new Response(new Blob(['late'], { type: 'image/jpeg' })));
     await settle();
     assert.equal(element('camera-image').hidden, true);
-    assert.equal(timers.some(timer => timer.delay === 150 && !timer.cancelled), false);
+    assert.equal(timers.some(timer => timer.delay === 10 && !timer.cancelled), false);
   }, () => new Promise(resolve => { complete = resolve; }));
 });
 

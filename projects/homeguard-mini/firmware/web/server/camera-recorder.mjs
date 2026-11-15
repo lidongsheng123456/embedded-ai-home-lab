@@ -4,7 +4,10 @@ import { FRAME_INTERVAL_MS, MAX_FRAME_BYTES, isJpeg } from './recording-store.mj
 const RETRY_MS = 3000;
 const LIVE_MAX_AGE_MS = 3000;
 const PRUNE_MS = 60_000;
-const LIVE_CAPTURE_INTERVAL_MS = 200;
+// 按取图耗时串行调度，去掉原200ms限速；每帧后让出时间给传感器和控制请求。
+// 20次/秒只是请求上限，实际速度由相机与网络决定，不能当成实测帧率。
+const LIVE_CAPTURE_INTERVAL_MS = 50;
+const MIN_CAPTURE_IDLE_MS = 10;
 
 export function createCameraRecorder({ device, store, isReady, upstreamFetch = fetch, now = Date.now }) {
   let stopped = true, latest = null, error = 'waiting';
@@ -61,7 +64,8 @@ export function createCameraRecorder({ device, store, isReady, upstreamFetch = f
       }
     })();
     await pending;
-    if (!stopped) timer = setTimeout(cycle, Math.max(50, (error === 'none' ? LIVE_CAPTURE_INTERVAL_MS : RETRY_MS) - (now() - started)));
+    if (!stopped) timer = setTimeout(cycle, Math.max(MIN_CAPTURE_IDLE_MS,
+      (error === 'none' ? LIVE_CAPTURE_INTERVAL_MS : RETRY_MS) - (now() - started)));
   }
   return {
     start() { if (stopped) { stopped = false; void cycle(); } },
