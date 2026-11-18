@@ -2,7 +2,9 @@
 
 唯一工程入口：[HomeGuard Mini 载板 R1 20261111.eprj3](<HomeGuard Mini 载板 R1 20261111/HomeGuard Mini 载板 R1 20261111.eprj3>)。
 
-文件夹保留历史名称，里面的正式板是 **Board2 / Schematic2 / PCB2**，当前 PCB 丝印及供电方案为 **R2 排母供电**。PCB1 是早期空板，不用于打样。整个工程文件夹必须一起保留，不能只复制 `.eprj3` 一个文件。
+文件夹保留历史名称，里面的正式板是 **Board2 / Schematic2 / PCB2**，当前 PCB 丝印及供电方案为 **R2 排母供电**。**Board1是学习参考：P1四件真实电路、P2～P5中文图解、PCB1为35×25mm四层小板**，不能替代正式载板。整个工程文件夹必须一起保留，不能只复制 `.eprj3` 一个文件。
+
+新手先打开 **Board1 → Schematic1 → P2**，按工程内路线学习；完整步骤见[四层载板改图教程](tutorial/README.md)，含器件、电源/信号规则、层管理、布局布线、铺地和分压扩展。自己重画时另建配对练习板，保留参考。
 
 ## 怎么打样
 
@@ -46,6 +48,7 @@ PCB2底面现有[两只狗的单色头像](hardware/design/pcb/dogs-silkscreen.s
 ```text
 eda/
 ├─ HomeGuard Mini 载板 R1 20261111/  唯一完整原生工程
+├─ tutorial/                        新手路线、工程内讲解图源与连接表
 └─ hardware/
    ├─ design/                       接口、器件及设计输入
    ├─ docs/                         电气、装配和首板说明
