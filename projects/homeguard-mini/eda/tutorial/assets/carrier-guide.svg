@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660">
+ <title>正式载板的分层学习与变更路径</title>
+ <rect width="1100" height="660" rx="16" fill="#fffaf1"/>
+ <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#283e39">
+  <text x="36" y="55" font-size="31" font-weight="bold">把小板的知识，迁移到 Board2 正式载板</text>
+  <g font-size="20">
+   <text x="36" y="102">第一站：Schematic2 / 04 电源与 USB 供电</text>
+   <text x="64" y="136">先读 R15=2.2kΩ → D2 LED → GND，与练习 R101/D101 同原理。</text>
+   <text x="36" y="183">第二站：Schematic2 / P1</text>
+   <text x="64" y="217">J1是MQ-2接口；R1/R2两只10kΩ分压，C1=100nF滤波。</text>
+   <text x="36" y="264">第三站：主控与交互 / 05 摄像头与显示接口</text>
+   <text x="64" y="298">追踪接头脚号、排母与网络；移动接头前看插头、线束与回流。</text>
+   <text x="36" y="345">第四站：03 信号隔离与上电控制</text>
+   <text x="64" y="379">U1～U4是通断开关，不是电平转换；监控两路电源后才接通信号。</text>
+   <text x="36" y="426">最后再学：J10入口保护、U8降压、U10反向阻断与上电时序。</text>
+   <text x="64" y="460">这些电容、电阻不是都能删除；换芯片或删除功能需按手册重算。</text>
+  </g>
+  <rect x="30" y="485" width="1040" height="78" rx="10" fill="#e3eee6"/>
+  <text x="48" y="516" font-size="21" font-weight="bold">每次只改一块：改原理图 → 查变更列表 → 调整PCB → 重铺 → 两轮检查</text>
+  <text x="48" y="547" font-size="19">先练习R101改值、C101移动，再做第5课分压；不会时不要从删电源保护开始。</text>
+  <text x="36" y="598" font-size="20" fill="#9d4b2d">正式板：外围 +3V3 与 MCU_3V3 不并联；取下开发板再接电脑USB烧录。</text>
+  <text x="36" y="633" font-size="19">完整依据在 hardware/docs/；采购清单在项目 docs/02-材料清单.md。</text>
+ </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660">
+ <title>嘉立创工程内学习入口</title>
+ <rect width="1100" height="660" rx="16" fill="#fffaf1"/>
+ <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#283e39">
+  <text x="38" y="58" font-size="32" font-weight="bold">从四个元件，到能修改你的四层载板</text>
+  <text x="38" y="96" font-size="20">先在 Board1 学习；正式板是 Board2 / Schematic2 / PCB2。</text>
+  <rect x="30" y="116" width="1040" height="64" rx="10" fill="#e3eee6"/>
+  <text x="48" y="144" font-size="20" font-weight="bold">工程内可直接打开：P1 真实元件与导线；PCB1 真实四层练习板</text>
+  <text x="48" y="170" font-size="18">中文图解页是非电气讲解图；P1 中的元件和 PCB1 中的焊盘才是可改的电路。</text>
+  <g font-size="21">
+   <text x="48" y="220">① 认识元件：J101 输入、R101 限流、D101 发光、C101 旁路。</text>
+   <text x="48" y="266">② 打开 P1：点选元件看脚号、参数、封装，再高亮三个网络。</text>
+   <text x="48" y="312">③ 打开P3“四层与图层”：四层只数铜；丝印、阻焊、钻孔不算。</text>
+   <text x="48" y="358">④ 打开P4“布局布线”：先规则和布局，再画电源、信号、地。</text>
+   <text x="48" y="404">⑤ 打开 PCB1：逐层查看线路；识别信号过孔与地过孔。</text>
+   <text x="48" y="450">⑥ 练习改动：先改 R101；再按第5课增加两只10kΩ的分压功能。</text>
+   <text x="48" y="496">⑦ 打开P5“正式载板导航”：从 D2/R15 进入，再学电源与接口。</text>
+  </g>
+  <path d="M38 522 H1060" stroke="#b7c8be"/>
+  <text x="38" y="555" font-size="19">完整逐步操作：工程同级 tutorial/README.md；第00～06课可在 VS Code 预览。</text>
+  <text x="38" y="586" font-size="19">重画时在工程树新建独立板子，配对自己的原理图和PCB；不要清空参考或正式板。</text>
+  <text x="38" y="622" font-size="19" fill="#9d4b2d">练习只接稳压3.3V，不接5V；软件检查通过后仍须焊接与实物验收。</text>
+ </g>
+</svg>

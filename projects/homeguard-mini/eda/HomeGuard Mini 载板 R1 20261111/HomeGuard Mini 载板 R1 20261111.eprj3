@@ -36,8 +36,8 @@
         "name": "Schematic1",
         "board": "3c4312b1f314c7aa",
         "source": "",
-        "version": "1794415506360",
-        "updateTime": 1794415506360
+        "version": "1794972262282",
+        "updateTime": 1794972262282
       },
       "b3a530f1580af6a3": {
         "uuid": "b3a530f1580af6a3",
@@ -55,8 +55,8 @@
         "schematic_uuid": "3e66873da87c217e",
         "zIndex": 1,
         "source": "",
-        "version": "1794405009984",
-        "updateTime": 1794405009984
+        "version": "1794972258962",
+        "updateTime": 1794972258962
       },
       "aa246f793129b3d3": {
         "uuid": "aa246f793129b3d3",
@@ -102,6 +102,42 @@
         "source": "",
         "version": "1794470537016",
         "updateTime": 1794470537016
+      },
+      "a104615208f1ae13": {
+        "uuid": "a104615208f1ae13",
+        "title": "P2",
+        "schematic_uuid": "3e66873da87c217e",
+        "zIndex": 2,
+        "source": "",
+        "version": "1794972259696",
+        "updateTime": 1794972259696
+      },
+      "ad7b9328d0464d20": {
+        "uuid": "ad7b9328d0464d20",
+        "title": "P3",
+        "schematic_uuid": "3e66873da87c217e",
+        "zIndex": 3,
+        "source": "",
+        "version": "1794972260666",
+        "updateTime": 1794972260666
+      },
+      "2c7b3e3e2f9a3af1": {
+        "uuid": "2c7b3e3e2f9a3af1",
+        "title": "P4",
+        "schematic_uuid": "3e66873da87c217e",
+        "zIndex": 4,
+        "source": "",
+        "version": "1794972261626",
+        "updateTime": 1794972261626
+      },
+      "78654e006f4b31e4": {
+        "uuid": "78654e006f4b31e4",
+        "title": "P5",
+        "schematic_uuid": "3e66873da87c217e",
+        "zIndex": 5,
+        "source": "",
+        "version": "1794972262282",
+        "updateTime": 1794972262282
       }
     },
     "pcbs": {
@@ -111,8 +147,8 @@
         "board": "3c4312b1f314c7aa",
         "parent_uuid": "",
         "source": "",
-        "version": "1794405008555",
-        "updateTime": 1794405008555
+        "version": "1794972610052",
+        "updateTime": 1794972610052
       },
       "e06d6bd616ed4ccd": {
         "uuid": "e06d6bd616ed4ccd",

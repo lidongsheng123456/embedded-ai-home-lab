@@ -1,0 +1,173 @@
+{
+  "description": "供人阅读和校验的教学连接表，不是嘉立创导入文件或制造文件",
+  "supplyVolts": 3.3,
+  "base": {
+    "nativeReference": "Board1/Schematic1/P1 + PCB1",
+    "components": [
+      {
+        "ref": "J101",
+        "mpn": "PZ254V-11-02P",
+        "lcsc": "C492401",
+        "footprint": "HDR-TH_2P-P2.54-V-M"
+      },
+      {
+        "ref": "R101",
+        "value": "2.2kΩ",
+        "mpn": "0805W8F2201T5E",
+        "lcsc": "C17520",
+        "footprint": "R0805"
+      },
+      {
+        "ref": "D101",
+        "value": "黄色LED",
+        "mpn": "KT-0805Y",
+        "lcsc": "C2296",
+        "footprint": "LED0805-R-RD",
+        "pins": {
+          "1": "A",
+          "2": "K"
+        }
+      },
+      {
+        "ref": "C101",
+        "value": "100nF",
+        "mpn": "CL21B104KBCNNNC",
+        "lcsc": "C1711",
+        "footprint": "C0805"
+      }
+    ],
+    "nets": {
+      "LEARN_3V3": [
+        "J101.1",
+        "R101.1",
+        "C101.1"
+      ],
+      "LEARN_LED_A": [
+        "R101.2",
+        "D101.1"
+      ],
+      "GND": [
+        "J101.2",
+        "D101.2",
+        "C101.2"
+      ]
+    }
+  },
+  "extension": {
+    "status": "第5课由学习者在独立练习板完成，原生参考板不包含",
+    "components": [
+      {
+        "ref": "J101",
+        "mpn": "PZ254V-11-02P",
+        "lcsc": "C492401",
+        "footprint": "HDR-TH_2P-P2.54-V-M"
+      },
+      {
+        "ref": "R101",
+        "value": "2.2kΩ",
+        "mpn": "0805W8F2201T5E",
+        "lcsc": "C17520",
+        "footprint": "R0805"
+      },
+      {
+        "ref": "D101",
+        "value": "黄色LED",
+        "mpn": "KT-0805Y",
+        "lcsc": "C2296",
+        "footprint": "LED0805-R-RD",
+        "pins": {
+          "1": "A",
+          "2": "K"
+        }
+      },
+      {
+        "ref": "C101",
+        "value": "100nF",
+        "mpn": "CL21B104KBCNNNC",
+        "lcsc": "C1711",
+        "footprint": "C0805"
+      },
+      {
+        "ref": "R102",
+        "value": "10kΩ",
+        "mpn": "0805W8F1002T5E",
+        "lcsc": "C17414",
+        "footprint": "R0805"
+      },
+      {
+        "ref": "R103",
+        "value": "10kΩ",
+        "mpn": "0805W8F1002T5E",
+        "lcsc": "C17414",
+        "footprint": "R0805"
+      },
+      {
+        "ref": "C102",
+        "value": "100nF",
+        "mpn": "CL21B104KBCNNNC",
+        "lcsc": "C1711",
+        "footprint": "C0805"
+      },
+      {
+        "ref": "J102",
+        "mpn": "PZ254V-11-02P",
+        "lcsc": "C492401",
+        "footprint": "HDR-TH_2P-P2.54-V-M"
+      }
+    ],
+    "nets": {
+      "LEARN_3V3": [
+        "J101.1",
+        "R101.1",
+        "C101.1",
+        "R102.1"
+      ],
+      "LEARN_LED_A": [
+        "R101.2",
+        "D101.1"
+      ],
+      "GND": [
+        "J101.2",
+        "D101.2",
+        "C101.2",
+        "R103.2",
+        "C102.2",
+        "J102.2"
+      ],
+      "LEARN_HALF": [
+        "R102.2",
+        "R103.1",
+        "C102.1",
+        "J102.1"
+      ]
+    }
+  },
+  "pcb": {
+    "widthMm": 35,
+    "heightMm": 25,
+    "copperLayers": [
+      {
+        "id": 1,
+        "usage": "信号/电源"
+      },
+      {
+        "id": 15,
+        "usage": "GND"
+      },
+      {
+        "id": 16,
+        "usage": "GND"
+      },
+      {
+        "id": 2,
+        "usage": "信号/电源"
+      }
+    ],
+    "signalWidthMm": 0.25,
+    "powerWidthMm": 0.5,
+    "viaDiameterMm": 0.6,
+    "viaHoleMm": 0.3,
+    "minClearanceMm": 0.2,
+    "minCopperEdgeMm": 0.5
+  }
+}

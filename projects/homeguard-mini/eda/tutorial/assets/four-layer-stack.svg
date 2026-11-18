@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660">
+ <title>四个铜层与其他制造图层</title>
+ <rect width="1100" height="660" rx="16" fill="#fffaf1"/>
+ <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#283e39">
+  <text x="36" y="55" font-size="32" font-weight="bold">列表很多行，板子仍然只有四层铜</text>
+  <text x="36" y="92" font-size="20">下图是剖面示意，厚度未按比例；L1～L4是物理顺序，不是软件ID。</text>
+  <g stroke="#c1a98c" stroke-width="1">
+   <rect x="42" y="175" width="470" height="55" fill="#ecdcc1"/>
+   <rect x="42" y="254" width="470" height="90" fill="#ecdcc1"/>
+   <rect x="42" y="368" width="470" height="55" fill="#ecdcc1"/>
+  </g>
+  <rect x="42" y="153" width="470" height="22" fill="#cc5b45"/>
+  <rect x="42" y="230" width="470" height="24" fill="#688f73"/>
+  <rect x="42" y="344" width="470" height="24" fill="#688f73"/>
+  <rect x="42" y="423" width="470" height="22" fill="#4b77ae"/>
+  <g font-size="20">
+   <text x="62" y="146">L1 顶层：信号 / 电源（ID 1）</text>
+   <text x="62" y="220">L2 内层1：GND（ID 15）</text>
+   <text x="62" y="334">L3 内层2：GND（ID 16）</text>
+   <text x="62" y="477">L4 底层：信号 / 电源（ID 2）</text>
+   <text x="170" y="303" fill="#806f59">中间浅色部分是绝缘介质</text>
+   <text x="562" y="156" font-weight="bold">不计入“四层”的信息</text>
+   <text x="562" y="195">丝印：文字、位号、图案，不导电。</text>
+   <text x="562" y="234">阻焊：决定哪里露铜，不能画信号。</text>
+   <text x="562" y="273">锡膏：贴片印锡开口，不是电源层。</text>
+   <text x="562" y="312">板框：决定切哪里，要闭合。</text>
+   <text x="562" y="351">钻孔：孔位和孔径，不是一层铜。</text>
+   <text x="562" y="390">飞线：提示尚待连接，不是真铜线。</text>
+   <text x="562" y="429">多层：通孔等跨层对象，不是第五层。</text>
+   <text x="562" y="468">装配 / 机械 / 文档：辅助说明。</text>
+  </g>
+  <path d="M36 507 H1060" stroke="#b7c8be"/>
+  <g font-size="20">
+   <text x="36" y="545">眼睛图标＝是否看见；活动层＝下一笔画在哪；层叠设置＝实际铜层数量。</text>
+   <text x="36" y="584">接地不是选一种颜色：内层放“铺铜区域”，网络选GND，实心填充，再重铺。</text>
+   <text x="36" y="623">逐层检查：地孔要接到GND铜面；信号孔穿过地面时，周围应有绝缘间距。</text>
+  </g>
+ </g>
+</svg>

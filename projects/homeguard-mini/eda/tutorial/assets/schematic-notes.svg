@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="370" viewBox="0 0 560 370">
+ <title>最小原理图旁的操作卡</title>
+ <rect width="560" height="370" rx="12" fill="#fffaf1" stroke="#8aa08e"/>
+ <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#283e39">
+  <text x="22" y="39" font-size="25" font-weight="bold">01 四件最小电路｜左侧是真实可改元件</text>
+  <g font-size="19">
+   <text x="22" y="79">J101：1脚接外部稳压3.3V，2脚接GND。</text>
+   <text x="22" y="114">R101：2.2kΩ限流，不能用导线代替。</text>
+   <text x="22" y="149">D101：1=A阳极；2=K阴极；预计低亮常亮。</text>
+   <text x="22" y="184">C101：100nF跨电源与地，不是降压器。</text>
+   <text x="22" y="227">试一试：点R101看参数，再高亮它两端网络。</text>
+   <text x="22" y="262">电阻两侧必须是不同网络，共3网、8个脚。</text>
+   <text x="22" y="297">改图顺序：原理图→检查保存→PCB导入变更。</text>
+   <text x="22" y="336" fill="#9d4b2d">此图不需固件；只接3.3V，不接5V，不接正式板。</text>
+  </g>
+ </g>
+</svg>
