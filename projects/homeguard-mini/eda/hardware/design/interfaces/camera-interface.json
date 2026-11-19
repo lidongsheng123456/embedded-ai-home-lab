@@ -1,6 +1,6 @@
 {
   "status": "source-only",
-  "source": "用户2026-11-11提供的OV2640模块商品实物图与文字说明",
+  "source": "用户实物照片及2026-11-19提供的ATK-OV2640资料；载板转换接口已逐脚核对，实物机械未验。",
   "supplyV": 3.3,
   "onboardOscillator": true,
   "externalXclk": false,
@@ -48,7 +48,30 @@
     "VSYNC": 47,
     "HREF": 48
   },
-  "assembly": "载板摄像头接口使用短转换线，按模块丝印接；不从照片推断针距、板尺寸或直接插合方向。",
+  "assembly": "J12自定义20针转双排18针的专用短转换线，调试起步≤5cm；按逐根线表制作，不用20针对18针直通线。24×32mm外形与板边位置须实测后设计支架。",
   "mechanicalVerified": false,
-  "hardwareTested": false
+  "hardwareTested": false,
+  "onboardOscillatorMHz": 24,
+  "pinPitchMm": 2.54,
+  "moduleNominalSizeMm": [
+    24,
+    32
+  ],
+  "sourceDocuments": [
+    {
+      "file": "1784182135201525.pdf",
+      "sha256": "238e0f36280fd2020c4b4359475a34f9868f102a261612d741090466e1c3af0f",
+      "scope": "裸OV2640 FPC资料，不能作模块排针依据"
+    },
+    {
+      "file": "1779698797103802.7z",
+      "sha256": "f59b557a5f95b9e5990505d926173b66ae9c959a7033c41a8ee87393baee51d7",
+      "scope": "ATK-OV2640 V2.2原理图、V1.1手册；3.3V、自带24MHz晶振、2×9排针"
+    },
+    {
+      "file": "1779698721455280.zip",
+      "sha256": "08f3132377a61c03a0ce2fb07b1828fe30117198af41483a569cc0c0790df5e7",
+      "scope": "OV5640资料，不套用到当前OV2640"
+    }
+  ]
 }

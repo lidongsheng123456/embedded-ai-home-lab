@@ -51,7 +51,8 @@
         "lcsc": "C17414",
         "role": "AUDIO_DOUT 的下拉，保证 GPIO45 启动配置为低电平"
       }
-    ]
+    ],
+    "scope": "51件精简居中基线历史；当前总量见verification.parts"
   },
   "signalChanges": {
     "method": "删除总线开关和双电源监控控制，原开关两侧的 25 路信号逐路直连，不改变 GPIO 和外接插座针序",
@@ -85,18 +86,39 @@
   "layout": {
     "headers": "J7/J8 为同一装配整体，中心 (50,50)mm，保持 2.54mm 针距、25.40mm 排距和原有方向",
     "board": "保留 100×100mm、R3 圆角、四层和四个原安装孔；外围接口对齐，电源关键回路紧凑",
-    "decorations": "保留底面两只狗头像"
+    "decorations": "按用户最新要求移除底面狗头像；板名、供电与接线表保留。",
+    "alignment": "主控、J12、J10、SW1沿X50mm中线；I2C接口与C2/C3镜像，小元件按功能对齐，降压保持短回路。"
   },
   "acceptance": [
     "原理图逐脚对账及孤儿线检查",
     "正式 PCB 官方导入变更",
-    "51 件完整器件身份与引脚网对账",
+    "60 件完整器件身份与引脚网对账",
     "机械占位、插头及螺丝空间",
     "全部功能布线、必要电源铜宽和连续地参考",
     "保存、真实重载、新回读及两轮原生 DRC",
     "BOM 和现有说明同步更新"
   ],
-  "verification": {
+  "audio": {
+    "module": "MAX98357A 现成模块和用户已有 4Ω/3W 喇叭，不重复购买功放芯片",
+    "connector": "J13",
+    "pinOrder": [
+      "LRC / MIC_WS (GPIO5)",
+      "BCLK / MIC_BCLK (GPIO4)",
+      "DIN / AUDIO_DOUT (GPIO45)",
+      "GAIN (NC)",
+      "SD (+5V)",
+      "GND",
+      "VCC (+5V)"
+    ],
+    "moduleWiring": "七针2.54mm公对母杜邦线按同号脚连接；SD接+5V，GAIN悬空（9dB）；喇叭接OUTP/OUTN，两端都不能接地。",
+    "boot": "GPIO45 为启动配置脚，只连接功放高阻输入，并通过 R22=10kΩ 下拉；不得外接上拉或输出驱动器",
+    "retainedBuzzer": "J9、R4、C8 及 GPIO21 保留，原程序提醒功能不变",
+    "firmware": "本轮只加入硬件接口；现有麦克风 I2S 为仅接收模式，音频播放需后续实现同一 I2S 的全双工输出；没有声称已能播放提示音或语音",
+    "datasheet": "https://cdn-shop.adafruit.com/product-files/3006/MAX98357A-MAX98357B.pdf",
+    "evidence": "MAX98357A 原厂手册：数字音频 VIH 1.3V，支持 3.3V GPIO；16kHz 及 32bit 音频帧可用；SD 直接接 VDD 选择左声道，播放时应正确填充左声道",
+    "lcsc": "C54876729"
+  },
+  "baselineVerification": {
     "date": "2026-11-19",
     "savedAndReloaded": true,
     "nativeDrcRounds": [
@@ -125,23 +147,466 @@
     "hardwareTested": false,
     "audioPlaybackImplemented": false,
     "implemented": true,
-    "scope": "原生电路与PCB写入、保存重载及软件/制造几何核对；不代表实物或音频播放完成"
+    "scope": "51件精简居中基线的历史验收，不覆盖后续直插接口修订"
   },
-  "audio": {
-    "module": "MAX98357A 现成模块和用户已有 4Ω/3W 喇叭，不重复购买功放芯片",
-    "connector": "J13",
-    "pinOrder": [
-      "+5V",
-      "GND",
-      "MIC_BCLK (GPIO4)",
-      "MIC_WS (GPIO5)",
-      "AUDIO_DOUT (GPIO45 / J8.15)"
+  "directPlugInterfaces": {
+    "status": "live-verified",
+    "decision": "按用户实物针序直接插接，不采用交叉跳线；麦克风严格按用户确认2.6mm/7.3mm设计",
+    "J1": {
+      "module": "MQ-2",
+      "lcsc": "C2718488",
+      "pinOrder": [
+        "AO",
+        "DO (NC)",
+        "GND",
+        "VCC (+5V)"
+      ],
+      "padNets": [
+        "MQ2_AO_RAW",
+        "",
+        "GND",
+        "+5V"
+      ],
+      "pitchMm": 2.54,
+      "topViewOrder": "从上到下"
+    },
+    "J4": {
+      "module": "LD2410C",
+      "lcsc": "C50950",
+      "pinOrder": [
+        "TX",
+        "RX",
+        "OUT (NC)",
+        "GND",
+        "VCC (+5V)"
+      ],
+      "padNets": [
+        "UART_RX17",
+        "UART_TX18",
+        "",
+        "GND",
+        "+5V"
+      ],
+      "pitchMm": 2.54,
+      "topViewOrder": "从下到上"
+    },
+    "J6": {
+      "module": "ST7789",
+      "lcsc": "C27438",
+      "pinOrder": [
+        "GND",
+        "VCC",
+        "SCL",
+        "SDA",
+        "RES",
+        "DC",
+        "CS",
+        "BLK"
+      ],
+      "padNets": [
+        "GND",
+        "+3V3",
+        "TFT_SCLK",
+        "TFT_MOSI",
+        "TFT_RST",
+        "TFT_DC",
+        "TFT_CS",
+        "+3V3"
+      ],
+      "pitchMm": 2.54
+    },
+    "microphone": {
+      "module": "INMP441",
+      "lcsc": "C7018750",
+      "part": "SSW-101-01-G-S",
+      "socketCount": 6,
+      "topRowLeftToRight": [
+        "J5 GND",
+        "J14 VDD (+3V3)",
+        "J15 SD (GPIO6)"
+      ],
+      "bottomRowLeftToRight": [
+        "J16 L/R (GND)",
+        "J17 WS (GPIO5)",
+        "J18 SCK (GPIO4)"
+      ],
+      "pitchMm": 2.6,
+      "rowPitchMm": 7.3,
+      "moduleCircleMm": [
+        10,
+        40,
+        13.8
+      ],
+      "socketRotationDeg": 90,
+      "socketPlasticWidthMm": 2.41,
+      "socketPlasticLengthMm": 3.05,
+      "socketHeightMm": 8.51,
+      "matingSquarePinMm": 0.635,
+      "insertionDepthMm": [
+        3.68,
+        6.35
+      ],
+      "plasticGapMm": 0.19,
+      "manufacturerDrawing": "https://suddendocs.samtec.com/catalog_english/ssw_th.pdf",
+      "courtyardException": "仅六个同一阵列成员内部：库庭院框相邻交叠约0.067mm；厂家塑料实体间隔约0.19mm，不放宽全板铜规则或其他器件间距。",
+      "C5AnchorMm": [
+        13,
+        49.5
+      ],
+      "C5EnvelopeOutsideModule": true
+    },
+    "afterParts": 56,
+    "afterBomGroups": 26,
+    "gpioChanged": false,
+    "mechanicalRemaining": "完整MQ-2/雷达/屏幕模块及支架占位、排针露出长度与声孔方向尚需首件实物套合。",
+    "scope": "56件阶段历史接口记录；当前装配采用模块外接方案，七针功放、扩展与总量见当前字段。"
+  },
+  "directPlugVerification": {
+    "date": "2026-11-19",
+    "savedAndReloaded": true,
+    "nativeDrcRounds": [
+      0,
+      0
     ],
-    "moduleWiring": "模块 SD 接 VIN，GAIN 悬空（9dB）；喇叭接 OUTP/OUTN，两个输出都不能接地；按模块丝印核对，不能把 XH 针序当作模块排针顺序",
-    "boot": "GPIO45 为启动配置脚，只连接功放高阻输入，并通过 R22=10kΩ 下拉；不得外接上拉或输出驱动器",
-    "retainedBuzzer": "J9、R4、C8 及 GPIO21 保留，原程序提醒功能不变",
-    "firmware": "本轮只加入硬件接口；现有麦克风 I2S 为仅接收模式，音频播放需后续实现同一 I2S 的全双工输出；没有声称已能播放提示音或语音",
-    "datasheet": "https://cdn-shop.adafruit.com/product-files/3006/MAX98357A-MAX98357B.pdf",
-    "evidence": "MAX98357A 原厂手册：数字音频 VIH 1.3V，支持 3.3V GPIO；16kHz 及 32bit 音频帧可用；SD 直接接 VDD 选择左声道，播放时应正确填充左声道"
+    "schematicPagesErcPassed": 5,
+    "parts": 56,
+    "bomGroups": 26,
+    "pads": 198,
+    "explicitNoConnect": 12,
+    "nets": 40,
+    "tracks": 410,
+    "vias": 53,
+    "officialPlacementVerified": true,
+    "gerberGeometryVerified": true,
+    "gerberSha256": "192e3d803533c3f4115de889c5651b6c1ffaa24ca309134f6d7b83093da867d1",
+    "auxiliaryDfm": {
+      "passed": false,
+      "errors": 0,
+      "warnings": 42,
+      "info": 32
+    },
+    "schematicLayout": "P1缺功能分区框WARN、8处无接点交叉INFO及图签模板INFO；未称全部辅助检查通过。",
+    "visualInspection": "最新Gerber正反面制造渲染；不代替原生3D或实物模块套合。",
+    "hardwareTested": false,
+    "audioPlaybackImplemented": false,
+    "implemented": true,
+    "scope": "56件直插接口阶段历史验收，不覆盖当前60件通用学习版"
+  },
+  "verification": {
+    "parts": 60,
+    "bomGroups": 28,
+    "pads": 252,
+    "explicitNoConnect": 9,
+    "nets": 47,
+    "tracks": 535,
+    "vias": 52,
+    "officialPlacementRows": 60,
+    "schematicPcbPinmapEqual": true,
+    "secondRoundSemanticEqual": true,
+    "headerNonGroundPaths": 37,
+    "groundPathScope": "原生DRC及制造地铜核对；net-path只看线/过孔，不覆盖铺铜",
+    "minimumComponentEnvelopeGapMm": [
+      0.5177866199999979,
+      "C23",
+      "L1"
+    ],
+    "hardwareTested": false,
+    "date": "2026-11-19",
+    "savedAndReloaded": true,
+    "nativeDrcRounds": [
+      0,
+      0
+    ],
+    "schematicPagesErcPassed": 6,
+    "schematicPagesCheckPassed": 6,
+    "gerberGeometryVerified": true,
+    "gerberSha256": "62502a716abb8f9f2e9a40f4a739085d989fc5c89746e251aec263dafc9c9dd0",
+    "auxiliaryDfm": {
+      "passed": false,
+      "errors": 0,
+      "warnings": 49,
+      "info": 32,
+      "summary": {
+        "danglingEnds": 0,
+        "acuteAngles": 0,
+        "nonOrthogonal": 0,
+        "trackOverPad": 0,
+        "clearance": 0,
+        "silkscreenFlipped": 0,
+        "overlappingVias": 0,
+        "singleLayerVias": 0,
+        "widthMismatches": 31,
+        "duplicateSegments": 0,
+        "parallelCoupling": 5,
+        "antennaKeepout": 0,
+        "netlessPours": 0,
+        "viaCrossesPlane": 0,
+        "floatingIslands": 0,
+        "powerNotPoured": 2,
+        "netlessViaInPad": 0,
+        "widthUnderSpec": 1,
+        "silkOverPad": 0,
+        "silkOffBoard": 0,
+        "decapTooFar": 14,
+        "viaInPad": 0,
+        "copperNearEdge": 0,
+        "fiducialMissing": 1,
+        "zoneViolation": 0,
+        "internalOnEdge": 0,
+        "connectorPlugClearance": 27,
+        "connectorMatingBlocked": 0,
+        "connectorOpeningInward": 0,
+        "errors": 0,
+        "warnings": 49,
+        "total": 81
+      }
+    },
+    "schematicLayout": "六页中文注释已保存重载；逐脚网络不变，原生ERC、连线/桥接检查通过；非严格版式检查无碰撞、紧贴或越界。INFO保留无接点交叉及旧图签模板限制，未声称严格ownership全面通过。",
+    "visualInspection": "最新Gerber正反面制造渲染已目视，狗头像已移除；不代替原生3D或实物套合。",
+    "implemented": true,
+    "audioPlaybackImplemented": false,
+    "scope": "60件通用学习版：33件器件居中、镜像或分组对齐及相应重布；狗头像已移除，保留全部模块、学习排针、六页中文原理图；未实物验收，未修改固件。",
+    "headerGroundPadsInBothInnerPlanes": 8,
+    "layoutPolish": {
+      "movedParts": 33,
+      "unchangedParts": 27,
+      "centerLineMm": 50,
+      "centeredConnectors": [
+        "J10",
+        "J12"
+      ],
+      "mirroredPairs": [
+        [
+          "J19",
+          "J20"
+        ],
+        [
+          "C2",
+          "C3"
+        ]
+      ],
+      "smallParts": "电阻电容按功能分组、同列同高对齐；保留降压紧凑内部回路。",
+      "routing": "水平、垂直和45度转折；电源母线与分支整理，悬空、重复、尖角与非正交提示均0。",
+      "C3GroundViaOutsidePad": true,
+      "headerLabelFont": "Arial",
+      "headerLabelSizeMil": 40,
+      "dogGraphicRemoved": true,
+      "headerNonGroundPathsRechecked": 37,
+      "powerPaths": {
+        "J7-21": {
+          "connected": true,
+          "minWidthMil": 40,
+          "viaCount": 0,
+          "layers": [
+            1
+          ]
+        },
+        "J13-5": {
+          "connected": true,
+          "minWidthMil": 40,
+          "viaCount": 0,
+          "layers": [
+            1
+          ]
+        },
+        "J13-7": {
+          "connected": true,
+          "minWidthMil": 40,
+          "viaCount": 0,
+          "layers": [
+            1
+          ]
+        }
+      },
+      "preserved": "器件身份、角度、逐脚网、板框与规则保持；位置及铜以本轮新鲜回读为准。"
+    },
+    "sourceSemanticSha256": "e248800f6246bfadd109864138a0369000c3e6cd076d917a1dd1853e92dbda64",
+    "gerberRoundHoles": 210
+  },
+  "universalLearning": {
+    "page": "d03bc3026fc0fc0a",
+    "device": "94d1cd9af146443e9306c9ad52f02cdd",
+    "library": "0819f05c4eef4c71ace90d822a990e87",
+    "lcsc": "C20610289",
+    "headers": {
+      "J21": {
+        "source": "J7",
+        "pins": {
+          "1": "MCU_3V3",
+          "2": "MCU_3V3",
+          "3": "MCU_EN",
+          "4": "MIC_BCLK",
+          "5": "MIC_WS",
+          "6": "MIC_SD",
+          "7": "CAM_D2",
+          "8": "TFT_RST",
+          "9": "CAM_PCLK",
+          "10": "UART_RX17",
+          "11": "UART_TX18",
+          "12": "I2C_SDA",
+          "13": "MQ2_ADC",
+          "14": "GPIO46_IN",
+          "15": "I2C_SCL",
+          "16": "TFT_CS",
+          "17": "TFT_DAT",
+          "18": "TFT_CLK",
+          "19": "CAM_D3",
+          "20": "TFT_DC",
+          "21": "+5V",
+          "22": "GND"
+        },
+        "labels": {
+          "1": "3V3",
+          "2": "3V3",
+          "3": "EN",
+          "4": "GPIO4",
+          "5": "GPIO5",
+          "6": "GPIO6",
+          "7": "GPIO7",
+          "8": "GPIO15",
+          "9": "GPIO16",
+          "10": "GPIO17",
+          "11": "GPIO18",
+          "12": "GPIO8",
+          "13": "GPIO3",
+          "14": "GPIO46",
+          "15": "GPIO9",
+          "16": "GPIO10",
+          "17": "GPIO11",
+          "18": "GPIO12",
+          "19": "GPIO13",
+          "20": "GPIO14",
+          "21": "5V",
+          "22": "GND"
+        }
+      },
+      "J22": {
+        "source": "J8",
+        "pins": {
+          "1": "GND",
+          "2": "GPIO43_TX0",
+          "3": "GPIO44_RX0",
+          "4": "CAM_D0",
+          "5": "CAM_D1",
+          "6": "CAM_D7",
+          "7": "CAM_D6",
+          "8": "CAM_D5",
+          "9": "BUTTON39",
+          "10": "CAM_D4",
+          "11": "",
+          "12": "",
+          "13": "",
+          "14": "GPIO0_BOOT",
+          "15": "AUDIO_DOUT",
+          "16": "CAM_HREF",
+          "17": "CAM_VSYNC",
+          "18": "BUZZ_CTRL",
+          "19": "GPIO20_USB_DP",
+          "20": "GPIO19_USB_DM",
+          "21": "GND",
+          "22": "GND"
+        },
+        "labels": {
+          "1": "GND",
+          "2": "GPIO43",
+          "3": "GPIO44",
+          "4": "GPIO1",
+          "5": "GPIO2",
+          "6": "GPIO42",
+          "7": "GPIO41",
+          "8": "GPIO40",
+          "9": "GPIO39",
+          "10": "GPIO38",
+          "11": "GPIO37",
+          "12": "GPIO36",
+          "13": "GPIO35",
+          "14": "GPIO0",
+          "15": "GPIO45",
+          "16": "GPIO48",
+          "17": "GPIO47",
+          "18": "GPIO21",
+          "19": "GPIO20",
+          "20": "GPIO19",
+          "21": "GND",
+          "22": "GND"
+        }
+      }
+    },
+    "restrictions": [
+      "GPIO35/36/37的载板排母与扩展针均NC，不接PSRAM",
+      "GPIO46仅输入并影响启动",
+      "GPIO44连CH343发送端，禁止外部推挽输出并驱",
+      "GPIO43在完整相机程序中输出占位时钟",
+      "GPIO19/20保留USB用途；学习程序才可调整",
+      "MCU_3V3与外围+3V3不得并联",
+      "拔模块线不消除板载分压/滤波/上拉下拉负载"
+    ],
+    "status": "live-verified",
+    "date": "2026-11-19",
+    "part": "KH-2.54PH180-1X22P-L11.5",
+    "switching": "断电拔模块连接线并换学习程序；麦克风直插需拔麦克风，GPIO4/5还需拔功放线。无全引脚隔离跳帽。",
+    "noConnect": [
+      "J8.11",
+      "J8.12",
+      "J8.13",
+      "J22.11",
+      "J22.12",
+      "J22.13"
+    ],
+    "fixedPeripheral": {
+      "GPIO3": "R1/R2=10kΩ分压、C1=100nF；拔MQ-2线后R2/C1仍在",
+      "GPIO39": "按钮、10kΩ上拉、100nF",
+      "GPIO45": "R22=10kΩ下拉",
+      "GPIO21": "100kΩ下拉",
+      "GPIO8/9": "4.7kΩ上拉至外围+3V3",
+      "GPIO10/15": "10kΩ上拉至外围+3V3",
+      "GPIO11/12": "学习排针在主控侧直出，屏幕侧串22Ω"
+    },
+    "gpioVoltage": "仅3.3V逻辑；5V不接GPIO，MCU_3V3不与外围+3V3并联。",
+    "geometry": {
+      "J21CenterMm": [
+        32.22,
+        50
+      ],
+      "J22CenterMm": [
+        67.78,
+        50
+      ],
+      "pitchMm": 2.54,
+      "topToBottom": "1～22"
+    },
+    "tutorial": "../../../../docs/03-接线教程.md#通用学习排针j21--j22"
+  },
+  "moduleMounting": {
+    "directPlug": [
+      "J7/J8 开发板",
+      "J5/J14～J18 麦克风"
+    ],
+    "dupont": [
+      "J1 MQ-2",
+      "J4 雷达",
+      "J6 屏幕",
+      "J13 七针功放"
+    ],
+    "xhAdapter": [
+      "J2 温湿度",
+      "J3 光照",
+      "J9 蜂鸣器"
+    ],
+    "camera": "J12专用短转换线，起步≤5cm",
+    "i2cExpansion": {
+      "connectors": [
+        "J19",
+        "J20"
+      ],
+      "pins": [
+        "+3V3",
+        "GND",
+        "I2C_SDA",
+        "I2C_SCL"
+      ],
+      "lcsc": "C2718488",
+      "addressMustBeUnique": true
+    }
   }
 }

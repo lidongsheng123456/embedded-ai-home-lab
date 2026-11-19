@@ -93,7 +93,7 @@
     "source": "用户2026-11-12厂家答复及明确选择断电取下开发板后烧录",
     "method": "保险丝后的+5V经J7.21直接给开发板供电，删除J11，精简版已取消U7/U10",
     "header5V": "+5V",
-    "header3V3": "MCU_3V3，只接按钮外围，不与外围+3V3并联",
+    "header3V3": "MCU_3V3，供按钮外围并引到J21.1/2学习排针；可用外带电流未知，不与外围+3V3并联",
     "sensorPower": "载板独立3.3V稳压；传感器负载不经过开发板",
     "usbAnd5VHeader": "禁止并接；载板先断电、开发板取下后才接电脑USB；拔USB后才装回载板",
     "implementation": "2026-11-19精简与居中重布已保存重载，两轮原生DRC为0；供电铜路径及逐脚网络已核对，实物未验"
@@ -101,9 +101,163 @@
   "audioOutput": {
     "pin": "GPIO45 / J8.15",
     "net": "AUDIO_DOUT",
-    "connector": "J13.5",
+    "connector": "J13.3",
     "boot": "R22=10kΩ下拉必须装；仅接MAX98357A高阻DIN，不加外部上拉或输出驱动",
     "clocks": "GPIO4/5与麦克风共用，数据线分开",
     "firmware": "播放尚未实现"
+  },
+  "universalLearning": {
+    "page": "d03bc3026fc0fc0a",
+    "device": "94d1cd9af146443e9306c9ad52f02cdd",
+    "library": "0819f05c4eef4c71ace90d822a990e87",
+    "lcsc": "C20610289",
+    "headers": {
+      "J21": {
+        "source": "J7",
+        "pins": {
+          "1": "MCU_3V3",
+          "2": "MCU_3V3",
+          "3": "MCU_EN",
+          "4": "MIC_BCLK",
+          "5": "MIC_WS",
+          "6": "MIC_SD",
+          "7": "CAM_D2",
+          "8": "TFT_RST",
+          "9": "CAM_PCLK",
+          "10": "UART_RX17",
+          "11": "UART_TX18",
+          "12": "I2C_SDA",
+          "13": "MQ2_ADC",
+          "14": "GPIO46_IN",
+          "15": "I2C_SCL",
+          "16": "TFT_CS",
+          "17": "TFT_DAT",
+          "18": "TFT_CLK",
+          "19": "CAM_D3",
+          "20": "TFT_DC",
+          "21": "+5V",
+          "22": "GND"
+        },
+        "labels": {
+          "1": "3V3",
+          "2": "3V3",
+          "3": "EN",
+          "4": "GPIO4",
+          "5": "GPIO5",
+          "6": "GPIO6",
+          "7": "GPIO7",
+          "8": "GPIO15",
+          "9": "GPIO16",
+          "10": "GPIO17",
+          "11": "GPIO18",
+          "12": "GPIO8",
+          "13": "GPIO3",
+          "14": "GPIO46",
+          "15": "GPIO9",
+          "16": "GPIO10",
+          "17": "GPIO11",
+          "18": "GPIO12",
+          "19": "GPIO13",
+          "20": "GPIO14",
+          "21": "5V",
+          "22": "GND"
+        }
+      },
+      "J22": {
+        "source": "J8",
+        "pins": {
+          "1": "GND",
+          "2": "GPIO43_TX0",
+          "3": "GPIO44_RX0",
+          "4": "CAM_D0",
+          "5": "CAM_D1",
+          "6": "CAM_D7",
+          "7": "CAM_D6",
+          "8": "CAM_D5",
+          "9": "BUTTON39",
+          "10": "CAM_D4",
+          "11": "",
+          "12": "",
+          "13": "",
+          "14": "GPIO0_BOOT",
+          "15": "AUDIO_DOUT",
+          "16": "CAM_HREF",
+          "17": "CAM_VSYNC",
+          "18": "BUZZ_CTRL",
+          "19": "GPIO20_USB_DP",
+          "20": "GPIO19_USB_DM",
+          "21": "GND",
+          "22": "GND"
+        },
+        "labels": {
+          "1": "GND",
+          "2": "GPIO43",
+          "3": "GPIO44",
+          "4": "GPIO1",
+          "5": "GPIO2",
+          "6": "GPIO42",
+          "7": "GPIO41",
+          "8": "GPIO40",
+          "9": "GPIO39",
+          "10": "GPIO38",
+          "11": "GPIO37",
+          "12": "GPIO36",
+          "13": "GPIO35",
+          "14": "GPIO0",
+          "15": "GPIO45",
+          "16": "GPIO48",
+          "17": "GPIO47",
+          "18": "GPIO21",
+          "19": "GPIO20",
+          "20": "GPIO19",
+          "21": "GND",
+          "22": "GND"
+        }
+      }
+    },
+    "restrictions": [
+      "GPIO35/36/37的载板排母与扩展针均NC，不接PSRAM",
+      "GPIO46仅输入并影响启动",
+      "GPIO44连CH343发送端，禁止外部推挽输出并驱",
+      "GPIO43在完整相机程序中输出占位时钟",
+      "GPIO19/20保留USB用途；学习程序才可调整",
+      "MCU_3V3与外围+3V3不得并联",
+      "拔模块线不消除板载分压/滤波/上拉下拉负载"
+    ],
+    "status": "live-verified",
+    "date": "2026-11-19",
+    "part": "KH-2.54PH180-1X22P-L11.5",
+    "switching": "断电拔模块连接线并换学习程序；麦克风直插需拔麦克风，GPIO4/5还需拔功放线。无全引脚隔离跳帽。",
+    "noConnect": [
+      "J8.11",
+      "J8.12",
+      "J8.13",
+      "J22.11",
+      "J22.12",
+      "J22.13"
+    ],
+    "fixedPeripheral": {
+      "GPIO3": "R1/R2=10kΩ分压、C1=100nF；拔MQ-2线后R2/C1仍在",
+      "GPIO39": "按钮、10kΩ上拉、100nF",
+      "GPIO45": "R22=10kΩ下拉",
+      "GPIO21": "100kΩ下拉",
+      "GPIO8/9": "4.7kΩ上拉至外围+3V3",
+      "GPIO10/15": "10kΩ上拉至外围+3V3",
+      "GPIO11/12": "学习排针在主控侧直出，屏幕侧串22Ω"
+    },
+    "gpioVoltage": "仅3.3V逻辑；5V不接GPIO，MCU_3V3不与外围+3V3并联。",
+    "geometry": {
+      "J21CenterMm": [
+        32.22,
+        50
+      ],
+      "J22CenterMm": [
+        67.78,
+        50
+      ],
+      "pitchMm": 2.54,
+      "topToBottom": "1～22"
+    },
+    "tutorial": "../../../../docs/03-接线教程.md#通用学习排针j21--j22"
   }
 }
