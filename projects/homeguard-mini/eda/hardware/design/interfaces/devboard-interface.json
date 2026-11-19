@@ -91,11 +91,19 @@
   "purchaseUrl": "https://item.jd.com/10217491410382.html",
   "powerDecision": {
     "source": "用户2026-11-12厂家答复及明确选择断电取下开发板后烧录",
-    "method": "载板受保护5V直接通过母座J7.21给开发板供电，删除J11 USB-A和盒内短USB线",
-    "header5V": "USB_MCU_5V；保留历史网名，实际为受保护开发板5V输入",
-    "header3V3": "MCU_3V3，单独电源域，仅给接口隔离逻辑和按键供电",
+    "method": "保险丝后的+5V经J7.21直接给开发板供电，删除J11，精简版已取消U7/U10",
+    "header5V": "+5V",
+    "header3V3": "MCU_3V3，只接按钮外围，不与外围+3V3并联",
     "sensorPower": "载板独立3.3V稳压；传感器负载不经过开发板",
     "usbAnd5VHeader": "禁止并接；载板先断电、开发板取下后才接电脑USB；拔USB后才装回载板",
-    "implementation": "已在原理图与PCB实施并保存重载两轮核对；直接从项目eda中的完整原生工程打开PCB2打样，版本由Git管理。实物焊接、插合和供电未验。"
+    "implementation": "2026-11-19精简与居中重布已保存重载，两轮原生DRC为0；供电铜路径及逐脚网络已核对，实物未验"
+  },
+  "audioOutput": {
+    "pin": "GPIO45 / J8.15",
+    "net": "AUDIO_DOUT",
+    "connector": "J13.5",
+    "boot": "R22=10kΩ下拉必须装；仅接MAX98357A高阻DIN，不加外部上拉或输出驱动",
+    "clocks": "GPIO4/5与麦克风共用，数据线分开",
+    "firmware": "播放尚未实现"
   }
 }

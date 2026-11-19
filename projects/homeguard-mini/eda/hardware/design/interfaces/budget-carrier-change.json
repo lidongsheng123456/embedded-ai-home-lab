@@ -1,0 +1,147 @@
+{
+  "status": "live-verified",
+  "date": "2026-11-19",
+  "decision": "用户要求降低载板元件数量和成本，保留全部传感器、屏幕和摄像头；开发板排母居中，外围尽量对称",
+  "baseline": "正式 Board2 / Schematic2 / PCB2，78 件；历史布局和保护方案不可直接重放",
+  "componentTarget": {
+    "before": 78,
+    "remove": [
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U9",
+      "U10",
+      "Q1",
+      "Q2",
+      "R5",
+      "R6",
+      "R7",
+      "R12",
+      "R13",
+      "R14",
+      "R16",
+      "R17",
+      "C9",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C16",
+      "C17",
+      "C26",
+      "C27"
+    ],
+    "after": 51,
+    "priceScope": "仅核算器件数量；没有当前供应商报价，不声称具体人民币节省额",
+    "add": [
+      {
+        "ref": "J13",
+        "part": "XH-5A",
+        "lcsc": "C2904945",
+        "role": "连接用户已有 MAX98357A 现成模块"
+      },
+      {
+        "ref": "R22",
+        "part": "10kΩ / 0805",
+        "lcsc": "C17414",
+        "role": "AUDIO_DOUT 的下拉，保证 GPIO45 启动配置为低电平"
+      }
+    ]
+  },
+  "signalChanges": {
+    "method": "删除总线开关和双电源监控控制，原开关两侧的 25 路信号逐路直连，不改变 GPIO 和外接插座针序",
+    "retain": [
+      "MQ-2 的 R1/R2 分压和 C1 滤波",
+      "I2C 上拉 R8/R9",
+      "屏幕串联阻尼 R20/R21",
+      "按钮与蜂鸣器控制外围",
+      "摄像头接口供电与去耦"
+    ],
+    "powerDomains": "外围仍由 U8 产生独立 +3V3，不并联开发板 MCU_3V3"
+  },
+  "powerChanges": {
+    "retain": [
+      "5V/3A USB-C 输入 J10",
+      "CC1/CC2 的 5.1kΩ 下拉 R10/R11",
+      "保险丝 F1",
+      "输入 TVS D1",
+      "U8 降压与原厂所需输入/输出/自举电容、电感",
+      "开发板供电储能 C25"
+    ],
+    "method": "保险丝后的 5V 直接供外围 5V、U8 和开发板 J7.21；删除电子限流软启动、专用反向阻断和 CC 静电保护芯片",
+    "lostFunctions": [
+      "U7 主动限流、欠压锁定和软启动",
+      "U10 反向电流阻断",
+      "两路 3.3V 未稳定时主动断开信号",
+      "CC 专用静电保护"
+    ],
+    "use": "只接已有合格 5V/3A 电源；全部模块共电源工作，不带电拔插；断电并取下开发板后才能接电脑 USB，拔 USB 后装回；不支持开发板 USB 单独给插在载板上的系统供电"
+  },
+  "layout": {
+    "headers": "J7/J8 为同一装配整体，中心 (50,50)mm，保持 2.54mm 针距、25.40mm 排距和原有方向",
+    "board": "保留 100×100mm、R3 圆角、四层和四个原安装孔；外围接口对齐，电源关键回路紧凑",
+    "decorations": "保留底面两只狗头像"
+  },
+  "acceptance": [
+    "原理图逐脚对账及孤儿线检查",
+    "正式 PCB 官方导入变更",
+    "51 件完整器件身份与引脚网对账",
+    "机械占位、插头及螺丝空间",
+    "全部功能布线、必要电源铜宽和连续地参考",
+    "保存、真实重载、新回读及两轮原生 DRC",
+    "BOM 和现有说明同步更新"
+  ],
+  "verification": {
+    "date": "2026-11-19",
+    "savedAndReloaded": true,
+    "nativeDrcRounds": [
+      0,
+      0
+    ],
+    "schematicPagesErcPassed": 5,
+    "parts": 51,
+    "bomGroups": 24,
+    "pads": 196,
+    "explicitNoConnect": 10,
+    "nets": 40,
+    "tracks": 397,
+    "vias": 51,
+    "officialPlacementVerified": true,
+    "gerberGeometryVerified": true,
+    "gerberSha256": "d84fc6f99c4dbd157bf53bf7a2b2806fb60d8e4cefc2af042b0ae69a2134fb49",
+    "auxiliaryDfm": {
+      "passed": false,
+      "errors": 0,
+      "warnings": 32,
+      "info": 32
+    },
+    "schematicLayout": "P1缺功能分区框WARN；另15处无接点交叉及图签模板INFO。其余四页辅助检查通过。",
+    "visualInspection": "当前Gerber正反面制造渲染；窗口后台，未取得本轮原生画布截图或3D预览。",
+    "hardwareTested": false,
+    "audioPlaybackImplemented": false,
+    "implemented": true,
+    "scope": "原生电路与PCB写入、保存重载及软件/制造几何核对；不代表实物或音频播放完成"
+  },
+  "audio": {
+    "module": "MAX98357A 现成模块和用户已有 4Ω/3W 喇叭，不重复购买功放芯片",
+    "connector": "J13",
+    "pinOrder": [
+      "+5V",
+      "GND",
+      "MIC_BCLK (GPIO4)",
+      "MIC_WS (GPIO5)",
+      "AUDIO_DOUT (GPIO45 / J8.15)"
+    ],
+    "moduleWiring": "模块 SD 接 VIN，GAIN 悬空（9dB）；喇叭接 OUTP/OUTN，两个输出都不能接地；按模块丝印核对，不能把 XH 针序当作模块排针顺序",
+    "boot": "GPIO45 为启动配置脚，只连接功放高阻输入，并通过 R22=10kΩ 下拉；不得外接上拉或输出驱动器",
+    "retainedBuzzer": "J9、R4、C8 及 GPIO21 保留，原程序提醒功能不变",
+    "firmware": "本轮只加入硬件接口；现有麦克风 I2S 为仅接收模式，音频播放需后续实现同一 I2S 的全双工输出；没有声称已能播放提示音或语音",
+    "datasheet": "https://cdn-shop.adafruit.com/product-files/3006/MAX98357A-MAX98357B.pdf",
+    "evidence": "MAX98357A 原厂手册：数字音频 VIH 1.3V，支持 3.3V GPIO；16kHz 及 32bit 音频帧可用；SD 直接接 VDD 选择左声道，播放时应正确填充左声道"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "documentId": "d734014dc8d7c031",
+  "frames": [
+    {
+      "id": "budget-audio-interface",
+      "title": "MAX98357A MODULE / 5V / I2S",
+      "rect": {"minX": 650, "minY": 100, "maxX": 1140, "maxY": 350},
+      "titleX": 665,
+      "titleY": 335,
+      "fontSize": 16,
+      "color": "#AA00AA",
+      "lineType": 1
+    }
+  ]
+}
