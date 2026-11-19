@@ -472,7 +472,7 @@
     "schematicPagesErcPassed": 6,
     "schematicPagesCheckPassed": 6,
     "gerberGeometryVerified": true,
-    "gerberSha256": "62502a716abb8f9f2e9a40f4a739085d989fc5c89746e251aec263dafc9c9dd0",
+    "gerberSha256": "c9ecf9d8be8cc1647486503000a29708cf9325f943dc5f870511603ffaae975e",
     "auxiliaryDfm": {
       "passed": false,
       "errors": 0,
@@ -514,10 +514,10 @@
       }
     },
     "schematicLayout": "六页中文注释已保存重载；逐脚网络不变，原生ERC、连线/桥接检查通过；非严格版式检查无碰撞、紧贴或越界。INFO保留无接点交叉及旧图签模板限制，未声称严格ownership全面通过。",
-    "visualInspection": "最新Gerber正反面制造渲染已目视，狗头像已移除；不代替原生3D或实物套合。",
+    "visualInspection": "最新原生整板画面及Gerber正反面已目视；底面说明改中文，标准信号名保留，狗头像已移除；不代替原生3D或实物套合。",
     "implemented": true,
     "audioPlaybackImplemented": false,
-    "scope": "60件通用学习版：33件器件居中、镜像或分组对齐及相应重布；狗头像已移除，保留全部模块、学习排针、六页中文原理图；未实物验收，未修改固件。",
+    "scope": "60件通用学习版：33件器件居中、镜像或分组对齐及相应重布；狗头像已移除，保留全部模块、学习排针、六页中文原理图；未实物验收，未修改固件。 底面46条丝印已统一中文说明与微软雅黑字体；两轮保存重载DRC均0，全部器件、网络、规则、顶面丝印和实际铜保持。",
     "headerGroundPadsInBothInnerPlanes": 8,
     "layoutPolish": {
       "movedParts": 33,
@@ -570,9 +570,20 @@
           ]
         }
       },
-      "preserved": "器件身份、角度、逐脚网、板框与规则保持；位置及铜以本轮新鲜回读为准。"
+      "preserved": "器件身份、角度、逐脚网、板框与规则保持；位置及铜以本轮新鲜回读为准。",
+      "bottomChineseSilk": {
+        "bottomSilkStrings": 46,
+        "fontFamily": "Microsoft YaHei",
+        "fontHeightMil": [
+          40,
+          44
+        ],
+        "textBboxOverlaps": 0,
+        "bottomSilkMaskOverlapMm2": 0,
+        "pouredFloatMaxAbsoluteDelta": 1.1368683772161603e-12
+      }
     },
-    "sourceSemanticSha256": "e248800f6246bfadd109864138a0369000c3e6cd076d917a1dd1853e92dbda64",
+    "sourceSemanticSha256": "d85f3221bafc26361c7929530c7be064e969aae882fcd589a0e2312a9b55406c",
     "gerberRoundHoles": 210
   },
   "universalLearning": {
