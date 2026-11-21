@@ -1,0 +1,21 @@
+{
+  "revision": "desktop-r1-candidate",
+  "unit": "mm",
+  "status": "candidate-unverified",
+  "case": {"width": 140, "height": 140, "depth": 54, "center": [50, 62], "radius": 10, "wall": 2.4, "rear": 2.4, "front": 2.4, "fitGap": 0.3},
+  "pcb": {"size": [100, 100], "thickness": 1.6, "standoff": 6, "mounts": [[5,5],[95,5],[5,95],[95,95]], "mountSource": "PCB2制造文件中四个直径约3.2mm安装铣孔，非排针孔", "pillarDiameter": 7, "pilotDiameter": 2.6},
+  "display": {"center": [50, 45], "module": [32, 38.5], "active": [30, 31], "window": [31.2, 32.2], "windowOffset": [0, -1.5], "plate": [60, 66], "mountOpening": [50, 54], "screwOffsets": [26, 29], "boardDepth": 4.4, "source": "用户提供DZQJ 1.54英寸8针ST7789V图：32×38.5mm、显示30×31mm、上排孔距28mm、孔径2mm；厂家声明误差0.5～1mm", "unconfirmed": "显示区域相对PCB的准确偏移、玻璃及背面总厚度；不按缺少纵向定位的2mm孔锁死，采用压条和软垫调节"},
+  "camera": {"center": [50, 109], "plate": [42, 40], "mountOpening": [32, 30], "windowDiameter": 12, "module": [24,32], "source": "ATK资料标注24×32mm模块；镜头直径及相对中心、厚度待量", "unconfirmed": "窗口按12mm预留，旋转、中心偏移及安装夹具须实物确定"},
+  "radar": {"center": [12, 109], "module": [16,22], "skin": 1.2, "source": "用户提供HLK-LD2410C图片，16×22mm；不在天线前放金属螺丝或屏幕"},
+  "light": {"center": [88,109], "windowDiameter": 7, "unconfirmed": "BH1750板形及光敏芯片位置待量"},
+  "sensorPanels": {"centers": [[-4,65],[104,65]], "plate": [22,42], "mountOpening": [16,32], "screwSpacing": 35, "source": "左温湿度、右MQ-2；为可替换通风面板，不代表模块已经套合"},
+  "audioGrilles": {"centers": [[-4,25],[104,25]], "size": [15,22], "unconfirmed": "右侧喇叭、左侧通风；喇叭外径、磁钢深度及蜂鸣器尺寸待量，提供通用开槽托片"},
+  "caseScrews": [[-13,-1],[113,-1],[-13,125],[113,125]],
+  "usb": {"ref": "J10", "opening": [26,16], "zCenter": 15, "note": "按实际J10中心定位；深开口让USB插头外壳进入，需用专用电源线验证插拔"},
+  "button": {"ref": "SW1", "accessDiameter": 7, "note": "先用圆孔供绝缘细杆操作，未确认实际按钮顶高前不做会持续压键的长按杆"},
+  "microphone": {"center": [10,40], "accessDiameter": 4, "note": "板上直插，正面对应通声孔；长声道的密封、实际声孔面与采音效果待测"},
+  "componentHeights": {"J1": 9, "J2": 12, "J3": 12, "J4": 9, "J5": 9, "J6": 9, "J7": 9, "J8": 9, "J9": 12, "J10": 5, "J12": 23, "J13": 9, "J14": 9, "J15": 9, "J16": 9, "J17": 9, "J18": 9, "J19": 9, "J20": 9, "J21": 12, "J22": 12, "C25": 12, "D1": 3, "D2": 2, "SW1": 3, "U8": 2},
+  "heightAssumption": "连接器高度含初步插头净空，仅为保守建模假设；板上模型绑定不提供整机实际高度。开发板按PCB表面以上24mm占位，线束弯曲和天线另留空间。",
+  "material": "主壳建议PETG浅色、0.4mm喷嘴、0.2mm层高、4圈外壁；不使用含金属/碳纤维填料的雷达前板。MQ-2连续加热后的安全间距和材料温升尚未验证。",
+  "printGate": "这是可打印的结构初版。先打印小型屏幕试装框和雷达试装片，再量齐喇叭、摄像头、MQ-2及各插头厚度，校正参数后决定是否打印整壳；不声称实物装配或热设计通过。"
+}

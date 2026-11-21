@@ -10,8 +10,32 @@
 | `verification/` | 独立比对连接或解析制造文件，不写入编辑器          |
 | `assembly/`     | 核对官方 BOM、坐标与 PCB 快照，输出装配资料       |
 | `render/`       | 从 PCB/OBJ 快照生成铜图、三视图与 1:1 模板        |
+| `enclosure/`    | 从PCB快照生成外壳STL、装配预览、试装片并核对闭合网格与假设净空 |
 
 `project-paths.mjs` 只负责定位本项目，供需要缺省设计输入的脚本使用。显式命令行文件参数相对于调用者当前目录；历史缺省快照与输出位于本项目 `.work/`。`pcb_geometry.py` 和 `pcb-copper-geometry.mjs` 只在 PCB 规划层复用几何逻辑，验证和渲染不依赖规划器。工具不以历史发布目录作为隐含输入，检查快照由调用者显式传入。
+
+## 生成桌面外壳初版
+
+外壳参数见 [enclosure-intent.json](../design/enclosure/enclosure-intent.json)，装配与待量项目统一见[制作教程](../../../docs/07-一体化制作.md#桌面外壳结构初版2026-11-20)。此工具不写入EDA；它从当次PCB回读和模型名读取机械数据，尺寸缺项在参数和清单中明确保留为假设。当前验证环境为Python 3.14；输出只能用新目录。
+
+用户下单用的已核对打印STL与预览位于 [eda/外壳3D/](../../外壳3D/README.md)。更新时先生成到新的忽略目录，核对网格、尺寸、试装限制和件数后再更新下单目录；不要把`assembly/`坐标模型放进打印文件夹。
+
+以下命令在**仓库根目录**执行；`<当前工程>`使用`easyeda health`读出的工程名或UUID，`<PCB2的UUID>`使用`easyeda doc ls`读出的值：
+
+```powershell
+py -m pip install --target .easyeda/enclosure-deps -r projects/homeguard-mini/eda/hardware/scripts/enclosure/requirements.txt
+$env:PYTHONPATH=(Resolve-Path .easyeda/enclosure-deps).Path
+New-Item -ItemType Directory -Force .easyeda/enclosure-current | Out-Null
+easyeda doc open <PCB2的UUID> --project <当前工程>
+easyeda pcb dump --project <当前工程> --out .easyeda/enclosure-current/board.json
+# Windows PowerShell 5的Out-File会加入UTF-8 BOM；Python读取器已兼容。
+easyeda pcb 3d models --project <当前工程> | Out-File -Encoding utf8 .easyeda/enclosure-current/models.json
+py projects/homeguard-mini/eda/hardware/scripts/enclosure/build.py --board .easyeda/enclosure-current/board.json --models .easyeda/enclosure-current/models.json --intent projects/homeguard-mini/eda/hardware/design/enclosure/enclosure-intent.json --out .easyeda/enclosure-current/new-case
+```
+
+`solids.py`负责实体，`build.py`负责来源、干涉和STL闭合核对，`preview.py`与`viewer.html`从同一网格生成静态和交互预览。`manifest.json`记录输入哈希、每件STL哈希/体积/闭合性、器件高度来源与未验证项目。生成成功不代表实际可装、可散热或已通过切片软件检查；先打印两块试装片。当前固定支柱依据PCB2四个安装铣孔；板尺寸/原点改变会拒绝生成，若改了安装孔、接口或模块位置，须重新核对参数再生成，不能只依赖包络检查。
+
+## 其他硬件工具
 
 在 `eda/hardware/` 下安装 Python 3.11 及以上依赖：
 

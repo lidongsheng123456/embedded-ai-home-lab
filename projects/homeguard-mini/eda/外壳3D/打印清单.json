@@ -1,0 +1,325 @@
+{
+  "status": "candidate-unverified",
+  "geometryChecks": "offline-verified",
+  "unit": "mm",
+  "preparedDate": "2026-11-21",
+  "sourceRevision": "desktop-r1-candidate",
+  "boardCaptureDate": "2026-11-20",
+  "boardSha256": "af0ce91964c54f3feaa1f0c77eae57f3f34232ba2a09deee1c8a120b4cdf2504",
+  "intentPath": "../hardware/design/enclosure/enclosure-intent.json",
+  "intentSha256": "31330bd5f4d1b17d5a2ee7c4dfeee418badfd19745064381743d174a728dc32f",
+  "caseMm": [
+    140,
+    140,
+    54
+  ],
+  "frontWithBezelsMm": 56.4,
+  "files": [
+    {
+      "file": "main-body.stl",
+      "sha256": "1cc459575e73c4007ca02c50d09466a9a4ed294ad6f809cfda10efaf4911668f",
+      "triangles": 14286,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          140.0,
+          140.0,
+          51.599998474121094
+        ]
+      ],
+      "volumeMm3": 104067.20428046978,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/main-body.stl",
+      "nameZh": "主壳",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "rear-cover.stl",
+      "sha256": "28651b05858d730de52a6b8bebab09f5f18dde83245ed750c2f8425f93651f5d",
+      "triangles": 9498,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          140.0,
+          140.0,
+          8.399999618530273
+        ]
+      ],
+      "volumeMm3": 48578.0592929676,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/rear-cover.stl",
+      "nameZh": "后盖",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "screen-bezel.stl",
+      "sha256": "54ac666a4f6687942121d4fbee3ae9714997d936084946a47ab976d4bbebb0f1",
+      "triangles": 2656,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          60.0,
+          66.0,
+          7.400000095367432
+        ]
+      ],
+      "volumeMm3": 7976.369523952126,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/screen-bezel.stl",
+      "nameZh": "屏幕面框",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "camera-bezel.stl",
+      "sha256": "317770ce243c166b6a39eb4099ea9d6845c3b1cb465969c0f60b327d1246126b",
+      "triangles": 1648,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          42.0,
+          40.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 3488.7975842429746,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/camera-bezel.stl",
+      "nameZh": "摄像头面框",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "sensor-left.stl",
+      "sha256": "1812b3fed7e2b6f66dcc34ac0f8d89f86f528338676fd44cba9ec4b70cf3b867",
+      "triangles": 2720,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          22.0,
+          42.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 1821.8292612523799,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/sensor-left.stl",
+      "nameZh": "左通风面板",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "sensor-right.stl",
+      "sha256": "70ccbc7a4878472f8d0ad9a00e4bdbe2a93d6ae5d3103c862757405f5dd63b32",
+      "triangles": 2720,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          22.0,
+          42.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 1821.8292612523799,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/sensor-right.stl",
+      "nameZh": "右通风面板",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "screen-retainer.stl",
+      "sha256": "a59a5f216a27733d55e69c43fcc7f807a81919d743988ef00a43a80dbfaa0382",
+      "triangles": 544,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          13.0,
+          8.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 220.51181328629787,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/screen-retainer.stl",
+      "nameZh": "屏幕压条",
+      "orderQuantity": 2,
+      "group": "整壳"
+    },
+    {
+      "file": "universal-tray.stl",
+      "sha256": "c30081db77f13d81c366b4a241aedcf6eb6ea27f8d74e9eacf06d5cb77ea7c5b",
+      "triangles": 1096,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          28.0,
+          34.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 1490.1513867696729,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/universal-tray.stl",
+      "nameZh": "通用托片",
+      "orderQuantity": 1,
+      "group": "按需"
+    },
+    {
+      "file": "screen-fit-coupon.stl",
+      "sha256": "ac803e73ec9996f3da056efe3f5511c1ded01db4798f89c626c847698ff7e43f",
+      "triangles": 544,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          40.0,
+          46.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 1244.9332677629238,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/screen-fit-coupon.stl",
+      "nameZh": "屏幕试装框",
+      "orderQuantity": 1,
+      "group": "先试装"
+    },
+    {
+      "file": "radar-fit-coupon.stl",
+      "sha256": "03126b537184f39bfdc366f4916522c9011a28bb623abc5f32ef02bd94758359",
+      "triangles": 544,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          21.0,
+          27.0,
+          2.4000000953674316
+        ]
+      ],
+      "volumeMm3": 416.1831660884099,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/radar-fit-coupon.stl",
+      "nameZh": "雷达试装片",
+      "orderQuantity": 1,
+      "group": "先试装"
+    },
+    {
+      "file": "desktop-foot-left.stl",
+      "sha256": "585c2f7cf849d3bd28fbaafa9dfccc10e33de9875ee8fa8eb2c37544312cb1b4",
+      "triangles": 64,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          80.0,
+          35.0,
+          10.0
+        ]
+      ],
+      "volumeMm3": 7992.000045776367,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/desktop-foot-left.stl",
+      "nameZh": "左桌脚",
+      "orderQuantity": 1,
+      "group": "整壳"
+    },
+    {
+      "file": "desktop-foot-right.stl",
+      "sha256": "c7524893d08d3245364675e53895b1aa6ee7fdbae3247feba454bc2e3c88e776",
+      "triangles": 64,
+      "boundsMm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          80.0,
+          35.0,
+          10.0
+        ]
+      ],
+      "volumeMm3": 7992.000045776367,
+      "watertight": true,
+      "windingConsistent": true,
+      "connectedBodies": 1,
+      "path": "STL/desktop-foot-right.stl",
+      "nameZh": "右桌脚",
+      "orderQuantity": 1,
+      "group": "整壳"
+    }
+  ],
+  "limitations": [
+    "这是可打印的结构初版。先打印小型屏幕试装框和雷达试装片，再量齐喇叭、摄像头、MQ-2及各插头厚度，校正参数后决定是否打印整壳；不声称实物装配或热设计通过。",
+    "只检查主壳、后盖与回读器件包络、假设主控和麦克风净空。",
+    "未证明屏幕玻璃、相机镜头、线束、喇叭、外接模块、热区温升、打印公差和雷达性能。"
+  ],
+  "note": "用户要求将打印文件放入eda目录；仅STL为单件打印方向，preview为装配示意。麦克风不购六个单孔排母，改短线焊接后仍须对准声孔并固定。"
+}

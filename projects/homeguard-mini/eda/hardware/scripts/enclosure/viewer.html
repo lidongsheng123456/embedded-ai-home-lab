@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HomeGuard Mini 外壳结构初版</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f3ed;color:#263d36;font:15px system-ui,"Microsoft YaHei",sans-serif}
+header{padding:26px 32px 10px}h1{font-size:25px;margin:0 0 9px}p{line-height:1.7;color:#617066;margin:6px 0}
+.toolbar{display:flex;gap:9px;padding:12px 32px;flex-wrap:wrap}button{border:1px solid #c6d0c4;border-radius:8px;background:white;color:#365244;padding:10px 18px;cursor:pointer}
+button.active{background:#365244;color:white}canvas{width:100%;height:66vh;display:block;touch-action:none;cursor:grab}
+footer{padding:0 32px 24px;max-width:1050px}.tag{display:inline-block;border-radius:6px;background:#e3e8dc;padding:6px 10px;margin:4px 8px 4px 0;font-size:13px}
+</style>
+<header><h1>HomeGuard Mini · 桌面外壳</h1><p>圆角对称，屏幕与镜头沿中线排列。拖动旋转，滚轮缩放。</p></header>
+<nav class="toolbar"><button class="active" data-mode="assembled">整机外观</button><button data-mode="exploded">拆装示意</button><button data-mode="internal">后盖与主板</button><button id="front">正面</button><button id="back">背面</button><button id="reset">复位</button></nav>
+<canvas id="view"></canvas>
+<footer><div><span class="tag">壳体140×140×54mm</span><span class="tag">面框最高56.4mm</span><span class="tag">主板100×100mm</span><span class="tag">桌脚留出底部电源插线空间</span></div>
+<p>结构初版：屏幕32×38.5mm已有厂家图依据。主控板、镜头和显示面为占位示意；其他模块的厚度、线束、喇叭、MQ-2温升及实际装配仍待确认。先打印试装片，别直接整套下单。</p></footer>
+<script>
+const scene=__SCENE_JSON__;
+const canvas=document.querySelector('canvas'),gl=canvas.getContext('webgl',{antialias:true});
+if(!gl)throw new Error('浏览器未启用WebGL，请查看同目录preview.png。');
+let az=.32,el=-.30,zoom=1,mode='assembled',drag=null;
+const sub=(a,b)=>a.map((v,i)=>v-b[i]);
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const norm=a=>{const n=Math.hypot(...a);return a.map(v=>v/n)};
+function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
+const program=gl.createProgram();
+gl.attachShader(program,shader(gl.VERTEX_SHADER,`
+ attribute vec3 position;attribute vec3 normal;
+ uniform vec3 right,up,view,color;uniform vec2 scale;uniform float offset;
+ varying vec3 rgb;
+ void main(){vec3 p=position-vec3(50.,55.,25.);p.z+=offset;
+ gl_Position=vec4(dot(p,right)*scale.x,dot(p,up)*scale.y,-dot(p,view)/450.,1.);
+ rgb=color*(.58+.42*max(0.,dot(normal,vec3(-.25,-.35,.902))));}`));
+gl.attachShader(program,shader(gl.FRAGMENT_SHADER,`precision mediump float;varying vec3 rgb;void main(){gl_FragColor=vec4(rgb,1.);}`));
+gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+const attribute=Object.fromEntries(['position','normal'].map(n=>[n,gl.getAttribLocation(program,n)]));
+const uniform=Object.fromEntries(['right','up','view','color','scale','offset'].map(n=>[n,gl.getUniformLocation(program,n)]));
+// WebGL按每个像素判断深度，不会因大三角形中心的排序产生假穿孔。
+const prepared=scene.map(item=>{
+ const data=[];
+ for(const f of item.faces){const vs=f.map(i=>item.vertices[i]),n=norm(cross(sub(vs[1],vs[0]),sub(vs[2],vs[0])));for(const p of vs)data.push(...p,...n)}
+ const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),gl.STATIC_DRAW);
+ return {...item,buffer,count:data.length/6};
+});
+function offset(name){
+ if(mode!=='exploded')return 0;
+ if(name==='rear-cover')return -35;
+ if(name==='screen-bezel'||name==='display-placeholder')return 42;
+ if(name==='camera-bezel'||name==='lens-placeholder')return 32;
+ return name.startsWith('sensor-')?25:0;
+}
+let pending=false;
+function schedule(){if(!pending){pending=true;requestAnimationFrame(()=>{pending=false;draw()})}}
+function draw(){
+ const ratio=Math.min(devicePixelRatio||1,2),w=canvas.clientWidth,h=canvas.clientHeight;
+ canvas.width=w*ratio;canvas.height=h*ratio;gl.viewport(0,0,canvas.width,canvas.height);
+ gl.clearColor(.957,.953,.929,1);gl.enable(gl.DEPTH_TEST);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+ const view=[Math.sin(az)*Math.cos(el),Math.sin(el),Math.cos(az)*Math.cos(el)];
+ const right=[Math.cos(az),0,-Math.sin(az)],up=cross(view,right),scale=Math.min(w/230,h/205)*zoom;
+ gl.uniform3fv(uniform.right,right);gl.uniform3fv(uniform.up,up);gl.uniform3fv(uniform.view,view);gl.uniform2f(uniform.scale,scale*2/w,scale*2/h);
+ for(const item of prepared){
+  if(mode==='internal'&&!['rear-cover','pcb-placeholder','mcu-placeholder'].includes(item.name))continue;
+  if(mode==='exploded'&&item.name.startsWith('desktop-foot'))continue;
+  gl.bindBuffer(gl.ARRAY_BUFFER,item.buffer);
+  gl.enableVertexAttribArray(attribute.position);gl.vertexAttribPointer(attribute.position,3,gl.FLOAT,false,24,0);
+  gl.enableVertexAttribArray(attribute.normal);gl.vertexAttribPointer(attribute.normal,3,gl.FLOAT,false,24,12);
+  gl.uniform3fv(uniform.color,[1,3,5].map(i=>parseInt(item.color.slice(i,i+2),16)/255));
+  gl.uniform1f(uniform.offset,offset(item.name));gl.drawArrays(gl.TRIANGLES,0,item.count);
+ }
+}
+canvas.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(!drag)return;az+=(e.clientX-drag[0])*.008;el=Math.max(-1.45,Math.min(1.45,el+(e.clientY-drag[1])*.008));drag=[e.clientX,e.clientY];schedule()});
+canvas.addEventListener('pointerup',()=>drag=null);canvas.addEventListener('pointercancel',()=>drag=null);
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.45,Math.min(2.7,zoom*Math.exp(-e.deltaY*.001)));schedule()},{passive:false});
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;document.querySelectorAll('[data-mode]').forEach(p=>p.classList.toggle('active',p===b));schedule()});
+document.querySelector('#front').onclick=()=>{az=0;el=0;schedule()};
+document.querySelector('#back').onclick=()=>{az=Math.PI;el=0;schedule()};
+document.querySelector('#reset').onclick=()=>{az=.32;el=-.30;zoom=1;schedule()};
+addEventListener('resize',schedule);schedule();
+</script>
+</html>
