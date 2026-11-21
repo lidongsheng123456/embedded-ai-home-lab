@@ -1,0 +1,15 @@
+{
+  "revision": "learning-base-r1-x-resin-candidate",
+  "status": "candidate-unverified",
+  "unit": "mm",
+  "case": {"width": 98, "height": 98, "depth": 8.2, "floor": 3.2, "radius": 4, "center": [50, 50], "note": "98mm底板加四角9mm支柱，支柱略伸出底板，整个模型实际外接尺寸99×99×8.2mm；不设侧壁，PCB每边伸出底板1mm"},
+  "pcb": {"size": [100, 100], "thickness": 1.6, "standoff": 5, "mounts": [[5, 5], [95, 5], [5, 95], [95, 95]], "mountSource": "PCB2制造文件核对的四个约3.2mm安装铣孔，90×90mm孔距；不是排针焊孔", "pillarDiameter": 9},
+  "fasteners": {"clearanceDiameter": 3.4, "nutAcrossFlats": 5.9, "nutPocketDepth": 2.8, "spec": "四颗M3×10mm机牙螺丝、四颗普通M3六角螺母、四片约0.5mm平垫；先核对实物长度，底部可贴防滑垫", "note": "螺母从底部装入六角凹槽，螺丝从PCB上方穿入；不在树脂中自攻或热熔嵌螺母，不用沉头螺丝楔开树脂"},
+  "usb": {"ref": "J10", "openingWidth": 30, "openingBottom": 6.8, "note": "底座没有侧壁；按30mm宽、底部Z=6.8mm的假设插头通道核对，仍需用实际专用5V电源插头试插"},
+  "accessRefs": ["J7", "J8", "J21", "J22"],
+  "componentEnvelopeHeight": 25,
+  "undersideAllowance": 3,
+  "material": {"preferred": "X树脂 / SLA", "color": "按平台默认颜色，不承诺透明", "source": "https://www.jlc-3dp.cn/materialDetail/c43385195ca14f41a90f1f9198451de1.html", "observedDate": "2026-11-21", "finish": "不打磨不喷砂，不添加付费表面处理", "note": "用户最终以免费为主，因此不选透明8001树脂。不让MQ-2热模块接触底座；不声称材料已做整机温升验证。"},
+  "coupon": {"source": "https://www.jlc-3dp.cn/freePrint", "observedDate": "2026-11-21", "material": "X树脂", "maxSizeMm": [100, 100, 100], "maxTotalVolumeCm3": 70, "maxQuantityPerType": 1, "maxTypes": 2, "prohibited": ["拼接件", "多壳体", "壁厚或模型检测异常"], "applicable": "pending-platform-review", "reason": "单件保护底座独立固定完整PCB，不拼接、不缩放载板；按1款1件准备。几何按尺寸和体积上限核对，券余额/有效期、模型壁厚检测和活动审核以平台为准。", "productionMark": "平台可能在平面或内侧增加JLC-3DP等生产标识，不自行伪造或去除标识"},
+  "limitations": ["这是板底保护底座，不是包围四周的外壳；PCB每边伸出底板1mm，没有侧边防撞、防水防尘或顶部防短路保护", "载板底面焊脚长度按不超过3mm估算，支柱净高5mm；实物更长时先修剪或调整参数", "尚未实测树脂收缩、翘曲、螺母凹槽配合、插头外壳及装配公差", "外围模块仍在线缆上独立固定，不能直接压在PCB或底座上", "载板断电后再插拔；取下主控烧录的既有供电规则不变"]
+}

@@ -66,3 +66,14 @@ node scripts/schematic/planning-paths.test.mjs
 设计规划只生成候选；实际写入使用 typed CLI，同一窗口串行执行。搬迁后先读取当前工程身份，不能把旧路径对应的工程 UUID 用在新位置。保存返回 `saved:true` 后重新打开、回读和检查，设计变化后重新导出与生成哈希，不得复用旧“通过”报告。`inspect-gerber.py` 只在内存归一化 G85，不改制造 ZIP；装配工具保留官方原表，不根据扩展名猜文件编码。
 
 排母版模板使用 `--revision r2`。装配脚本数量以新鲜 PCB 为准，不固定 79；若清单由官方网表派生，必须传 `--bom-source derived-netlist`，来源在输出报告和文件名中保留，不称作官方 BOM 导出。
+
+## 生成免费券学习保护底座
+
+最新免费优先方案使用 [learning-tray-intent.json](../design/enclosure/learning-tray-intent.json)，与前文140mm整机壳分别生成。下单文件和装配方法见 [免费学习底座](../../外壳3D/免费学习底座/README.md)。从仓库根目录执行，`--out`必须是尚不存在的新目录；先按上节安装同一组依赖，并按现场身份取得PCB2的`board.json`。
+
+```powershell
+$env:PYTHONPATH=(Resolve-Path .easyeda/enclosure-deps).Path
+py projects/homeguard-mini/eda/hardware/scripts/enclosure/learning_tray.py --board .easyeda/learning-tray-board.json --intent projects/homeguard-mini/eda/hardware/design/enclosure/learning-tray-intent.json --out .easyeda/learning-base-new
+```
+
+输出单一`learning-base.stl`、预览和`manifest.json`；自动核对PCB/器件包络及插拔通道、STL闭合、单实体、尺寸与体积上限，超限时失败。只证明离线几何，不替平台壁厚检测、活动审核或实物插合。校验后更新`eda/外壳3D/免费学习底座/`，不要复制原始现场日志到下单目录。

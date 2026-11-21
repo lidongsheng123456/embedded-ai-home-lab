@@ -12,6 +12,8 @@
 
 用户下单用的外壳STL与预览按明确要求放在 [eda/外壳3D/](../../外壳3D/README.md)，本目录`enclosure/`保留可编辑参数。该STL目录是便于下单的当前结构候选，不是另一份PCB工程；参数修改后须重新生成核对，不能沿用旧模型。
 
+最新免费优先方案为`enclosure/learning-tray-intent.json`：98mm底板与四角柱整体最大99mm，不包住PCB侧边；原100mm PCB不变，材料选X树脂默认颜色。`enclosure-intent.json`仍是140mm整机外壳参数，不能拿它声称满足免费券尺寸限制。
+
 依赖顺序是接口与真实器件 → 原理图组合 → PCB 布局和连接规划。脚本读取这些输入和新鲜现场快照，先在 `.work/` 生成候选，再通过 typed CLI 执行。验证脚本独立比对目标与观察值，不以生成候选成功作为通过依据。
 
 当前接口以 `interfaces/devboard-interface.json` 和最新 `interfaces/budget-carrier-change.json` 为准，居中布局参数为 `pcb/pcb-centered-budget-intent.json`。当前60件、28种料号；`directPlugInterfaces`记录四组实物接口修订，`universalLearning`记录J21/J22两侧学习排针。J13为七针功放接口，J19/J20为I2C扩展；GPIO45接J13.3，R22启动下拉必须装，播放软件未实现。`interfaces/header-power-change.json`记录旧排母供电阶段，已被本次电源/信号精简覆盖。

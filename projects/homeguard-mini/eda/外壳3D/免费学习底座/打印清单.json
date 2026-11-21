@@ -1,0 +1,343 @@
+{
+  "status": "candidate-unverified",
+  "geometryChecks": "offline-verified",
+  "revision": "learning-base-r1-x-resin-candidate",
+  "unit": "mm",
+  "sizeMm": [
+    99.0,
+    99.0,
+    8.199999809265137
+  ],
+  "file": {
+    "file": "learning-base.stl",
+    "sha256": "ab87a366a3a127b8dbaffa3e602d134266600f5839c1c45c32e39b54e424ccb0",
+    "triangles": 2460,
+    "boundsMm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        99.0,
+        99.0,
+        8.199999809265137
+      ]
+    ],
+    "volumeMm3": 31427.34207259756,
+    "watertight": true,
+    "windingConsistent": true,
+    "connectedBodies": 1
+  },
+  "boardSha256": "d1d08c47e024d09ae75ab40792133fcdc4341fd0e9f879b4c373dc3755e51e8a",
+  "intentSha256": "91d8dd7ff1db756903a04c4999fd671c0adc3fd829408f4120ba96e1329c513c",
+  "checkedObjects": [
+    {
+      "object": "C1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C2",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C3",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C4",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C5",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C6",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C7",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C8",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C15",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C18",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C19",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C20",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C21",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C22",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C23",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C24",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C25",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C28",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "C29",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "D1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "D2",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "F1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J2",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J3",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J4",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J5",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J6",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J7",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J7插拔通道",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J8",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J8插拔通道",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J9",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J10",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J12",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J13",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J14",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J15",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J16",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J17",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J18",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J19",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J20",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J21",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J21插拔通道",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J22",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "J22插拔通道",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "L1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R2",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R3",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R4",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R8",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R9",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R10",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R11",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R15",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R18",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R19",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R20",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R21",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "R22",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "SW1",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "U8",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "PCB",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "底面焊脚假设包络",
+      "overlapMm3": 0.0
+    },
+    {
+      "object": "USB插头假设通道",
+      "overlapMm3": 0.0
+    }
+  ],
+  "material": {
+    "preferred": "X树脂 / SLA",
+    "color": "按平台默认颜色，不承诺透明",
+    "source": "https://www.jlc-3dp.cn/materialDetail/c43385195ca14f41a90f1f9198451de1.html",
+    "observedDate": "2026-11-21",
+    "finish": "不打磨不喷砂，不添加付费表面处理",
+    "note": "用户最终以免费为主，因此不选透明8001树脂。不让MQ-2热模块接触底座；不声称材料已做整机温升验证。"
+  },
+  "coupon": {
+    "source": "https://www.jlc-3dp.cn/freePrint",
+    "observedDate": "2026-11-21",
+    "material": "X树脂",
+    "maxSizeMm": [
+      100,
+      100,
+      100
+    ],
+    "maxTotalVolumeCm3": 70,
+    "maxQuantityPerType": 1,
+    "maxTypes": 2,
+    "prohibited": [
+      "拼接件",
+      "多壳体",
+      "壁厚或模型检测异常"
+    ],
+    "applicable": "pending-platform-review",
+    "reason": "单件保护底座独立固定完整PCB，不拼接、不缩放载板；按1款1件准备。几何按尺寸和体积上限核对，券余额/有效期、模型壁厚检测和活动审核以平台为准。",
+    "productionMark": "平台可能在平面或内侧增加JLC-3DP等生产标识，不自行伪造或去除标识",
+    "sizeWithinLimit": true,
+    "volumeWithinLimit": true,
+    "volumeCm3": 31.427342072597558
+  },
+  "limitations": [
+    "这是板底保护底座，不是包围四周的外壳；PCB每边伸出底板1mm，没有侧边防撞、防水防尘或顶部防短路保护",
+    "载板底面焊脚长度按不超过3mm估算，支柱净高5mm；实物更长时先修剪或调整参数",
+    "尚未实测树脂收缩、翘曲、螺母凹槽配合、插头外壳及装配公差",
+    "外围模块仍在线缆上独立固定，不能直接压在PCB或底座上",
+    "载板断电后再插拔；取下主控烧录的既有供电规则不变"
+  ]
+}
